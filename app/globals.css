@@ -82,11 +82,20 @@
   }
 }
 
+/* Base element styles. Removed global border color application that referenced nonexistent border-border utility. */
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
+}
+
+/* Utility mapping for design token hues -> actual border/background utilities */
+@layer utilities {
+  /* Provide a concrete .border-border utility that uses CSS variable */
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+  .bg-background { background-color: hsl(var(--background)); }
+  .text-foreground { color: hsl(var(--foreground)); }
 }

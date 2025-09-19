@@ -33,61 +33,10 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect } from "react"
+// Removed previous effect that disabled standard browser interactions (context menu, text selection, drag & drop)
+// to improve UX while maintaining security via existing headers & sanitization.
 
 export default function HomePage() {
-  // Enhanced mobile security and viewport management
-  useEffect(() => {
-    // Prevent horizontal scrolling and ensure secure viewport
-    document.body.style.overflowX = "hidden"
-    document.documentElement.style.overflowX = "hidden"
-
-    // Enhanced viewport security
-    const viewport = document.querySelector('meta[name="viewport"]')
-    if (viewport) {
-      viewport.setAttribute(
-        "content",
-        "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover",
-      )
-    }
-
-    // Add security measures for mobile
-    const securityMeta = document.createElement("meta")
-    securityMeta.name = "format-detection"
-    securityMeta.content = "telephone=no, date=no, email=no, address=no"
-    document.head.appendChild(securityMeta)
-
-    // Prevent text selection on sensitive elements
-    document.body.style.webkitUserSelect = "none"
-    document.body.style.userSelect = "none"
-
-    // Enable text selection for content areas
-    const contentElements = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span")
-    contentElements.forEach((el) => {
-      ;(el as HTMLElement).style.webkitUserSelect = "text"
-      ;(el as HTMLElement).style.userSelect = "text"
-    })
-
-    // Disable right-click context menu for enhanced security
-    const handleContextMenu = (e: MouseEvent) => {
-      e.preventDefault()
-    }
-    document.addEventListener("contextmenu", handleContextMenu)
-
-    // Disable drag and drop for security
-    document.addEventListener("dragstart", (e) => e.preventDefault())
-    document.addEventListener("drop", (e) => e.preventDefault())
-
-    return () => {
-      document.body.style.overflowX = "auto"
-      document.documentElement.style.overflowX = "auto"
-      document.removeEventListener("contextmenu", handleContextMenu)
-      if (document.head.contains(securityMeta)) {
-        document.head.removeChild(securityMeta)
-      }
-    }
-  }, [])
-
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
       {/* Enhanced Header with Prominent Logo */}
@@ -304,7 +253,8 @@ export default function HomePage() {
                 alt="David Stewart - Red Hackle Team Leader"
                 width={500}
                 height={600}
-                className="object-contain w-full max-w-lg h-[400px] md:h-[500px] lg:h-[600px]"
+                className="object-contain w-full max-w-lg h-auto"
+                sizes="(max-width: 1024px) 100vw, 500px"
                 priority
               />
             </div>
@@ -433,6 +383,7 @@ export default function HomePage() {
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center">Coverage Map</h3>
                 <div className="bg-gray-100 rounded-lg overflow-hidden">
                   <iframe
+                    title="Red Hackle Coverage Map"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2234.8234567890123!2d-2.970721!3d56.462018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48865c4c4c4c4c4c%3A0x4c4c4c4c4c4c4c4c!2s165%20Brook%20St%2C%20Dundee%20DD5%201DJ%2C%20UK!5e0!3m2!1sen!2suk!4v1234567890123!5m2!1sen!2suk"
                     width="100%"
                     height="400"
@@ -544,7 +495,8 @@ export default function HomePage() {
                 alt="Natalie - Red Hackle Team Member"
                 width={400}
                 height={500}
-                className="object-contain w-full max-w-sm h-[300px] md:h-[400px] lg:h-[500px]"
+                className="object-contain w-full max-w-sm h-auto"
+                sizes="(max-width: 1024px) 100vw, 400px"
               />
             </div>
           </div>
@@ -591,7 +543,16 @@ export default function HomePage() {
                 color: "blue" as const,
               },
               {
-                icon: () => <span className="text-white text-2xl font-bold">£</span>,
+                // Provide a component accepting optional className so we can render uniformly
+                icon: (props: { className?: string }) => (
+                  <span
+                    className={
+                      "text-white text-2xl font-bold" + (props.className ? ` ${props.className}` : "")
+                    }
+                  >
+                    £
+                  </span>
+                ),
                 title: "Flexible Fair Pricing",
                 desc: "We work with your budget. No hidden costs, no pressure, just honest, fair quotes.",
                 highlight: "Budget-friendly",
@@ -618,11 +579,10 @@ export default function HomePage() {
               >
                 <CardContent className="p-6 md:p-8 text-center">
                   <div className="w-12 h-12 md:w-16 md:h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
-                    {typeof feature.icon === "function" ? (
-                      feature.icon()
-                    ) : (
-                      <feature.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                    )}
+                    {(() => {
+                      const Icon = feature.icon as React.ComponentType<{ className?: string }>
+                      return <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                    })()}
                   </div>
                   <Badge
                     className={`${
