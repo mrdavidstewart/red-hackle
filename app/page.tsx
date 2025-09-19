@@ -30,6 +30,7 @@ import {
   Star,
   Quote,
   Mail,
+  MessageCircle,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -141,12 +142,18 @@ export default function HomePage() {
               {/* Clear Call Us Now button */}
               <div className="w-full">
                 <Button
-                  onClick={() => window.open("tel:+447966881555", "_self")}
-                  className="bg-red-600 hover:bg-red-700 text-white px-8 py-5 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl w-full sm:w-auto border-2 border-red-700"
+                  onClick={() =>
+                    window.open(
+                      "https://wa.me/447966881555?text=Hi%20Red%20Hackle%20Team%2C%20I'd%20like%20a%20cleaning%20quote.",
+                      "_blank"
+                    )
+                  }
+                  aria-label="Chat with us on WhatsApp"
+                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-5 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl w-full sm:w-auto border-2 border-green-700"
                 >
                   <div className="flex items-center justify-center space-x-4">
-                    <Phone className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
-                    <span className="text-xl md:text-2xl font-black tracking-wide whitespace-nowrap">Call Us Now</span>
+                    <MessageCircle className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
+                    <span className="text-xl md:text-2xl font-black tracking-wide whitespace-nowrap">WhatsApp Us Now</span>
                   </div>
                 </Button>
               </div>
