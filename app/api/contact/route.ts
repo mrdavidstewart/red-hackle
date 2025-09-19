@@ -4,12 +4,7 @@ import { sanitizeInput, isValidEmail, isValidPhone, checkRateLimit, secureHeader
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting
-    // NextRequest does not expose a stable "ip" property; derive from headers.
-    // Supports common reverse proxy headers. Falls back to unknown if not present.
-    const forwardedFor = request.headers.get("x-forwarded-for")
-    const realIp = request.headers.get("x-real-ip")
-    const clientIP =
-      (forwardedFor?.split(",")[0].trim() || realIp || request.headers.get("cf-connecting-ip") || "unknown")
+    const clientIP = request.ip || "unknown"
     if (!checkRateLimit(clientIP, 5, 300000)) {
       return NextResponse.json(
         { error: "Too many requests" },
@@ -101,7 +96,7 @@ export async function POST(request: NextRequest) {
       phone,
       message: message.substring(0, 100) + "...", // Don't log full message
       timestamp: new Date(submissionTime).toISOString(),
-  ip: clientIP,
+      ip: clientIP,
     })
 
     return NextResponse.json(

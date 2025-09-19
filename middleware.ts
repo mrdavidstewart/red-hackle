@@ -19,13 +19,10 @@ export function middleware(request: NextRequest) {
     response.headers.set("Expires", "0")
 
     // Log access to private route (for monitoring)
-    const forwardedFor = request.headers.get("x-forwarded-for")
-    const realIp = request.headers.get("x-real-ip")
-    const ip = forwardedFor?.split(",")[0].trim() || realIp || request.headers.get("cf-connecting-ip") || "unknown"
     console.log("Private route accessed:", {
       path: request.nextUrl.pathname,
       userAgent: request.headers.get("user-agent"),
-      ip,
+      ip: request.ip,
       timestamp: new Date().toISOString(),
     })
   }
@@ -39,12 +36,9 @@ export function middleware(request: NextRequest) {
   const isLegitimate = legitimateBots.some((pattern) => pattern.test(userAgent))
 
   if (isSuspicious && !isLegitimate) {
-    const forwardedFor = request.headers.get("x-forwarded-for")
-    const realIp = request.headers.get("x-real-ip")
-    const ip = forwardedFor?.split(",")[0].trim() || realIp || request.headers.get("cf-connecting-ip") || "unknown"
     console.warn("Suspicious request blocked:", {
       userAgent,
-      ip,
+      ip: request.ip,
       url: request.url,
       timestamp: new Date().toISOString(),
     })

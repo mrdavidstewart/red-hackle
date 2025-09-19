@@ -1,3 +1,8 @@
+// Security utilities and validation functions
+
+/**
+ * Sanitize user input to prevent XSS attacks
+ */
 export function sanitizeInput(input: string): string {
   if (typeof input !== "string") return ""
 
