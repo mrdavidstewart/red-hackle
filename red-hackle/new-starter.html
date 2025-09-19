@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Starter Form - Red Hackle Cleaning Services</title>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: #dc2626;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .company-info h1 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin: 0;
+        }
+        
+        .tagline {
+            font-size: 0.75rem;
+            color: #ef4444;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .private-badge {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .back-btn {
+            background: transparent;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #000 0%, #1f2937 50%, #000 100%);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+        }
+        
+        .team-badge {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .main-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .highlight {
+            color: #ef4444;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .form-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .form-option {
+            background: rgba(31, 41, 55, 0.8);
+            border: 2px solid rgba(239, 68, 68, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .form-option:hover {
+            border-color: rgba(239, 68, 68, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(239, 68, 68, 0.1);
+        }
+        
+        .option-icon {
+            width: 60px;
+            height: 60px;
+            background: #dc2626;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .option-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        
+        .option-description {
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .option-button {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .option-button:hover {
+            background: #b91c1c;
+            transform: translateY(-1px);
+        }
+        
+        .security-notice {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .security-notice h3 {
+            color: #22c55e;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .security-notice p {
+            color: #d1d5db;
+            font-size: 0.875rem;
+        }
+        
+        .support-section {
+            background: rgba(31, 41, 55, 0.3);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .support-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .support-contacts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .support-contact {
+            background: rgba(31, 41, 55, 0.5);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .support-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        
+        .support-icon.phone { background: #16a34a; }
+        .support-icon.email { background: #2563eb; }
+        
+        .support-btn {
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.875rem;
+        }
+        
+        .support-btn.email {
+            background: #2563eb;
+        }
+        
+        .support-btn:hover {
+            opacity: 0.9;
+        }
+        
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo .logo {
+            width: 32px;
+            height: 32px;
+            font-size: 1rem;
+        }
+        
+        .footer-text {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .private-notice {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: #6b7280;
+            font-size: 0.75rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .private-badge {
+                display: none;
+            }
+            
+            .form-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .support-contacts {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">RH</div>
+                <div class="company-info">
+                    <h1>Red Hackle</h1>
+                    <div class="tagline">CLEANING SERVICES</div>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <div class="private-badge">
+                    🔒 Private Access
+                </div>
+                <a href="/" class="back-btn">
+                    ← Back to Website
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="team-badge">
+                👥 Team Onboarding Portal
+            </div>
+            
+            <h1 class="main-title">Welcome to the <span class="highlight">Red Hackle</span> Team</h1>
+            
+            <p class="subtitle">We're excited to have you join our professional cleaning team. Choose your preferred method to complete the new starter form below.</p>
+            
+            <div class="security-notice">
+                <h3>🛡️ Secure & Private</h3>
+                <p>Your personal information is protected and will only be used for onboarding purposes. This form is not indexed by search engines.</p>
+            </div>
+            
+            <div class="form-options">
+                <a href="https://form.jotform.com/252114035770044" target="_blank" class="form-option">
+                    <div class="option-icon">📋</div>
+                    <h3 class="option-title">Complete Form Online</h3>
+                    <p class="option-description">Open the new starter form in a new window. This is the recommended method for most users.</p>
+                    <button class="option-button">Open Form →</button>
+                </a>
+                
+                <div class="form-option" onclick="openFormPopup()">
+                    <div class="option-icon">🖥️</div>
+                    <h3 class="option-title">Open in Popup</h3>
+                    <p class="option-description">Open the form in a popup window for easier navigation between this page and the form.</p>
+                    <button class="option-button">Open Popup →</button>
+                </div>
+            </div>
+            
+            <div class="support-section">
+                <h2 class="support-title">Need Help?</h2>
+                <p style="color: #d1d5db; margin-bottom: 1rem;">If you have any questions while completing this form, don't hesitate to reach out to our team.</p>
+                
+                <div class="support-contacts">
+                    <div class="support-contact">
+                        <div class="support-icon phone">📞</div>
+                        <h4 style="margin-bottom: 0.5rem; color: #fff;">Call Us</h4>
+                        <p style="color: #9ca3af; margin-bottom: 1rem; font-size: 0.875rem;">Speak directly with our team</p>
+                        <a href="tel:+447966881555" class="support-btn">07966 881 555</a>
+                    </div>
+                    
+                    <div class="support-contact">
+                        <div class="support-icon email">✉️</div>
+                        <h4 style="margin-bottom: 0.5rem; color: #fff;">Email Us</h4>
+                        <p style="color: #9ca3af; margin-bottom: 1rem; font-size: 0.875rem;">Send us your questions</p>
+                        <a href="mailto:operations@redhacklegroup.com" class="support-btn email">Email Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo">RH</div>
+                <span style="font-size: 1.125rem; font-weight: 700;">Red Hackle Cleaning Services</span>
+            </div>
+            <p class="footer-text">165 Brook Street, Dundee, DD5 1DJ | Company No: SC463742</p>
+            <div class="private-notice">
+                🔒 <span>Private & Confidential</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openFormPopup() {
+            const popup = window.open(
+                'https://form.jotform.com/252114035770044',
+                'newStarterForm',
+                'width=800,height=900,scrollbars=yes,resizable=yes,toolbar=no,menubar=no,location=no,status=no'
+            );
+            
+            if (popup) {
+                popup.focus();
+            } else {
+                // Fallback if popup is blocked
+                alert('Popup blocked! Please allow popups for this site or use the "Complete Form Online" option.');
+                window.open('https://form.jotform.com/252114035770044', '_blank');
+            }
+        }
+        
+        // Add some interactive feedback
+        document.querySelectorAll('.form-option').forEach(option => {
+            option.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px)';
+            });
+            
+            option.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
