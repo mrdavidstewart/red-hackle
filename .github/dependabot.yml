@@ -12,8 +12,6 @@ updates:
     labels:
       - "dependencies"
       - "security"
-    reviewers: []
-    assignees: []
     commit-message:
       prefix: "chore"
       include: "scope"
