@@ -1,22 +1,16 @@
-## Description
-Brief description of the changes in this PR.
+## What did you change?
+Please describe what you changed in simple terms.
+
+## Why did you make this change?
+Explain why this change was needed.
 
 ## Type of Change
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Documentation update
-- [ ] Code refactoring
-- [ ] Performance improvement
+- [ ] Bug fix (fixed something that wasn't working)
+- [ ] New feature (added something new)
+- [ ] Content update (changed text, images, or other content)
+- [ ] Design change (updated how something looks)
 
-## Testing
-- [ ] I have tested these changes locally
-- [ ] All existing tests pass
-- [ ] I have added tests for new functionality (if applicable)
-
-## Checklist
-- [ ] My code follows the project's style guidelines
-- [ ] I have performed a self-review of my code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] My changes generate no new warnings
-- [ ] Any dependent changes have been merged and published
+## Before you submit
+- [ ] I have checked that my changes work correctly
+- [ ] I have reviewed my changes to make sure they look good
+- [ ] The website still loads and works properly
