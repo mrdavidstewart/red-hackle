@@ -11,10 +11,24 @@
     "no-eval": "error",
     "no-implied-eval": "error",
     "no-new-func": "error",
-    "no-script-url": "error"
+    "no-script-url": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/prefer-optional-chain": "error"
   },
   "parserOptions": {
     "ecmaVersion": 2022,
     "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "es2022": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
