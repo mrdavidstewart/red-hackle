@@ -11,7 +11,8 @@ export default {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './lib/**/*.{js,ts,jsx,tsx,mdx}',
     './new-starter.html',
-  ],
+      "*.{js,ts,jsx,tsx,mdx}"
+],
   theme: {
     extend: {
       // Example: custom easing, spacing, or colors if needed later
