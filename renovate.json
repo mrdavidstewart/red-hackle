@@ -13,6 +13,12 @@
     "automerge": true,
     "schedule": ["at 8:30am on Monday through Friday"]
   },
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "automerge": true,
+    "schedule": ["at any time"]
+  },
+  "osvVulnerabilityAlerts": true,
   "ignorePaths": ["**/node_modules/**", "**/bower_components/**", "**/vendor/**"],
   "postUpdateOptions": ["pnpmDedupe"],
   "packageManager": "pnpm"
