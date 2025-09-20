@@ -5,7 +5,7 @@
     "enabled": true,
     "recreateWhen": "always"
   },
-  "npmrc": "package-lock=false",
+  "npmrc": "",
   "rangeStrategy": "bump",
   "schedule": ["before 9am on monday"],
   "timezone": "Europe/London",
