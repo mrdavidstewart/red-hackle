@@ -1,24 +1,24 @@
 import { type NextRequest, NextResponse } from "next/server"
+
 import { sanitizeInput, isValidEmail, isValidPhone, checkRateLimit, secureHeaders } from "@/lib/security"
 
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting
     // Robust IP extraction (restore header-based derivation for edge/platform variability)
-    const forwardedFor = request.headers.get("x-forwarded-for") || ""
-    const realIp = request.headers.get("x-real-ip") || ""
-    const cfConnectingIp = request.headers.get("cf-connecting-ip") || ""
-    const flyClientIp = request.headers.get("fly-client-ip") || ""
-    const vercelForwardedFor = request.headers.get("x-vercel-forwarded-for") || ""
+    const forwardedFor = request.headers.get("x-forwarded-for") ?? ""
+    const realIp = request.headers.get("x-real-ip") ?? ""
+    const cfConnectingIp = request.headers.get("cf-connecting-ip") ?? ""
+    const flyClientIp = request.headers.get("fly-client-ip") ?? ""
+    const vercelForwardedFor = request.headers.get("x-vercel-forwarded-for") ?? ""
     const candidateChain = [forwardedFor, vercelForwardedFor]
       .filter(Boolean)
       .flatMap((v: string) => v.split(",").map((s: string) => s.trim()).filter(Boolean))
     const clientIP =
-      candidateChain[0] ||
-      realIp ||
-      cfConnectingIp ||
-      flyClientIp ||
-      (typeof request.ip === "string" ? request.ip : "") ||
+      candidateChain[0] ??
+      realIp ??
+      cfConnectingIp ??
+      flyClientIp ??
       "unknown"
     if (!checkRateLimit(clientIP, 5, 300000)) {
       return NextResponse.json(
@@ -38,7 +38,6 @@ export async function POST(request: NextRequest) {
     const email = sanitizeInput((formData.get("email") as string) || "")
     const phone = sanitizeInput((formData.get("phone") as string) || "")
     const message = sanitizeInput((formData.get("message") as string) || "")
-    const token = (formData.get("token") as string) || ""
     const timestamp = (formData.get("timestamp") as string) || ""
     const honeypot = (formData.get("website") as string) || ""
 
@@ -99,21 +98,6 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // In production, you would:
-    // 1. Save to secure database
-    // 2. Send email notification
-    // 3. Log the submission securely
-
-    console.log("Secure contact form submission:", {
-      firstName,
-      lastName,
-      email,
-      phone,
-      message: message.substring(0, 100) + "...", // Don't log full message
-      timestamp: new Date(submissionTime).toISOString(),
-      ip: clientIP,
-    })
-
     return NextResponse.json(
       { success: true, message: "Message sent successfully" },
       {
@@ -135,7 +119,7 @@ export async function POST(request: NextRequest) {
 }
 
 // Only allow POST requests
-export async function GET() {
+export function GET() {
   return NextResponse.json(
     { error: "Method not allowed" },
     {

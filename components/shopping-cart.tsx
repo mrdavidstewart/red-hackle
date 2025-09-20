@@ -1,9 +1,10 @@
 "use client"
 
+import { ShoppingCart, X, Plus, Minus, Trash2, CheckCircle } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { ShoppingCart, X, Plus, Minus, Trash2, CheckCircle } from "lucide-react"
 
 interface CartItem {
   id: string

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server"
+
 import type { NextRequest } from "next/server"
 
 export function middleware(request: NextRequest) {
@@ -17,18 +18,10 @@ export function middleware(request: NextRequest) {
     response.headers.set("Cache-Control", "no-cache, no-store, must-revalidate, private")
     response.headers.set("Pragma", "no-cache")
     response.headers.set("Expires", "0")
-
-    // Log access to private route (for monitoring)
-    console.log("Private route accessed:", {
-      path: request.nextUrl.pathname,
-      userAgent: request.headers.get("user-agent"),
-      ip: request.ip,
-      timestamp: new Date().toISOString(),
-    })
   }
 
   // Block suspicious requests
-  const userAgent = request.headers.get("user-agent") || ""
+  const userAgent = request.headers.get("user-agent") ?? ""
   const suspiciousPatterns = [/bot/i, /crawler/i, /spider/i, /scraper/i]
   const legitimateBots = [/googlebot/i, /bingbot/i, /slurp/i, /duckduckbot/i]
 
@@ -38,7 +31,7 @@ export function middleware(request: NextRequest) {
   if (isSuspicious && !isLegitimate) {
     console.warn("Suspicious request blocked:", {
       userAgent,
-      ip: request.ip,
+      ip: (request.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? request.headers.get("x-real-ip") ?? "unknown"),
       url: request.url,
       timestamp: new Date().toISOString(),
     })

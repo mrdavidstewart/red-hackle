@@ -1,14 +1,15 @@
 "use client"
 
+import { Mail, Shield, AlertTriangle } from "lucide-react"
+import { useState } from "react"
+
 import type React from "react"
 
-import { useState } from "react"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Mail, Shield, AlertTriangle } from "lucide-react"
 import { sanitizeInput, isValidEmail, isValidPhone, checkRateLimit, generateSecureToken } from "@/lib/security"
 
 interface SecureFormProps {
@@ -122,9 +123,6 @@ export function SecureForm({ onSubmit }: SecureFormProps) {
 
       if (onSubmit) {
         await onSubmit(submitData)
-      } else {
-        // Default submission (in production, this would go to your API)
-        console.log("Secure form submission:", Object.fromEntries(submitData))
       }
 
       setSubmitStatus("success")
@@ -173,7 +171,7 @@ export function SecureForm({ onSubmit }: SecureFormProps) {
           </Alert>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+        <form onSubmit={(e) => void handleSubmit(e)} className="space-y-4 md:space-y-6">
           {/* Honeypot field - hidden from users */}
           <input
             type="text"

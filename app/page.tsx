@@ -1,12 +1,5 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { CalendlyModal } from "@/components/calendly-modal"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { CalendlyInline } from "@/components/calendly-inline"
 import {
   Phone,
   Clock,
@@ -34,6 +27,15 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+
+import { CalendlyInline } from "@/components/calendly-inline"
+import { CalendlyModal } from "@/components/calendly-modal"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+
 // Removed previous effect that disabled standard browser interactions (context menu, text selection, drag & drop)
 // to improve UX while maintaining security via existing headers & sanitization.
 
@@ -689,7 +691,7 @@ export default function HomePage() {
               <Card key={index} className="bg-white border border-gray-200 shadow-lg">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
                       <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
                     ))}
                   </div>
@@ -786,7 +788,7 @@ export default function HomePage() {
             </div>
 
             {/* Contact Methods - Updated email */}
-            <div className="grid md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-12">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8 mt-10 md:mt-12">
               {[
                 {
                   icon: Phone,
@@ -801,13 +803,6 @@ export default function HomePage() {
                   info: "operations@redhacklegroup.com",
                   desc: "Detailed enquiries welcome",
                   action: () => window.open("mailto:operations@redhacklegroup.com", "_self"),
-                },
-                {
-                  icon: Calendar,
-                  title: "Book Online",
-                  info: "Schedule instantly",
-                  desc: "Free quote appointments",
-                  action: () => {},
                 },
               ].map((contact, index) => (
                 <Card

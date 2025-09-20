@@ -1,10 +1,13 @@
 "use client"
 
-import type React from "react"
+import { Calendar, X, Shield } from "lucide-react"
 import { useState, useEffect } from "react"
+
+import type React from "react"
+
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Calendar, X, Shield } from "lucide-react"
+
 
 interface CalendlyModalProps {
   trigger: React.ReactNode
@@ -65,7 +68,9 @@ export function CalendlyModal({ trigger, title = "Book Your Free Quote Visit" }:
               <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center">
                 <Calendar className="w-6 h-6 mr-3 text-red-600" />
                 {title}
-                <Shield className="w-4 h-4 ml-2 text-green-600" title="Secure booking" />
+                <span title="Secure booking" className="ml-2">
+                  <Shield className="w-4 h-4 text-green-600" />
+                </span>
               </DialogTitle>
               <Button variant="ghost" size="sm" onClick={handleClose} className="text-gray-500 hover:text-gray-700">
                 <X className="w-5 h-5" />
