@@ -42,11 +42,3 @@ jobs:
 
       - name: Build
         run: pnpm build
-
-      - name: Artifact .next
-        if: success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: next-build
-          path: .next
-          if-no-files-found: error
