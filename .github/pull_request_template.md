@@ -13,12 +13,6 @@ Write a brief description of what you changed:
 
 _Example: "Updated the contact phone number on the homepage" or "Fixed the booking button not working on mobile"_
 
-## Screenshots (if needed) 📸
-
-If your change affects how the website looks, please add a screenshot:
-
-[Add screenshot here]
-
 ## Checklist ✅
 
 Please check that:
