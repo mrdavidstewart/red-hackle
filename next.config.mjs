@@ -8,11 +8,11 @@ const nextConfig = {
         headers: [
           {
             key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
+            value: "SAMEORIGIN"
           },
           {
             key: 'X-Content-Type-Options',
-            value: 'nosniff'
+            value: "nosniff"
           },
           {
             key: 'X-XSS-Protection',
@@ -77,10 +77,8 @@ const nextConfig = {
   // Strict mode
   reactStrictMode: true,
 
-  // Experimental features for security
-  experimental: {
-    serverComponentsExternalPackages: [],
-  },
+  // Server external packages (moved from experimental.serverComponentsExternalPackages)
+  serverExternalPackages: [],
 
   // Environment variables validation
   env: {

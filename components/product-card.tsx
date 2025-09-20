@@ -1,11 +1,12 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { ShoppingCart, Plus, Minus, Check } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
+
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 
 interface Product {
   id: string
@@ -25,7 +26,7 @@ interface ProductCardProps {
 }
 
 // Product image mapping
-const productImages: { [key: string]: string } = {
+const productImages: Record<string, string> = {
   "bleach-thick-2x5l": "/images/products/bleach-thick-case.png",
   "toilet-cleaner-1l": "/images/products/toilet-cleaner-1l.png",
   "toilet-cleaner-5l": "/images/products/toilet-cleaner-5l.png",
