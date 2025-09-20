@@ -44,8 +44,8 @@
     "cmdk": "latest",
     "embla-carousel-react": "latest",
     "input-otp": "latest",
-    "lucide-react": "^0.454.0",
-    "next": "15.2.4",
+    "lucide-react": "^0.544.0",
+    "next": "15.4.7",
     "next-themes": "latest",
     "path": "latest",
     "react": "^19",
@@ -61,7 +61,7 @@
     "vaul": "latest"
   },
   "devDependencies": {
-    "@types/node": "^22",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^8",
