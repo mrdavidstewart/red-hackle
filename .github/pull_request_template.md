@@ -19,9 +19,3 @@ Please check that:
 
 - [ ] The website still loads correctly
 - [ ] I have checked for spelling/grammar mistakes (if applicable)
-
-## Additional notes 📋
-
-Add any other information that might be helpful:
-
-_Example: "This change affects the contact form" or "Please check that the new phone number is correct"_
