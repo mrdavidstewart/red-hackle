@@ -60,7 +60,7 @@
     "vaul": "latest"
   },
   "devDependencies": {
-    "typescript-eslint": "^8.44.0",
+    "typescript-eslint": "^8.44.1",
     "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^24.5.2",
     "@types/react": "^19.1.13",
