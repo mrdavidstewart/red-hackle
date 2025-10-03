@@ -1,5 +1,13 @@
 "use client"
 
+import React from "react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { CalendlyModal } from "@/components/calendly-modal"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { CalendlyInline } from "@/components/calendly-inline"
 import {
   Phone,
   Clock,
@@ -23,37 +31,78 @@ import {
   Star,
   Quote,
   Mail,
-  MessageCircle,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-
-import { CalendlyInline } from "@/components/calendly-inline"
-import { CalendlyModal } from "@/components/calendly-modal"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-
-// Removed previous effect that disabled standard browser interactions (context menu, text selection, drag & drop)
-// to improve UX while maintaining security via existing headers & sanitization.
+import { useEffect } from "react"
 
 export default function HomePage() {
+  // Enhanced mobile security and viewport management
+  useEffect(() => {
+    // Prevent horizontal scrolling and ensure secure viewport
+    document.body.style.overflowX = "hidden"
+    document.documentElement.style.overflowX = "hidden"
+
+    // Enhanced viewport security
+    const viewport = document.querySelector('meta[name="viewport"]')
+    if (viewport) {
+      viewport.setAttribute(
+        "content",
+        "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover",
+      )
+    }
+
+    // Add security measures for mobile
+    const securityMeta = document.createElement("meta")
+    securityMeta.name = "format-detection"
+    securityMeta.content = "telephone=no, date=no, email=no, address=no"
+    document.head.appendChild(securityMeta)
+
+    // Prevent text selection on sensitive elements
+    document.body.style.webkitUserSelect = "none"
+    document.body.style.userSelect = "none"
+
+    // Enable text selection for content areas
+    const contentElements = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span")
+    contentElements.forEach((el) => {
+      ;(el as HTMLElement).style.webkitUserSelect = "text"
+      ;(el as HTMLElement).style.userSelect = "text"
+    })
+
+    // Disable right-click context menu for enhanced security
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault()
+    }
+    document.addEventListener("contextmenu", handleContextMenu)
+
+    // Disable drag and drop for security
+    document.addEventListener("dragstart", (e) => e.preventDefault())
+    document.addEventListener("drop", (e) => e.preventDefault())
+
+    return () => {
+      document.body.style.overflowX = "auto"
+      document.documentElement.style.overflowX = "auto"
+      document.removeEventListener("contextmenu", handleContextMenu)
+      if (document.head.contains(securityMeta)) {
+        document.head.removeChild(securityMeta)
+      }
+    }
+  }, [])
+
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
       {/* Enhanced Header with Prominent Logo */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-gray-200 shadow-lg">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
-          <div className="flex items-center justify-between h-20 md:h-24">
+          <div className="flex items-center justify-between h-24 md:h-32 lg:h-36">
             {/* Prominent Logo Section */}
             <div className="flex items-center space-x-4">
               <Image
                 src="/images/new-logo.png"
                 alt="Red Hackle Cleaning Services Logo"
-                width={280}
-                height={80}
-                className="h-12 md:h-16 w-auto object-contain"
+                width={500}
+                height={150}
+                className="h-24 md:h-32 lg:h-36 w-auto object-contain"
                 priority
               />
             </div>
@@ -124,9 +173,9 @@ export default function HomePage() {
                 <Image
                   src="/images/new-logo.png"
                   alt="Red Hackle Cleaning Services"
-                  width={400}
-                  height={120}
-                  className="h-20 md:h-28 w-auto object-contain mx-auto lg:mx-0 mb-6"
+                  width={600}
+                  height={180}
+                  className="h-32 md:h-48 lg:h-56 xl:h-64 w-auto object-contain mx-auto lg:mx-0 mb-6"
                   priority
                 />
                 <Badge className="bg-red-50 border border-red-200 text-red-700 px-6 py-3 font-bold text-base">
@@ -144,18 +193,12 @@ export default function HomePage() {
               {/* Clear Call Us Now button */}
               <div className="w-full">
                 <Button
-                  onClick={() =>
-                    window.open(
-                      "https://wa.me/447966881555?text=Hi%20Red%20Hackle%20Team%2C%20I'd%20like%20a%20cleaning%20quote.",
-                      "_blank"
-                    )
-                  }
-                  aria-label="Chat with us on WhatsApp"
-                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-5 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl w-full sm:w-auto border-2 border-green-700"
+                  onClick={() => window.open("tel:+447966881555", "_self")}
+                  className="bg-red-600 hover:bg-red-700 text-white px-8 py-5 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl w-full sm:w-auto border-2 border-red-700"
                 >
                   <div className="flex items-center justify-center space-x-4">
-                    <MessageCircle className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
-                    <span className="text-xl md:text-2xl font-black tracking-wide whitespace-nowrap">WhatsApp Us Now</span>
+                    <Phone className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
+                    <span className="text-xl md:text-2xl font-black tracking-wide whitespace-nowrap">Call Us Now</span>
                   </div>
                 </Button>
               </div>
@@ -171,7 +214,7 @@ export default function HomePage() {
                   <span className="text-lg md:text-xl font-bold text-gray-900">100% FREE No-Obligation Quotes</span>
                 </div>
                 <p className="text-gray-700 mb-4 text-sm md:text-base">
-                  We'll visit your property, assess your needs, and provide a completely free quote with{" "}
+                  We&apos;ll visit your property, assess your needs, and provide a completely free quote with{" "}
                   <span className="text-red-600 font-semibold">zero pressure</span>. Our pricing is{" "}
                   <span className="text-red-600 font-semibold">flexible and fair</span>, we work with your budget to
                   find the perfect solution.
@@ -262,8 +305,7 @@ export default function HomePage() {
                 alt="David Stewart - Red Hackle Team Leader"
                 width={500}
                 height={600}
-                className="object-contain w-full max-w-lg h-auto"
-                sizes="(max-width: 1024px) 100vw, 500px"
+                className="object-contain w-full max-w-lg h-[400px] md:h-[500px] lg:h-[600px]"
                 priority
               />
             </div>
@@ -392,7 +434,6 @@ export default function HomePage() {
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center">Coverage Map</h3>
                 <div className="bg-gray-100 rounded-lg overflow-hidden">
                   <iframe
-                    title="Red Hackle Coverage Map"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2234.8234567890123!2d-2.970721!3d56.462018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48865c4c4c4c4c4c%3A0x4c4c4c4c4c4c4c4c!2s165%20Brook%20St%2C%20Dundee%20DD5%201DJ%2C%20UK!5e0!3m2!1sen!2suk!4v1234567890123!5m2!1sen!2suk"
                     width="100%"
                     height="400"
@@ -504,8 +545,7 @@ export default function HomePage() {
                 alt="Natalie - Red Hackle Team Member"
                 width={400}
                 height={500}
-                className="object-contain w-full max-w-sm h-auto"
-                sizes="(max-width: 1024px) 100vw, 400px"
+                className="object-contain w-full max-w-sm h-[300px] md:h-[400px] lg:h-[500px]"
               />
             </div>
           </div>
@@ -538,7 +578,7 @@ export default function HomePage() {
             </Badge>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">What Makes Us Different</h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              We're not just another cleaning company, here's what sets us apart from the competition.
+              We&apos;re not just another cleaning company, here&apos;s what sets us apart from the competition.
             </p>
           </div>
 
@@ -552,16 +592,7 @@ export default function HomePage() {
                 color: "blue" as const,
               },
               {
-                // Provide a component accepting optional className so we can render uniformly
-                icon: (props: { className?: string }) => (
-                  <span
-                    className={
-                      "text-white text-2xl font-bold" + (props.className ? ` ${props.className}` : "")
-                    }
-                  >
-                    £
-                  </span>
-                ),
+                icon: () => <span className="text-white text-2xl font-bold">£</span>,
                 title: "Flexible Fair Pricing",
                 desc: "We work with your budget. No hidden costs, no pressure, just honest, fair quotes.",
                 highlight: "Budget-friendly",
@@ -588,10 +619,11 @@ export default function HomePage() {
               >
                 <CardContent className="p-6 md:p-8 text-center">
                   <div className="w-12 h-12 md:w-16 md:h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
-                    {(() => {
-                      const Icon = feature.icon as React.ComponentType<{ className?: string }>
-                      return <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                    })()}
+                    {typeof feature.icon === "function" ? (
+                      feature.icon({})
+                    ) : (
+                      React.createElement(feature.icon, { className: "w-6 h-6 md:w-8 md:h-8 text-white" })
+                    )}
                   </div>
                   <Badge
                     className={`${
@@ -665,21 +697,21 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="text-center mb-10 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-black mb-4 text-gray-900">What Our Customers Say</h2>
-            <p className="text-lg md:text-xl text-gray-600">Don't just take our word for it</p>
+            <p className="text-lg md:text-xl text-gray-600">Don&apos;t just take our word for it</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {[
               {
-                name: "Karen Purves",
-                location: "Dundee",
+                name: "Margaret",
+                location: "Carnoustie",
                 rating: 5,
-                text: "We called Red Hackle in to do a house clearance and deep clean. The job was completed as requested and on time. The team were polite and respectful. We are delighted and would highly recommend them. Thank you Arthur and Team.",
+                text: "Happy with work carried out. Would recommend David and his team without hesitation.",
               },
               {
-                name: "James Robertson",
-                location: "Perth",
+                name: "Moira Elizabeth",
+                location: "Dundee",
                 rating: 5,
-                text: "End of tenancy clean was perfect. Got my full deposit back thanks to Red Hackle. Professional, reliable, and great value for money.",
+                text: "From start to finish had such a great level of service. An in person visit to discuss requirements, followed up promptly with a extensive breakdown which was clear, easy to follow, and had catered for more than originally thought. Felt safe and comfortable which is the main thing for myself so I could trust and not worry. Thank you",
               },
               {
                 name: "Karen Cooper",
@@ -687,16 +719,22 @@ export default function HomePage() {
                 rating: 5,
                 text: "Have Sam helping me with my cleaning at the moment going for a knee replacement on the 15th August and Sam is great at helping me keep on top of my homework",
               },
+              {
+                name: "Tara Macandrew",
+                location: "St Andrews",
+                rating: 5,
+                text: "Excellent friendly service from Arthur and his team. From first contact to job completion, I knew they wouldn't let me down. Highly recommend Arthur and his team at Red Hackle. Will 100% use again.",
+              },
             ].map((testimonial, index) => (
               <Card key={index} className="bg-white border border-gray-200 shadow-lg">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                    {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
                     ))}
                   </div>
                   <Quote className="w-8 h-8 text-red-600 mb-4" />
-                  <p className="text-gray-700 mb-4 italic text-sm md:text-base">"{testimonial.text}"</p>
+                  <p className="text-gray-700 mb-4 italic text-sm md:text-base">&quot;{testimonial.text}&quot;</p>
                   <div>
                     <p className="font-semibold text-gray-900">{testimonial.name}</p>
                     <p className="text-sm text-gray-600">{testimonial.location}</p>
@@ -788,7 +826,7 @@ export default function HomePage() {
             </div>
 
             {/* Contact Methods - Updated email */}
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8 mt-10 md:mt-12">
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-12">
               {[
                 {
                   icon: Phone,
@@ -800,9 +838,16 @@ export default function HomePage() {
                 {
                   icon: Mail,
                   title: "Email Us",
-                  info: "operations@redhacklegroup.com",
+                  info: "Click to Email",
                   desc: "Detailed enquiries welcome",
                   action: () => window.open("mailto:operations@redhacklegroup.com", "_self"),
+                },
+                {
+                  icon: Calendar,
+                  title: "Book Online",
+                  info: "Schedule instantly",
+                  desc: "Free quote appointments",
+                  action: () => {},
                 },
               ].map((contact, index) => (
                 <Card
@@ -820,6 +865,42 @@ export default function HomePage() {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+
+            {/* Arthur Keith Quote & Image */}
+            <div className="mt-10 md:mt-12">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 max-w-5xl mx-auto items-start justify-center">
+                {/* Quote Card - Square shaped */}
+                <Card className="bg-white border border-gray-200 shadow-lg max-w-sm w-full">
+                  <CardContent className="p-6 md:p-8">
+                    <Quote className="w-8 h-8 md:w-10 md:h-10 text-red-600 mb-4" />
+                    <p className="text-gray-700 mb-6 italic text-sm md:text-base leading-relaxed">
+                      &quot;Red Hackle takes its name from the Black Watch&apos;s red plume, standing for discipline, pride, and
+                      service. We bring that same ethos to cleaning: do the basics brilliantly, be fast, flexible and
+                      reliable, and leave standards higher than we found them.&quot;
+                    </p>
+                    <div className="border-t border-gray-200 pt-4">
+                      <p className="font-bold text-gray-900 text-base md:text-lg">Arthur Keith</p>
+                      <p className="text-red-600 font-semibold text-sm md:text-base">Managing Director</p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Image Card - Square shaped */}
+                <Card className="bg-white border border-gray-200 shadow-lg max-w-sm w-full">
+                  <CardContent className="p-6 md:p-8">
+                    <div className="relative w-48 h-48 md:w-56 md:h-56 mx-auto">
+                      <Image
+                        src="/images/arthur-cartoon.png"
+                        alt="Arthur Keith - Managing Director"
+                        width={224}
+                        height={224}
+                        className="object-contain w-full h-full"
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </div>

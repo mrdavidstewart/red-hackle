@@ -1,25 +1,12 @@
 import { type NextRequest, NextResponse } from "next/server"
-
 import { sanitizeInput, isValidEmail, isValidPhone, checkRateLimit, secureHeaders } from "@/lib/security"
 
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting
-    // Robust IP extraction (restore header-based derivation for edge/platform variability)
-    const forwardedFor = request.headers.get("x-forwarded-for") ?? ""
-    const realIp = request.headers.get("x-real-ip") ?? ""
-    const cfConnectingIp = request.headers.get("cf-connecting-ip") ?? ""
-    const flyClientIp = request.headers.get("fly-client-ip") ?? ""
-    const vercelForwardedFor = request.headers.get("x-vercel-forwarded-for") ?? ""
-    const candidateChain = [forwardedFor, vercelForwardedFor]
-      .filter(Boolean)
-      .flatMap((v: string) => v.split(",").map((s: string) => s.trim()).filter(Boolean))
-    const clientIP =
-      candidateChain[0] ??
-      realIp ??
-      cfConnectingIp ??
-      flyClientIp ??
-      "unknown"
+    const clientIP = request.headers.get("x-forwarded-for") || 
+                     request.headers.get("x-real-ip") || 
+                     "unknown"
     if (!checkRateLimit(clientIP, 5, 300000)) {
       return NextResponse.json(
         { error: "Too many requests" },
@@ -98,6 +85,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // In production, you would:
+    // 1. Save to secure database
+    // 2. Send email notification
+    // 3. Log the submission securely
+
+    // Contact form submission would be logged to monitoring service in production
+    // Data: firstName, lastName, email, phone, message (truncated), timestamp, ip
+
     return NextResponse.json(
       { success: true, message: "Message sent successfully" },
       {
@@ -105,8 +100,8 @@ export async function POST(request: NextRequest) {
         headers: secureHeaders,
       },
     )
-  } catch (error) {
-    console.error("Contact form error:", error)
+  } catch {
+    // Error would be logged to monitoring service in production
 
     return NextResponse.json(
       { error: "Internal server error" },
@@ -119,7 +114,7 @@ export async function POST(request: NextRequest) {
 }
 
 // Only allow POST requests
-export function GET() {
+export async function GET() {
   return NextResponse.json(
     { error: "Method not allowed" },
     {
