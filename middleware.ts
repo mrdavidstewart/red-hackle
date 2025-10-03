@@ -22,7 +22,7 @@ export function middleware(request: NextRequest) {
     console.log("Private route accessed:", {
       path: request.nextUrl.pathname,
       userAgent: request.headers.get("user-agent"),
-      ip: request.ip,
+      ip: request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "unknown",
       timestamp: new Date().toISOString(),
     })
   }
@@ -38,7 +38,7 @@ export function middleware(request: NextRequest) {
   if (isSuspicious && !isLegitimate) {
     console.warn("Suspicious request blocked:", {
       userAgent,
-      ip: request.ip,
+      ip: request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || "unknown",
       url: request.url,
       timestamp: new Date().toISOString(),
     })

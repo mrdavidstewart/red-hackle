@@ -1,5 +1,6 @@
 "use client"
 
+import React from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -213,7 +214,7 @@ export default function HomePage() {
                   <span className="text-lg md:text-xl font-bold text-gray-900">100% FREE No-Obligation Quotes</span>
                 </div>
                 <p className="text-gray-700 mb-4 text-sm md:text-base">
-                  We'll visit your property, assess your needs, and provide a completely free quote with{" "}
+                  We&apos;ll visit your property, assess your needs, and provide a completely free quote with{" "}
                   <span className="text-red-600 font-semibold">zero pressure</span>. Our pricing is{" "}
                   <span className="text-red-600 font-semibold">flexible and fair</span>, we work with your budget to
                   find the perfect solution.
@@ -577,7 +578,7 @@ export default function HomePage() {
             </Badge>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">What Makes Us Different</h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              We're not just another cleaning company, here's what sets us apart from the competition.
+              We&apos;re not just another cleaning company, here&apos;s what sets us apart from the competition.
             </p>
           </div>
 
@@ -619,9 +620,9 @@ export default function HomePage() {
                 <CardContent className="p-6 md:p-8 text-center">
                   <div className="w-12 h-12 md:w-16 md:h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
                     {typeof feature.icon === "function" ? (
-                      feature.icon()
+                      feature.icon({})
                     ) : (
-                      <feature.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                      React.createElement(feature.icon, { className: "w-6 h-6 md:w-8 md:h-8 text-white" })
                     )}
                   </div>
                   <Badge
@@ -696,7 +697,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="text-center mb-10 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-black mb-4 text-gray-900">What Our Customers Say</h2>
-            <p className="text-lg md:text-xl text-gray-600">Don't just take our word for it</p>
+            <p className="text-lg md:text-xl text-gray-600">Don&apos;t just take our word for it</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {[
@@ -733,7 +734,7 @@ export default function HomePage() {
                     ))}
                   </div>
                   <Quote className="w-8 h-8 text-red-600 mb-4" />
-                  <p className="text-gray-700 mb-4 italic text-sm md:text-base">"{testimonial.text}"</p>
+                  <p className="text-gray-700 mb-4 italic text-sm md:text-base">&quot;{testimonial.text}&quot;</p>
                   <div>
                     <p className="font-semibold text-gray-900">{testimonial.name}</p>
                     <p className="text-sm text-gray-600">{testimonial.location}</p>
@@ -874,9 +875,9 @@ export default function HomePage() {
                   <CardContent className="p-6 md:p-8">
                     <Quote className="w-8 h-8 md:w-10 md:h-10 text-red-600 mb-4" />
                     <p className="text-gray-700 mb-6 italic text-sm md:text-base leading-relaxed">
-                      "Red Hackle takes its name from the Black Watch's red plume, standing for discipline, pride, and
+                      &quot;Red Hackle takes its name from the Black Watch&apos;s red plume, standing for discipline, pride, and
                       service. We bring that same ethos to cleaning: do the basics brilliantly, be fast, flexible and
-                      reliable, and leave standards higher than we found them."
+                      reliable, and leave standards higher than we found them.&quot;
                     </p>
                     <div className="border-t border-gray-200 pt-4">
                       <p className="font-bold text-gray-900 text-base md:text-lg">Arthur Keith</p>

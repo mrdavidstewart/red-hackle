@@ -77,10 +77,8 @@ const nextConfig = {
   // Strict mode
   reactStrictMode: true,
 
-  // Experimental features for security
-  experimental: {
-    serverComponentsExternalPackages: [],
-  },
+  // Server external packages
+  serverExternalPackages: [],
 
   // Environment variables validation
   env: {

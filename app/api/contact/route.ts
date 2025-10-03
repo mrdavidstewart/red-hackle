@@ -4,7 +4,9 @@ import { sanitizeInput, isValidEmail, isValidPhone, checkRateLimit, secureHeader
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting
-    const clientIP = request.ip || "unknown"
+    const clientIP = request.headers.get("x-forwarded-for") || 
+                     request.headers.get("x-real-ip") || 
+                     "unknown"
     if (!checkRateLimit(clientIP, 5, 300000)) {
       return NextResponse.json(
         { error: "Too many requests" },
@@ -23,7 +25,6 @@ export async function POST(request: NextRequest) {
     const email = sanitizeInput((formData.get("email") as string) || "")
     const phone = sanitizeInput((formData.get("phone") as string) || "")
     const message = sanitizeInput((formData.get("message") as string) || "")
-    const token = (formData.get("token") as string) || ""
     const timestamp = (formData.get("timestamp") as string) || ""
     const honeypot = (formData.get("website") as string) || ""
 
@@ -89,15 +90,8 @@ export async function POST(request: NextRequest) {
     // 2. Send email notification
     // 3. Log the submission securely
 
-    console.log("Secure contact form submission:", {
-      firstName,
-      lastName,
-      email,
-      phone,
-      message: message.substring(0, 100) + "...", // Don't log full message
-      timestamp: new Date(submissionTime).toISOString(),
-      ip: clientIP,
-    })
+    // Contact form submission would be logged to monitoring service in production
+    // Data: firstName, lastName, email, phone, message (truncated), timestamp, ip
 
     return NextResponse.json(
       { success: true, message: "Message sent successfully" },
@@ -106,8 +100,8 @@ export async function POST(request: NextRequest) {
         headers: secureHeaders,
       },
     )
-  } catch (error) {
-    console.error("Contact form error:", error)
+  } catch {
+    // Error would be logged to monitoring service in production
 
     return NextResponse.json(
       { error: "Internal server error" },
