@@ -1,175 +1,20 @@
 {
-  files: ["**/*.{ts,tsx}"],
-  ignores: ["node_modules"],
-  languageOptions: {
-    parser: typescriptParser,
-    parserOptions: {
-      project: "./tsconfig.json",
-      tsconfigRootDir: fileURLToPath(new URL(".", import.meta.url)),
-      ecmaVersion: 2022,
-      sourceType: "module"
-    },
-    globals: {
-      React: "readonly"
-    }
-  },
-  plugins: {
-    react,
-    "react-hooks": reactHooks,
-    "jsx-a11y": jsxA11y,
-    import: importPlugin,
-    "@typescript-eslint": tsPlugin
-  },
-  rules: {
-    "no-console": ["warn", { allow: ["warn", "error"] }],
+  "extends": ["next/core-web-vitals", "@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "no-console": "warn",
     "prefer-const": "error",
     "no-var": "error",
-    // Security
     "no-eval": "error",
     "no-implied-eval": "error",
     "no-new-func": "error",
-    "no-script-url": "error",
-    // React
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    // Imports
-    "import/order": [
-      "warn",
-      {
-        groups: [
-          ["builtin", "external"],
-          ["internal"],
-          ["parent", "sibling", "index"],
-          ["object", "type"]
-        ],
-        "newlines-between": "always",
-        alphabetize: { order: "asc", caseInsensitive: true }
-      }
-    ],
-    // TS
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }
-    ],
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-non-null-assertion": "warn",
-    "@typescript-eslint/prefer-nullish-coalescing": "error",
-    "@typescript-eslint/prefer-optional-chain": "error",
-    "@typescript-eslint/consistent-type-imports": [
-      "error",
-      { prefer: "type-imports", disallowTypeAnnotations: false }
-    ]
-  }
-},
-  {
-    files: ["**/*.{js,jsx,mjs,cjs}"],
-    languageOptions: {
-      ecmaVersion: 2022,
-      sourceType: "module"
-    },
-    plugins: {
-      react,
-      "react-hooks": reactHooks,
-      "jsx-a11y": jsxA11y,
-      import: importPlugin
-    },
-    rules: {
-      // Base JS rules (no TS-specific ones here)
-      "no-console": ["warn", { allow: ["warn", "error"] }],
-      "prefer-const": "error",
-      "no-var": "error",
-      // Security
-      "no-eval": "error",
-      "no-implied-eval": "error",
-      "no-new-func": "error",
-      "no-script-url": "error",
-      // React
-      "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      // Imports
-      "import/order": [
-        "warn",
-        {
-          groups: [
-            ["builtin", "external"],
-            ["internal"],
-            ["parent", "sibling", "index"],
-            ["object", "type"]
-          ],
-          "newlines-between": "always",
-          alphabetize: { order: "asc", caseInsensitive: true }
-        }
-      ]
-    }
+    "no-script-url": "error"
   },
-
-{
-  "root": true,
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint",
-    "tailwindcss"
-  ],
   "parserOptions": {
     "ecmaVersion": 2022,
-    "sourceType": "module",
-    "project": ["./tsconfig.json"],
-    "tsconfigRootDir": "."
-  },
-  "env": {
-    "browser": true,
-    "es2022": true,
-    "node": true
-  },
-  "rules": {
-    "no-console": ["warn", { "allow": ["warn", "error"] }],
-    "prefer-const": "error",
-    "no-var": "error",
-    "no-eval": "error",
-    "no-implied-eval": "error",
-    "no-new-func": "error",
-    "no-script-url": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
-    ],
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-non-null-assertion": "warn",
-    "@typescript-eslint/prefer-nullish-coalescing": "error",
-    "@typescript-eslint/prefer-optional-chain": "error",
-    "@typescript-eslint/consistent-type-imports": [
-      "error",
-      { "prefer": "type-imports", "disallowTypeAnnotations": false }
-    ],
-    "tailwindcss/classnames-order": "warn",
-    "tailwindcss/no-custom-classname": "off"
-  },
-  "settings": {
-    "react": { "version": "detect" },
-    "tailwindcss": {
-      "callees": ["classnames", "clsx", "ctl"],
-      "config": "./tailwind.config.ts"
-    }
-  },
-  "overrides": [
-    {
-      "files": ["**/*.{test,spec}.{ts,tsx,js,jsx}"],
-      "rules": {
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-unused-vars": [
-          "warn",
-          { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
-        ]
-      }
-    }
-  ]
+    "sourceType": "module"
+  }
 }

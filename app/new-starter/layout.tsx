@@ -1,5 +1,5 @@
-import type { Metadata } from "next"
 import type React from "react"
+import type { Metadata } from "next"
 
 // Prevent indexing and crawling
 export const metadata: Metadata = {

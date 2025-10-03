@@ -1,13 +1,12 @@
 "use client"
 
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Shield, Users, FileText, Clock, Lock, Phone, Mail } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 
 export default function NewStarterPage() {
   const [isLoading, setIsLoading] = useState(true)
