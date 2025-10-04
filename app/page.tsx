@@ -31,6 +31,7 @@ import {
   Star,
   Quote,
   Mail,
+  MessageCircle,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -181,16 +182,14 @@ export default function HomePage() {
                 <span className="text-red-600 block">RELIABLE.</span>
               </h1>
 
-              {/* Clear Call Us Now button */}
-              <div className="w-full">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Button
+                  size="lg"
+                  className="bg-red-600 hover:bg-red-700 text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg"
                   onClick={() => window.open("tel:+447966881555", "_self")}
-                  className="bg-red-600 hover:bg-red-700 text-white px-8 py-5 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl w-full sm:w-auto border-2 border-red-700"
                 >
-                  <div className="flex items-center justify-center space-x-4">
-                    <Phone className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
-                    <span className="text-xl md:text-2xl font-black tracking-wide whitespace-nowrap">Call Us Now</span>
-                  </div>
+                  <Phone className="w-4 md:w-5 h-4 md:h-5 mr-2 md:mr-3" />
+                  Call Us Now
                 </Button>
               </div>
 
@@ -226,27 +225,22 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <CalendlyModal
-                  trigger={
-                    <Button
-                      size="lg"
-                      className="bg-red-600 hover:bg-red-700 text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg"
-                    >
-                      <Calendar className="w-4 md:w-5 h-4 md:h-5 mr-2 md:mr-3" />
-                      Book Free Quote Visit
-                      <ArrowRight className="w-4 md:w-5 h-4 md:h-5 ml-2 md:ml-3" />
-                    </Button>
-                  }
-                />
-
+              {/* Clear Call Us Now button */}
+              <div className="w-full">
                 <Button
-                  size="lg"
-                  className="bg-green-600 hover:bg-green-700 text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg"
-                  onClick={() => window.open("tel:+447966881555", "_self")}
+                  onClick={() =>
+                    window.open(
+                      "https://wa.me/447966881555?text=Hi%20Red%20Hackle%20Team%2C%20I'd%20like%20a%20cleaning%20quote.",
+                      "_blank"
+                    )
+                  }
+                  aria-label="Chat with us on WhatsApp"
+                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-5 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl w-full sm:w-auto border-2 border-green-700"
                 >
-                  <Phone className="w-4 md:w-5 h-4 md:h-5 mr-2 md:mr-3" />
-                  Call Us Now
+                  <div className="flex items-center justify-center space-x-4">
+                    <MessageCircle className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
+                    <span className="text-xl md:text-2xl font-black tracking-wide whitespace-nowrap">WhatsApp Us Now</span>
+                  </div>
                 </Button>
               </div>
 
