@@ -1,4 +1,7 @@
-/** @type {import('next').NextConfig} */
+/** @type {import('next'          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(), payment=(self "https://calendly.com" "https://*.calendly.com")'
+          }xtConfig} */
 const nextConfig = {
   // Security headers
   async headers() {
@@ -24,7 +27,7 @@ const nextConfig = {
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()'
+            value: 'camera=(), microphone=(), geolocation=(), payment=(self "https://calendly.com" "https://*.calendly.com")'
           },
           {
             key: 'Strict-Transport-Security',
@@ -36,10 +39,10 @@ const nextConfig = {
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://assets.calendly.com https://www.google.com https://maps.googleapis.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "font-src 'self' https://fonts.gstatic.com",
+              "font-src 'self' https://fonts.gstatic.com https://r2cdn.perplexity.ai",
               "img-src 'self' data: https: blob:",
               "media-src 'self' https:",
-              "connect-src 'self' https://api.calendly.com https://maps.googleapis.com",
+              "connect-src 'self' https://api.calendly.com https://maps.googleapis.com https://notifier-configs.airbrake.io https://browser-intake-datadoghq.com",
               "frame-src 'self' https://calendly.com https://www.google.com",
               "object-src 'none'",
               "base-uri 'self'",
