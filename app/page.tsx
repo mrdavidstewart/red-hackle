@@ -35,9 +35,11 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export default function HomePage() {
+  const [showFloatingButtons, setShowFloatingButtons] = useState(true)
+
   // Enhanced mobile security and viewport management
   useEffect(() => {
     // Prevent horizontal scrolling and ensure secure viewport
@@ -80,10 +82,27 @@ export default function HomePage() {
     document.addEventListener("dragstart", (e) => e.preventDefault())
     document.addEventListener("drop", (e) => e.preventDefault())
 
+    // Hide floating buttons when footer is visible
+    const handleScroll = () => {
+      const footer = document.querySelector('footer')
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect()
+        const windowHeight = window.innerHeight
+        
+        // Hide floating buttons when footer is 150px from the bottom of the viewport
+        // This gives enough clearance before the footer becomes visible
+        setShowFloatingButtons(footerRect.top > windowHeight - 150)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    handleScroll() // Check initial state
+
     return () => {
       document.body.style.overflowX = "auto"
       document.documentElement.style.overflowX = "auto"
       document.removeEventListener("contextmenu", handleContextMenu)
+      window.removeEventListener('scroll', handleScroll)
       if (document.head.contains(securityMeta)) {
         document.head.removeChild(securityMeta)
       }
@@ -856,35 +875,34 @@ export default function HomePage() {
 
             {/* Arthur Keith Quote & Image */}
             <div className="mt-10 md:mt-12">
-              <div className="flex flex-col md:flex-row gap-6 md:gap-8 max-w-5xl mx-auto items-start justify-center">
-                {/* Quote Card - Square shaped */}
-                <Card className="bg-white border border-gray-200 shadow-lg max-w-sm w-full">
-                  <CardContent className="p-6 md:p-8">
-                    <Quote className="w-8 h-8 md:w-10 md:h-10 text-red-600 mb-4" />
-                    <p className="text-gray-700 mb-6 italic text-sm md:text-base leading-relaxed">
-                      &quot;Red Hackle takes its name from the Black Watch&apos;s red plume, standing for discipline, pride, and
-                      service. We bring that same ethos to cleaning: do the basics brilliantly, be fast, flexible and
-                      reliable, and leave standards higher than we found them.&quot;
-                    </p>
-                    <div className="border-t border-gray-200 pt-4">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 max-w-5xl mx-auto items-stretch justify-center">
+                {/* Quote Card - Matched dimensions */}
+                <Card className="bg-white border border-gray-200 shadow-lg max-w-sm w-full h-[400px] md:h-[450px]">
+                  <CardContent className="p-6 md:p-8 h-full flex flex-col justify-between">
+                    <div>
+                      <Quote className="w-8 h-8 md:w-10 md:h-10 text-red-600 mb-4" />
+                      <p className="text-gray-700 mb-6 italic text-sm md:text-base leading-relaxed">
+                        &quot;Red Hackle takes its name from the Black Watch&apos;s red plume, standing for discipline, pride, and
+                        service. We bring that same ethos to cleaning: do the basics brilliantly, be fast, flexible and
+                        reliable, and leave standards higher than we found them.&quot;
+                      </p>
+                    </div>
+                    <div className="border-t border-gray-200 pt-4 mt-auto">
                       <p className="font-bold text-gray-900 text-base md:text-lg">Arthur Keith</p>
                       <p className="text-red-600 font-semibold text-sm md:text-base">Managing Director</p>
                     </div>
                   </CardContent>
                 </Card>
 
-                {/* Image Card - Square shaped */}
-                <Card className="bg-white border border-gray-200 shadow-lg max-w-sm w-full">
-                  <CardContent className="p-6 md:p-8">
-                    <div className="relative w-48 h-48 md:w-56 md:h-56 mx-auto">
-                      <Image
-                        src="/images/arthur-cartoon.png"
-                        alt="Arthur Keith - Managing Director"
-                        width={224}
-                        height={224}
-                        className="object-contain w-full h-full"
-                      />
-                    </div>
+                {/* Image Card - Matched dimensions */}
+                <Card className="bg-white border border-gray-200 shadow-lg max-w-sm w-full h-[400px] md:h-[450px]">
+                  <CardContent className="p-6 md:p-8 h-full flex items-center justify-center relative">
+                    <Image
+                      src="/images/arthur-cartoon.png"
+                      alt="Arthur Keith - Managing Director"
+                      fill
+                      className="object-contain p-4"
+                    />
                   </CardContent>
                 </Card>
               </div>
@@ -896,74 +914,6 @@ export default function HomePage() {
       {/* Footer with Enhanced Social Links */}
       <footer className="py-12 md:py-16 bg-gray-900 text-white">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
-          <div className="grid md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-10">
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4">
-                <Image
-                  src="/images/new-logo.png"
-                  alt="Red Hackle Logo"
-                  width={160}
-                  height={48}
-                  className="h-8 md:h-10 w-auto object-contain brightness-0 invert"
-                />
-              </div>
-              <p className="text-gray-400 leading-relaxed text-sm md:text-base">
-                Professional Excellence. Personal Touch. Your trusted local cleaning service.
-              </p>
-
-              {/* Enhanced Social Links */}
-              <div>
-                <h4 className="font-semibold text-white mb-4">Follow Our Journey</h4>
-                <div className="flex items-center space-x-4">
-                  <Link
-                    href="https://www.facebook.com/profile.php?id=61555545779742"
-                    className="w-8 h-8 md:w-10 md:h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
-                  >
-                    <Facebook className="w-4 h-4 md:w-5 md:h-5 text-white" />
-                  </Link>
-                  <Link
-                    href="https://instagram.com/redhacklegroup"
-                    className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center hover:from-purple-600 hover:to-pink-600 transition-colors"
-                  >
-                    <Instagram className="w-4 h-4 md:w-5 md:h-5 text-white" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {[
-              {
-                title: "Services",
-                links: ["Deep Cleaning", "Domestic", "End of Tenancy", "Commercial"],
-              },
-              {
-                title: "Areas",
-                links: ["Dundee", "Perth", "St Andrews", "Arbroath"],
-              },
-              {
-                title: "Contact",
-                links: ["07966 881 555", "Email", "Free Quotes", "Book Online"],
-              },
-            ].map((section, index) => (
-              <div key={index} className="space-y-4 md:space-y-6">
-                <h4 className="font-bold text-base md:text-lg text-white">{section.title}</h4>
-                <ul className="space-y-2 md:space-y-3">
-                  {section.links.map((link, linkIndex) => (
-                    <li key={linkIndex}>
-                      <Link
-                        href="#"
-                        className="text-gray-400 hover:text-red-400 transition-colors text-sm md:text-base"
-                      >
-                        {link}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="border-t border-gray-700 pt-6 md:pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-gray-500 mb-4 md:mb-0 text-xs md:text-sm text-center md:text-left">
                 &copy; 2025 Red Hackle Cleaning Services. All rights reserved.
@@ -978,7 +928,7 @@ export default function HomePage() {
                   Terms of Service
                 </Link>
                 <Link
-                  href="https://g.co/kgs/geKtfwz"
+                  href="https://g.page/r/CbpaIv_lA5HoEBM/review"
                   target="_blank"
                   className="text-gray-400 hover:text-red-400 transition-colors text-xs md:text-sm"
                 >
@@ -986,7 +936,6 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-          </div>
         </div>
       </footer>
 
@@ -1039,23 +988,25 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Enhanced Floating Action Buttons */}
-      <div className="fixed bottom-20 right-4 z-40 flex flex-col space-y-2 md:bottom-6 md:right-6 md:space-y-3">
-        <Button
-          className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-green-600 hover:bg-green-700 shadow-2xl border-2 border-white/20"
-          onClick={() => window.open("tel:+447966881555", "_self")}
-        >
-          <Phone className="w-5 h-5 md:w-6 md:h-6 text-white" />
-        </Button>
+      {/* Enhanced Floating Action Buttons - Hidden when footer is visible */}
+      {showFloatingButtons && (
+        <div className="fixed bottom-20 right-4 z-40 flex flex-col space-y-2 md:bottom-6 md:right-6 md:space-y-3 transition-opacity duration-300">
+          <Button
+            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-green-600 hover:bg-green-700 shadow-2xl border-2 border-white/20"
+            onClick={() => window.open("tel:+447966881555", "_self")}
+          >
+            <Phone className="w-5 h-5 md:w-6 md:h-6 text-white" />
+          </Button>
 
-        <CalendlyModal
-          trigger={
-            <Button className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-blue-600 hover:bg-blue-700 shadow-2xl border-2 border-white/20">
-              <Calendar className="w-5 h-5 md:w-6 md:h-6 text-white" />
-            </Button>
-          }
-        />
-      </div>
+          <CalendlyModal
+            trigger={
+              <Button className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-blue-600 hover:bg-blue-700 shadow-2xl border-2 border-white/20">
+                <Calendar className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              </Button>
+            }
+          />
+        </div>
+      )}
     </div>
   )
 }
