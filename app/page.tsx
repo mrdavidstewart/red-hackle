@@ -94,7 +94,7 @@ export default function HomePage() {
       {/* Enhanced Header with Prominent Logo */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-gray-200 shadow-lg">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
-          <div className="flex items-center justify-between h-24 md:h-32 lg:h-36">
+          <div className="flex items-center justify-between h-28 md:h-32 lg:h-36">
             {/* Prominent Logo Section */}
             <div className="flex items-center space-x-4">
               <Image
@@ -102,7 +102,7 @@ export default function HomePage() {
                 alt="Red Hackle Cleaning Services Logo"
                 width={500}
                 height={150}
-                className="h-24 md:h-32 lg:h-36 w-auto object-contain"
+                className="h-24 md:h-28 lg:h-32 w-auto object-contain"
                 priority
               />
             </div>
@@ -164,20 +164,11 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section with Enhanced Logo Placement */}
-      <section className="min-h-screen flex items-center justify-center pt-20 md:pt-24 bg-white">
+      <section className="min-h-screen flex items-center justify-center pt-28 md:pt-32 lg:pt-36 bg-white">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
             <div className="space-y-6 md:space-y-8 lg:max-w-2xl">
-              {/* Prominent Logo Above FAST. FLEXIBLE. RELIABLE. */}
-              <div className="text-center lg:text-left mb-8">
-                <Image
-                  src="/images/new-logo.png"
-                  alt="Red Hackle Cleaning Services"
-                  width={600}
-                  height={180}
-                  className="h-32 md:h-48 lg:h-56 xl:h-64 w-auto object-contain mx-auto lg:mx-0 mb-6"
-                  priority
-                />
+              <div className="text-center lg:text-left mb-8 pt-6 md:pt-8">
                 <Badge className="bg-red-50 border border-red-200 text-red-700 px-6 py-3 font-bold text-base">
                   <Shield className="w-5 h-5 mr-3" />
                   Trusted Professional Service
@@ -306,6 +297,7 @@ export default function HomePage() {
                 width={500}
                 height={600}
                 className="object-contain w-full max-w-lg h-[400px] md:h-[500px] lg:h-[600px]"
+                style={{ width: "auto", height: "auto" }}
                 priority
               />
             </div>
@@ -546,6 +538,7 @@ export default function HomePage() {
                 width={400}
                 height={500}
                 className="object-contain w-full max-w-sm h-[300px] md:h-[400px] lg:h-[500px]"
+                style={{ width: "auto", height: "auto" }}
               />
             </div>
           </div>
