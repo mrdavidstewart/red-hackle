@@ -960,6 +960,19 @@ export default function HomePage() {
         }}
       />
 
+      {/* Google Ads Conversion Tracking */}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17541701344"></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17541701344');
+          `,
+        }}
+      />
+
       {/* Enhanced Mobile Sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 bg-red-600 p-3 md:hidden z-30 pb-safe shadow-2xl">
         <div className="flex space-x-2">
