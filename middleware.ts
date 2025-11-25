@@ -17,6 +17,14 @@ export function middleware(request: NextRequest) {
     response.headers.set("Cache-Control", "no-cache, no-store, must-revalidate, private")
     response.headers.set("Pragma", "no-cache")
     response.headers.set("Expires", "0")
+
+    // Log access to private route (for monitoring)
+    console.log("Private route accessed:", {
+      path: request.nextUrl.pathname,
+      userAgent: request.headers.get("user-agent"),
+      ip: request.ip,
+      timestamp: new Date().toISOString(),
+    })
   }
 
   // Block suspicious requests
@@ -28,6 +36,13 @@ export function middleware(request: NextRequest) {
   const isLegitimate = legitimateBots.some((pattern) => pattern.test(userAgent))
 
   if (isSuspicious && !isLegitimate) {
+    console.warn("Suspicious request blocked:", {
+      userAgent,
+      ip: request.ip,
+      url: request.url,
+      timestamp: new Date().toISOString(),
+    })
+
     return new NextResponse("Access Denied", { status: 403 })
   }
 

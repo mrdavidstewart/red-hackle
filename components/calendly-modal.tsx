@@ -29,6 +29,7 @@ export function CalendlyModal({ trigger, title = "Book Your Free Quote Visit" }:
       }
 
       script.onerror = () => {
+        console.error("Failed to load Calendly script")
         setIsLoading(false)
       }
 
@@ -64,7 +65,7 @@ export function CalendlyModal({ trigger, title = "Book Your Free Quote Visit" }:
               <DialogTitle className="text-2xl font-bold text-gray-900 flex items-center">
                 <Calendar className="w-6 h-6 mr-3 text-red-600" />
                 {title}
-                <Shield className="w-4 h-4 ml-2 text-green-600" aria-label="Secure booking" />
+                <Shield className="w-4 h-4 ml-2 text-green-600" title="Secure booking" />
               </DialogTitle>
               <Button variant="ghost" size="sm" onClick={handleClose} className="text-gray-500 hover:text-gray-700">
                 <X className="w-5 h-5" />

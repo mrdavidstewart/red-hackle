@@ -81,7 +81,7 @@ export default function NewStarterPage() {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-8">
-              We&apos;re excited to have you join our professional cleaning team. Please complete the new starter form below
+              We're excited to have you join our professional cleaning team. Please complete the new starter form below
               to begin your journey with Red Hackle Cleaning Services.
             </p>
 
@@ -165,7 +165,7 @@ export default function NewStarterPage() {
           <div className="text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Need Help?</h2>
             <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-              If you have any questions while completing this form, don&apos;t hesitate to reach out to our team.
+              If you have any questions while completing this form, don't hesitate to reach out to our team.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
