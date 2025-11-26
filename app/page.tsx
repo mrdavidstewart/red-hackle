@@ -32,13 +32,17 @@ import {
   Quote,
   Mail,
   MessageCircle,
+  Menu,
+  X,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import Script from "next/script"
 import { useEffect, useState } from "react"
 
 export default function HomePage() {
   const [showFloatingButtons, setShowFloatingButtons] = useState(true)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   // Enhanced mobile security and viewport management
   useEffect(() => {
@@ -110,11 +114,11 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
+    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden scroll-pt-20 xs:scroll-pt-24 md:scroll-pt-28 lg:scroll-pt-32">
       {/* Enhanced Header with Prominent Logo */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-gray-200 shadow-lg">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
-          <div className="flex items-center justify-between h-28 md:h-32 lg:h-36">
+          <div className="flex items-center justify-between h-20 xs:h-24 md:h-28 lg:h-32">
             {/* Prominent Logo Section */}
             <div className="flex items-center space-x-4">
               <Image
@@ -122,11 +126,12 @@ export default function HomePage() {
                 alt="Red Hackle Cleaning Services Logo"
                 width={500}
                 height={150}
-                className="h-24 md:h-28 lg:h-32 w-auto object-contain"
+                className="h-16 xs:h-20 md:h-24 lg:h-28 w-auto object-contain"
                 priority
               />
             </div>
 
+            {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               <Link
                 href="#coverage"
@@ -151,9 +156,9 @@ export default function HomePage() {
               </Link>
             </nav>
 
-            <div className="flex items-center space-x-4">
-              {/* Social Links in Header */}
-              <div className="hidden md:flex items-center space-x-3">
+            <div className="flex items-center space-x-2 xs:space-x-3 md:space-x-4">
+              {/* Social Links - Desktop only */}
+              <div className="hidden lg:flex items-center space-x-3">
                 <Link
                   href="https://www.facebook.com/profile.php?id=61555545779742"
                   className="text-gray-400 hover:text-blue-500 transition-colors"
@@ -171,20 +176,89 @@ export default function HomePage() {
                   <Instagram className="w-5 h-5" />
                 </Link>
               </div>
+              
+              {/* Call Now Button */}
               <Button
-                className="bg-red-600 hover:bg-red-700 text-white text-base md:text-lg px-4 py-3 md:px-8 md:py-4 font-bold shadow-xl border-2 border-red-700"
+                className="bg-red-600 hover:bg-red-700 text-white text-xs xs:text-sm md:text-base lg:text-lg px-2 xs:px-3 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 font-bold shadow-xl border-2 border-red-700"
                 onClick={() => window.open("tel:+447966881555", "_self")}
               >
-                <Phone className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
-                Call Now
+                <Phone className="w-3 h-3 xs:w-4 xs:h-4 md:w-5 md:h-5 mr-1 xs:mr-2 md:mr-3" />
+                <span className="hidden xs:inline">Call Now</span>
+                <span className="xs:hidden">Call</span>
+              </Button>
+
+              {/* Mobile Menu Button */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="lg:hidden text-gray-700 hover:text-red-600 hover:bg-gray-100"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </Button>
             </div>
           </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
+              <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <Link
+                  href="#coverage"
+                  className="text-gray-700 hover:text-red-600 transition-colors font-semibold text-base py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Coverage
+                </Link>
+                <Link
+                  href="#services"
+                  className="text-gray-700 hover:text-red-600 transition-colors font-semibold text-base py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Services
+                </Link>
+                <Link
+                  href="#about"
+                  className="text-gray-700 hover:text-red-600 transition-colors font-semibold text-base py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+                <Link
+                  href="#contact"
+                  className="text-gray-700 hover:text-red-600 transition-colors font-semibold text-base py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact
+                </Link>
+                
+                {/* Social Links in Mobile Menu */}
+                <div className="flex items-center space-x-4 pt-4 border-t border-gray-200">
+                  <Link
+                    href="https://www.facebook.com/profile.php?id=61555545779742"
+                    className="text-gray-400 hover:text-blue-500 transition-colors"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <Facebook className="w-6 h-6" />
+                  </Link>
+                  <Link
+                    href="https://instagram.com/redhacklegroup"
+                    className="text-gray-400 hover:text-pink-500 transition-colors"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <Instagram className="w-6 h-6" />
+                  </Link>
+                </div>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
       {/* Hero Section with Enhanced Logo Placement */}
-      <section className="min-h-screen flex items-center justify-center pt-28 md:pt-32 lg:pt-36 bg-white">
+      <section className="min-h-screen flex items-center justify-center pt-24 xs:pt-28 md:pt-32 lg:pt-36 bg-white">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
             <div className="space-y-6 md:space-y-8 lg:max-w-2xl">
@@ -309,7 +383,7 @@ export default function HomePage() {
                 alt="David Stewart - Red Hackle Team Leader"
                 width={500}
                 height={600}
-                className="object-contain w-full max-w-lg h-[400px] md:h-[500px] lg:h-[600px]"
+                className="object-contain w-full max-w-[250px] xs:max-w-[300px] sm:max-w-md md:max-w-lg h-[250px] xs:h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]"
                 style={{ width: "auto", height: "auto" }}
                 priority
               />
@@ -319,12 +393,12 @@ export default function HomePage() {
       </section>
 
       {/* Quick Booking Bar */}
-      <section className="py-4 md:py-6 bg-red-600">
+      <section className="py-4 md:py-6 bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-center md:text-left">
               <h3 className="text-lg md:text-xl font-bold text-white mb-1">Need a quote today?</h3>
-              <p className="text-red-100 text-sm md:text-base">
+              <p className="text-gray-300 text-sm md:text-base">
                 Choose your preferred way to get in touch, we respond fast!
               </p>
             </div>
@@ -357,7 +431,7 @@ export default function HomePage() {
       </section>
 
       {/* Coverage Area Section - Reduced spacing */}
-      <section id="coverage" className="py-12 md:py-16">
+      <section id="coverage" className="py-12 md:py-16 scroll-mt-20 xs:scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="text-center mb-10 md:mb-12">
             <Badge className="bg-red-50 border border-red-200 text-red-700 mb-6 font-semibold">
@@ -447,6 +521,7 @@ export default function HomePage() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     className="rounded-lg"
+                    title="Google Maps showing Red Hackle Cleaning Services location at 165 Brook Street, Dundee"
                   />
                 </div>
                 <div className="mt-6 text-center">
@@ -468,7 +543,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Section - Updated with Natalie */}
-      <section id="services" className="py-12 md:py-16 bg-gray-50">
+      <section id="services" className="py-12 md:py-16 bg-gray-50 scroll-mt-20 xs:scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="text-center mb-10 md:mb-12">
             <Badge className="bg-red-50 border border-red-200 text-red-700 mb-6 font-semibold">Our Services</Badge>
@@ -481,9 +556,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center mb-8 md:mb-12">
             {/* Services Grid - Left Side */}
-            <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-4">
+            <div className="grid md:grid-cols-4 sd:grid-cols-1 gap-3 md:gap-4">
               {[
                 {
                   icon: Home,
@@ -544,17 +618,16 @@ export default function HomePage() {
             </div>
 
             {/* Natalie cartoon - Right Side */}
-            <div className="relative flex justify-center lg:justify-end">
+            <div className="relative flex justify-center">
               <Image
                 src="/images/natalie-cartoon.png"
                 alt="Natalie - Red Hackle Team Member"
                 width={400}
                 height={500}
-                className="object-contain w-full max-w-sm h-[300px] md:h-[400px] lg:h-[500px]"
+                className="object-contain w-full max-w-[200px] xs:max-w-[250px] sm:max-w-xs md:max-w-sm h-[200px] xs:h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px]"
                 style={{ width: "auto", height: "auto" }}
               />
             </div>
-          </div>
 
           {/* CTA Button below services */}
           <div className="text-center">
@@ -654,7 +727,7 @@ export default function HomePage() {
       </section>
 
       {/* About Section - Reduced spacing and new team image */}
-      <section id="about" className="py-12 md:py-16 bg-gray-50">
+      <section id="about" className="py-12 md:py-16 bg-gray-50 scroll-mt-20 xs:scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
@@ -753,7 +826,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section with Embedded Calendly - Reduced spacing */}
-      <section id="contact" className="py-12 md:py-16 bg-gray-50">
+      <section id="contact" className="py-12 md:py-16 bg-gray-50 scroll-mt-20 xs:scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-10 md:mb-12">
@@ -961,17 +1034,18 @@ export default function HomePage() {
       />
 
       {/* Google Ads Conversion Tracking */}
-      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17541701344"></script>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-17541701344');
-          `,
-        }}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-17541701344"
+        strategy="afterInteractive"
       />
+      <Script id="google-ads-config" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-17541701344');
+        `}
+      </Script>
 
       {/* Enhanced Mobile Sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 bg-red-600 p-3 md:hidden z-30 pb-safe shadow-2xl">
