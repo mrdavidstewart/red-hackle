@@ -76,6 +76,7 @@ export default function RootLayout({
         httpEquiv="Permissions-Policy"
         content='camera=(), microphone=(), geolocation=(), payment=(self "https://calendly.com" "https://*.calendly.com")'
       />
+      <meta name="google-site-verification" content="wNnr855I09kRLLMfWF5YbdhTgODBUYzqgnwPxq5JHF0" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
