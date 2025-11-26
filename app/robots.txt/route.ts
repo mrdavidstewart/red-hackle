@@ -20,7 +20,7 @@ User-agent: Slurp
 Disallow: /new-starter
 Disallow: /new-starter/
 
-Sitemap: https://redhacklecleaning.co.uk/sitemap.xml
+Sitemap: https://www.redhacklecleaningservices.com/sitemap.xml
 `
 
   return new NextResponse(robotsTxt, {
