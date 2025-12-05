@@ -2,6 +2,21 @@ import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 
 export function middleware(request: NextRequest) {
+  const url = request.nextUrl.clone()
+  const host = request.headers.get("host") || ""
+
+  // Redirect to canonical host and HTTPS in production
+  if (host === "redhacklecleaningservices.com") {
+    url.hostname = "www.redhacklecleaningservices.com"
+    url.protocol = "https:"
+    return NextResponse.redirect(url, 308)
+  }
+
+  if (url.protocol === "http:" && host.endsWith("redhacklecleaningservices.com")) {
+    url.protocol = "https:"
+    return NextResponse.redirect(url, 308)
+  }
+
   const response = NextResponse.next()
 
   // Add security headers for all routes
@@ -21,10 +36,22 @@ export function middleware(request: NextRequest) {
 
   // Block suspicious requests
   const userAgent = request.headers.get("user-agent") || ""
-  const suspiciousPatterns = [/bot/i, /crawler/i, /spider/i, /scraper/i]
-  const legitimateBots = [/googlebot/i, /bingbot/i, /slurp/i, /duckduckbot/i]
+  const suspiciousPatterns = [/curl/i, /python-requests/i, /wget/i, /httpclient/i]
+  const legitimateBots = [
+    /googlebot/i,
+    /bingbot/i,
+    /slurp/i,
+    /duckduckbot/i,
+    /facebookexternalhit/i,
+    /twitterbot/i,
+    /linkedinbot/i,
+    /slackbot/i,
+    /whatsapp/i,
+    /pinterest/i,
+    /google-inspectiontool/i,
+  ]
 
-  const isSuspicious = suspiciousPatterns.some((pattern) => pattern.test(userAgent))
+  const isSuspicious = userAgent && suspiciousPatterns.some((pattern) => pattern.test(userAgent))
   const isLegitimate = legitimateBots.some((pattern) => pattern.test(userAgent))
 
   if (isSuspicious && !isLegitimate) {
