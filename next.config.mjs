@@ -1,7 +1,4 @@
-/** @type {import('next'          {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=(), payment=(self "https://calendly.com" "https://*.calendly.com")'
-          }xtConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   // Security headers
   async headers() {
@@ -66,9 +63,11 @@ const nextConfig = {
         pathname: '/**',
       }
     ],
+    formats: ['image/avif', 'image/webp'],
     dangerouslyAllowSVG: false,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    unoptimized: true, // Added from updates
+    // Re-enable optimization to improve Core Web Vitals
+    unoptimized: false,
   },
 
   // Disable x-powered-by header

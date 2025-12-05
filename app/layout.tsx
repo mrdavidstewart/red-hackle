@@ -6,9 +6,10 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Red Hackle Cleaning Services | Professional Cleaning in Dundee, Tayside, Fife & Angus",
+  metadataBase: new URL("https://www.redhacklecleaningservices.com"),
+  title: "Red Hackle Cleaning Dundee | Domestic & Commercial",
   description:
-    "Professional cleaning services in Dundee and surrounding areas. Domestic, commercial, end of tenancy, and deep cleaning. Fast, flexible, reliable service with 100% satisfaction guarantee.",
+    "Local cleaners in Dundee, Angus, Fife & Tayside for homes, offices, end-of-tenancy and deep cleans. Fast quotes, fully insured team.",
   keywords:
     "cleaning services, Dundee, Tayside, Fife, Angus, domestic cleaning, commercial cleaning, end of tenancy, deep cleaning, carpet cleaning",
   authors: [{ name: "Red Hackle Cleaning Services" }],
@@ -17,26 +18,25 @@ export const metadata: Metadata = {
   formatDetection: {
     email: false,
     address: false,
-    telephone: false,
+    telephone: true,
   },
-  metadataBase: new URL("https://redhacklecleaningservices.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Red Hackle Cleaning Services | Professional Cleaning in Dundee",
-    description:
-      "Fast, flexible, reliable cleaning services across Dundee, Tayside, Fife & Angus. 100% satisfaction guarantee.",
-    url: "https://redhacklecleaningservices.com",
+    title: "Red Hackle Cleaning Dundee | Domestic & Commercial",
+    description: "Fast, flexible, reliable cleaning services across Dundee, Tayside, Fife & Angus.",
+    url: "https://www.redhacklecleaningservices.com/",
     siteName: "Red Hackle Cleaning Services",
     locale: "en_GB",
     type: "website",
+    images: [{ url: "/images/team-photo.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Red Hackle Cleaning Services | Professional Cleaning in Dundee",
-    description:
-      "Fast, flexible, reliable cleaning services across Dundee, Tayside, Fife & Angus. 100% satisfaction guarantee.",
+    title: "Red Hackle Cleaning Dundee | Domestic & Commercial",
+    description: "Fast, flexible, reliable cleaning services across Dundee, Tayside, Fife & Angus.",
+    images: ["/images/team-photo.jpg"],
   },
   robots: {
     index: true,
@@ -70,7 +70,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#dc2626" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
               <meta
         httpEquiv="Permissions-Policy"

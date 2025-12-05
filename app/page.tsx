@@ -43,6 +43,15 @@ import { useEffect, useState } from "react"
 export default function HomePage() {
   const [showFloatingButtons, setShowFloatingButtons] = useState(true)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  })
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
+  const [formError, setFormError] = useState<string | null>(null)
 
   // Enhanced mobile security and viewport management
   useEffect(() => {
@@ -55,14 +64,14 @@ export default function HomePage() {
     if (viewport) {
       viewport.setAttribute(
         "content",
-        "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover",
+        "width=device-width, initial-scale=1.0, viewport-fit=cover",
       )
     }
 
     // Add security measures for mobile
     const securityMeta = document.createElement("meta")
     securityMeta.name = "format-detection"
-    securityMeta.content = "telephone=no, date=no, email=no, address=no"
+    securityMeta.content = "telephone=yes, date=no, email=no, address=no"
     document.head.appendChild(securityMeta)
 
     // Prevent text selection on sensitive elements
@@ -112,6 +121,46 @@ export default function HomePage() {
       }
     }
   }, [])
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = event.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setFormStatus("submitting")
+    setFormError(null)
+
+    const payload = new FormData()
+    Object.entries(formData).forEach(([key, value]) => payload.append(key, value))
+    payload.append("timestamp", Date.now().toString())
+    payload.append("website", "")
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: payload,
+      })
+      const data = await response.json().catch(() => ({}))
+
+      if (!response.ok) {
+        throw new Error(data.error || "Unable to send message")
+      }
+
+      setFormStatus("success")
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      })
+    } catch (error) {
+      setFormStatus("error")
+      setFormError(error instanceof Error ? error.message : "Something went wrong")
+    }
+  }
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden scroll-pt-20 xs:scroll-pt-24 md:scroll-pt-28 lg:scroll-pt-32">
@@ -849,19 +898,29 @@ export default function HomePage() {
               <Card className="bg-white border border-gray-200 shadow-lg">
                 <CardContent className="p-6 md:p-8">
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">Or Send Us a Message</h3>
-                  <form className="space-y-4 md:space-y-6">
+                  <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label className="text-sm font-medium text-gray-700">First Name</label>
                         <Input
+                          name="firstName"
                           placeholder="Enter your first name"
+                          value={formData.firstName}
+                          onChange={handleInputChange}
+                          autoComplete="given-name"
+                          required
                           className="bg-white border-gray-300 text-gray-900 h-10 md:h-12 focus:border-red-500 focus:ring-red-500"
                         />
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-medium text-gray-700">Last Name</label>
                         <Input
+                          name="lastName"
                           placeholder="Enter your last name"
+                          value={formData.lastName}
+                          onChange={handleInputChange}
+                          autoComplete="family-name"
+                          required
                           className="bg-white border-gray-300 text-gray-900 h-10 md:h-12 focus:border-red-500 focus:ring-red-500"
                         />
                       </div>
@@ -872,7 +931,12 @@ export default function HomePage() {
                         <label className="text-sm font-medium text-gray-700">Email</label>
                         <Input
                           type="email"
+                          name="email"
                           placeholder="your.email@example.com"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          autoComplete="email"
+                          required
                           className="bg-white border-gray-300 text-gray-900 h-10 md:h-12 focus:border-red-500 focus:ring-red-500"
                         />
                       </div>
@@ -880,7 +944,12 @@ export default function HomePage() {
                         <label className="text-sm font-medium text-gray-700">Phone</label>
                         <Input
                           type="tel"
+                          name="phone"
                           placeholder="Your phone number"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          autoComplete="tel"
+                          required
                           className="bg-white border-gray-300 text-gray-900 h-10 md:h-12 focus:border-red-500 focus:ring-red-500"
                         />
                       </div>
@@ -890,15 +959,41 @@ export default function HomePage() {
                       <label className="text-sm font-medium text-gray-700">Message</label>
                       <Textarea
                         placeholder="Tell us about your cleaning needs..."
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        required
                         className="bg-white border-gray-300 text-gray-900 min-h-[100px] md:min-h-[120px] focus:border-red-500 focus:ring-red-500"
                         rows={4}
                       />
                     </div>
 
-                    <Button className="w-full bg-red-600 hover:bg-red-700 text-white h-10 md:h-12 text-base md:text-lg font-semibold shadow-lg">
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className="hidden"
+                    />
+
+                    <Button
+                      type="submit"
+                      disabled={formStatus === "submitting"}
+                      className="w-full bg-red-600 hover:bg-red-700 text-white h-10 md:h-12 text-base md:text-lg font-semibold shadow-lg disabled:opacity-70"
+                    >
                       <Mail className="w-4 md:w-5 h-4 md:h-5 mr-2 md:mr-3" />
-                      Send Message
+                      {formStatus === "submitting" ? "Sending..." : "Send Message"}
                     </Button>
+                    {formStatus === "success" && (
+                      <p className="text-green-600 text-sm" role="status">
+                        Message received. We&apos;ll get back to you shortly.
+                      </p>
+                    )}
+                    {formStatus === "error" && (
+                      <p className="text-red-600 text-sm" role="alert">
+                        {formError || "Something went wrong. Please try again."}
+                      </p>
+                    )}
                   </form>
                 </CardContent>
               </Card>
@@ -971,7 +1066,7 @@ export default function HomePage() {
                 <Card className="bg-white border border-gray-200 shadow-lg max-w-sm w-full h-[400px] md:h-[450px]">
                   <CardContent className="p-6 md:p-8 h-full flex items-center justify-center relative">
                     <Image
-                      src="/images/arthur-cartoon.png"
+                      src="/images/arthur-cartoon-900.png"
                       alt="Arthur Keith - Managing Director"
                       fill
                       className="object-contain p-4"
@@ -1018,7 +1113,12 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
+            "@id": "https://www.redhacklecleaningservices.com/#business",
             name: "Red Hackle Cleaning Services",
+            image: "https://www.redhacklecleaningservices.com/images/team-photo.jpg",
+            url: "https://www.redhacklecleaningservices.com/",
+            telephone: "+447966881555",
+            email: "operations@redhacklegroup.com",
             address: {
               "@type": "PostalAddress",
               streetAddress: "165 Brook Street",
@@ -1026,9 +1126,50 @@ export default function HomePage() {
               postalCode: "DD5 1DJ",
               addressCountry: "GB",
             },
-            telephone: "+447966881555",
-            url: "https://redhacklecleaningservices.com",
-            areaServed: ["Dundee", "Perth", "Fife", "Angus", "Tayside"],
+            geo: { "@type": "GeoCoordinates", latitude: 56.462018, longitude: -2.970721 },
+            areaServed: ["Dundee", "Angus", "Fife", "Tayside", "Perth"],
+            openingHoursSpecification: [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                opens: "08:00",
+                closes: "18:00",
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Saturday", "Sunday"],
+                opens: "09:00",
+                closes: "15:00",
+              },
+            ],
+            priceRange: "££",
+            sameAs: [
+              "https://www.facebook.com/profile.php?id=61555545779742",
+              "https://instagram.com/redhacklegroup",
+              "https://g.page/r/CbpaIv_lA5HoEBM/review",
+            ],
+            makesOffer: [
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Domestic Cleaning" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Cleaning" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "End of Tenancy Cleaning" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Deep Cleaning" } },
+            ],
+            aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "4" },
+            review: [
+              {
+                "@type": "Review",
+                author: "Margaret",
+                reviewBody: "Happy with work carried out. Would recommend David and his team without hesitation.",
+                reviewRating: { "@type": "Rating", ratingValue: "5" },
+              },
+              {
+                "@type": "Review",
+                author: "Tara Macandrew",
+                reviewBody:
+                  "Excellent friendly service from Arthur and his team. From first contact to job completion, I knew they wouldn't let me down.",
+                reviewRating: { "@type": "Rating", ratingValue: "5" },
+              },
+            ],
           }),
         }}
       />
