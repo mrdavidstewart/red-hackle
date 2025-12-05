@@ -16,7 +16,6 @@ import {
   Building,
   Sparkles,
   Car,
-  ChefHat,
   Hammer,
   Users,
   ArrowRight,
@@ -163,25 +162,34 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden scroll-pt-20 xs:scroll-pt-24 md:scroll-pt-28 lg:scroll-pt-32">
+    <div
+      id="top"
+      className="min-h-screen bg-white text-gray-900 overflow-x-hidden scroll-pt-20 xs:scroll-pt-24 md:scroll-pt-28 lg:scroll-pt-32"
+    >
       {/* Enhanced Header with Prominent Logo */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md border-b border-gray-200 shadow-lg">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="flex items-center justify-between h-20 xs:h-24 md:h-28 lg:h-32">
             {/* Prominent Logo Section */}
-            <div className="flex items-center space-x-4">
+            <Link href="#top" className="flex items-center space-x-4">
               <Image
                 src="/images/new-logo.png"
-                alt="Red Hackle Cleaning Services Logo"
+                alt="Red Hackle Cleaning Services logo"
                 width={500}
                 height={150}
                 className="h-16 xs:h-20 md:h-24 lg:h-28 w-auto object-contain"
                 priority
               />
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
+              <Link
+                href="#services"
+                className="text-gray-700 hover:text-red-600 transition-colors font-semibold text-lg"
+              >
+                Services
+              </Link>
               <Link
                 href="#coverage"
                 className="text-gray-700 hover:text-red-600 transition-colors font-semibold text-lg"
@@ -189,10 +197,10 @@ export default function HomePage() {
                 Coverage
               </Link>
               <Link
-                href="#services"
+                href="#testimonials"
                 className="text-gray-700 hover:text-red-600 transition-colors font-semibold text-lg"
               >
-                Services
+                Testimonials
               </Link>
               <Link href="#about" className="text-gray-700 hover:text-red-600 transition-colors font-semibold text-lg">
                 About
@@ -253,6 +261,13 @@ export default function HomePage() {
             <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
               <nav className="container mx-auto px-4 py-4 flex flex-col space-y-4">
                 <Link
+                  href="#services"
+                  className="text-gray-700 hover:text-red-600 transition-colors font-semibold text-base py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Services
+                </Link>
+                <Link
                   href="#coverage"
                   className="text-gray-700 hover:text-red-600 transition-colors font-semibold text-base py-2"
                   onClick={() => setMobileMenuOpen(false)}
@@ -260,11 +275,11 @@ export default function HomePage() {
                   Coverage
                 </Link>
                 <Link
-                  href="#services"
+                  href="#testimonials"
                   className="text-gray-700 hover:text-red-600 transition-colors font-semibold text-base py-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Services
+                  Testimonials
                 </Link>
                 <Link
                   href="#about"
@@ -311,18 +326,18 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
             <div className="space-y-6 md:space-y-8 lg:max-w-2xl">
-              <div className="text-center lg:text-left mb-8 pt-6 md:pt-8">
-                <Badge className="bg-red-50 border border-red-200 text-red-700 px-6 py-3 font-bold text-base">
-                  <Shield className="w-5 h-5 mr-3" />
-                  Trusted Professional Service
-                </Badge>
-              </div>
-
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-center lg:text-left">
+                Red Hackle Cleaning Services
+              </h1>
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 text-center lg:text-left">
+                Domestic and Commercial Cleaning in Dundee, Angus and Fife
+              </h2>
+
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-center lg:text-left" aria-hidden="true">
                 <span className="text-red-600 block">FAST.</span>
                 <span className="text-gray-900 block">FLEXIBLE.</span>
                 <span className="text-red-600 block">RELIABLE.</span>
-              </h1>
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
@@ -429,7 +444,7 @@ export default function HomePage() {
             <div className="relative mt-8 lg:mt-0 flex justify-center lg:justify-end">
               <Image
                 src="/images/david-cartoon.png"
-                alt="David Stewart - Red Hackle Team Leader"
+                alt="Illustration of David Stewart from Red Hackle Cleaning Services in Dundee"
                 width={500}
                 height={600}
                 className="object-contain w-full max-w-[250px] xs:max-w-[300px] sm:max-w-md md:max-w-lg h-[250px] xs:h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]"
@@ -487,7 +502,9 @@ export default function HomePage() {
               <MapPin className="w-4 h-4 mr-2" />
               Service Coverage
             </Badge>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">Areas We Serve</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">
+              Areas We Serve Across Dundee, Tayside, Fife and Angus
+            </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Based in Dundee, we proudly serve homes and businesses across Tayside, Fife, and Angus with the same
               professional excellence.
@@ -597,7 +614,7 @@ export default function HomePage() {
           <div className="text-center mb-10 md:mb-12">
             <Badge className="bg-red-50 border border-red-200 text-red-700 mb-6 font-semibold">Our Services</Badge>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">
-              Professional Cleaning Solutions
+              Cleaning Services in Dundee, Angus and Fife
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
               Every job completed with care and attention to detail. Every customer treated like family. Every result
@@ -607,50 +624,50 @@ export default function HomePage() {
 
             {/* Services Grid - Left Side */}
             <div className="grid md:grid-cols-4 sd:grid-cols-1 gap-3 md:gap-4">
+              <div id="one-off-cleaning" className="sr-only">
+                One-Off Cleaning anchor
+              </div>
               {[
                 {
                   icon: Home,
-                  title: "Domestic Services",
-                  desc: "Regular home maintenance",
+                  title: "Domestic Cleaning in Dundee and Surrounding Areas",
+                  desc: "Regular home cleaning that fits your schedule and standards.",
+                  id: "domestic-cleaning",
                 },
                 {
                   icon: Building,
-                  title: "Commercial",
-                  desc: "Office and business cleaning",
+                  title: "Commercial Cleaning for Offices and Businesses",
+                  desc: "Office and workplace cleaning tailored to business needs.",
+                  id: "commercial-cleaning",
                 },
                 {
                   icon: Building,
-                  title: "End of Tenancy",
-                  desc: "Move-out cleaning specialists",
-                },
-                {
-                  icon: Users,
-                  title: "One-Off Cleans",
-                  desc: "Flexible cleaning solutions",
+                  title: "End of Tenancy Cleaning in Dundee",
+                  desc: "Move-out cleaning specialists to help pass inventory checks.",
+                  id: "end-of-tenancy-cleaning",
                 },
                 {
                   icon: Sparkles,
-                  title: "Deep Cleaning",
-                  desc: "Thorough and comprehensive cleaning",
+                  title: "Deep Cleaning and One-Off Cleans",
+                  desc: "Thorough deep cleans for kitchens, bathrooms, and high-traffic areas.",
+                  id: "deep-cleaning",
                 },
                 {
                   icon: Car,
-                  title: "Carpet Cleaning",
-                  desc: "Professional carpet care",
-                },
-                {
-                  icon: ChefHat,
-                  title: "Kitchen Deep Clean",
-                  desc: "Specialist kitchen services",
+                  title: "Carpet Cleaning Services",
+                  desc: "Professional carpet and soft furnishing care.",
+                  id: "carpet-cleaning",
                 },
                 {
                   icon: Hammer,
-                  title: "Post-Build Clean",
-                  desc: "Construction cleanup experts",
+                  title: "Post-Build and After-Construction Cleaning",
+                  desc: "Construction cleanup experts removing dust and debris.",
+                  id: "post-build-cleaning",
                 },
               ].map((service, index) => (
                 <Card
                   key={index}
+                  id={service.id}
                   className="bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
                 >
                   <CardContent className="p-3 md:p-4 text-center">
@@ -666,11 +683,31 @@ export default function HomePage() {
               ))}
             </div>
 
+            <div className="flex flex-wrap justify-center gap-3 md:gap-4 my-6">
+              {[
+                { href: "#domestic-cleaning", label: "Domestic Cleaning" },
+                { href: "#commercial-cleaning", label: "Commercial Cleaning" },
+                { href: "#end-of-tenancy-cleaning", label: "End of Tenancy" },
+                { href: "#deep-cleaning", label: "Deep & One-Off Cleans" },
+                { href: "#carpet-cleaning", label: "Carpet Cleaning" },
+                { href: "#post-build-cleaning", label: "Post-Build Cleaning" },
+                { href: "#one-off-cleaning", label: "One-Off Cleaning" },
+              ].map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm md:text-base text-red-600 font-semibold hover:text-red-700 underline"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
             {/* Natalie cartoon - Right Side */}
             <div className="relative flex justify-center">
               <Image
                 src="/images/natalie-cartoon.png"
-                alt="Natalie - Red Hackle Team Member"
+                alt="Illustration of Natalie from the Red Hackle cleaning team"
                 width={400}
                 height={500}
                 className="object-contain w-full max-w-[200px] xs:max-w-[250px] sm:max-w-xs md:max-w-sm h-[200px] xs:h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px]"
@@ -704,7 +741,9 @@ export default function HomePage() {
               <ThumbsUp className="w-4 h-4 mr-2" />
               Why Choose Red Hackle
             </Badge>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">What Makes Us Different</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">
+              Why Choose Red Hackle Cleaning Services
+            </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               We&apos;re not just another cleaning company, here&apos;s what sets us apart from the competition.
             </p>
@@ -781,9 +820,13 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
               <Badge className="bg-red-50 border border-red-200 text-red-700 mb-6 font-semibold">Our Story</Badge>
-              <h2 className="text-3xl md:text-4xl font-black mb-6 text-gray-900">
+              <h3
+                className="text-3xl md:text-4xl font-black mb-6 text-gray-900"
+                role="heading"
+                aria-level={2}
+              >
                 Professional Standards, Personal Touch
-              </h2>
+              </h3>
               <p className="text-base md:text-lg mb-6 text-gray-700">
                 Founded with a commitment to excellence, Red Hackle brings the same discipline, attention to detail, and
                 reliability that comes from professional training to your cleaning needs.
@@ -810,7 +853,7 @@ export default function HomePage() {
             <div className="relative max-w-md mx-auto lg:max-w-lg">
               <Image
                 src="/images/team-photo.jpg"
-                alt="Red Hackle Cleaning Services Team"
+                alt="Red Hackle Cleaning Services team group photo in Dundee"
                 width={500}
                 height={400}
                 className="rounded-lg object-cover w-full h-[280px] md:h-[350px] shadow-lg"
@@ -821,10 +864,12 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials - Reduced spacing and updated reviews */}
-      <section className="py-12 md:py-16">
+      <section id="testimonials" className="py-12 md:py-16 scroll-mt-20 xs:scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-black mb-4 text-gray-900">What Our Customers Say</h2>
+            <h2 className="text-3xl md:text-4xl font-black mb-4 text-gray-900">
+              Customer Reviews from Dundee and Surrounding Areas
+            </h2>
             <p className="text-lg md:text-xl text-gray-600">Don&apos;t just take our word for it</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -881,7 +926,7 @@ export default function HomePage() {
             <div className="text-center mb-10 md:mb-12">
               <Badge className="bg-red-50 border border-red-200 text-red-700 mb-6 font-semibold">Get In Touch</Badge>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">
-                Request Your Free Quote
+                Request Your Free Cleaning Quote
               </h2>
               <p className="text-lg md:text-xl text-gray-600">
                 Ready for professional cleaning? Book directly below or use our contact form.
@@ -1067,7 +1112,7 @@ export default function HomePage() {
                   <CardContent className="p-6 md:p-8 h-full flex items-center justify-center relative">
                     <Image
                       src="/images/arthur-cartoon-900.png"
-                      alt="Arthur Keith - Managing Director"
+                      alt="Illustration of Arthur Keith, Managing Director of Red Hackle Cleaning Services"
                       fill
                       className="object-contain p-4"
                     />
@@ -1075,6 +1120,61 @@ export default function HomePage() {
                 </Card>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-12 md:py-16">
+        <div className="container mx-auto px-4 sm:px-6 max-w-full">
+          <div className="text-center mb-10 md:mb-12">
+            <Badge className="bg-red-50 border border-red-200 text-red-700 mb-6 font-semibold">FAQ</Badge>
+            <h3
+              className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900"
+              role="heading"
+              aria-level={2}
+            >
+              Frequently Asked Questions
+            </h3>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+              Quick answers about our cleaning services across Dundee, Tayside, Fife and Angus.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+            {[
+              {
+                question: "Do you bring your own cleaning equipment?",
+                answer:
+                  "Yes. We arrive with all cleaning equipment and products needed. If you prefer specific products, tell us and we'll use them.",
+              },
+              {
+                question: "What areas do you cover?",
+                answer:
+                  "We cover Dundee, Tayside, Angus, Fife and nearby areas including Broughty Ferry, Carnoustie and Newport-on-Tay.",
+              },
+              {
+                question: "Do you offer one-off deep cleans?",
+                answer:
+                  "Absolutely. One-off deep cleans are available for homes and workplaces, including kitchens, bathrooms and high-traffic areas.",
+              },
+              {
+                question: "Are your cleaners insured?",
+                answer: "Yes. Our team is fully insured and vetted for your peace of mind.",
+              },
+              {
+                question: "Do you offer end of tenancy cleaning?",
+                answer:
+                  "Yes. We provide end of tenancy cleaning for tenants, landlords and agents to help properties pass inventory checks.",
+              },
+            ].map((item, index) => (
+              <Card key={index} className="bg-white border border-gray-200 shadow-sm">
+                <CardContent className="p-6">
+                  <h3 className="font-bold text-lg md:text-xl text-gray-900 mb-3">{item.question}</h3>
+                  <p className="text-gray-700 text-sm md:text-base leading-relaxed">{item.answer}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -1089,10 +1189,10 @@ export default function HomePage() {
                 165 Brook Street, Dundee, DD5 1DJ | Company No: SC463742
               </p>
               <div className="flex items-center space-x-4 md:space-x-6">
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-xs md:text-sm">
+                <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-xs md:text-sm">
                   Privacy Policy
                 </Link>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors text-xs md:text-sm">
+                <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors text-xs md:text-sm">
                   Terms of Service
                 </Link>
                 <Link
@@ -1106,73 +1206,6 @@ export default function HomePage() {
             </div>
         </div>
       </footer>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "@id": "https://www.redhacklecleaningservices.com/#business",
-            name: "Red Hackle Cleaning Services",
-            image: "https://www.redhacklecleaningservices.com/images/team-photo.jpg",
-            url: "https://www.redhacklecleaningservices.com/",
-            telephone: "+447966881555",
-            email: "operations@redhacklegroup.com",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "165 Brook Street",
-              addressLocality: "Dundee",
-              postalCode: "DD5 1DJ",
-              addressCountry: "GB",
-            },
-            geo: { "@type": "GeoCoordinates", latitude: 56.462018, longitude: -2.970721 },
-            areaServed: ["Dundee", "Angus", "Fife", "Tayside", "Perth"],
-            openingHoursSpecification: [
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                opens: "08:00",
-                closes: "18:00",
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Saturday", "Sunday"],
-                opens: "09:00",
-                closes: "15:00",
-              },
-            ],
-            priceRange: "££",
-            sameAs: [
-              "https://www.facebook.com/profile.php?id=61555545779742",
-              "https://instagram.com/redhacklegroup",
-              "https://g.page/r/CbpaIv_lA5HoEBM/review",
-            ],
-            makesOffer: [
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Domestic Cleaning" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Cleaning" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "End of Tenancy Cleaning" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Deep Cleaning" } },
-            ],
-            aggregateRating: { "@type": "AggregateRating", ratingValue: "5.0", reviewCount: "4" },
-            review: [
-              {
-                "@type": "Review",
-                author: "Margaret",
-                reviewBody: "Happy with work carried out. Would recommend David and his team without hesitation.",
-                reviewRating: { "@type": "Rating", ratingValue: "5" },
-              },
-              {
-                "@type": "Review",
-                author: "Tara Macandrew",
-                reviewBody:
-                  "Excellent friendly service from Arthur and his team. From first contact to job completion, I knew they wouldn't let me down.",
-                reviewRating: { "@type": "Rating", ratingValue: "5" },
-              },
-            ],
-          }),
-        }}
-      />
 
       {/* Google Ads Conversion Tracking */}
       <Script
