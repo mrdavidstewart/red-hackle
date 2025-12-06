@@ -1174,7 +1174,7 @@ export default function HomePage() {
               {
                 question: "What areas do you cover?",
                 answer:
-                  "We cover Dundee, Tayside, Angus, Fife, and Aberdeenshire.",
+                  "We cover Dundee, Tayside, Angus, Fife.",
               },
               {
                 question: "Do you offer one-off deep cleans?",
