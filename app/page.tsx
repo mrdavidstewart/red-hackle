@@ -211,6 +211,12 @@ export default function HomePage() {
               >
                 Contact
               </Link>
+              <Link
+                href="#faq"
+                className="text-gray-700 hover:text-red-600 transition-colors font-semibold text-lg"
+              >
+                FAQ
+              </Link>
             </nav>
 
             <div className="flex items-center space-x-2 xs:space-x-3 md:space-x-4">
@@ -294,6 +300,13 @@ export default function HomePage() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Contact
+                </Link>
+                <Link
+                  href="#faq"
+                  className="text-gray-700 hover:text-red-600 transition-colors font-semibold text-base py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  FAQ
                 </Link>
                 
                 {/* Social Links in Mobile Menu */}
@@ -875,7 +888,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {[
               {
-                name: "Margaret",
+                name: "Margaret Douglas",
                 location: "Carnoustie",
                 rating: 5,
                 text: "Happy with work carried out. Would recommend David and his team without hesitation.",
@@ -1125,7 +1138,10 @@ export default function HomePage() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-12 md:py-16">
+      <section
+        id="faq"
+        className="py-12 md:py-16 scroll-mt-20 xs:scroll-mt-24 md:scroll-mt-28 lg:scroll-mt-32"
+      >
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
           <div className="text-center mb-10 md:mb-12">
             <Badge className="bg-red-50 border border-red-200 text-red-700 mb-6 font-semibold">FAQ</Badge>
@@ -1146,12 +1162,12 @@ export default function HomePage() {
               {
                 question: "Do you bring your own cleaning equipment?",
                 answer:
-                  "Yes. We arrive with all cleaning equipment and products needed. If you prefer specific products, tell us and we'll use them.",
+                  "Yes. We arrive with all cleaning equipment and products needed. No need to provide anything.",
               },
               {
                 question: "What areas do you cover?",
                 answer:
-                  "We cover Dundee, Tayside, Angus, Fife and nearby areas including Broughty Ferry, Carnoustie and Newport-on-Tay.",
+                  "We cover Dundee, Tayside, Angus, Fife, and Aberdeenshire.",
               },
               {
                 question: "Do you offer one-off deep cleans?",
@@ -1167,6 +1183,12 @@ export default function HomePage() {
                 answer:
                   "Yes. We provide end of tenancy cleaning for tenants, landlords and agents to help properties pass inventory checks.",
               },
+              {
+                question: "Do you offer commercial cleaning services?",
+                answer:
+                  "Yes. We provide commercial cleaning services for offices, hospitality venues, retail spaces and more, tailored to your business needs.",
+              },
+
             ].map((item, index) => (
               <Card key={index} className="bg-white border border-gray-200 shadow-sm">
                 <CardContent className="p-6">
