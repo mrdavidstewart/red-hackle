@@ -81,6 +81,40 @@ export default function RootLayout({
         },
         areaServed: ["Dundee", "Tayside", "Fife", "Angus", "Broughty Ferry", "Carnoustie", "Newport-on-Tay"],
         priceRange: "$$",
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "5.0",
+          reviewCount: "4",
+        },
+        review: [
+          {
+            "@type": "Review",
+            author: { "@type": "Person", name: "Margaret Douglas" },
+            reviewBody: "Happy with work carried out. Would recommend David and his team without hesitation.",
+            reviewRating: { "@type": "Rating", ratingValue: "5" },
+          },
+          {
+            "@type": "Review",
+            author: { "@type": "Person", name: "Tara Macandrew" },
+            reviewBody:
+              "Excellent friendly service from Arthur and his team. From first contact to job completion, I knew they wouldn't let me down.",
+            reviewRating: { "@type": "Rating", ratingValue: "5" },
+          },
+          {
+            "@type": "Review",
+            author: { "@type": "Person", name: "Moira Elizabeth" },
+            reviewBody:
+              "From start to finish had such a great level of service. Felt safe and comfortable so I could trust and not worry.",
+            reviewRating: { "@type": "Rating", ratingValue: "5" },
+          },
+          {
+            "@type": "Review",
+            author: { "@type": "Person", name: "Karen Cooper" },
+            reviewBody:
+              "Great help keeping on top of my home while recovering. Would recommend the team without hesitation.",
+            reviewRating: { "@type": "Rating", ratingValue: "5" },
+          },
+        ],
       },
       ...[
         {
