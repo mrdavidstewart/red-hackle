@@ -662,7 +662,7 @@ export default function HomePage() {
                 },
                 {
                   icon: Building,
-                  title: "End of Tenancy Cleaning in Dundee",
+                  title: "End of Tenancy Cleaning in Dundee and Surrounding Areas",
                   desc: "Move-out cleaning specialists to help pass inventory checks.",
                   id: "end-of-tenancy-cleaning",
                 },
@@ -700,26 +700,6 @@ export default function HomePage() {
                     <p className="text-gray-600 text-xs md:text-sm">{service.desc}</p>
                   </CardContent>
                 </Card>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-3 md:gap-4 my-6">
-              {[
-                { href: "#domestic-cleaning", label: "Domestic Cleaning" },
-                { href: "#commercial-cleaning", label: "Commercial Cleaning" },
-                { href: "#end-of-tenancy-cleaning", label: "End of Tenancy" },
-                { href: "#deep-cleaning", label: "Deep & One-Off Cleans" },
-                { href: "#carpet-cleaning", label: "Carpet Cleaning" },
-                { href: "#post-build-cleaning", label: "Post-Build Cleaning" },
-                { href: "#one-off-cleaning", label: "One-Off Cleaning" },
-              ].map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm md:text-base text-red-600 font-semibold hover:text-red-700 underline"
-                >
-                  {link.label}
-                </Link>
               ))}
             </div>
 
