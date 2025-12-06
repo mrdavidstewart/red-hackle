@@ -346,6 +346,13 @@ export default function HomePage() {
                 Domestic and Commercial Cleaning in Dundee, Angus and Fife
               </h2>
 
+              <div className="text-center lg:text-left">
+                <Badge className="bg-red-50 border border-red-200 text-red-700 px-6 py-3 font-bold text-base">
+                  <Shield className="w-5 h-5 mr-3" />
+                  Trusted Professional Service
+                </Badge>
+              </div>
+
               <div className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-center lg:text-left" aria-hidden="true">
                 <span className="text-red-600 block">FAST.</span>
                 <span className="text-gray-900 block">FLEXIBLE.</span>
