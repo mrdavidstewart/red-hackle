@@ -599,7 +599,7 @@ export default function HomePage() {
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 text-center">Coverage Map</h3>
                 <div className="bg-gray-100 rounded-lg overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2234.8234567890123!2d-2.970721!3d56.462018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48865c4c4c4c4c4c%3A0x4c4c4c4c4c4c4c4c!2s165%20Brook%20St%2C%20Dundee%20DD5%201DJ%2C%20UK!5e0!3m2!1sen!2suk!4v1234567890123!5m2!1sen!2suk"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2204.009521726332!2d-2.8768968000000004!3d56.467597000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8af48469ea7db047%3A0xe89103e5ff225aba!2sRed%20Hackle%20Cleaning%20Services!5e0!3m2!1sen!2suk!4v1765015352595!5m2!1sen!2suk"
                     width="100%"
                     height="400"
                     style={{ border: 0 }}
