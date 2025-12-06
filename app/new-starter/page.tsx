@@ -40,7 +40,7 @@ export default function NewStarterPage() {
             <div className="flex items-center space-x-4">
               <Image
                 src="/red-hackle-logo-new-800.png"
-                alt="Red Hackle Logo"
+                alt="Red Hackle Cleaning Services logo"
                 width={40}
                 height={40}
                 className="w-8 h-8 md:w-10 md:h-10 object-contain"
@@ -212,7 +212,7 @@ export default function NewStarterPage() {
             <div className="flex items-center justify-center space-x-4 mb-4">
               <Image
                 src="/red-hackle-logo-new-800.png"
-                alt="Red Hackle Logo"
+                alt="Red Hackle Cleaning Services logo"
                 width={32}
                 height={32}
                 className="w-8 h-8 object-contain"
