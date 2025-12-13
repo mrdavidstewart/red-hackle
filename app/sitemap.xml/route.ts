@@ -12,6 +12,42 @@ export function GET() {
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.redhacklecleaningservices.com/#services</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.redhacklecleaningservices.com/#coverage</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.redhacklecleaningservices.com/#testimonials</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.redhacklecleaningservices.com/#about</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.redhacklecleaningservices.com/#contact</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.redhacklecleaningservices.com/#faq</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.redhacklecleaningservices.com/privacy-policy</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>yearly</changefreq>

@@ -335,158 +335,149 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section with Enhanced Logo Placement */}
-      <section className="min-h-screen flex items-center justify-center pt-24 xs:pt-28 md:pt-32 lg:pt-36 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 max-w-full">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
-            <div className="space-y-6 md:space-y-8 lg:max-w-2xl">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-center lg:text-left">
-                Red Hackle Cleaning Services
-              </h1>
-              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 text-center lg:text-left">
-                Domestic and Commercial Cleaning in Dundee, Angus and Fife
-              </h2>
+      <section className="relative min-h-screen flex items-center justify-center pt-24 xs:pt-28 md:pt-32 lg:pt-36 pb-28 md:pb-36 bg-white overflow-hidden">
+        <div className="mx-auto px-4 sm:px-6 lg:px-10 w-full relative z-10">
+          <div className="space-y-5 md:space-y-6 w-full">
+            <div className="text-center lg:text-left">
+              <Badge className="bg-red-50 border border-red-200 text-red-700 px-5 py-2.5 font-bold text-sm md:text-base">
+                <Shield className="w-4 h-4 mr-2" />
+                Trusted Professional Service
+              </Badge>
+            </div>
 
-              <div className="text-center lg:text-left">
-                <Badge className="bg-red-50 border border-red-200 text-red-700 px-6 py-3 font-bold text-base">
-                  <Shield className="w-5 h-5 mr-3" />
-                  Trusted Professional Service
-                </Badge>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-center lg:text-left">
+              Red Hackle Cleaning Services
+            </h1>
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 text-center lg:text-left">
+              Domestic and commercial cleaning across Dundee, Tayside, Fife and Angus.
+            </h2>
+
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed text-center lg:text-left">
+              Local, insured cleaners for homes, offices and tenancies across Dundee and the surrounding regions.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+              <Button
+                size="lg"
+                className="bg-red-600 hover:bg-red-700 text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg"
+                onClick={() => window.open("tel:+447966881555", "_self")}
+              >
+                <Phone className="w-4 md:w-5 h-4 md:h-5 mr-2 md:mr-3" />
+                Call Us Now
+              </Button>
+              <Button
+                onClick={() =>
+                  window.open(
+                    "https://wa.me/447966881555?text=Hi%20Red%20Hackle%20Team%2C%20I'd%20like%20a%20cleaning%20quote.",
+                    "_blank"
+                  )
+                }
+                aria-label="Chat with us on WhatsApp"
+                className="bg-green-600 hover:bg-green-700 text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg border-2 border-green-700"
+              >
+                <div className="flex items-center justify-center space-x-3 md:space-x-4">
+                  <MessageCircle className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" />
+                  <span className="font-black tracking-wide whitespace-nowrap">WhatsApp Us</span>
+                </div>
+              </Button>
+            </div>
+
+            <div className="flex items-center justify-center lg:justify-start gap-3 text-sm md:text-base font-semibold text-gray-900">
+              <span className="text-red-600">FAST</span>
+              <span className="text-gray-400">•</span>
+              <span>FLEXIBLE</span>
+              <span className="text-gray-400">•</span>
+              <span className="text-red-600">RELIABLE</span>
+            </div>
+
+            {/* Free Quote CTA */}
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-4 md:p-5">
+              <div className="flex items-center space-x-3 mb-2">
+                <span className="text-lg md:text-xl font-bold text-gray-900">100% FREE No-Obligation Quotes</span>
               </div>
-
-              <div className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-center lg:text-left" aria-hidden="true">
-                <span className="text-red-600 block">FAST.</span>
-                <span className="text-gray-900 block">FLEXIBLE.</span>
-                <span className="text-red-600 block">RELIABLE.</span>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-red-600 hover:bg-red-700 text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold shadow-lg"
-                  onClick={() => window.open("tel:+447966881555", "_self")}
-                >
-                  <Phone className="w-4 md:w-5 h-4 md:h-5 mr-2 md:mr-3" />
-                  Call Us Now
-                </Button>
-              </div>
-
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed text-center lg:text-left">
-                Your trusted local cleaning service. Where attention to detail meets friendly reliability. Serving
-                Dundee and beyond with genuine care and professional excellence.
+              <p className="text-gray-700 mb-3 text-sm md:text-base">
+                We visit, assess what you need, and give a clear, pressure-free quote with flexible pricing.
               </p>
-
-              {/* Enhanced Free Quote CTA */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-4 md:p-6 mb-6 md:mb-8">
-                <div className="flex items-center space-x-3 mb-3">
-                  <span className="text-lg md:text-xl font-bold text-gray-900">100% FREE No-Obligation Quotes</span>
+              <div className="flex flex-wrap items-center gap-3 md:gap-4 text-xs md:text-sm text-gray-600">
+                <div className="flex items-center space-x-1">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>No hidden costs</span>
                 </div>
-                <p className="text-gray-700 mb-4 text-sm md:text-base">
-                  We&apos;ll visit your property, assess your needs, and provide a completely free quote with{" "}
-                  <span className="text-red-600 font-semibold">zero pressure</span>. Our pricing is{" "}
-                  <span className="text-red-600 font-semibold">flexible and fair</span>, we work with your budget to
-                  find the perfect solution.
-                </p>
-                <div className="flex flex-wrap items-center gap-2 md:gap-4 text-xs md:text-sm text-gray-600">
-                  <div className="flex items-center space-x-1">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span>No hidden costs</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span>Flexible pricing</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <CheckCircle className="w-4 h-4 text-green-600" />
-                    <span>Zero pressure</span>
-                  </div>
+                <div className="flex items-center space-x-1">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Flexible pricing</span>
                 </div>
-              </div>
-
-              {/* Clear Call Us Now button */}
-              <div className="w-full">
-                <Button
-                  onClick={() =>
-                    window.open(
-                      "https://wa.me/447966881555?text=Hi%20Red%20Hackle%20Team%2C%20I'd%20like%20a%20cleaning%20quote.",
-                      "_blank"
-                    )
-                  }
-                  aria-label="Chat with us on WhatsApp"
-                  className="bg-green-600 hover:bg-green-700 text-white px-8 py-5 rounded-xl transition-all duration-300 hover:scale-105 shadow-2xl w-full sm:w-auto border-2 border-green-700"
-                >
-                  <div className="flex items-center justify-center space-x-4">
-                    <MessageCircle className="w-6 h-6 md:w-7 md:h-7 flex-shrink-0" />
-                    <span className="text-xl md:text-2xl font-black tracking-wide whitespace-nowrap">WhatsApp Us Now</span>
-                  </div>
-                </Button>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-4 md:gap-8 pt-4">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 md:w-5 h-4 md:h-5 text-green-600" />
-                  <span className="text-gray-600 text-xs md:text-sm font-medium">Fully Insured</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Users className="w-4 md:w-5 h-4 md:h-5 text-blue-600" />
-                  <span className="text-gray-600 text-xs md:text-sm font-medium">Friendly Team</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Heart className="w-4 md:w-5 h-4 md:h-5 text-red-600" />
-                  <span className="text-gray-600 text-xs md:text-sm font-medium">Locally Loved</span>
-                </div>
-              </div>
-
-              {/* Social Proof in Hero */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 pt-6 md:pt-8 mt-4 md:mt-6 border-t border-gray-200">
-                <span className="text-gray-500 text-sm">Follow our journey:</span>
-                <div className="flex items-center space-x-4">
-                  <Link
-                    href="https://www.facebook.com/profile.php?id=61555545779742"
-                    className="text-gray-400 hover:text-blue-500 transition-colors"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <Facebook className="w-5 md:w-6 h-5 md:h-6" />
-                  </Link>
-                  <Link
-                    href="https://instagram.com/redhacklegroup"
-                    className="text-gray-400 hover:text-pink-500 transition-colors"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <Instagram className="w-5 md:w-6 h-5 md:h-6" />
-                  </Link>
+                <div className="flex items-center space-x-1">
+                  <CheckCircle className="w-4 h-4 text-green-600" />
+                  <span>Zero pressure</span>
                 </div>
               </div>
             </div>
 
-            {/* David cartoon as larger hero image */}
-            <div className="relative mt-8 lg:mt-0 flex justify-center lg:justify-end">
-              <Image
-                src="/images/david-cartoon.png"
-                alt="Illustration of David Stewart from Red Hackle Cleaning Services in Dundee"
-                width={500}
-                height={600}
-                className="object-contain w-full max-w-[250px] xs:max-w-[300px] sm:max-w-md md:max-w-lg h-[250px] xs:h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]"
-                style={{ width: "auto", height: "auto" }}
-                priority
-              />
+            <div className="flex flex-wrap items-center gap-4 md:gap-8 pt-2">
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="w-4 md:w-5 h-4 md:h-5 text-green-600" />
+                <span className="text-gray-600 text-xs md:text-sm font-medium">Fully Insured</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Users className="w-4 md:w-5 h-4 md:h-5 text-blue-600" />
+                <span className="text-gray-600 text-xs md:text-sm font-medium">Friendly Team</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Heart className="w-4 md:w-5 h-4 md:h-5 text-red-600" />
+                <span className="text-gray-600 text-xs md:text-sm font-medium">Locally Loved</span>
+              </div>
+            </div>
+
+            {/* Social Proof in Hero */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 pt-4 md:pt-6 border-t border-gray-200 pb-6">
+              <span className="text-gray-500 text-sm">Follow our journey:</span>
+              <div className="flex items-center space-x-4">
+                <Link
+                  href="https://www.facebook.com/profile.php?id=61555545779742"
+                  className="text-gray-400 hover:text-blue-500 transition-colors"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Facebook className="w-5 md:w-6 h-5 md:h-6" />
+                </Link>
+                <Link
+                  href="https://instagram.com/redhacklegroup"
+                  className="text-gray-400 hover:text-pink-500 transition-colors"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Instagram className="w-5 md:w-6 h-5 md:h-6" />
+                </Link>
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* David cartoon on the right above the Quick Booking Bar */}
+        <div className="pointer-events-none absolute right-2 sm:right-6 md:right-10 lg:right-14 bottom-[-50px] sm:bottom-[-60px] md:bottom-[-70px] lg:bottom-[-80px] z-20">
+          <Image
+            src="/images/david-cartoon.png"
+            alt="Illustration of David Stewart from Red Hackle Cleaning Services in Dundee"
+            width={520}
+            height={640}
+            className="object-contain w-[180px] xs:w-[220px] sm:w-[260px] md:w-[300px] lg:w-[340px] h-auto drop-shadow-2xl"
+            priority
+          />
         </div>
       </section>
 
       {/* Quick Booking Bar */}
-      <section className="py-4 md:py-6 bg-gray-900">
+      <section className="pt-4 pb-4 md:pt-6 md:pb-6 bg-gray-900 relative z-10">
         <div className="container mx-auto px-4 sm:px-6 max-w-full">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
             <div className="text-center md:text-left">
               <h3 className="text-lg md:text-xl font-bold text-white mb-1">Need a quote today?</h3>
               <p className="text-gray-300 text-sm md:text-base">
                 Choose your preferred way to get in touch, we respond fast!
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4">
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3">
               <Button
                 className="bg-white text-red-600 hover:bg-gray-100 font-bold w-full sm:w-auto shadow-lg"
                 onClick={() => window.open("tel:+447966881555", "_self")}
@@ -634,7 +625,7 @@ export default function HomePage() {
           <div className="text-center mb-10 md:mb-12">
             <Badge className="bg-red-50 border border-red-200 text-red-700 mb-6 font-semibold">Our Services</Badge>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 text-gray-900">
-              Cleaning Services in Dundee, Angus and Fife
+              Cleaning Services Across Dundee, Tayside, Fife and Angus
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
               Every job completed with care and attention to detail. Every customer treated like family. Every result
@@ -643,7 +634,7 @@ export default function HomePage() {
           </div>
 
             {/* Services Grid - Left Side */}
-            <div className="grid md:grid-cols-4 sd:grid-cols-1 gap-3 md:gap-4">
+            <div className="grid sd:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
               <div id="one-off-cleaning" className="sr-only">
                 One-Off Cleaning anchor
               </div>
@@ -651,37 +642,37 @@ export default function HomePage() {
                 {
                   icon: Home,
                   title: "Domestic Cleaning in Dundee and Surrounding Areas",
-                  desc: "Regular home cleaning that fits your schedule and standards.",
+                  desc: "Weekly, fortnightly or one-off home cleans covering kitchens, bathrooms, dusting and floors with vetted local cleaners.",
                   id: "domestic-cleaning",
                 },
                 {
                   icon: Building,
-                  title: "Commercial Cleaning for Offices and Businesses",
-                  desc: "Office and workplace cleaning tailored to business needs.",
+                  title: "Commercial and Office Cleaning Across Dundee, Tayside and Fife",
+                  desc: "After-hours or daytime office, retail and hospitality cleaning with flexible schedules to suit your team and customers.",
                   id: "commercial-cleaning",
                 },
                 {
                   icon: Building,
-                  title: "End of Tenancy Cleaning in Dundee and Surrounding Areas",
-                  desc: "Move-out cleaning specialists to help pass inventory checks.",
+                  title: "End of Tenancy Cleaning in Dundee and Angus",
+                  desc: "Inventory-ready move-out cleans including appliances, bathrooms, skirtings and high-traffic areas for landlords and tenants.",
                   id: "end-of-tenancy-cleaning",
                 },
                 {
                   icon: Sparkles,
-                  title: "Deep Cleaning and One-Off Cleans",
-                  desc: "Thorough deep cleans for kitchens, bathrooms, and high-traffic areas.",
+                  title: "Deep Cleaning and One-Off Cleans Across Tayside",
+                  desc: "Intensive kitchen and bathroom degreasing, limescale removal and whole-home refreshes for special occasions or spring cleans.",
                   id: "deep-cleaning",
                 },
                 {
                   icon: Car,
-                  title: "Carpet Cleaning Services",
-                  desc: "Professional carpet and soft furnishing care.",
+                  title: "Carpet Cleaning Services in Dundee and Fife",
+                  desc: "Professional carpet and upholstery care with stain treatment and fast-drying methods that are safe for families and pets.",
                   id: "carpet-cleaning",
                 },
                 {
                   icon: Hammer,
-                  title: "Post-Build and After-Construction Cleaning",
-                  desc: "Construction cleanup experts removing dust and debris.",
+                  title: "After-Build Cleaning in Dundee, Fife and Angus",
+                  desc: "Dust and debris removal after renovations, including wipe-downs, vacuuming and detailed finishes ready for handover.",
                   id: "post-build-cleaning",
                 },
               ].map((service, index) => (
@@ -1149,31 +1140,41 @@ export default function HomePage() {
               {
                 question: "Do you bring your own cleaning equipment?",
                 answer:
-                  "Yes. We arrive with all cleaning equipment and products needed. No need to provide anything.",
+                  "Yes. We arrive with our own professional equipment. If you have scent-free or allergy considerations, tell us and we'll follow your preferences.",
               },
               {
                 question: "What areas do you cover?",
                 answer:
-                  "We cover Dundee, Tayside, Angus, Fife.",
+                  "We cover Dundee, Tayside, Angus and Fife, including Broughty Ferry, Carnoustie, St Andrews, Perth and nearby towns within roughly 30 miles.",
               },
               {
                 question: "Do you offer one-off deep cleans?",
                 answer:
-                  "Absolutely. One-off deep cleans are available for homes and workplaces, including kitchens, bathrooms and high-traffic areas.",
+                  "Absolutely. One-off deep cleans are available for homes and workplaces, including kitchens, bathrooms, skirtings, tiles and high-traffic areas.",
               },
               {
                 question: "Are your cleaners insured?",
-                answer: "Yes. Our team is fully insured and vetted for your peace of mind.",
+                answer: "Yes. Our team is fully insured, vetted and supervised for your peace of mind.",
               },
               {
                 question: "Do you offer end of tenancy cleaning?",
                 answer:
-                  "Yes. We provide end of tenancy cleaning for tenants, landlords and agents to help properties pass inventory checks.",
+                  "Yes. We provide end of tenancy cleaning for tenants, landlords and agents to help properties pass inventory checks and handovers.",
               },
               {
                 question: "Do you offer commercial cleaning services?",
                 answer:
-                  "Yes. We provide commercial cleaning services for offices, hospitality venues, retail spaces and more, tailored to your business needs.",
+                  "Yes. We provide commercial cleaning for offices, hospitality venues, retail spaces and more with flexible schedules and alarm-code access.",
+              },
+              {
+                question: "How quickly can you book a clean or quote?",
+                answer:
+                  "We aim to respond within hours and can often schedule quotes or urgent cleans within 24–48 hours where availability allows.",
+              },
+              {
+                question: "How do you handle keys and access?",
+                answer:
+                  "We arrange secure key collection or access codes in advance and return keys as agreed. We confirm access details before each visit.",
               },
 
             ].map((item, index) => (
