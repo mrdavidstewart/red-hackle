@@ -7,7 +7,6 @@
   },
   "npmrc": "",
   "rangeStrategy": "bump",
-  "schedule": ["before 9am every day"],
   "timezone": "Europe/London",
   "labels": ["dependencies"],
   "reviewers": [],
