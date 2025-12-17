@@ -1,5 +1,11 @@
+import { fileURLToPath } from "node:url"
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {
+    // Explicit root to avoid lockfile auto-detection warnings
+    root: fileURLToPath(new URL('.', import.meta.url)),
+  },
   // Security headers
   async headers() {
     return [
@@ -87,10 +93,7 @@ const nextConfig = {
     CUSTOM_KEY: process.env.CUSTOM_KEY,
   },
 
-  // ESLint and TypeScript configurations
-  eslint: {
-    ignoreDuringBuilds: true, // Added from updates
-  },
+  // TypeScript configuration
   typescript: {
     ignoreBuildErrors: true, // Added from updates
   },
