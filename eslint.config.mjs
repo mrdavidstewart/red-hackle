@@ -1,7 +1,5 @@
 import { defineConfig } from "eslint/config";
 import eslintConfigNext from "eslint-config-next/core-web-vitals";
-import tsPlugin from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
 
 export default defineConfig([
   // Next.js flat config with Core Web Vitals rules and built-in ignores
@@ -21,11 +19,7 @@ export default defineConfig([
   // Extra TypeScript rules
   {
     files: ["**/*.{ts,tsx}"],
-    plugins: {
-      "@typescript-eslint": tsPlugin,
-    },
     languageOptions: {
-      parser: tsParser,
       parserOptions: {
         project: "./tsconfig.json",
       },
