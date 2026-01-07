@@ -1,13 +1,11 @@
 import { NextResponse } from "next/server"
 
 export function GET() {
-  const robotsTxt = `
-User-agent: *
+  const robotsTxt = `User-agent: *
 Allow: /
 Disallow: /new-starter
 Disallow: /new-starter/
 
-# Specific bot instructions
 User-agent: Googlebot
 Disallow: /new-starter
 Disallow: /new-starter/
