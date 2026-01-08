@@ -5,21 +5,21 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
 export const metadata: Metadata = {
-  title: "Office & Workplace Cleaning",
+  title: "Commercial Cleaning Services",
   description:
-    "Office and workplace cleaning for commercial clients in Dundee, Tayside, Fife, and Angus with flexible schedules and quality reporting.",
-  alternates: { canonical: "/services/office-workplace" },
+    "Professional commercial cleaning services for offices, retail spaces, and businesses across Dundee, Tayside, Fife, and Angus.",
+  alternates: { canonical: "/services/commercial-cleaning" },
 }
 
-const inclusions = [
-  "Desk, touchpoint, and meeting room sanitisation",
-  "Reception, breakout, and communal area cleaning",
-  "Washroom servicing and consumable restocking",
-  "Kitchen and refreshment area detailing",
-  "Waste and recycling management",
+const deliverables = [
+  "Daily, weekly, or monthly cleaning schedules",
+  "Office spaces, reception areas, and meeting rooms",
+  "Washroom deep cleans and restocking",
+  "Window cleaning and floor maintenance",
+  "Flexible scheduling to suit your business needs",
 ]
 
-export default function OfficeWorkplacePage() {
+export default function CommercialCleaningPage() {
   return (
     <main className="bg-white pb-16 md:pb-0">
       <section className="relative overflow-hidden bg-gray-950 text-white">
@@ -27,11 +27,10 @@ export default function OfficeWorkplacePage() {
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-          <Badge className="bg-red-50 text-red-700">Office &amp; workplace</Badge>
-          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Office &amp; Workplace Cleaning</h1>
+          <Badge className="bg-red-50 text-red-700">Commercial cleaning</Badge>
+          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Commercial Cleaning Services</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Maintain a professional workspace with daily or out-of-hours cleaning, consistent staff, and clear quality
-            checks.
+            Professional cleaning services for businesses, offices, and commercial properties to maintain a clean, healthy environment.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
@@ -48,9 +47,9 @@ export default function OfficeWorkplacePage() {
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
           <Card className="border border-gray-200">
             <CardContent className="space-y-4 p-6">
-              <h2 className="text-2xl font-semibold text-gray-900">What&apos;s included</h2>
+              <h2 className="text-2xl font-semibold text-gray-900">Service highlights</h2>
               <ul className="space-y-2 text-gray-600">
-                {inclusions.map((item) => (
+                {deliverables.map((item) => (
                   <li key={item}>• {item}</li>
                 ))}
               </ul>

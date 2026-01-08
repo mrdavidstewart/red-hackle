@@ -67,6 +67,11 @@ const services = [
     description: "Intensive cleans for seasonal resets, audits, or special events with custom scopes.",
     href: "/services/deep-one-off",
   },
+  {
+    title: "Commercial Cleaning Management",
+    description: "Managed commercial cleaning with onboarding support, SLAs, and consistent QA reporting.",
+    href: "/commercial-cleaning",
+  },
 ]
 
 const testimonials = [
@@ -112,41 +117,50 @@ const processSteps = [
 export default function HomePage() {
   return (
     <main className="pb-16 md:pb-0">
-      <section className="relative bg-gray-950 text-white">
+      <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
-          <Image
-            src="/images/team-leader-smiling.jpg"
-            alt="Commercial cleaning team on site"
-            fill
-            className="object-cover opacity-35"
-            priority
-          />
+          <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-20 sm:px-6">
-          <div className="max-w-2xl space-y-6">
-            <Badge className="w-fit bg-white/10 text-white">Commercial-first cleaning partner</Badge>
-            <h1 className="text-4xl font-black leading-tight sm:text-5xl">
-              Commercial &amp; Contract Cleaning Services
-            </h1>
-            <p className="text-lg text-gray-200">
-              A disciplined cleaning partner for offices, property managers, hospitality venues, and construction
-              handovers across Dundee, Tayside, Fife, and Angus.
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Button asChild className="bg-red-600 text-white hover:bg-red-700">
-                <Link href="/contact">Request a Site Survey</Link>
-              </Button>
-              <Button asChild variant="outline" className="border-white/30 text-white hover:bg-white/10">
-                <Link href="/commercial-cleaning">Explore Commercial Cleaning</Link>
-              </Button>
+          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="space-y-6">
+              <Badge className="w-fit bg-white/10 text-white">Commercial-first cleaning partner</Badge>
+              <h1 className="text-4xl font-black leading-tight sm:text-5xl">
+                Commercial &amp; Contract Cleaning Services
+              </h1>
+              <p className="text-lg text-gray-200">
+                A disciplined cleaning partner for offices, property managers, hospitality venues, and construction
+                handovers across Dundee, Tayside, Fife, and Angus.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
+                <Button asChild variant="outlineOnDark">
+                  <Link href="/commercial-cleaning">Explore Commercial Cleaning</Link>
+                </Button>
+              </div>
+              <div className="grid gap-3 text-sm text-gray-200 sm:grid-cols-2">
+                {trustSignals.map((signal) => (
+                  <div key={signal} className="flex items-start gap-2">
+                    <ShieldCheck className="mt-0.5 h-4 w-4 text-red-400" />
+                    <span>{signal}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="grid gap-3 text-sm text-gray-200 sm:grid-cols-2">
-              {trustSignals.map((signal) => (
-                <div key={signal} className="flex items-start gap-2">
-                  <ShieldCheck className="mt-0.5 h-4 w-4 text-red-400" />
-                  <span>{signal}</span>
-                </div>
-              ))}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative w-56 sm:w-64 md:w-72">
+                <Image
+                  src="/red-hackle-logo-new-800.png"
+                  alt="Red Hackle Cleaning Services logo"
+                  width={640}
+                  height={640}
+                  priority
+                  className="h-auto w-full drop-shadow-[0_0_40px_rgba(220,38,38,0.35)]"
+                  sizes="(min-width: 1024px) 18rem, (min-width: 640px) 16rem, 14rem"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -223,7 +237,7 @@ export default function HomePage() {
               consistent delivery.
             </p>
           </div>
-          <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <Card key={service.title} className="border border-white/10 bg-white/5">
                 <CardContent className="space-y-4 p-6">
@@ -311,8 +325,8 @@ export default function HomePage() {
           </div>
           <div className="relative">
             <Image
-              src="/images/team-member.jpg"
-              alt="Red Hackle Cleaning Services team member preparing supplies"
+              src="/images/team-photo.jpg"
+              alt="Red Hackle Cleaning Services team members before a cleaning job"
               width={520}
               height={520}
               className="rounded-3xl object-cover shadow-lg"
@@ -377,7 +391,7 @@ export default function HomePage() {
                 <Button asChild className="w-full bg-red-600 text-white hover:bg-red-700">
                   <Link href="/contact">Request a quote</Link>
                 </Button>
-                <Button asChild variant="outline" className="w-full border-white/20 text-white hover:bg-white/10">
+                <Button asChild variant="outlineOnDark" className="w-full">
                   <a href="tel:+447966881555">Call 07966 881 555</a>
                 </Button>
               </CardContent>

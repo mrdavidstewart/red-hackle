@@ -10,8 +10,8 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Commercial Cleaning", href: "/commercial-cleaning" },
   { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
   { label: "Case Studies", href: "/case-studies" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ]
 
@@ -46,7 +46,7 @@ export function SiteHeader() {
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Link href="/" className="flex items-center gap-3" aria-label="Red Hackle Cleaning Services">
           <Image
-            src="/images/new-logo.png"
+            src="/images/red-hackle-logo.png"
             alt="Red Hackle Cleaning Services logo"
             width={220}
             height={80}

@@ -52,7 +52,7 @@ export default function CommercialCleaningPage() {
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
               <Link href="/contact">Request a commercial quote</Link>
             </Button>
-            <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/10">
+            <Button asChild variant="outlineOnDark">
               <a href="tel:+447966881555">Call 07966 881 555</a>
             </Button>
           </div>
@@ -139,7 +139,7 @@ export default function CommercialCleaningPage() {
               <Button asChild className="bg-red-600 text-white hover:bg-red-700">
                 <Link href="/contact">Book a site survey</Link>
               </Button>
-              <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/10">
+              <Button asChild variant="outlineOnDark">
                 <Link href="/services">Explore services</Link>
               </Button>
             </div>

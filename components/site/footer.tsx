@@ -36,13 +36,8 @@ export function SiteFooter() {
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Company</p>
             <ul className="mt-4 space-y-3 text-sm text-gray-300">
               <li>
-                <Link href="/about" className="hover:text-white">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/case-studies" className="hover:text-white">
-                  Case Studies
+                <Link href="/commercial-cleaning" className="hover:text-white">
+                  Commercial Cleaning
                 </Link>
               </li>
               <li>
@@ -51,8 +46,13 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/commercial-cleaning" className="hover:text-white">
-                  Commercial Cleaning
+                <Link href="/case-studies" className="hover:text-white">
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-white">
+                  About
                 </Link>
               </li>
             </ul>
