@@ -120,7 +120,6 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(120deg,_rgba(15,23,42,0.9),_rgba(2,6,23,0.95))]" />
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-20 sm:px-6">
           <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
