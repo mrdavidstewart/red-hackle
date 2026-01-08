@@ -22,9 +22,12 @@ const commitments = [
 export default function AboutPage() {
   return (
     <main className="pb-16 md:pb-0">
-      <section className="bg-gray-950 text-white">
-        <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-          <Badge className="bg-white/10 text-white">About Red Hackle</Badge>
+      <section className="relative overflow-hidden bg-gray-950 text-white">
+        <div className="absolute inset-0">
+          <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
+        </div>
+        <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
+          <Badge className="bg-white/10 text-white">About Red Hackle Cleaning Services</Badge>
           <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">A disciplined, accountable cleaning partner</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
           Red Hackle Cleaning Services supports commercial clients with structured onboarding, consistent delivery, and
@@ -59,8 +62,8 @@ export default function AboutPage() {
           <Card className="border border-gray-200">
             <CardContent className="p-6">
               <Image
-                src="/images/team-leader.jpg"
-                alt="Red Hackle Cleaning Services team lead"
+                src="/images/arthur-cartoon-900.png"
+                alt="Arthur (Managing Director) from Red Hackle Cleaning Services "
                 width={520}
                 height={520}
                 className="rounded-2xl object-cover"

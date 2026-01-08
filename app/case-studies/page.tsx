@@ -35,8 +35,11 @@ const caseStudies = [
 export default function CaseStudiesPage() {
   return (
     <main className="pb-16 md:pb-0">
-      <section className="bg-gray-950 text-white">
-        <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
+      <section className="relative overflow-hidden bg-gray-950 text-white">
+        <div className="absolute inset-0">
+          <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
+        </div>
+        <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-white/10 text-white">Case studies</Badge>
           <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Examples of commercial outcomes</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">

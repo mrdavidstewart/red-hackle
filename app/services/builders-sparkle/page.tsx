@@ -22,19 +22,24 @@ const deliverables = [
 export default function BuildersSparklePage() {
   return (
     <main className="bg-white pb-16 md:pb-0">
-      <section className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-        <Badge className="bg-red-50 text-red-700">Builders &amp; sparkle</Badge>
-        <h1 className="mt-4 text-4xl font-black text-gray-900 sm:text-5xl">Builders &amp; Sparkle Cleaning</h1>
-        <p className="mt-4 max-w-2xl text-lg text-gray-600">
-          Post-construction cleans for developers and contractors, delivered to handover-ready standards.
-        </p>
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <Button asChild className="bg-red-600 text-white hover:bg-red-700">
-            <Link href="/contact">Request a quote</Link>
-          </Button>
-          <Button asChild variant="outline" className="border-gray-300">
-            <Link href="/services">Back to services</Link>
-          </Button>
+      <section className="relative overflow-hidden bg-gray-950 text-white">
+         <div className="absolute inset-0">
+          <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
+        </div>
+        <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
+          <Badge className="bg-red-50 text-red-700">Builders &amp; sparkle</Badge>
+          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Builders &amp; Sparkle Cleaning</h1>
+          <p className="mt-4 max-w-2xl text-lg text-gray-300">
+            Post-construction cleans for developers and contractors, delivered to handover-ready standards.
+          </p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+              <Link href="/contact">Request a quote</Link>
+            </Button>
+            <Button asChild variant="outlineOnDark">
+              <Link href="/services">Back to services</Link>
+            </Button>
+          </div>
         </div>
       </section>
 

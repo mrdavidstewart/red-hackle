@@ -326,8 +326,8 @@ export default function HomePage() {
           </div>
           <div className="relative">
             <Image
-              src="/images/team-member.jpg"
-              alt="Red Hackle Cleaning Services team member preparing supplies"
+              src="/images/team-photo.jpg"
+              alt="Red Hackle Cleaning Services team members before a cleaning job"
               width={520}
               height={520}
               className="rounded-3xl object-cover shadow-lg"
