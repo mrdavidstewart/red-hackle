@@ -57,7 +57,7 @@ export default function NewStarterPage() {
                 Private Access
               </Badge>
               <Link href="/">
-                <Button variant="outline" className="border-red-500/30 text-white hover:bg-red-600/20 bg-transparent">
+                <Button variant="outlineOnDark" className="border-red-500/30 text-white hover:bg-red-600/20">
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back to Website
                 </Button>

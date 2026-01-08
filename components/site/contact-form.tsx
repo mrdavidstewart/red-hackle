@@ -29,10 +29,8 @@ export function ContactForm() {
     setFormStatus("submitting")
     setFormError(null)
 
-    const payload = new FormData()
-    Object.entries(formData).forEach(([key, value]) => payload.append(key, value))
-    payload.append("timestamp", Date.now().toString())
-    payload.append("website", "")
+    const payload = new FormData(event.currentTarget)
+    payload.set("timestamp", Date.now().toString())
 
     try {
       const response = await fetch("/api/contact", {

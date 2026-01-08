@@ -21,15 +21,17 @@ const commitments = [
 
 export default function AboutPage() {
   return (
-    <main className="bg-white pb-16 md:pb-0">
-      <section className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-        <Badge className="bg-red-50 text-red-700">About Red Hackle</Badge>
-        <h1 className="mt-4 text-4xl font-black text-gray-900 sm:text-5xl">A disciplined, accountable cleaning partner</h1>
-        <p className="mt-4 max-w-2xl text-lg text-gray-600">
+    <main className="pb-16 md:pb-0">
+      <section className="bg-gray-950 text-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
+          <Badge className="bg-white/10 text-white">About Red Hackle</Badge>
+          <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">A disciplined, accountable cleaning partner</h1>
+          <p className="mt-4 max-w-2xl text-lg text-gray-300">
           Red Hackle Cleaning Services supports commercial clients with structured onboarding, consistent delivery, and
           clear reporting. We take pride in doing the basics brilliantly and maintaining high standards across every
           site we serve.
-        </p>
+          </p>
+        </div>
       </section>
 
       <section className="bg-gray-50">

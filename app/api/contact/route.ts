@@ -85,13 +85,52 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // In production, you would:
-    // 1. Save to secure database
-    // 2. Send email notification
-    // 3. Log the submission securely
+    const resendApiKey = process.env.RESEND_API_KEY
+    if (!resendApiKey) {
+      return NextResponse.json(
+        { error: "Email service not configured" },
+        {
+          status: 500,
+          headers: secureHeaders,
+        },
+      )
+    }
 
-    // Contact form submission would be logged to monitoring service in production
-    // Data: firstName, lastName, email, phone, message (truncated), timestamp, ip
+    const fromEmail = process.env.FROM_EMAIL || "Red Hackle <onboarding@resend.dev>"
+    const emailSubject = `New contact form enquiry from ${firstName} ${lastName}`
+    const emailText = [
+      `Name: ${firstName} ${lastName}`,
+      `Email: ${email}`,
+      `Phone: ${phone}`,
+      "",
+      "Message:",
+      message,
+    ].join("\n")
+
+    const resendResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: fromEmail,
+        to: "operations@redhacklegroup.com",
+        subject: emailSubject,
+        text: emailText,
+        reply_to: email,
+      }),
+    })
+
+    if (!resendResponse.ok) {
+      return NextResponse.json(
+        { error: "Unable to send message" },
+        {
+          status: 502,
+          headers: secureHeaders,
+        },
+      )
+    }
 
     return NextResponse.json(
       { success: true, message: "Message sent successfully" },
