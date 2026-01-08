@@ -1,31 +1,36 @@
 # Red Hackle Cleaning Services website
 
-Single-page marketing site for Red Hackle Cleaning Services built with Next.js (App Router).
+Commercial-first marketing site for Red Hackle Cleaning Services built with Next.js (App Router) and Tailwind CSS.
 
-## Key files
-- `app/layout.tsx`: Global metadata/head configuration and JSON-LD.
-- `app/page.tsx`: Main single-page layout (hero, services, coverage, testimonials, about, contact, FAQ).
-- `app/sitemap.xml/route.ts`: Dynamic sitemap.
-- `app/robots.txt/route.ts`: Robots.txt served via route handler.
+## Key areas
+- `app/page.tsx`: Commercial-first homepage with sectors, services, proof, and CTA content.
+- `app/commercial-cleaning/page.tsx`: Contract cleaning overview and onboarding.
+- `app/services/*`: Individual service pages.
+- `app/contact/page.tsx`: Quote enquiry form and contact details.
+- `app/sitemap.xml/route.ts` and `app/robots.txt/route.ts`: SEO assets.
 
 ## Running locally
 ```bash
-pnpm dev # or npm/yarn/bun dev
+pnpm dev
 ```
 Visit http://localhost:3000.
 
-## Search Console and analytics readiness
-- Add a Google Search Console verification meta tag via the `verification.google` field in `app/layout.tsx` metadata or by inserting a `<meta name="google-site-verification" ...>` inside the `<head>` block there.
-- Add analytics/gtag scripts with Next.js `<Script>` in `app/layout.tsx` so they load globally without changing page layout. Keep them `afterInteractive` to avoid layout shift.
+## Build
+```bash
+pnpm build
+pnpm start
+```
 
-## Future content/FAQ ideas (for approval before adding)
-- Coverage radius specifics (e.g., travel fees beyond 30 miles).
-- Insurance and vetting process details.
-- Booking/lead times and cancellation flexibility.
-- How keys/access and alarm codes are handled for commercial cleans.
+## SEO + structured data
+- Global metadata, Open Graph, and Twitter cards are configured in `app/layout.tsx`.
+- JSON-LD LocalBusiness and Service schema is injected in `app/layout.tsx`.
+- `app/sitemap.xml/route.ts` and `app/robots.txt/route.ts` provide crawl-ready assets.
 
-## Off-site/local SEO actions to consider
-- Keep Google Business Profile updated with photos, hours, services and posts.
-- Maintain consistent NAP (name, address, phone) across directories (Yell, Thomson Local, Bing Places, Apple Maps).
-- Encourage Google reviews after completed jobs; respond to all reviews.
-- List core services and locations in trusted local/industry directories.
+## Dependency update tooling
+- Dependabot config: `.github/dependabot.yml`.
+- Renovate config: `renovate.json`.
+
+## Copy and assets updates
+- Replace imagery in `public/images` with real photography when available.
+- Update testimonials and case studies in `app/page.tsx` and `app/case-studies/page.tsx`.
+- Contact details are set in `components/site/footer.tsx` and `app/contact/page.tsx`.
