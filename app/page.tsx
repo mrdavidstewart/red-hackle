@@ -4,6 +4,8 @@ import { ArrowRight, BadgeCheck, Building2, ClipboardCheck, ShieldCheck, Sparkle
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { fetchGoogleReviews } from "@/lib/googleReviews"
+import { testimonials } from "@/lib/testimonials"
 
 const trustSignals = [
   "Fully insured and risk-assessed",
@@ -74,27 +76,6 @@ const services = [
   },
 ]
 
-const testimonials = [
-  {
-    quote:
-      "Red Hackle stepped in with a clear scope, reliable supervisors, and a quality checklist we can share with our tenants.",
-    name: "Sarah McLean",
-    role: "Property Manager, Dundee",
-  },
-  {
-    quote:
-      "Their team keeps our office spotless and adapts quickly when we host visitors or late meetings.",
-    name: "David Kerr",
-    role: "Operations Lead, Broughty Ferry",
-  },
-  {
-    quote:
-      "We needed a fast turnaround on a construction handover and the sparkle clean was on point.",
-    name: "Ian Thomson",
-    role: "Site Manager, Angus",
-  },
-]
-
 const processSteps = [
   {
     title: "Site survey",
@@ -114,7 +95,10 @@ const processSteps = [
   },
 ]
 
-export default function HomePage() {
+export default async function HomePage() {
+  const googleReviews = await fetchGoogleReviews()
+  const items = [...googleReviews, ...testimonials]
+
   return (
     <main className="pb-16 md:pb-0">
       <section className="relative overflow-hidden bg-gray-950 text-white">
@@ -285,22 +269,55 @@ export default function HomePage() {
             <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Trusted by commercial decision-makers</h2>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <Card key={testimonial.name} className="border border-gray-200 bg-white">
+            {items.map((item) => (
+              <Card key={item.id} className="border border-gray-200 bg-white">
                 <CardContent className="space-y-4 p-6">
-                  <div className="flex gap-1">
-                    {Array.from({ length: 5 }).map((_, index) => (
-                      <Star key={`${testimonial.name}-${index}`} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    ))}
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex gap-1">
+                      {Array.from({ length: 5 }).map((_, index) => {
+                        const isFilled = index < item.rating
+                        return (
+                          <Star
+                            key={`${item.id}-${index}`}
+                            className={`h-4 w-4 ${isFilled ? "fill-yellow-400 text-yellow-400" : "text-gray-200"}`}
+                          />
+                        )
+                      })}
+                    </div>
+                    <Badge className={item.source === "google" ? "bg-blue-50 text-blue-700" : "bg-green-50 text-green-700"}>
+                      {item.source === "google" ? "Google" : "Verified client"}
+                    </Badge>
                   </div>
-                  <p className="text-sm text-gray-600">&ldquo;{testimonial.quote}&rdquo;</p>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900">{testimonial.name}</p>
-                    <p className="text-xs text-gray-500">{testimonial.role}</p>
+                  <p className="text-sm text-gray-600">&ldquo;{item.quote}&rdquo;</p>
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900">{item.name}</p>
+                      <p className="text-xs text-gray-500">{item.role}</p>
+                    </div>
+                    {item.source === "google" && item.url ? (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs font-semibold text-red-600 hover:text-red-700"
+                      >
+                        Read on Google
+                      </a>
+                    ) : null}
                   </div>
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="mt-8 flex">
+            <a
+              href="https://www.google.com/maps/place/?q=place_id:ChIJR0u96mlI9IoRuloi_-UDkeg"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-sm transition hover:border-gray-300 hover:text-gray-900"
+            >
+              View / Leave a Google review
+            </a>
           </div>
         </div>
       </section>
