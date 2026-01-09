@@ -9,28 +9,38 @@ export type InternalTestimonial = {
 
 export const testimonials: InternalTestimonial[] = [
   {
-    id: "internal:sarah-mclean",
+    id: "internal:margaret-douglas",
+    source: "internal",
+    rating: 5,
+    quote: "Happy with work carried out. Would recommend David and his team without hesitation.",
+    name: "Margaret Douglas",
+    role: "Carnoustie",
+  },
+  {
+    id: "internal:moira-elizabeth",
     source: "internal",
     rating: 5,
     quote:
-      "Red Hackle stepped in with a clear scope, reliable supervisors, and a quality checklist we can share with our tenants.",
-    name: "Sarah McLean",
-    role: "Property Manager, Dundee",
+      "From start to finish had such a great level of service. An in person visit to discuss requirements, followed up promptly with an extensive breakdown which was clear, easy to follow, and had catered for more than originally thought. Felt safe and comfortable which is the main thing for myself so I could trust and not worry. Thank you",
+    name: "Moira Elizabeth",
+    role: "Dundee",
   },
   {
-    id: "internal:david-kerr",
+    id: "internal:karen-cooper",
     source: "internal",
     rating: 5,
-    quote: "Their team keeps our office spotless and adapts quickly when we host visitors or late meetings.",
-    name: "David Kerr",
-    role: "Operations Lead, Broughty Ferry",
+    quote:
+      "Have Sam helping me with my cleaning at the moment going for a knee replacement on the 15th August and Sam is great at helping me keep on top of my homework",
+    name: "Karen Cooper",
+    role: "Dundee",
   },
   {
-    id: "internal:ian-thomson",
+    id: "internal:tara-macandrew",
     source: "internal",
     rating: 5,
-    quote: "We needed a fast turnaround on a construction handover and the sparkle clean was on point.",
-    name: "Ian Thomson",
-    role: "Site Manager, Angus",
+    quote:
+      "Excellent friendly service from Arthur and his team. From first contact to job completion, I knew they wouldn't let me down. Highly recommend Arthur and his team at Red Hackle. Will 100% use again.",
+    name: "Tara Macandrew",
+    role: "St Andrews",
   },
 ]

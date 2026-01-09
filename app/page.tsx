@@ -266,7 +266,7 @@ export default async function HomePage() {
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
           <div className="flex flex-col gap-3">
             <Badge className="w-fit bg-red-50 text-red-700">Proof &amp; outcomes</Badge>
-            <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Trusted by commercial decision-makers</h2>
+            <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Trusted by our clients</h2>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {items.map((item) => (
