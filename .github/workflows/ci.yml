@@ -42,6 +42,9 @@ jobs:
 
       - name: Test
         run: pnpm test
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
 
       - name: Build
         run: pnpm build

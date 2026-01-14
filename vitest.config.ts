@@ -14,7 +14,6 @@ export default defineConfig({
     setupFiles: ["./vitest.setup.tsx"],
     globals: true,
     css: true,
-    pool: "forks",
     coverage: {
       provider: "v8",
       reporter: ["text", "html", "lcov"],
