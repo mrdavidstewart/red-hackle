@@ -245,8 +245,8 @@ describe("route handlers", () => {
     const response = await postContact(request)
     const data = await response.json()
 
-    expect(response.status).toBe(500)
-    expect(data.error).toBe("Internal server error")
+    expect(response.status).toBe(400)
+    expect(data.error).toBe("Invalid form data")
   })
 
   it("enforces rate limiting after multiple requests", async () => {

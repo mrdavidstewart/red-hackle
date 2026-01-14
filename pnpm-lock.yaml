@@ -96,6 +96,9 @@ importers:
       tailwindcss:
         specifier: ^4.1.18
         version: 4.1.18
+      undici:
+        specifier: ^7.18.2
+        version: 7.18.2
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(@types/node@25.0.3)(jiti@2.6.1)(jsdom@26.1.0)(lightningcss@1.30.2)
@@ -2998,6 +3001,10 @@ packages:
 
   undici-types@7.16.0:
     resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
+
+  undici@7.18.2:
+    resolution: {integrity: sha512-y+8YjDFzWdQlSE9N5nzKMT3g4a5UBX1HKowfdXh0uvAnTaqqwqB92Jt4UXBAeKekDs5IaDKyJFR4X1gYVCgXcw==}
+    engines: {node: '>=20.18.1'}
 
   unrs-resolver@1.11.1:
     resolution: {integrity: sha512-bSjt9pjaEBnNiGgc9rUiHGKv5l4/TGzDmYw3RhnkJGtLhbnnA/5qJj7x3dNDCRx/PJxu774LlH8lCOlB4hEfKg==}
@@ -6237,6 +6244,8 @@ snapshots:
       which-boxed-primitive: 1.1.1
 
   undici-types@7.16.0: {}
+
+  undici@7.18.2: {}
 
   unrs-resolver@1.11.1:
     dependencies:

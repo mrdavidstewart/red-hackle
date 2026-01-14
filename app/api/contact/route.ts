@@ -17,8 +17,19 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Parse and validate request
-    const formData = await request.formData()
+    // Parse and validate request with better error handling
+    let formData: FormData
+    try {
+      formData = await request.formData()
+    } catch (error) {
+      return NextResponse.json(
+        { error: "Invalid form data" },
+        {
+          status: 400,
+          headers: secureHeaders,
+        },
+      )
+    }
 
     const firstName = sanitizeInput((formData.get("firstName") as string) || "")
     const lastName = sanitizeInput((formData.get("lastName") as string) || "")
@@ -139,8 +150,20 @@ export async function POST(request: NextRequest) {
         headers: secureHeaders,
       },
     )
-  } catch {
-    // Error would be logged to monitoring service in production
+  } catch (error) {
+    // Better error handling with specific error identification
+    console.error("Contact form error:", error)
+    
+    // Return appropriate error message based on error type
+    if (error instanceof TypeError && error.message.includes("fetch")) {
+      return NextResponse.json(
+        { error: "Network error" },
+        {
+          status: 503,
+          headers: secureHeaders,
+        },
+      )
+    }
 
     return NextResponse.json(
       { error: "Internal server error" },
