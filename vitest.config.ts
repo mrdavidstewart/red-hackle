@@ -19,10 +19,12 @@ export default defineConfig({
       reporter: ["text", "html", "lcov"],
       include: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}", "lib/**/*.{ts,tsx}"],
       exclude: ["**/*.d.ts", "**/*.config.*", "**/node_modules/**", "**/.next/**"],
-      lines: 80,
-      statements: 80,
-      functions: 80,
-      branches: 80,
+      thresholds: {
+        lines: 80,
+        statements: 80,
+        functions: 80,
+        branches: 80,
+      },
     },
   },
 })

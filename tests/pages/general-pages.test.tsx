@@ -30,6 +30,11 @@ describe("static pages", () => {
     expect(screen.getByRole("heading", { name: /request a commercial cleaning quote/i })).toBeInTheDocument()
     expect(screen.getByRole("link", { name: /call 07966 881 555/i })).toHaveAttribute("href", "tel:+447966881555")
     expect(screen.getByRole("link", { name: /whatsapp us/i })).toHaveAttribute("href", "https://wa.me/447966881555")
+    
+    // Check all contact details are rendered
+    expect(screen.getAllByText(/07966 881 555/i).length).toBeGreaterThan(0)
+    expect(screen.getByText(/operations@redhacklegroup.com/i)).toBeInTheDocument()
+    expect(screen.getByText(/165 Brook Street, Dundee, DD5 1DJ/i)).toBeInTheDocument()
   })
 
   it("renders the Privacy Policy page", () => {
