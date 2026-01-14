@@ -1,15 +1,15 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { buildMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Builders & Sparkle Cleaning",
   description:
     "Post-construction and sparkle cleaning for developers and contractors across Dundee, Tayside, Fife, and Angus.",
-  alternates: { canonical: "/services/builders-sparkle" },
-}
+  path: "/services/builders-sparkle",
+})
 
 const deliverables = [
   "Dust and residue removal on all surfaces",
@@ -23,7 +23,7 @@ export default function BuildersSparklePage() {
   return (
     <main className="bg-white pb-16 md:pb-0">
       <section className="relative overflow-hidden bg-gray-950 text-white">
-         <div className="absolute inset-0">
+        <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">

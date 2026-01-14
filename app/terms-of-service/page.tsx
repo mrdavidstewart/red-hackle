@@ -1,21 +1,21 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { buildMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Terms of Service",
   description:
     "Terms of service for Red Hackle Cleaning Services, outlining booking, payments, cancellations, and service standards.",
-  alternates: { canonical: "/terms-of-service" },
-}
+  path: "/terms-of-service",
+})
 
 export default function TermsOfServicePage() {
   return (
     <main className="bg-white pb-16 md:pb-0">
       <section className="relative overflow-hidden bg-gray-950 text-white">
-         <div className="absolute inset-0">
+        <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
@@ -39,7 +39,6 @@ export default function TermsOfServicePage() {
       <section className="bg-gray-50">
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
           <div className="space-y-6">
-
             <Card className="border border-gray-200">
               <CardContent className="space-y-4 p-6">
                 <h2 className="text-2xl font-semibold text-gray-900">1. Services</h2>

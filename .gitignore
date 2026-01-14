@@ -26,5 +26,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# testing
+coverage/
+
 # local env files
 .DS_Store

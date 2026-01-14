@@ -1,15 +1,15 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { buildMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Case Studies",
   description:
     "Commercial cleaning case studies from Red Hackle Cleaning Services, showcasing measurable outcomes for offices, property managers, and construction handovers.",
-  alternates: { canonical: "/case-studies" },
-}
+  path: "/case-studies",
+})
 
 const caseStudies = [
   {

@@ -1,16 +1,16 @@
-import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { buildMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "About",
   description:
     "Learn about Red Hackle Cleaning Services, our commercial-first operations, team oversight, and coverage across Dundee, Tayside, Fife, and Angus.",
-  alternates: { canonical: "/about" },
-}
+  path: "/about",
+})
 
 const commitments = [
   "Dedicated supervisors and documented specs",
@@ -30,9 +30,9 @@ export default function AboutPage() {
           <Badge className="bg-white/10 text-white">About Red Hackle Cleaning Services</Badge>
           <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">A disciplined, accountable cleaning partner</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-          Red Hackle Cleaning Services supports commercial clients with structured onboarding, consistent delivery, and
-          clear reporting. We take pride in doing the basics brilliantly and maintaining high standards across every
-          site we serve.
+            Red Hackle Cleaning Services supports commercial clients with structured onboarding, consistent delivery,
+            and clear reporting. We take pride in doing the basics brilliantly and maintaining high standards across
+            every site we serve.
           </p>
         </div>
       </section>
@@ -63,7 +63,7 @@ export default function AboutPage() {
             <CardContent className="p-6">
               <Image
                 src="/images/arthur-cartoon-900.png"
-                alt="Arthur (Managing Director) from Red Hackle Cleaning Services "
+                alt="Arthur (Managing Director) from Red Hackle Cleaning Services"
                 width={520}
                 height={520}
                 className="rounded-2xl object-cover"

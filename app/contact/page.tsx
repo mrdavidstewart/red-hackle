@@ -1,16 +1,16 @@
-import type { Metadata } from "next"
 import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ContactForm } from "@/components/site/contact-form"
+import { buildMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Contact",
   description:
     "Request a commercial cleaning quote from Red Hackle Cleaning Services. Fast response, on-site surveys, and tailored proposals.",
-  alternates: { canonical: "/contact" },
-}
+  path: "/contact",
+})
 
 const officeAddress = "165 Brook Street, Dundee, DD5 1DJ"
 const directionsLink = `https://maps.google.com/?q=${encodeURIComponent(officeAddress)}`
@@ -47,8 +47,8 @@ const contactDetails = [
 export default function ContactPage() {
   return (
     <main className="pb-16 md:pb-0">
-      <section className="elative overflow-hidden bg-gray-950 text-white">
-         <div className="absolute inset-0">
+      <section className="relative overflow-hidden bg-gray-950 text-white">
+        <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">

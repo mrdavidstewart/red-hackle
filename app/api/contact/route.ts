@@ -140,8 +140,6 @@ export async function POST(request: NextRequest) {
       },
     )
   } catch {
-    // Error would be logged to monitoring service in production
-
     return NextResponse.json(
       { error: "Internal server error" },
       {

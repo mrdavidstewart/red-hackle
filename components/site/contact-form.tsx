@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail } from "lucide-react"
+import { isValidEmail, isValidPhone } from "@/lib/security"
 
 const initialForm = {
   firstName: "",
@@ -16,18 +17,60 @@ const initialForm = {
 
 export function ContactForm() {
   const [formData, setFormData] = useState(initialForm)
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
   const [formError, setFormError] = useState<string | null>(null)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+    setFieldErrors((prev) => {
+      if (!prev[name]) return prev
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { [name]: _, ...rest } = prev
+      return rest
+    })
+    if (formStatus === "error") {
+      setFormStatus("idle")
+      setFormError(null)
+    }
   }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setFormStatus("submitting")
     setFormError(null)
+
+    const trimmedData = {
+      firstName: formData.firstName.trim(),
+      lastName: formData.lastName.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      message: formData.message.trim(),
+    }
+
+    const errors: Record<string, string> = {}
+    if (!trimmedData.firstName) errors.firstName = "Please enter your first name."
+    if (!trimmedData.lastName) errors.lastName = "Please enter your last name."
+    if (!trimmedData.email) {
+      errors.email = "Please enter your work email."
+    } else if (!isValidEmail(trimmedData.email)) {
+      errors.email = "Please enter a valid email address."
+    }
+    if (!trimmedData.phone) {
+      errors.phone = "Please enter a phone number."
+    } else if (!isValidPhone(trimmedData.phone)) {
+      errors.phone = "Please enter a valid UK phone number."
+    }
+    if (!trimmedData.message) errors.message = "Please share your cleaning requirements."
+
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors)
+      setFormStatus("error")
+      setFormError("Please correct the highlighted fields.")
+      return
+    }
+
+    setFormStatus("submitting")
 
     const payload = new FormData(event.currentTarget)
     payload.set("timestamp", Date.now().toString())
@@ -45,6 +88,7 @@ export function ContactForm() {
 
       setFormStatus("success")
       setFormData(initialForm)
+      setFieldErrors({})
     } catch (error) {
       setFormStatus("error")
       setFormError(error instanceof Error ? error.message : "Something went wrong")
@@ -66,7 +110,14 @@ export function ContactForm() {
             onChange={handleInputChange}
             autoComplete="given-name"
             required
+            aria-invalid={Boolean(fieldErrors.firstName)}
+            aria-describedby={fieldErrors.firstName ? "firstName-error" : undefined}
           />
+          {fieldErrors.firstName ? (
+            <p id="firstName-error" className="text-sm text-red-600" role="alert">
+              {fieldErrors.firstName}
+            </p>
+          ) : null}
         </div>
         <div className="space-y-2">
           <label className="text-sm font-semibold text-gray-700" htmlFor="lastName">
@@ -80,7 +131,14 @@ export function ContactForm() {
             onChange={handleInputChange}
             autoComplete="family-name"
             required
+            aria-invalid={Boolean(fieldErrors.lastName)}
+            aria-describedby={fieldErrors.lastName ? "lastName-error" : undefined}
           />
+          {fieldErrors.lastName ? (
+            <p id="lastName-error" className="text-sm text-red-600" role="alert">
+              {fieldErrors.lastName}
+            </p>
+          ) : null}
         </div>
       </div>
 
@@ -98,7 +156,14 @@ export function ContactForm() {
             onChange={handleInputChange}
             autoComplete="email"
             required
+            aria-invalid={Boolean(fieldErrors.email)}
+            aria-describedby={fieldErrors.email ? "email-error" : undefined}
           />
+          {fieldErrors.email ? (
+            <p id="email-error" className="text-sm text-red-600" role="alert">
+              {fieldErrors.email}
+            </p>
+          ) : null}
         </div>
         <div className="space-y-2">
           <label className="text-sm font-semibold text-gray-700" htmlFor="phone">
@@ -113,7 +178,14 @@ export function ContactForm() {
             onChange={handleInputChange}
             autoComplete="tel"
             required
+            aria-invalid={Boolean(fieldErrors.phone)}
+            aria-describedby={fieldErrors.phone ? "phone-error" : undefined}
           />
+          {fieldErrors.phone ? (
+            <p id="phone-error" className="text-sm text-red-600" role="alert">
+              {fieldErrors.phone}
+            </p>
+          ) : null}
         </div>
       </div>
 
@@ -129,7 +201,14 @@ export function ContactForm() {
           onChange={handleInputChange}
           required
           rows={5}
+          aria-invalid={Boolean(fieldErrors.message)}
+          aria-describedby={fieldErrors.message ? "message-error" : undefined}
         />
+        {fieldErrors.message ? (
+          <p id="message-error" className="text-sm text-red-600" role="alert">
+            {fieldErrors.message}
+          </p>
+        ) : null}
       </div>
 
       <input type="text" name="website" tabIndex={-1} aria-hidden="true" className="hidden" />

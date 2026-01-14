@@ -1,16 +1,16 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 import { BadgeCheck, ClipboardList, ShieldCheck } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { buildMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Commercial Cleaning",
   description:
     "Commercial and contract cleaning services with onboarding, SLAs, quality control, and reporting for Dundee, Tayside, Fife, and Angus.",
-  alternates: { canonical: "/commercial-cleaning" },
-}
+  path: "/commercial-cleaning",
+})
 
 const highlights = [
   {

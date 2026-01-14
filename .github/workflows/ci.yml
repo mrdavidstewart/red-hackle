@@ -40,5 +40,27 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Verify Environment Variables
+        run: |
+          if [ -z "$RESEND_API_KEY" ]; then
+            echo "::warning::RESEND_API_KEY is not set"
+          else
+            echo "✓ RESEND_API_KEY is set"
+          fi
+          if [ -z "$FROM_EMAIL" ]; then
+            echo "::warning::FROM_EMAIL is not set"
+          else
+            echo "✓ FROM_EMAIL is set"
+          fi
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+
+      - name: Test
+        run: pnpm test
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+
       - name: Build
         run: pnpm build
