@@ -1,21 +1,15 @@
 import "@testing-library/jest-dom/vitest"
 import type React from "react"
-import { vi, beforeEach, afterEach } from "vitest"
+import { vi } from "vitest"
 
-// Create a mock fetch function
-const mockFetch = vi.fn()
-
-// Set it globally before all tests
-vi.stubGlobal("fetch", mockFetch)
-
-// Reset mock between tests
-beforeEach(() => {
-  mockFetch.mockClear()
-})
-
-afterEach(() => {
-  mockFetch.mockClear()
-})
+// Ensure fetch is available globally before tests run
+// This allows vi.stubGlobal to work properly in individual tests
+if (!globalThis.fetch) {
+  globalThis.fetch = vi.fn()
+}
+if (!global.fetch) {
+  global.fetch = vi.fn()
+}
 
 vi.mock("next/image", () => ({
   default: ({ src, alt, ...props }: { src: string; alt: string }) => (

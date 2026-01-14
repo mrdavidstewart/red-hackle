@@ -9,7 +9,17 @@ describe("route handlers", () => {
   const originalEnv = process.env
 
   beforeEach(() => {
+    // Restore original environment
     process.env = { ...originalEnv }
+    
+    // Ensure test environment variables are available if not already set
+    if (!process.env.RESEND_API_KEY) {
+      process.env.RESEND_API_KEY = "test-key"
+    }
+    if (!process.env.FROM_EMAIL) {
+      process.env.FROM_EMAIL = "Red Hackle <test@example.com>"
+    }
+    
     clearRateLimit()
   })
 
