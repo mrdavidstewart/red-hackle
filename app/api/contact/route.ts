@@ -17,19 +17,8 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Parse and validate request with better error handling
-    let formData: FormData
-    try {
-      formData = await request.formData()
-    } catch {
-      return NextResponse.json(
-        { error: "Invalid form data" },
-        {
-          status: 400,
-          headers: secureHeaders,
-        },
-      )
-    }
+    // Parse and validate request
+    const formData = await request.formData()
 
     const firstName = sanitizeInput((formData.get("firstName") as string) || "")
     const lastName = sanitizeInput((formData.get("lastName") as string) || "")
