@@ -139,10 +139,7 @@ export async function POST(request: NextRequest) {
         headers: secureHeaders,
       },
     )
-  } catch (error) {
-    // Log error for debugging
-    console.error("Contact route error:", error instanceof Error ? error.message : String(error))
-    
+  } catch {
     return NextResponse.json(
       { error: "Internal server error" },
       {

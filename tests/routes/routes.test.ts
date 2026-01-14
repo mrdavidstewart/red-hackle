@@ -1,6 +1,5 @@
 import { NextRequest } from "next/server"
 import { vi } from "vitest"
-import type { Mock } from "vitest"
 import { GET as getRobots } from "@/app/robots.txt/route"
 import { GET as getSitemap } from "@/app/sitemap.xml/route"
 import { GET as getContact, POST as postContact } from "@/app/api/contact/route"
