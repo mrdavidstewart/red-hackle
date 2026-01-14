@@ -21,6 +21,15 @@ pnpm build
 pnpm start
 ```
 
+## Testing
+```bash
+pnpm test
+```
+
+### Coverage expectations
+- Coverage is enforced at 80% for lines, statements, branches, and functions.
+- Run `pnpm test` to generate text and HTML coverage reports.
+
 ## SEO + structured data
 - Global metadata, Open Graph, and Twitter cards are configured in `app/layout.tsx`.
 - JSON-LD LocalBusiness and Service schema is injected in `app/layout.tsx`.

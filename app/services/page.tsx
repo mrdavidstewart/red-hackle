@@ -1,15 +1,15 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import { buildMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Services",
   description:
     "Explore Red Hackle Cleaning Services offerings including office, contract, end of tenancy, builders sparkle, and deep cleaning services.",
-  alternates: { canonical: "/services" },
-}
+  path: "/services",
+})
 
 const serviceCards = [
   {
@@ -41,7 +41,7 @@ const serviceCards = [
     title: "Commercial Cleaning",
     description: "Professional cleaning services for businesses, offices, and commercial properties.",
     href: "/services/commercial-cleaning",
-  }
+  },
 ]
 
 export default function ServicesPage() {
