@@ -14,7 +14,7 @@ describe("route handlers", () => {
   })
 
   afterEach(() => {
-    vi.unstubAllGlobals()
+    // Don't unstub all globals - just restore environment
     process.env = originalEnv
   })
   it("serves robots.txt", async () => {
