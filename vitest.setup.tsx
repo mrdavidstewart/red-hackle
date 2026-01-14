@@ -1,7 +1,14 @@
 import "@testing-library/jest-dom/vitest"
 import type React from "react"
 
-// No fetch mocking here - let individual tests handle it
+// Stub fetch globally before any tests run
+vi.stubGlobal(
+  "fetch",
+  vi.fn().mockResolvedValue({
+    ok: true,
+    json: async () => ({ success: true }),
+  }),
+)
 
 vi.mock("next/image", () => ({
   default: ({ src, alt, ...props }: { src: string; alt: string }) => (
