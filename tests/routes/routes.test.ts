@@ -1,24 +1,25 @@
 import { NextRequest } from "next/server"
-import { vi } from "vitest"
+import { vi, beforeAll } from "vitest"
 import type { Mock } from "vitest"
 import { GET as getRobots } from "@/app/robots.txt/route"
 import { GET as getSitemap } from "@/app/sitemap.xml/route"
 import { GET as getContact, POST as postContact } from "@/app/api/contact/route"
 import { clearRateLimit } from "@/lib/security"
 
-// Create a reusable fetch mock at module level
-const createFetchMock = (): Mock => {
-  return vi.fn().mockResolvedValue({ ok: true } as Response)
-}
-
 describe("route handlers", () => {
   const originalEnv = process.env
   let fetchMock: Mock
 
-  beforeEach(() => {
-    // Create and stub fetch for each test
-    fetchMock = createFetchMock()
+  beforeAll(() => {
+    // Create fetch mock once before all tests
+    fetchMock = vi.fn().mockResolvedValue({ ok: true } as Response)
     vi.stubGlobal("fetch", fetchMock)
+  })
+
+  beforeEach(() => {
+    // Reset the mock for each test
+    fetchMock.mockReset()
+    fetchMock.mockResolvedValue({ ok: true } as Response)
     
     // Restore original environment
     process.env = { ...originalEnv }
