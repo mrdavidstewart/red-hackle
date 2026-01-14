@@ -1,9 +1,12 @@
 import { NextRequest } from "next/server"
-import { vi } from "vitest"
+import { vi, beforeAll } from "vitest"
 import { GET as getRobots } from "@/app/robots.txt/route"
 import { GET as getSitemap } from "@/app/sitemap.xml/route"
 import { GET as getContact, POST as postContact } from "@/app/api/contact/route"
 import { clearRateLimit } from "@/lib/security"
+
+// Mock fetch at module level before any tests run
+vi.stubGlobal("fetch", vi.fn())
 
 describe("route handlers", () => {
   const originalEnv = process.env
@@ -19,6 +22,9 @@ describe("route handlers", () => {
     if (!process.env.FROM_EMAIL) {
       process.env.FROM_EMAIL = "Red Hackle <test@example.com>"
     }
+    
+    // Reset fetch mock for each test
+    vi.mocked(globalThis.fetch).mockReset()
     
     clearRateLimit()
   })
@@ -55,8 +61,7 @@ describe("route handlers", () => {
     process.env.RESEND_API_KEY = "test-key"
     process.env.FROM_EMAIL = "Red Hackle <test@example.com>"
 
-    const fetchMock = vi.fn().mockResolvedValue({ ok: true })
-    vi.stubGlobal("fetch", fetchMock)
+    vi.mocked(globalThis.fetch).mockResolvedValue({ ok: true } as Response)
 
     const formData = new FormData()
     formData.set("firstName", "Jamie")
@@ -80,8 +85,7 @@ describe("route handlers", () => {
 
   it("returns validation errors for invalid contact submissions", async () => {
     process.env.RESEND_API_KEY = "test-key"
-    const fetchMock = vi.fn().mockResolvedValue({ ok: true })
-    vi.stubGlobal("fetch", fetchMock)
+    vi.mocked(globalThis.fetch).mockResolvedValue({ ok: true } as Response)
 
     const formData = new FormData()
     formData.set("firstName", "")
@@ -221,8 +225,7 @@ describe("route handlers", () => {
 
   it("handles email sending failures", async () => {
     process.env.RESEND_API_KEY = "test-key"
-    const fetchMock = vi.fn().mockResolvedValue({ ok: false })
-    vi.stubGlobal("fetch", fetchMock)
+    vi.mocked(globalThis.fetch).mockResolvedValue({ ok: false } as Response)
 
     const formData = new FormData()
     formData.set("firstName", "Jamie")
@@ -261,8 +264,7 @@ describe("route handlers", () => {
 
   it("enforces rate limiting after multiple requests", async () => {
     process.env.RESEND_API_KEY = "test-key"
-    const fetchMock = vi.fn().mockResolvedValue({ ok: true })
-    vi.stubGlobal("fetch", fetchMock)
+    vi.mocked(globalThis.fetch).mockResolvedValue({ ok: true } as Response)
 
     // Make 5 successful requests (the limit)
     for (let i = 0; i < 5; i++) {
@@ -311,8 +313,7 @@ describe("route handlers", () => {
 
   it("handles rate limiting with x-real-ip header", async () => {
     process.env.RESEND_API_KEY = "test-key"
-    const fetchMock = vi.fn().mockResolvedValue({ ok: true })
-    vi.stubGlobal("fetch", fetchMock)
+    vi.mocked(globalThis.fetch).mockResolvedValue({ ok: true } as Response)
 
     const formData = new FormData()
     formData.set("firstName", "Jamie")
@@ -337,8 +338,7 @@ describe("route handlers", () => {
 
   it("handles rate limiting with no IP headers", async () => {
     process.env.RESEND_API_KEY = "test-key"
-    const fetchMock = vi.fn().mockResolvedValue({ ok: true })
-    vi.stubGlobal("fetch", fetchMock)
+    vi.mocked(globalThis.fetch).mockResolvedValue({ ok: true } as Response)
 
     const formData = new FormData()
     formData.set("firstName", "Jamie")
