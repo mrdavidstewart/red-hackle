@@ -13,7 +13,7 @@ if (typeof globalThis !== "undefined" && !globalThis.fetch) {
 
 vi.mock("next/image", () => ({
   default: ({ src, alt, ...props }: { src: string; alt: string }) => (
-    <img src={typeof src === "string" ? src : ""} alt={alt} {...props} />
+    <div data-testid="next-image" data-src={typeof src === "string" ? src : ""} data-alt={alt} {...props} />
   ),
 }))
 

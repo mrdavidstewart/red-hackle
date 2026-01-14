@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     let formData: FormData
     try {
       formData = await request.formData()
-    } catch (error) {
+    } catch {
       return NextResponse.json(
         { error: "Invalid form data" },
         {
@@ -150,20 +150,8 @@ export async function POST(request: NextRequest) {
         headers: secureHeaders,
       },
     )
-  } catch (error) {
-    // Better error handling with specific error identification
-    console.error("Contact form error:", error)
-    
-    // Return appropriate error message based on error type
-    if (error instanceof TypeError && error.message.includes("fetch")) {
-      return NextResponse.json(
-        { error: "Network error" },
-        {
-          status: 503,
-          headers: secureHeaders,
-        },
-      )
-    }
+  } catch {
+    // Error would be logged to monitoring service in production
 
     return NextResponse.json(
       { error: "Internal server error" },
