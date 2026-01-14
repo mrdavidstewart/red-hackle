@@ -14,6 +14,10 @@ export default defineConfig({
     setupFiles: ["./vitest.setup.tsx"],
     globals: true,
     css: true,
+    environmentMatchGlobs: [
+      ["tests/routes/**", "node"],
+      ["tests/**", "jsdom"],
+    ],
     coverage: {
       provider: "v8",
       reporter: ["text", "html", "lcov"],
