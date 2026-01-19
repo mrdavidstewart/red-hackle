@@ -38,7 +38,7 @@ export function SiteHeader() {
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="h-3 w-3 text-red-400" />
-            <span>Dundee · Tayside · Fife · Angus</span>
+            <span>East Coast of Scotland</span>
           </div>
         </div>
       </div>

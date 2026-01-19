@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "Case Studies",
   description:
-    "Commercial cleaning case studies from Red Hackle Cleaning Services, showcasing measurable outcomes for offices, property managers, and construction handovers.",
+    "Commercial cleaning case studies from Red Hackle Cleaning Services across the East Coast of Scotland, showcasing measurable outcomes for offices, property managers, and construction handovers.",
   path: "/case-studies",
 })
 
@@ -15,7 +15,7 @@ const caseStudies = [
   {
     title: "Multi-site property management",
     summary:
-      "A Dundee-based property manager needed consistent end-of-tenancy cleans across four residential blocks with strict handover deadlines.",
+      "An East Coast of Scotland property manager needed consistent end-of-tenancy cleans across four residential blocks with strict handover deadlines.",
     outcome: "Reduced turnaround time by 30% and delivered compliance-ready checklists for every unit.",
   },
   {

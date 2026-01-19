@@ -11,20 +11,20 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "Commercial & Contract Cleaning Services",
   description:
-    "Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across Dundee, Tayside, Fife, and Angus.",
+    "Commercial cleaning partner for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland.",
   path: "/",
 })
 
 const trustSignals = [
-  "Fully insured and risk-assessed",
-  "Disclosure-checked staff where required",
-  "Quality control audits and reporting",
-  "Out-of-hours and weekend availability",
+  "Accountable supervision and QA reporting",
+  "SLA-led delivery with documented specs",
+  "Out-of-hours and weekend coverage",
+  "Multi-site coordination on request",
 ]
 
 const headlineStats = [
   { label: "Response time", value: "Quotes in 24 hours" },
-  { label: "Coverage", value: "Dundee, Tayside, Fife & Angus" },
+  { label: "Coverage", value: "East Coast of Scotland" },
   { label: "Availability", value: "Daytime or out-of-hours" },
 ]
 
@@ -58,9 +58,9 @@ const services = [
     href: "/services/office-workplace",
   },
   {
-    title: "Contract Cleaning",
-    description: "Planned services with SLAs, onboarding, and performance reviews for commercial clients.",
-    href: "/services/contract-cleaning",
+    title: "Managed Contract Cleaning",
+    description: "Ongoing, supervised contract cleaning with SLAs, onboarding, and performance reviews.",
+    href: "/commercial-cleaning",
   },
   {
     title: "End of Tenancy Cleaning",
@@ -73,15 +73,19 @@ const services = [
     href: "/services/builders-sparkle",
   },
   {
-    title: "Deep & One-off Cleaning",
-    description: "Intensive cleans for seasonal resets, audits, or special events with custom scopes.",
+    title: "One-off / Deep / Specialist Cleaning",
+    description: "Intensive cleans for audits, seasonal resets, or specialist scopes with tailored plans.",
     href: "/services/deep-one-off",
   },
-  {
-    title: "Commercial Cleaning Management",
-    description: "Managed commercial cleaning with onboarding support, SLAs, and consistent QA reporting.",
-    href: "/commercial-cleaning",
-  },
+]
+
+const trustComplianceItems = [
+  "Insurance",
+  "Public Liability (£10m)",
+  "Employers Liability (£5m)",
+  "RAMS available (Risk Assessments & Method Statements)",
+  "Uniformed team with supervision & QA programme",
+  "Keyholding & alarm response protocols",
 ]
 
 const processSteps = [
@@ -148,7 +152,7 @@ export default async function HomePage() {
               </h1>
               <p className="text-lg text-gray-200">
                 A disciplined cleaning partner for offices, property managers, hospitality venues, and construction
-                handovers across Dundee, Tayside, Fife, and Angus.
+                handovers across the East Coast of Scotland.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button asChild className="bg-red-600 text-white hover:bg-red-700">
@@ -198,7 +202,7 @@ export default async function HomePage() {
         <div className="mx-auto grid w-full max-w-6xl gap-6 px-4 py-10 text-sm font-semibold text-gray-700 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
           {[
             { label: "Fully insured", icon: ShieldCheck },
-            { label: "Disclosure-checked team", icon: BadgeCheck },
+            { label: "Supervised teams", icon: BadgeCheck },
             { label: "Quality control program", icon: ClipboardCheck },
             { label: "Flexible schedules", icon: Building2 },
           ].map((item) => (
@@ -238,9 +242,28 @@ export default async function HomePage() {
           <div className="mt-10 rounded-3xl border border-gray-200 bg-gray-50 p-6">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Coverage</p>
             <p className="mt-2 text-base text-gray-700">
-              Dundee, Tayside, Fife, and Angus including Broughty Ferry, Carnoustie, St Andrews, and surrounding
-              towns. Multi-site commercial coverage available on request.
+              Commercial Cleaning East Coast of Scotland, with multi-site coverage available on request.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="trust-compliance" className="scroll-mt-24 bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
+          <div className="flex flex-col gap-3">
+            <Badge className="w-fit bg-red-50 text-red-700">Trust &amp; Compliance</Badge>
+            <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Trust &amp; Compliance</h2>
+            <p className="text-lg text-gray-600">
+              Commercial assurance points that help procurement and facilities teams move quickly.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {trustComplianceItems.map((item) => (
+              <div key={item} className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-gray-50 p-4">
+                <ShieldCheck className="mt-0.5 h-5 w-5 text-red-600" />
+                <span className="text-sm font-semibold text-gray-800">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -345,7 +368,7 @@ export default async function HomePage() {
           </div>
           <div className="mt-8 flex">
             <a
-              href="https://www.google.com/maps/place/?q=place_id:ChIJR0u96mlI9IoRuloi_-UDkeg"
+              href="https://search.google.com/local/writereview?placeid=ChIJR0u96mlI9IoRuloi_-UDkeg"
               target="_blank"
               rel="noreferrer"
               className="rounded-full border border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-sm transition hover:border-gray-300 hover:text-gray-900"

@@ -10,18 +10,18 @@ export function SiteFooter() {
             <p className="text-lg font-semibold text-white">Red Hackle Cleaning Services</p>
             <p className="mt-3 text-sm text-gray-300">
               Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction
-              handovers across Dundee, Tayside, Fife, and Angus.
+              handovers across the East Coast of Scotland.
             </p>
             <div className="mt-6 space-y-2 text-sm text-gray-300">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-red-500" />
                 <a
-                  href="https://maps.google.com/?q=165+Brook+Street%2C+Dundee%2C+DD5+1DJ"
+                  href="https://maps.google.com/?q=165+Brook+Street%2C+DD5+1DJ"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white"
                 >
-                  165 Brook Street, Dundee, DD5 1DJ
+                  165 Brook Street, DD5 1DJ
                 </a>
               </div>
               <div className="flex items-center gap-2">
@@ -89,7 +89,7 @@ export function SiteFooter() {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-gray-800 pt-6 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; 2025 Red Hackle Cleaning Services. All rights reserved.</p>
-          <p>Company No: SC463742 · Coverage: Dundee, Tayside, Fife &amp; Angus.</p>
+          <p>Company No: SC463742 · Coverage: East Coast of Scotland.</p>
         </div>
       </div>
     </footer>

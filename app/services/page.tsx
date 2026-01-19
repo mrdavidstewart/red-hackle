@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "Services",
   description:
-    "Explore Red Hackle Cleaning Services offerings including office, contract, end of tenancy, builders sparkle, and deep cleaning services.",
+    "Commercial cleaning services across the East Coast of Scotland, including managed contract cleaning and specialist deep cleans.",
   path: "/services",
 })
 
@@ -18,9 +18,9 @@ const serviceCards = [
     href: "/services/office-workplace",
   },
   {
-    title: "Contract Cleaning",
-    description: "Service-led contracts with KPIs, mobilisation plans, and regular quality audits.",
-    href: "/services/contract-cleaning",
+    title: "Managed Contract Cleaning",
+    description: "Ongoing, supervised contracts with KPIs, mobilisation plans, and regular quality audits.",
+    href: "/commercial-cleaning",
   },
   {
     title: "End of Tenancy Cleaning",
@@ -33,14 +33,9 @@ const serviceCards = [
     href: "/services/builders-sparkle",
   },
   {
-    title: "Deep & One-off Cleaning",
-    description: "Intensive cleans for seasonal resets, audits, or special events with custom scopes.",
+    title: "One-off / Deep / Specialist Cleaning",
+    description: "Intensive cleans for audits, seasonal resets, or specialist scopes with custom plans.",
     href: "/services/deep-one-off",
-  },
-  {
-    title: "Commercial Cleaning",
-    description: "Professional cleaning services for businesses, offices, and commercial properties.",
-    href: "/services/commercial-cleaning",
   },
 ]
 
@@ -56,7 +51,7 @@ export default function ServicesPage() {
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Commercial cleaning services</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Flexible cleaning services tailored for offices, hospitality venues, property managers, and construction
-            teams across Dundee, Tayside, Fife, and Angus.
+            teams across the East Coast of Scotland.
           </p>
         </div>
       </section>

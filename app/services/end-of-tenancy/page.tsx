@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "End of Tenancy Cleaning",
   description:
-    "Inventory-ready end of tenancy cleaning for landlords, agents, and property managers across Dundee, Tayside, Fife, and Angus.",
+    "Inventory-ready end of tenancy cleaning for landlords, agents, and property managers across the East Coast of Scotland.",
   path: "/services/end-of-tenancy",
 })
 

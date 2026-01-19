@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "Office & Workplace Cleaning",
   description:
-    "Office and workplace cleaning for commercial clients in Dundee, Tayside, Fife, and Angus with flexible schedules and quality reporting.",
+    "Office and workplace cleaning for commercial clients across the East Coast of Scotland with flexible schedules and quality reporting.",
   path: "/services/office-workplace",
 })
 

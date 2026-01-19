@@ -8,11 +8,11 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "Contact",
   description:
-    "Request a commercial cleaning quote from Red Hackle Cleaning Services. Fast response, on-site surveys, and tailored proposals.",
+    "Request a commercial cleaning quote for the East Coast of Scotland. Fast response, on-site surveys, and tailored proposals.",
   path: "/contact",
 })
 
-const officeAddress = "165 Brook Street, Dundee, DD5 1DJ"
+const officeAddress = "165 Brook Street, DD5 1DJ"
 const directionsLink = `https://maps.google.com/?q=${encodeURIComponent(officeAddress)}`
 
 const contactDetails = [
@@ -38,10 +38,19 @@ const contactDetails = [
     title: "Find us",
     detail: officeAddress,
     href: directionsLink,
-    hint: "Serving Dundee, Tayside, Fife, and Angus.",
+    hint: "Serving the East Coast of Scotland.",
     icon: MapPin,
     actions: [{ label: "Directions", href: directionsLink, variant: "outline" as const }],
   },
+]
+
+const trustComplianceItems = [
+  "Insurance",
+  "Public Liability (£10m)",
+  "Employers Liability (£5m)",
+  "RAMS available (Risk Assessments & Method Statements)",
+  "Uniformed team with supervision & QA programme",
+  "Keyholding & alarm response protocols",
 ]
 
 export default function ContactPage() {
@@ -136,9 +145,29 @@ export default function ContactPage() {
             <CardContent className="space-y-3 p-6">
               <h2 className="text-2xl font-semibold text-gray-900">Coverage area</h2>
               <p className="text-gray-600">
-                We cover Dundee, Tayside, Fife, and Angus including Broughty Ferry, Carnoustie, St Andrews, and nearby
-                towns. Multi-site coverage available on request.
+                Commercial Cleaning East Coast of Scotland. Multi-site coverage available on request.
               </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200">
+            <CardContent className="space-y-4 p-6">
+              <h2 className="text-2xl font-semibold text-gray-900">Trust &amp; Compliance</h2>
+              <p className="text-gray-600">
+                Commercial assurance points available for procurement, compliance, and facilities teams.
+              </p>
+              <ul className="grid gap-3 text-sm text-gray-700 sm:grid-cols-2">
+                {trustComplianceItems.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="mt-1 h-2 w-2 rounded-full bg-red-600" />
+                    <span className="font-semibold text-gray-800">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </CardContent>
           </Card>
         </div>
