@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "Privacy Policy",
   description:
-    "Privacy policy for Red Hackle Cleaning Services covering data collection, legal basis, retention, and your GDPR rights.",
+    "Privacy policy for Red Hackle Cleaning Services, commercial cleaning specialists across the East Coast of Scotland.",
   path: "/privacy-policy",
 })
 
@@ -43,8 +43,8 @@ export default function PrivacyPolicyPage() {
               <CardContent className="space-y-4 p-6">
                 <h2 className="text-2xl font-semibold text-gray-900">Who we are</h2>
                 <p className="text-gray-600">
-                  Red Hackle Cleaning Services provides commercial and contract cleaning across Dundee, Tayside, Fife, and
-                  Angus. We are the data controller for information you provide when you contact us or request services.
+                  Red Hackle Cleaning Services provides commercial and contract cleaning across the East Coast of Scotland.
+                  We are the data controller for information you provide when you contact us or request services.
                 </p>
               </CardContent>
             </Card>
@@ -143,7 +143,7 @@ export default function PrivacyPolicyPage() {
                 <h2 className="text-2xl font-semibold text-gray-900">Contact</h2>
                 <p className="text-gray-600">
                   For questions about this policy or how we handle personal data, contact Red Hackle Cleaning Services at
-                  165 Brook Street, Dundee, DD5 1DJ, or email{" "}
+                  165 Brook Street, DD5 1DJ, or email{" "}
                   <a className="font-semibold text-red-600 hover:text-red-700" href="mailto:operations@redhacklegroup.com">
                     operations@redhacklegroup.com
                   </a>

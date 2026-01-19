@@ -20,7 +20,7 @@ describe("static pages", () => {
   it("renders the Commercial Cleaning page", () => {
     render(<CommercialCleaningPage />)
     expect(
-      screen.getByRole("heading", { name: /managed commercial cleaning with clear accountability/i }),
+      screen.getByRole("heading", { name: /managed contract cleaning with clear accountability/i }),
     ).toBeInTheDocument()
   })
 
@@ -34,7 +34,7 @@ describe("static pages", () => {
     // Check all contact details are rendered
     expect(screen.getAllByText(/07966 881 555/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/operations@redhacklegroup.com/i)).toBeInTheDocument()
-    expect(screen.getByText(/165 Brook Street, Dundee, DD5 1DJ/i)).toBeInTheDocument()
+    expect(screen.getByText(/165 Brook Street, DD5 1DJ/i)).toBeInTheDocument()
   })
 
   it("renders the Privacy Policy page", () => {

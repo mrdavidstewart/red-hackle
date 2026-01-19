@@ -1,13 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
 import Script from "next/script"
-import { Inter } from "next/font/google"
 import { SiteHeader } from "@/components/site/header"
 import { SiteFooter } from "@/components/site/footer"
 import { MobileStickyCta } from "@/components/site/mobile-cta"
 import "./globals.css"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.redhacklecleaningservices.com"),
@@ -16,9 +13,9 @@ export const metadata: Metadata = {
     template: "%s | Red Hackle Cleaning Services",
   },
   description:
-    "Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across Dundee, Tayside, Fife, and Angus.",
+    "Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland.",
   keywords:
-    "commercial cleaning, contract cleaning, office cleaning, builders clean, Dundee, Tayside, Fife, Angus",
+    "commercial cleaning east coast of scotland, managed contract cleaning, commercial cleaning services, contract cleaning, office cleaning, builders clean",
   authors: [{ name: "Red Hackle Cleaning Services" }],
   creator: "Red Hackle Cleaning Services",
   publisher: "Red Hackle Cleaning Services",
@@ -33,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Red Hackle Cleaning Services | Commercial & Contract Cleaning",
     description:
-      "Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across Dundee, Tayside, Fife, and Angus.",
+      "Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland.",
     url: "https://www.redhacklecleaningservices.com/",
     siteName: "Red Hackle Cleaning Services",
     locale: "en_GB",
@@ -44,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Red Hackle Cleaning Services | Commercial & Contract Cleaning",
     description:
-      "Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across Dundee, Tayside, Fife, and Angus.",
+      "Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland.",
     images: ["/images/team-photo.jpg"],
   },
   robots: {
@@ -82,12 +79,12 @@ export default function RootLayout({
         address: {
           "@type": "PostalAddress",
           streetAddress: "165 Brook Street",
-          addressLocality: "Dundee",
-          addressRegion: "Dundee City",
+          addressLocality: "East Coast of Scotland",
+          addressRegion: "Scotland",
           postalCode: "DD5 1DJ",
           addressCountry: "GB",
         },
-        areaServed: ["Dundee", "Tayside", "Fife", "Angus", "Broughty Ferry", "Carnoustie", "St Andrews"],
+        areaServed: ["East Coast of Scotland"],
         sameAs: [
           "https://www.facebook.com/profile.php?id=61555545779742",
           "https://instagram.com/redhacklegroup",
@@ -140,7 +137,7 @@ export default function RootLayout({
         "@type": "Service",
         name: service.name,
         description: service.description,
-        areaServed: ["Dundee", "Tayside", "Fife", "Angus"],
+        areaServed: ["East Coast of Scotland"],
         provider: { "@id": "https://www.redhacklecleaningservices.com/#business" },
       })),
     ],
@@ -165,7 +162,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
         />
       </head>
-      <body className={inter.className}>
+      <body className="font-sans">
         <div className="min-h-screen bg-white text-gray-900">
           <SiteHeader />
           {children}

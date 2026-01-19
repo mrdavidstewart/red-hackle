@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "About",
   description:
-    "Learn about Red Hackle Cleaning Services, our commercial-first operations, team oversight, and coverage across Dundee, Tayside, Fife, and Angus.",
+    "Learn about Red Hackle Cleaning Services, our commercial-first operations, team oversight, and coverage across the East Coast of Scotland.",
   path: "/about",
 })
 

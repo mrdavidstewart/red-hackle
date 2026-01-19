@@ -5,9 +5,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Deep & One-off Cleaning",
+  title: "One-off / Deep / Specialist Cleaning",
   description:
-    "Intensive deep and one-off cleaning services for commercial and managed properties across Dundee, Tayside, Fife, and Angus.",
+    "Intensive one-off, deep, and specialist cleaning services for commercial and managed properties across the East Coast of Scotland.",
   path: "/services/deep-one-off",
 })
 
@@ -26,8 +26,8 @@ export default function DeepOneOffPage() {
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-          <Badge className="bg-red-50 text-red-700">Deep &amp; one-off</Badge>
-          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Deep &amp; One-off Cleaning</h1>
+          <Badge className="bg-red-50 text-red-700">One-off / deep / specialist</Badge>
+          <h1 className="mt-4 text-4xl font-black sm:text-5xl">One-off / Deep / Specialist Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Thorough, planned deep cleans for commercial spaces that need an intensive reset or audit support.
           </p>

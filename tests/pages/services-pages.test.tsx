@@ -35,11 +35,11 @@ describe("services pages", () => {
 
   it("renders the deep & one-off service page", () => {
     render(<DeepOneOffPage />)
-    expect(screen.getByRole("heading", { name: /deep & one-off cleaning/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /one-off \/ deep \/ specialist cleaning/i })).toBeInTheDocument()
   })
 
   it("renders the commercial cleaning service page", () => {
     render(<CommercialCleaningServicePage />)
-    expect(screen.getByRole("heading", { name: /commercial cleaning services/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /managed contract cleaning/i })).toBeInTheDocument()
   })
 })

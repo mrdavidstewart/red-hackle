@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo"
 export const metadata = buildMetadata({
   title: "Terms of Service",
   description:
-    "Terms of service for Red Hackle Cleaning Services, outlining booking, payments, cancellations, and service standards.",
+    "Terms of service for Red Hackle Cleaning Services, commercial cleaning specialists across the East Coast of Scotland.",
   path: "/terms-of-service",
 })
 
@@ -43,8 +43,8 @@ export default function TermsOfServicePage() {
               <CardContent className="space-y-4 p-6">
                 <h2 className="text-2xl font-semibold text-gray-900">1. Services</h2>
                 <p className="text-gray-600">
-                  Red Hackle Cleaning Services provides commercial and contract cleaning across Dundee, Tayside, Fife, and
-                  Angus. Service scopes are agreed in writing, including frequency, tasks, and reporting requirements.
+                  Red Hackle Cleaning Services provides commercial and contract cleaning across the East Coast of Scotland.
+                  Service scopes are agreed in writing, including frequency, tasks, and reporting requirements.
                 </p>
               </CardContent>
             </Card>

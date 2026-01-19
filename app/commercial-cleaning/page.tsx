@@ -6,9 +6,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning",
+  title: "Managed Contract Cleaning",
   description:
-    "Commercial and contract cleaning services with onboarding, SLAs, quality control, and reporting for Dundee, Tayside, Fife, and Angus.",
+    "Managed contract cleaning with onboarding, SLAs, quality control, and reporting across the East Coast of Scotland.",
   path: "/commercial-cleaning",
 })
 
@@ -34,6 +34,15 @@ const onboarding = [
   "Quality control checklist and reporting cadence",
 ]
 
+const trustComplianceItems = [
+  "Insurance",
+  "Public Liability (£10m)",
+  "Employers Liability (£5m)",
+  "RAMS available (Risk Assessments & Method Statements)",
+  "Uniformed team with supervision & QA programme",
+  "Keyholding & alarm response protocols",
+]
+
 export default function CommercialCleaningPage() {
   return (
     <main className="pb-16 md:pb-0">
@@ -43,7 +52,7 @@ export default function CommercialCleaningPage() {
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-white/10 text-white">Commercial &amp; contract cleaning</Badge>
-          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Managed commercial cleaning with clear accountability</h1>
+          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Managed contract cleaning with clear accountability</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Red Hackle partners with office managers, hospitality groups, and property teams who need consistent
             outcomes, reliable reporting, and a proactive response team.
@@ -123,6 +132,25 @@ export default function CommercialCleaningPage() {
                   </p>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
+          <div className="rounded-3xl border border-gray-200 bg-gray-50 p-8">
+            <h2 className="text-3xl font-black text-gray-900">Trust &amp; Compliance</h2>
+            <p className="mt-3 text-gray-600">
+              Commercial assurance points to support procurement, compliance reviews, and site onboarding.
+            </p>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {trustComplianceItems.map((item) => (
+                <div key={item} className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white p-4">
+                  <ShieldCheck className="mt-0.5 h-5 w-5 text-red-600" />
+                  <span className="text-sm font-semibold text-gray-800">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
