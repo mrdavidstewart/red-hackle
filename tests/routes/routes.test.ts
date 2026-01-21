@@ -5,30 +5,36 @@ import { GET as getSitemap } from "@/app/sitemap.xml/route"
 import { GET as getContact, POST as postContact } from "@/app/api/contact/route"
 import { clearRateLimit } from "@/lib/security"
 
-// Mock the global fetch for server-side route testing
-const mockFetch = vi.fn()
-vi.stubGlobal("fetch", mockFetch)
+// Mock the Resend module
+const mockResendSend = vi.fn()
+vi.mock("resend", () => ({
+  Resend: vi.fn(() => ({
+    emails: {
+      send: mockResendSend,
+    },
+  })),
+}))
 
 describe("route handlers", () => {
   const originalEnv = process.env
 
   beforeEach(() => {
-    // Reset the fetch mock for each test
-    mockFetch.mockReset()
-    mockFetch.mockResolvedValue({ ok: true } as Response)
-    
+    // Reset the Resend mock for each test
+    mockResendSend.mockReset()
+    mockResendSend.mockResolvedValue({ data: { id: "test-id" }, error: null })
+
     // Restore original environment
     process.env = { ...originalEnv }
-    
+
     // Ensure test environment variables are available
     process.env.RESEND_API_KEY = "test-key"
     process.env.FROM_EMAIL = "Red Hackle <test@example.com>"
-    
+
     clearRateLimit()
   })
 
   afterEach(() => {
-    // Don't unstub all globals - just restore environment
+    // Restore environment
     process.env = originalEnv
   })
   it("serves robots.txt", async () => {
@@ -56,7 +62,7 @@ describe("route handlers", () => {
   })
 
   it("accepts valid contact submissions", async () => {
-    mockFetch.mockResolvedValue({ ok: true } as Response)
+    mockResendSend.mockResolvedValue({ data: { id: "test-id" }, error: null })
 
     const formData = new FormData()
     formData.set("firstName", "Jamie")
@@ -79,7 +85,7 @@ describe("route handlers", () => {
   })
 
   it("returns validation errors for invalid contact submissions", async () => {
-    mockFetch.mockResolvedValue({ ok: true } as Response)
+    mockResendSend.mockResolvedValue({ data: { id: "test-id" }, error: null })
 
     const formData = new FormData()
     formData.set("firstName", "")
@@ -218,7 +224,7 @@ describe("route handlers", () => {
   })
 
   it("handles email sending failures", async () => {
-    mockFetch.mockResolvedValue({ ok: false } as Response)
+    mockResendSend.mockResolvedValue({ data: null, error: { message: "Failed to send" } })
 
     const formData = new FormData()
     formData.set("firstName", "Jamie")
@@ -236,13 +242,14 @@ describe("route handlers", () => {
     const response = await postContact(request)
     const data = await response.json()
 
-    expect(response.status).toBe(502)
-    expect(data.error).toBe("Unable to send message")
+    expect(response.status).toBe(500)
+    expect(data.error).toBe("Failed to send email")
   })
 
   it("handles unexpected errors gracefully", async () => {
+    mockResendSend.mockResolvedValue({ data: { id: "test-id" }, error: null })
     process.env.RESEND_API_KEY = "test-key"
-    
+
     const request = new NextRequest("http://localhost/api/contact", {
       method: "POST",
       body: null,
@@ -252,11 +259,11 @@ describe("route handlers", () => {
     const data = await response.json()
 
     expect(response.status).toBe(500)
-    expect(data.error).toBe("Internal server error")
+    expect(data.error).toMatch(/Internal server error/)
   })
 
   it("enforces rate limiting after multiple requests", async () => {
-    mockFetch.mockResolvedValue({ ok: true } as Response)
+    mockResendSend.mockResolvedValue({ data: { id: "test-id" }, error: null })
 
     // Make 5 successful requests (the limit)
     for (let i = 0; i < 5; i++) {
@@ -304,7 +311,7 @@ describe("route handlers", () => {
   })
 
   it("handles rate limiting with x-real-ip header", async () => {
-    mockFetch.mockResolvedValue({ ok: true } as Response)
+    mockResendSend.mockResolvedValue({ data: { id: "test-id" }, error: null })
 
     const formData = new FormData()
     formData.set("firstName", "Jamie")
@@ -328,7 +335,7 @@ describe("route handlers", () => {
   })
 
   it("handles rate limiting with no IP headers", async () => {
-    mockFetch.mockResolvedValue({ ok: true } as Response)
+    mockResendSend.mockResolvedValue({ data: { id: "test-id" }, error: null })
 
     const formData = new FormData()
     formData.set("firstName", "Jamie")

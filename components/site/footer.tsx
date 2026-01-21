@@ -88,8 +88,8 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-gray-800 pt-6 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; 2025 Red Hackle Cleaning Services. All rights reserved.</p>
-          <p>Company No: SC463742 · Coverage: East Coast of Scotland.</p>
+          <p>&copy; 2025 Red Hackle Cleaning Services Ltd. All rights reserved.</p>
+          <p>Red Hackle Cleaning Services Ltd - Registered in Scotland - Company No: SC463742 - VAT No: GB256909665</p>
         </div>
       </div>
     </footer>

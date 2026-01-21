@@ -1,12 +1,13 @@
 import { type NextRequest, NextResponse } from "next/server"
+import { Resend } from "resend"
 import { sanitizeInput, isValidEmail, isValidPhone, checkRateLimit, secureHeaders } from "@/lib/security"
 
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting
-    const clientIP = request.headers.get("x-forwarded-for") || 
-                     request.headers.get("x-real-ip") || 
-                     "unknown"
+    const clientIP = request.headers.get("x-forwarded-for") ||
+      request.headers.get("x-real-ip") ||
+      "unknown"
     if (!checkRateLimit(clientIP, 5, 300000)) {
       return NextResponse.json(
         { error: "Too many requests" },
@@ -107,33 +108,28 @@ export async function POST(request: NextRequest) {
       message,
     ].join("\n")
 
-    const resendResponse = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendApiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: "operations@redhacklegroup.com",
-        subject: emailSubject,
-        text: emailText,
-        reply_to: email,
-      }),
+    const resend = new Resend(resendApiKey)
+
+    const { data, error } = await resend.emails.send({
+      from: fromEmail,
+      to: "operations@redhacklegroup.com",
+      subject: emailSubject,
+      text: emailText,
+      replyTo: email,
     })
 
-    if (!resendResponse.ok) {
+    if (error) {
       return NextResponse.json(
-        { error: "Unable to send message" },
+        { error: "Failed to send email" },
         {
-          status: 502,
+          status: 500,
           headers: secureHeaders,
         },
       )
     }
 
     return NextResponse.json(
-      { success: true, message: "Message sent successfully" },
+      { success: true, data },
       {
         status: 200,
         headers: secureHeaders,

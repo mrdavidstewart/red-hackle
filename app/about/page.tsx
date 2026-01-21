@@ -40,10 +40,13 @@ export default function AboutPage() {
       <section className="bg-gray-50">
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-4">
-            <h2 className="text-3xl font-black text-gray-900">Operational focus</h2>
+            <h2 className="text-3xl font-black text-gray-900">A disciplined, accountable cleaning partner</h2>
             <p className="text-lg text-gray-600">
-              Our approach is operations-led. We start with a site survey, agree clear specifications, and mobilise a
-              supervised team that understands your compliance requirements.
+              Red Hackle Cleaning Services was built to bring structure, pride, and accountability back into commercial cleaning.
+              <br />
+              Founded and led by Managing Director Arthur, whose background is rooted in disciplined, high-standards environments, the business was established on a simple principle: do the basics brilliantly, every time. That ethos runs through everything we do, from how contracts are mobilised, to how teams are supervised, to how quality is measured and reported.
+              <br />
+              We support commercial clients who need a cleaning partner they can rely on. One that understands compliance, consistency, and the reality of operating live sites. Whether it’s a single office or a multi-site portfolio, our focus is on dependable delivery, clear communication, and standards that don’t drift.
             </p>
             <ul className="space-y-2 text-gray-600">
               {commitments.map((item) => (

@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { fetchGoogleReviews } from "@/lib/googleReviews"
-import { testimonials } from "@/lib/testimonials"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
@@ -54,7 +53,7 @@ const sectors = [
 const services = [
   {
     title: "Office & Workplace Cleaning",
-    description: "Daily or scheduled cleaning with desk sanitisation, kitchens, washrooms, and waste handling.",
+    description: "Daily or scheduled cleaning covering desks, kitchens, washrooms, waste handling, and any additional areas agreed within a tailored scope of works.",
     href: "/services/office-workplace",
   },
   {
@@ -80,9 +79,7 @@ const services = [
 ]
 
 const trustComplianceItems = [
-  "Insurance",
-  "Public Liability (£10m)",
-  "Employers Liability (£5m)",
+  "Public Liability (£10m), Employers Liability (£5m)",
   "RAMS available (Risk Assessments & Method Statements)",
   "Uniformed team with supervision & QA programme",
   "Keyholding & alarm response protocols",
@@ -109,11 +106,10 @@ const processSteps = [
 
 export default async function HomePage() {
   const googleReviews = await fetchGoogleReviews()
-  const items = [...googleReviews, ...testimonials]
   const reviewSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    itemListElement: items.map((item, index) => ({
+    itemListElement: googleReviews.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
       item: {
@@ -326,7 +322,7 @@ export default async function HomePage() {
             <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Trusted by our clients</h2>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {items.map((item) => (
+            {googleReviews.map((item) => (
               <Card key={item.id} className="border border-gray-200 bg-white">
                 <CardContent className="space-y-4 p-6">
                   <div className="flex items-center justify-between gap-3">
@@ -341,8 +337,8 @@ export default async function HomePage() {
                         )
                       })}
                     </div>
-                    <Badge className={item.source === "google" ? "bg-blue-50 text-blue-700" : "bg-green-50 text-green-700"}>
-                      {item.source === "google" ? "Google" : "Verified client"}
+                    <Badge className="bg-blue-50 text-blue-700">
+                      Google
                     </Badge>
                   </div>
                   <p className="text-sm text-gray-600">&ldquo;{item.quote}&rdquo;</p>
@@ -351,7 +347,7 @@ export default async function HomePage() {
                       <p className="text-sm font-semibold text-gray-900">{item.name}</p>
                       <p className="text-xs text-gray-500">{item.role}</p>
                     </div>
-                    {item.source === "google" && item.url ? (
+                    {item.url && (
                       <a
                         href={item.url}
                         target="_blank"
@@ -360,7 +356,7 @@ export default async function HomePage() {
                       >
                         Read on Google
                       </a>
-                    ) : null}
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -385,8 +381,9 @@ export default async function HomePage() {
             <Badge className="w-fit bg-red-50 text-red-700">About Red Hackle</Badge>
             <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">A disciplined team built for commercial sites</h2>
             <p className="text-lg text-gray-600">
-              Our team operates with clear supervision, documented cleaning specs, and measurable quality outcomes. We
-              support multi-site clients with consistent reporting and flexible scheduling.
+              We operate with clear supervision, documented cleaning specifications, and measurable quality outcomes. Using modern workforce and reporting technology, our teams are issued with full site-specific scopes of works, ensuring consistency and accountability across every visit.
+              <br />
+              Timings on site are recorded for full traceability, with before-and-after imagery and quality checks used to support reporting and continuous improvement. This allows us to support multi-site clients with consistent standards, clear communication, and flexible scheduling that works around live environments.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button asChild className="bg-black text-white hover:bg-gray-900">
@@ -419,19 +416,19 @@ export default async function HomePage() {
             {[
               {
                 q: "How quickly can you mobilise a new contract?",
-                a: "Most sites can be mobilised within 5-10 working days once the scope and access details are confirmed.",
+                a: "Most sites can be mobilised within 5–10 working days once the scope of works, access arrangements, and site requirements are confirmed. For urgent or short-notice requirements, accelerated mobilisation may be possible following assessment.",
               },
               {
                 q: "Do you provide cleaning supplies and consumables?",
-                a: "We can supply all consumables and equipment or work with your preferred products and compliance requirements.",
+                a: "Yes. We can supply all equipment and consumables as part of the service, or work to client-provided products and site-specific compliance requirements where preferred.",
               },
               {
                 q: "Can you cover out-of-hours schedules?",
-                a: "Yes. We regularly support early-morning, evening, and weekend schedules for offices and hospitality venues.",
+                a: "Absolutely. We regularly support early-morning, evening, overnight, and weekend cleaning schedules for offices, hospitality venues, and operational environments.",
               },
               {
                 q: "How do you handle quality control?",
-                a: "Supervisors conduct routine inspections with agreed checklists and share reporting on request.",
+                a: "Quality is managed through supervised teams, documented cleaning specifications, and routine inspections. Where required, we provide traceable attendance records, before-and-after imagery, and quality reporting aligned to the agreed scope of works.",
               },
             ].map((item) => (
               <Card key={item.q} className="border border-gray-200 bg-white">
