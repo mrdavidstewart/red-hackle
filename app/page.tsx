@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { fetchGoogleReviews } from "@/lib/googleReviews"
-import { testimonials } from "@/lib/testimonials"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
@@ -107,11 +106,10 @@ const processSteps = [
 
 export default async function HomePage() {
   const googleReviews = await fetchGoogleReviews()
-  const items = [...googleReviews, ...testimonials]
   const reviewSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    itemListElement: items.map((item, index) => ({
+    itemListElement: googleReviews.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
       item: {
@@ -324,7 +322,7 @@ export default async function HomePage() {
             <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Trusted by our clients</h2>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {items.map((item) => (
+            {googleReviews.map((item) => (
               <Card key={item.id} className="border border-gray-200 bg-white">
                 <CardContent className="space-y-4 p-6">
                   <div className="flex items-center justify-between gap-3">
@@ -339,8 +337,8 @@ export default async function HomePage() {
                         )
                       })}
                     </div>
-                    <Badge className={item.source === "google" ? "bg-blue-50 text-blue-700" : "bg-green-50 text-green-700"}>
-                      {item.source === "google" ? "Google" : "Verified client"}
+                    <Badge className="bg-blue-50 text-blue-700">
+                      Google 
                     </Badge>
                   </div>
                   <p className="text-sm text-gray-600">&ldquo;{item.quote}&rdquo;</p>
@@ -349,7 +347,6 @@ export default async function HomePage() {
                       <p className="text-sm font-semibold text-gray-900">{item.name}</p>
                       <p className="text-xs text-gray-500">{item.role}</p>
                     </div>
-                    {item.source === "google" && item.url ? (
                       <a
                         href={item.url}
                         target="_blank"
@@ -358,7 +355,6 @@ export default async function HomePage() {
                       >
                         Read on Google
                       </a>
-                    ) : null}
                   </div>
                 </CardContent>
               </Card>
