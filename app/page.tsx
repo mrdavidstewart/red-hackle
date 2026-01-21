@@ -338,7 +338,7 @@ export default async function HomePage() {
                       })}
                     </div>
                     <Badge className="bg-blue-50 text-blue-700">
-                      Google 
+                      Google
                     </Badge>
                   </div>
                   <p className="text-sm text-gray-600">&ldquo;{item.quote}&rdquo;</p>
@@ -347,14 +347,14 @@ export default async function HomePage() {
                       <p className="text-sm font-semibold text-gray-900">{item.name}</p>
                       <p className="text-xs text-gray-500">{item.role}</p>
                     </div>
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-xs font-semibold text-red-600 hover:text-red-700"
-                      >
-                        Read on Google
-                      </a>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-xs font-semibold text-red-600 hover:text-red-700"
+                    >
+                      Read on Google
+                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -379,8 +379,9 @@ export default async function HomePage() {
             <Badge className="w-fit bg-red-50 text-red-700">About Red Hackle</Badge>
             <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">A disciplined team built for commercial sites</h2>
             <p className="text-lg text-gray-600">
-              Our team operates with clear supervision, documented cleaning specs, and measurable quality outcomes. We
-              support multi-site clients with consistent reporting and flexible scheduling.
+              We operate with clear supervision, documented cleaning specifications, and measurable quality outcomes. Using modern workforce and reporting technology, our teams are issued with full site-specific scopes of works, ensuring consistency and accountability across every visit.
+              <br />
+              Timings on site are recorded for full traceability, with before-and-after imagery and quality checks used to support reporting and continuous improvement. This allows us to support multi-site clients with consistent standards, clear communication, and flexible scheduling that works around live environments.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button asChild className="bg-black text-white hover:bg-gray-900">
