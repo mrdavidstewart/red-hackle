@@ -54,7 +54,7 @@ const sectors = [
 const services = [
   {
     title: "Office & Workplace Cleaning",
-    description: "Daily or scheduled cleaning with desk sanitisation, kitchens, washrooms, and waste handling.",
+    description: "Daily or scheduled cleaning covering desks, kitchens, washrooms, waste handling, and any additional areas agreed within a tailored scope of works.",
     href: "/services/office-workplace",
   },
   {
