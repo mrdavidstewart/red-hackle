@@ -135,9 +135,9 @@ export async function POST(request: NextRequest) {
         headers: secureHeaders,
       },
     )
-  } catch (error) {
+  } catch {
     return NextResponse.json(
-      { error: `Internal server error, ${error instanceof Error ? error.message : "Unknown error"}` },
+      { error: "Internal server error" },
       {
         status: 500,
         headers: secureHeaders,

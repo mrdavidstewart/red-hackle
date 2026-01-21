@@ -347,14 +347,16 @@ export default async function HomePage() {
                       <p className="text-sm font-semibold text-gray-900">{item.name}</p>
                       <p className="text-xs text-gray-500">{item.role}</p>
                     </div>
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-xs font-semibold text-red-600 hover:text-red-700"
-                    >
-                      Read on Google
-                    </a>
+                    {item.url && (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs font-semibold text-red-600 hover:text-red-700"
+                      >
+                        Read on Google
+                      </a>
+                    )}
                   </div>
                 </CardContent>
               </Card>
