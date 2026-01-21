@@ -22,14 +22,14 @@ describe("route handlers", () => {
     // Reset the Resend mock for each test
     mockResendSend.mockReset()
     mockResendSend.mockResolvedValue({ data: { id: "test-id" }, error: null })
-    
+
     // Restore original environment
     process.env = { ...originalEnv }
-    
+
     // Ensure test environment variables are available
     process.env.RESEND_API_KEY = "test-key"
     process.env.FROM_EMAIL = "Red Hackle <test@example.com>"
-    
+
     clearRateLimit()
   })
 
@@ -249,7 +249,7 @@ describe("route handlers", () => {
   it("handles unexpected errors gracefully", async () => {
     mockResendSend.mockResolvedValue({ data: { id: "test-id" }, error: null })
     process.env.RESEND_API_KEY = "test-key"
-    
+
     const request = new NextRequest("http://localhost/api/contact", {
       method: "POST",
       body: null,
