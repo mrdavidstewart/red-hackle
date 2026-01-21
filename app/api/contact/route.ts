@@ -97,8 +97,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const fromEmail = process.env.FROM_EMAIL || "New Contact Form Enquiry <onboarding@resend.dev>"
-    const toEmail = process.env.TO_EMAIL || "operations@redhacklegroup.com"
+    const fromEmail = process.env.FROM_EMAIL || "Red Hackle <onboarding@resend.dev>"
     const emailSubject = `New contact form enquiry from ${firstName} ${lastName}`
     const emailText = [
       `Name: ${firstName} ${lastName}`,
@@ -113,7 +112,7 @@ export async function POST(request: NextRequest) {
 
     const { data, error } = await resend.emails.send({
       from: fromEmail,
-      to: toEmail,
+      to: "operations@redhacklegroup.com",
       subject: emailSubject,
       text: emailText,
       replyTo: email,
@@ -121,7 +120,7 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       return NextResponse.json(
-        { error: "Failed to send email: " + error.message },
+        { error: "Failed to send email" },
         {
           status: 500,
           headers: secureHeaders,

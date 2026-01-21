@@ -9,7 +9,7 @@ import TermsOfServicePage from "@/app/terms-of-service/page"
 describe("static pages", () => {
   it("renders the About page", () => {
     render(<AboutPage />)
-    expect(screen.getByRole("heading", { name: /disciplined, accountable cleaning partner/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { level: 1, name: /A disciplined, accountable cleaning partner/i })).toBeInTheDocument()
   })
 
   it("renders the Case Studies page", () => {
@@ -30,7 +30,7 @@ describe("static pages", () => {
     expect(screen.getByRole("heading", { name: /request a commercial cleaning quote/i })).toBeInTheDocument()
     expect(screen.getByRole("link", { name: /call 07966 881 555/i })).toHaveAttribute("href", "tel:+447966881555")
     expect(screen.getByRole("link", { name: /whatsapp us/i })).toHaveAttribute("href", "https://wa.me/447966881555")
-    
+
     // Check all contact details are rendered
     expect(screen.getAllByText(/07966 881 555/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/operations@redhacklegroup.com/i)).toBeInTheDocument()
