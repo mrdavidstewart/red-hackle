@@ -80,9 +80,7 @@ const services = [
 ]
 
 const trustComplianceItems = [
-  "Insurance",
-  "Public Liability (£10m)",
-  "Employers Liability (£5m)",
+  "Public Liability (£10m), Employers Liability (£5m)",
   "RAMS available (Risk Assessments & Method Statements)",
   "Uniformed team with supervision & QA programme",
   "Keyholding & alarm response protocols",
