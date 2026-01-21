@@ -45,9 +45,7 @@ const contactDetails = [
 ]
 
 const trustComplianceItems = [
-  "Insurance",
-  "Public Liability (£10m)",
-  "Employers Liability (£5m)",
+  "Public Liability (£10m) and Employers Liability (£5m)",
   "RAMS available (Risk Assessments & Method Statements)",
   "Uniformed team with supervision & QA programme",
   "Keyholding & alarm response protocols",
@@ -145,7 +143,7 @@ export default function ContactPage() {
             <CardContent className="space-y-3 p-6">
               <h2 className="text-2xl font-semibold text-gray-900">Coverage area</h2>
               <p className="text-gray-600">
-                Commercial Cleaning East Coast of Scotland. Multi-site coverage available on request.
+                Commercial cleaning services delivered across the East Coast of Scotland, supporting single-site and multi-site operations.
               </p>
             </CardContent>
           </Card>
