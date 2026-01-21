@@ -414,19 +414,19 @@ export default async function HomePage() {
             {[
               {
                 q: "How quickly can you mobilise a new contract?",
-                a: "Most sites can be mobilised within 5-10 working days once the scope and access details are confirmed.",
+                a: "Most sites can be mobilised within 5–10 working days once the scope of works, access arrangements, and site requirements are confirmed. For urgent or short-notice requirements, accelerated mobilisation may be possible following assessment.",
               },
               {
                 q: "Do you provide cleaning supplies and consumables?",
-                a: "We can supply all consumables and equipment or work with your preferred products and compliance requirements.",
+                a: "Yes. We can supply all equipment and consumables as part of the service, or work to client-provided products and site-specific compliance requirements where preferred.",
               },
               {
                 q: "Can you cover out-of-hours schedules?",
-                a: "Yes. We regularly support early-morning, evening, and weekend schedules for offices and hospitality venues.",
+                a: "Absolutely. We regularly support early-morning, evening, overnight, and weekend cleaning schedules for offices, hospitality venues, and operational environments.",
               },
               {
                 q: "How do you handle quality control?",
-                a: "Supervisors conduct routine inspections with agreed checklists and share reporting on request.",
+                a: "Quality is managed through supervised teams, documented cleaning specifications, and routine inspections. Where required, we provide traceable attendance records, before-and-after imagery, and quality reporting aligned to the agreed scope of works.",
               },
             ].map((item) => (
               <Card key={item.q} className="border border-gray-200 bg-white">
