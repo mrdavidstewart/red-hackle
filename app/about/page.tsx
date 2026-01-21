@@ -12,13 +12,6 @@ export const metadata = buildMetadata({
   path: "/about",
 })
 
-const commitments = [
-  "Dedicated supervisors and documented specs",
-  "Consistent staffing and service continuity",
-  "Audits, reporting, and continuous improvement",
-  "Flexible coverage including out-of-hours",
-]
-
 export default function AboutPage() {
   return (
     <main className="pb-16 md:pb-0">
@@ -43,16 +36,11 @@ export default function AboutPage() {
             <h2 className="text-3xl font-black text-gray-900">A disciplined, accountable cleaning partner</h2>
             <p className="text-lg text-gray-600">
               Red Hackle Cleaning Services was built to bring structure, pride, and accountability back into commercial cleaning.
-              <br />
+              <br /><br />
               Founded and led by Managing Director Arthur, whose background is rooted in disciplined, high-standards environments, the business was established on a simple principle: do the basics brilliantly, every time. That ethos runs through everything we do, from how contracts are mobilised, to how teams are supervised, to how quality is measured and reported.
-              <br />
+              <br /><br />
               We support commercial clients who need a cleaning partner they can rely on. One that understands compliance, consistency, and the reality of operating live sites. Whether it’s a single office or a multi-site portfolio, our focus is on dependable delivery, clear communication, and standards that don’t drift.
             </p>
-            <ul className="space-y-2 text-gray-600">
-              {commitments.map((item) => (
-                <li key={item}>• {item}</li>
-              ))}
-            </ul>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button asChild className="bg-red-600 text-white hover:bg-red-700">
                 <Link href="/contact">Request a site survey</Link>

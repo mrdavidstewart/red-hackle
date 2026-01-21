@@ -383,6 +383,7 @@ export default async function HomePage() {
             <p className="text-lg text-gray-600">
               We operate with clear supervision, documented cleaning specifications, and measurable quality outcomes. Using modern workforce and reporting technology, our teams are issued with full site-specific scopes of works, ensuring consistency and accountability across every visit.
               <br />
+              <br />
               Timings on site are recorded for full traceability, with before-and-after imagery and quality checks used to support reporting and continuous improvement. This allows us to support multi-site clients with consistent standards, clear communication, and flexible scheduling that works around live environments.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
