@@ -6,6 +6,7 @@ export function GET() {
   const urls = [
     "/",
     "/commercial-cleaning",
+    "/consumables",
     "/services",
     "/services/office-workplace",
     "/services/contract-cleaning",

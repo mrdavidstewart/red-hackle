@@ -3,12 +3,14 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 import { Mail, MapPin, Menu, Phone, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Commercial Cleaning", href: "/commercial-cleaning" },
+  { label: "Consumables", href: "/consumables" },
   { label: "Services", href: "/services" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "About", href: "/about" },
@@ -17,6 +19,8 @@ const navLinks = [
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname() ?? ""
+  const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(`${href}/`))
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white">
@@ -57,7 +61,11 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-6 text-sm font-semibold text-gray-700 lg:flex">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="hover:text-red-600">
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`hover:text-red-600 ${isActive(link.href) ? "text-red-600" : ""}`}
+            >
               {link.label}
             </Link>
           ))}
@@ -93,7 +101,7 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="hover:text-red-600"
+                className={`hover:text-red-600 ${isActive(link.href) ? "text-red-600" : ""}`}
               >
                 {link.label}
               </Link>
