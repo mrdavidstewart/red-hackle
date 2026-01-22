@@ -13,10 +13,11 @@ export const metadata = buildMetadata({
 
 const inclusions = [
   "Desk, touchpoint, and meeting room sanitisation",
-  "Reception, breakout, and communal area cleaning",
-  "Washroom servicing and consumable restocking",
-  "Kitchen and refreshment area detailing",
+  "Reception, breakout, and communal areas",
+  "Washroom cleaning and consumable restocking",
+  "Kitchen and refreshment areas",
   "Waste and recycling management",
+  "Additional areas can be included within a tailored scope of works"
 ]
 
 export default function OfficeWorkplacePage() {
@@ -30,8 +31,10 @@ export default function OfficeWorkplacePage() {
           <Badge className="bg-red-50 text-red-700">Office &amp; workplace</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Office &amp; Workplace Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Maintain a professional workspace with daily or out-of-hours cleaning, consistent staff, and clear quality
-            checks.
+            Professional office and workplace cleaning services delivered with consistency, discretion, and accountability. We support offices and professional environments with daily or out-of-hours cleaning that fits around live operations.
+            <br />
+            <br />
+            Our service is structured around clear scopes, consistent staffing, and quality oversight to maintain standards long-term.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
