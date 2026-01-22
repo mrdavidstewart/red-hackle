@@ -15,23 +15,23 @@ export const metadata = buildMetadata({
 const highlights = [
   {
     title: "SLA-led delivery",
-    description: "KPIs, service levels, and escalation paths documented for every site.",
+    description: "KPIs, service levels, and escalation paths documented for every site to ensure accountability and clarity.",
   },
   {
     title: "Dedicated supervision",
-    description: "On-site leads, consistent team allocation, and regular quality audits.",
+    description: "Consistent teams supported by on-site supervision and routine quality audits.",
   },
   {
     title: "Compliance-ready reporting",
-    description: "Inspection reports, snag lists, and digital checklists on request.",
+    description: "Inspection reports, snag lists, and digital checklists available to support audits and compliance reviews.",
   },
 ]
 
 const onboarding = [
-  "Initial site survey and risk assessment",
-  "Cleaning specification and schedule approval",
-  "Mobilisation plan with supply and access notes",
-  "Quality control checklist and reporting cadence",
+  "Site survey and risk assessment",
+  "Specification and schedule approval",
+  "Mobilisation plan (access, supplies, notes)",
+  "QA checklist and reporting cadence",
 ]
 
 const trustComplianceItems = [
@@ -52,8 +52,7 @@ export default function CommercialCleaningPage() {
           <Badge className="bg-white/10 text-white">Commercial &amp; contract cleaning</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Managed contract cleaning with clear accountability</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Red Hackle partners with office managers, hospitality groups, and property teams who need consistent
-            outcomes, reliable reporting, and a proactive response team.
+            Red Hackle provides commercial and contract cleaning services for organisations that need reliable outcomes, structured delivery, and clear oversight. We partner with office managers, hospitality groups, and property teams who require consistency, reporting, and a proactive response when standards need attention.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
