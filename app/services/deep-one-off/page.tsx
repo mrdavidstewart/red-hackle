@@ -12,10 +12,11 @@ export const metadata = buildMetadata({
 })
 
 const useCases = [
-  "Seasonal resets or hygiene audits",
+  "Seasonal resets and hygiene audits",
   "Post-event or hospitality changeovers",
-  "Executive visits and client presentations",
-  "One-off deep cleans to support inspection readiness",
+  "Executive visits and inspections",
+  "One-off deep cleans",
+  "Additional areas can be included within a tailored scope of works",
 ]
 
 export default function DeepOneOffPage() {
@@ -29,7 +30,7 @@ export default function DeepOneOffPage() {
           <Badge className="bg-red-50 text-red-700">One-off / deep / specialist</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">One-off / Deep / Specialist Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Thorough, planned deep cleans for commercial spaces that need an intensive reset or audit support.
+            Planned commercial deep cleaning services for environments that require an intensive reset or inspection support. These cleans are scoped in advance and delivered under supervision for clear outcomes.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
