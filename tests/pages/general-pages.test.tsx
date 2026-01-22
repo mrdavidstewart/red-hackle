@@ -3,6 +3,7 @@ import AboutPage from "@/app/about/page"
 import CaseStudiesPage from "@/app/case-studies/page"
 import CommercialCleaningPage from "@/app/commercial-cleaning/page"
 import ContactPage from "@/app/contact/page"
+import CareersPage from "@/app/careers/page"
 import PrivacyPolicyPage from "@/app/privacy-policy/page"
 import TermsOfServicePage from "@/app/terms-of-service/page"
 
@@ -35,6 +36,16 @@ describe("static pages", () => {
     expect(screen.getAllByText(/07966 881 555/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/operations@redhacklegroup.com/i)).toBeInTheDocument()
     expect(screen.getByText(/165 Brook Street, DD5 1DJ/i)).toBeInTheDocument()
+  })
+
+  it("renders the Careers page with key content", () => {
+    render(<CareersPage />)
+
+    expect(screen.getByRole("heading", { level: 1, name: /careers at red hackle/i })).toBeInTheDocument()
+    expect(screen.getByRole("link", { name: /operations@redhacklegroup.com/i })).toHaveAttribute(
+      "href",
+      "mailto:operations@redhacklegroup.com",
+    )
   })
 
   it("renders the Privacy Policy page", () => {
