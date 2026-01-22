@@ -12,11 +12,12 @@ export const metadata = buildMetadata({
 })
 
 const checklist = [
-  "Appliance interiors and exteriors cleaned",
+  "Appliance interiors and exteriors",
   "Bathrooms descaled and sanitised",
-  "Skirting boards, doors, and high-touch areas detailed",
+  "Skirting boards, doors, and high-touch areas",
   "Floors vacuumed, mopped, and edge-finished",
-  "Ready for inventory checks and handover",
+  "Ready for inventory and handover",
+  "Additional areas can be included within a tailored scope of works",
 ]
 
 export default function EndOfTenancyPage() {
@@ -30,8 +31,10 @@ export default function EndOfTenancyPage() {
           <Badge className="bg-red-50 text-red-700">End of tenancy</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">End of Tenancy Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Inventory-ready cleans for landlords, agents, and property managers with documented checklists and consistent
-            results.
+            Inventory-ready cleans for landlords, agents, and property managers
+            <br />
+            <br />
+            Red Hackle delivers end of tenancy cleaning services designed to support smooth handovers and inventory checks. Cleans are delivered to documented checklists with a focus on presentation, hygiene, and inspection readiness.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
