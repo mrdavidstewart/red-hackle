@@ -12,11 +12,12 @@ export const metadata = buildMetadata({
 })
 
 const deliverables = [
-  "Dust and residue removal on all surfaces",
-  "Internal windows, frames, and glazing cleaned",
-  "Floor scrub and polish for handover",
-  "Final detail clean for fixtures and fittings",
-  "Snag list support to meet completion deadlines",
+  "Dust and residue removal",
+  "Internal windows, frames, and glazing",
+  "Floor scrubbing and finishing",
+  "Detail cleaning of fixtures and fittings",
+  "Snag list support",
+  "Additional areas can be included within a tailored scope of works",
 ]
 
 export default function BuildersSparklePage() {
@@ -30,8 +31,10 @@ export default function BuildersSparklePage() {
           <Badge className="bg-red-50 text-red-700">Builders &amp; sparkle</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Builders &amp; Sparkle Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Post-construction cleans for developers and contractors, delivered to handover-ready standards.
-          </p>
+            Post-construction cleans delivered to handover-ready standards
+            <br />
+            <br />
+            We provide builders and sparkle cleaning services for developers and contractors preparing properties for completion, inspection, or occupation. Cleans are planned, supervised, and delivered to agreed specifications.</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
               <Link href="/contact">Request a quote</Link>
