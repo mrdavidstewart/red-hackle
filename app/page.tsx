@@ -314,6 +314,7 @@ export default async function HomePage() {
           <div className="flex flex-col gap-3">
             <Badge className="w-fit bg-red-50 text-red-700">Why choose us</Badge>
             <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Why business choose Red Hackle</h2>
+            <p className="text-lg text-gray-600">Our commercial cleaning delivery is built on predictable outcomes, operational discipline and quality assurance, ensuring performance you can trust across every site</p>
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {whyChooseItems.map((service) => (

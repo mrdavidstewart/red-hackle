@@ -33,13 +33,13 @@ export default function AboutPage() {
       <section className="bg-gray-50">
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-4">
-            <h2 className="text-3xl font-black text-gray-900">A disciplined, accountable cleaning partner</h2>
+            <h2 className="text-3xl font-black text-gray-900">About Red Hackle Commercial Cleaning Specialists</h2>
             <p className="text-lg text-gray-600">
-              Red Hackle Cleaning Services was built to bring structure, pride, and accountability back into commercial cleaning.
+              Red Hackle was founded to bring disciplined, process-driven cleaning expertise to business environments. Led by Managing Director, Arthur, a leader shaped by structured operations, the company specialises in reliable commercial cleaning services that deliver measurable outcomes for offices, hospitality venues, property managers, and construction handovers.
               <br /><br />
-              Founded and led by Managing Director Arthur, whose background is rooted in disciplined, high-standards environments, the business was established on a simple principle: do the basics brilliantly, every time. That ethos runs through everything we do, from how contracts are mobilised, to how teams are supervised, to how quality is measured and reported.
+              Built on a foundation of pride, accountability, and operational consistency, we support clients who expect dependable delivery, clear communication, and quality assurance at every stage, from mobilisation through to routine reporting.
               <br /><br />
-              We support commercial clients who need a cleaning partner they can rely on. One that understands compliance, consistency, and the reality of operating live sites. Whether it’s a single office or a multi-site portfolio, our focus is on dependable delivery, clear communication, and standards that don’t drift.
+              This kind of language reads more like facility management and procurement and less like a small local cleaner.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button asChild className="bg-red-600 text-white hover:bg-red-700">
