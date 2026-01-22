@@ -78,6 +78,21 @@ const services = [
   },
 ]
 
+const whyChooseItems = [
+  {
+    title: "Managed contract cleaning with clear accountability",
+    description: "Supervised teams, documented scopes, and measurable quality controls with traceable reporting.",
+  },
+  {
+    title: "Daily, out-of-hours, and multi-site coverage",
+    description: "Flexible scheduling that works around your business operations across multiple locations.",
+  },
+  {
+    title: "Reliable communication and reporting",
+    description: "Dedicated account leads, transparent performance reviews, and consistent standards from day one.",
+  }
+]
+
 const trustComplianceItems = [
   "Public Liability (£10m), Employers Liability (£5m)",
   "RAMS available (Risk Assessments & Method Statements)",
@@ -244,7 +259,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="trust-compliance" className="scroll-mt-24 bg-white">
+      <section id="trust-compliance" className="scroll-mt-24 bg-gray-50">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
           <div className="flex flex-col gap-3">
             <Badge className="w-fit bg-red-50 text-red-700">Trust &amp; Compliance</Badge>
@@ -255,7 +270,7 @@ export default async function HomePage() {
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {trustComplianceItems.map((item) => (
-              <div key={item} className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-gray-50 p-4">
+              <div key={item} className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white p-4">
                 <ShieldCheck className="mt-0.5 h-5 w-5 text-red-600" />
                 <span className="text-sm font-semibold text-gray-800">{item}</span>
               </div>
@@ -264,23 +279,22 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="services" className="scroll-mt-24 bg-gray-950 text-white">
+      <section id="services" className="scroll-mt-24 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
           <div className="flex flex-col gap-3">
-            <Badge className="w-fit bg-white/10 text-white">Services</Badge>
-            <h2 className="text-3xl font-black sm:text-4xl">Commercial cleaning services tailored to your schedule</h2>
-            <p className="text-lg text-gray-300">
-              From contract cleaning to construction handovers, we maintain high standards with clear specs and
-              consistent delivery.
+            <Badge className="w-fit bg-red-50 text-red-700">Services</Badge>
+            <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Commercial cleaning services built for business</h2>
+            <p className="text-lg text-gray-600">
+              Red Hackle delivers structured commercial cleaning services for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland. Our disciplined teams, documented specifications, and measurable quality controls ensure consistent standards from day one.
             </p>
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
-              <Card key={service.title} className="border border-white/10 bg-white/5">
+              <Card key={service.title} className="border border-gray-200 bg-white">
                 <CardContent className="space-y-4 p-6">
-                  <h3 className="text-xl font-semibold text-white">{service.title}</h3>
-                  <p className="text-sm text-gray-300">{service.description}</p>
-                  <Link href={service.href} className="inline-flex items-center gap-2 text-sm font-semibold text-white">
+                  <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
+                  <p className="text-sm text-gray-600">{service.description}</p>
+                  <Link href={service.href} className="inline-flex items-center gap-2 text-sm font-semibold text-red-600">
                     Learn more <ArrowRight className="h-4 w-4" />
                   </Link>
                 </CardContent>
@@ -291,6 +305,25 @@ export default async function HomePage() {
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
               <Link href="/services">View all services</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      <section id="whyChooseItems" className="scroll-mt-24 bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
+          <div className="flex flex-col gap-3">
+            <Badge className="w-fit bg-red-50 text-red-700">Why choose us</Badge>
+            <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Why business choose Red Hackle</h2>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {whyChooseItems.map((service) => (
+              <Card key={service.title} className="border border-gray-200 bg-white">
+                <CardContent className="space-y-4 p-6">
+                  <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
+                  <p className="text-sm text-gray-600">{service.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -362,15 +395,16 @@ export default async function HomePage() {
               </Card>
             ))}
           </div>
-          <div className="mt-8 flex">
-            <a
-              href="https://search.google.com/local/writereview?placeid=ChIJR0u96mlI9IoRuloi_-UDkeg"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-sm transition hover:border-gray-300 hover:text-gray-900"
-            >
-              View / Leave a Google review
-            </a>
+          <div className="mt-8">
+            <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+              <a
+                href="https://search.google.com/local/writereview?placeid=ChIJR0u96mlI9IoRuloi_-UDkeg"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View / Leave a Google review
+              </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -387,7 +421,7 @@ export default async function HomePage() {
               Timings on site are recorded for full traceability, with before-and-after imagery and quality checks used to support reporting and continuous improvement. This allows us to support multi-site clients with consistent standards, clear communication, and flexible scheduling that works around live environments.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button asChild className="bg-black text-white hover:bg-gray-900">
+              <Button asChild className="bg-red-600 text-white hover:bg-red-700">
                 <Link href="/about">Learn about our operations</Link>
               </Button>
               <Button asChild variant="outline" className="border-gray-300">
@@ -443,27 +477,27 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="contact" className="scroll-mt-24 bg-gray-950 text-white">
+      <section id="contact" className="scroll-mt-24 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="space-y-4">
-              <Badge className="w-fit bg-white/10 text-white">Ready to talk?</Badge>
-              <h2 className="text-3xl font-black sm:text-4xl">Request a commercial cleaning proposal</h2>
-              <p className="text-lg text-gray-300">
+              <Badge className="w-fit bg-red-50 text-red-700">Ready to talk?</Badge>
+              <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Request a commercial cleaning proposal</h2>
+              <p className="text-lg text-gray-600">
                 Share your site size, shift patterns, and compliance needs. We&apos;ll return a tailored cleaning plan
                 within 24 hours.
               </p>
             </div>
-            <Card className="border border-white/10 bg-white/5">
+            <Card className="border border-gray-200 bg-gray-50">
               <CardContent className="space-y-4 p-6">
                 <div className="flex items-center gap-3">
-                  <Sparkles className="h-5 w-5 text-red-400" />
-                  <p className="text-sm text-gray-200">Fast quotes, dedicated account lead, clear reporting.</p>
+                  <Sparkles className="h-5 w-5 text-red-600" />
+                  <p className="text-sm text-gray-700">Fast quotes, dedicated account lead, clear reporting.</p>
                 </div>
                 <Button asChild className="w-full bg-red-600 text-white hover:bg-red-700">
                   <Link href="/contact">Request a quote</Link>
                 </Button>
-                <Button asChild variant="outlineOnDark" className="w-full">
+                <Button asChild variant="outline" className="w-full">
                   <a href="tel:+447966881555">Call 07966 881 555</a>
                 </Button>
               </CardContent>
