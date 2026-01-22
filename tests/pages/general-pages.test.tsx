@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react"
 import AboutPage from "@/app/about/page"
 import CaseStudiesPage from "@/app/case-studies/page"
 import CommercialCleaningPage from "@/app/commercial-cleaning/page"
+import ConsumablesPage from "@/app/consumables/page"
 import ContactPage from "@/app/contact/page"
 import PrivacyPolicyPage from "@/app/privacy-policy/page"
 import TermsOfServicePage from "@/app/terms-of-service/page"
@@ -21,6 +22,23 @@ describe("static pages", () => {
     render(<CommercialCleaningPage />)
     expect(
       screen.getByRole("heading", { name: /managed contract cleaning with clear accountability/i }),
+    ).toBeInTheDocument()
+  })
+
+  it("renders the Consumables & Hygiene Supplies page", () => {
+    render(<ConsumablesPage />)
+
+    expect(
+      screen.getByRole("heading", { level: 1, name: /consumables & hygiene supplies/i }),
+    ).toBeInTheDocument()
+    expect(screen.getByRole("heading", { level: 2, name: /product range/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole("heading", { level: 2, name: /speak to us about consumables supply/i }),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        /we're happy to review your current setup and advise how consumables can be integrated into your cleaning programme\./i,
+      ),
     ).toBeInTheDocument()
   })
 

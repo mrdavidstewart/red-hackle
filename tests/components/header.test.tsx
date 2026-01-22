@@ -12,6 +12,7 @@ describe("SiteHeader", () => {
     // Check that navigation contains links to main pages
     const hrefs = links.map(link => link.getAttribute("href"))
     expect(hrefs).toContain("/services")
+    expect(hrefs).toContain("/consumables")
     expect(hrefs).toContain("/contact")
   })
 
