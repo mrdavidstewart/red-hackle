@@ -62,6 +62,11 @@ export function SiteFooter() {
                   About
                 </Link>
               </li>
+              <li>
+                <Link href="/careers" className="hover:text-white">
+                  Careers
+                </Link>
+              </li>
             </ul>
           </div>
 

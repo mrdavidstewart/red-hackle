@@ -15,6 +15,7 @@ export function GET() {
     "/about",
     "/case-studies",
     "/contact",
+    "/careers",
     "/privacy-policy",
     "/terms-of-service",
   ]
