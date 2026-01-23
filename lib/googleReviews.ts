@@ -43,12 +43,11 @@ export const fetchGoogleReviews = async (): Promise<GoogleReview[]> => {
 
   const response = await fetch(endpoint, {
     headers: {
-      // API key and field mask are headers in Places API (New)
       "X-Goog-Api-Key": apiKey,
       "X-Goog-FieldMask":
         "googleMapsUri,reviews.rating,reviews.text,reviews.authorAttribution,reviews.relativePublishTimeDescription,reviews.publishTime",
     },
-    next: { revalidate: 3600 },
+    next: { revalidate: 300 }, // Refresh every 5 minutes instead of 1 hour
   })
 
   if (!response.ok) {

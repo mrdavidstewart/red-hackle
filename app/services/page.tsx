@@ -37,6 +37,11 @@ const serviceCards = [
     description: "Intensive cleans for audits, seasonal resets, or specialist scopes with custom plans.",
     href: "/services/deep-one-off",
   },
+  {
+    title: "Short-Stay & Serviced Accommodation Housekeeping",
+    description: "Professional housekeeping services for short-stay and serviced accommodation properties across the East Coast of Scotland.",
+    href: "/services/accommodation-housekeeping",
+  }
 ]
 
 export default function ServicesPage() {

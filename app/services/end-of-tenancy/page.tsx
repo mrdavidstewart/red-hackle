@@ -12,12 +12,17 @@ export const metadata = buildMetadata({
 })
 
 const checklist = [
-  "Appliance interiors and exteriors",
+  "Appliance interiors and exteriors cleaned",
   "Bathrooms descaled and sanitised",
-  "Skirting boards, doors, and high-touch areas",
+  "Skirting boards, doors, frames, and touchpoints",
   "Floors vacuumed, mopped, and edge-finished",
   "Ready for inventory and handover",
-  "Additional areas can be included within a tailored scope of works",
+  "Scopes can align to individual agent check-out standards."
+]
+
+const idealFor = [
+  "Landlords and letting agents",
+  "Property managers and portfolio owners"
 ]
 
 export default function EndOfTenancyPage() {
@@ -31,11 +36,9 @@ export default function EndOfTenancyPage() {
           <Badge className="bg-red-50 text-red-700">End of tenancy</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">End of Tenancy Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Inventory-ready cleans for landlords, agents, and property managers
-            <br />
-            <br />
-            Red Hackle delivers end of tenancy cleaning services designed to support smooth handovers and inventory checks. Cleans are delivered to documented checklists with a focus on presentation, hygiene, and inspection readiness.
-          </p>
+            Our end of tenancy cleaning services support landlords, letting agents, and property managers with inventory-ready cleans delivered to documented checklists.
+            <br /><br />
+            With over a decade of operational experience, each clean is completed with presentation, hygiene, and inspection requirements in mind.</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
               <Link href="/contact">Request a quote</Link>
@@ -57,10 +60,23 @@ export default function EndOfTenancyPage() {
                   <li key={item}>• {item}</li>
                 ))}
               </ul>
+              <h2 className="text-2xl font-semibold text-gray-900">Ideal for</h2>
+              <ul className="space-y-2 text-gray-600">
+                {idealFor.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+              <p className="text-gray-600">
+                <strong>Why it works:</strong> Delivered to documented checklists to support inventory inspections and reduce call-backs.
+              </p>
+              <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
+              <p className="text-gray-600">
+                End of tenancy cleaning delivered across the East Coast of Scotland, including Tayside, Angus, Fife, Perth, Aberdeen & Aberdeenshire.
+              </p>
             </CardContent>
           </Card>
         </div>
       </section>
-    </main>
+    </main >
   )
 }

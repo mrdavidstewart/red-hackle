@@ -45,9 +45,6 @@ export default function AboutPage() {
               <Button asChild className="bg-red-600 text-white hover:bg-red-700">
                 <Link href="/contact">Request a site survey</Link>
               </Button>
-              <Button asChild variant="outline" className="border-gray-300">
-                <Link href="/case-studies">View case studies</Link>
-              </Button>
             </div>
           </div>
           <Card className="border border-gray-200">
