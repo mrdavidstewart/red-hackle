@@ -14,16 +14,16 @@ export const metadata = buildMetadata({
 
 const highlights = [
   {
-    title: "SLA-led delivery",
-    description: "KPIs, service levels, and escalation paths documented for every site to ensure accountability and clarity.",
+    title: "SLA-Led Delivery",
+    description: "Service levels, KPIs, and escalation paths are agreed in advance for every site, providing clarity for facilities teams, site managers, and procurement.",
   },
   {
-    title: "Dedicated supervision",
-    description: "Consistent teams supported by on-site supervision and routine quality audits.",
+    title: "Dedicated Supervision",
+    description: "Consistent teams are supported by active supervision, with routine inspections and quality audits to maintain standards across the life of the contract.",
   },
   {
-    title: "Compliance-ready reporting",
-    description: "Inspection reports, snag lists, and digital checklists available to support audits and compliance reviews.",
+    title: "Compliance-Ready Reporting",
+    description: "Inspection reports, snag lists, and digital checklists are available on request to support audits, compliance reviews, and internal reporting.",
   },
 ]
 
@@ -52,8 +52,10 @@ export default function CommercialCleaningPage() {
           <Badge className="bg-white/10 text-white">Commercial &amp; contract cleaning</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Managed contract cleaning with clear accountability</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Red Hackle provides commercial and contract cleaning services for organisations that need reliable outcomes, structured delivery, and clear oversight. We partner with office managers, hospitality groups, and property teams who require consistency, reporting, and a proactive response when standards need attention.
-          </p>
+            Red Hackle provides commercial and contract cleaning services for organisations that require predictable outcomes, consistent standards, and reliable reporting.
+            <br />
+            <br />
+            Since 2013, we’ve supported office managers, hospitality groups, and property teams with managed cleaning contracts built around documented specifications, supervised teams, and agreed service levels — ensuring performance doesn’t drift over time.</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
               <Link href="/contact">Request a commercial quote</Link>

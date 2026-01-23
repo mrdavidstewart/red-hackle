@@ -17,7 +17,12 @@ const deliverables = [
   "Floor scrubbing and finishing",
   "Detail cleaning of fixtures and fittings",
   "Snag list support",
-  "Additional areas can be included within a tailored scope of works",
+]
+
+const idealFor = [
+  "Property developers",
+  "Main contractors and subcontractors",
+  "Sites preparing for handover"
 ]
 
 export default function BuildersSparklePage() {
@@ -31,10 +36,10 @@ export default function BuildersSparklePage() {
           <Badge className="bg-red-50 text-red-700">Builders &amp; sparkle</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Builders &amp; Sparkle Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Post-construction cleans delivered to handover-ready standards
-            <br />
-            <br />
-            We provide builders and sparkle cleaning services for developers and contractors preparing properties for completion, inspection, or occupation. Cleans are planned, supervised, and delivered to agreed specifications.</p>
+            Red Hackle provides builders and sparkle cleaning services for developers and contractors during the final stages of construction.
+            <br /><br />
+            Our team regularly supports projects working to fixed handover deadlines, delivering cleans aligned to site programmes across the East Coast of Scotland.
+          </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
               <Link href="/contact">Request a quote</Link>
@@ -56,6 +61,19 @@ export default function BuildersSparklePage() {
                   <li key={item}>• {item}</li>
                 ))}
               </ul>
+              <h2 className="text-2xl font-semibold text-gray-900">Ideal for</h2>
+              <ul className="space-y-2 text-gray-600">
+                {idealFor.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+              <p className="text-gray-600">
+                <strong>Why it works:</strong> Supports inspections and handover deadlines by aligning cleaning delivery to construction programmes.
+              </p>
+              <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
+              <p className="text-gray-600">
+                Builder & sparkle cleaning delivered across the East Coast of Scotland, including Tayside, Angus, Fife, Perth, and Aberdeen & Aberdeenshire.
+              </p>
             </CardContent>
           </Card>
         </div>

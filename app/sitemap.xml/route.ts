@@ -14,7 +14,6 @@ export function GET() {
     "/services/builders-sparkle",
     "/services/deep-one-off",
     "/about",
-    "/case-studies",
     "/contact",
     "/careers",
     "/privacy-policy",

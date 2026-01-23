@@ -38,8 +38,3 @@ pnpm test
 ## Dependency update tooling
 - Dependabot config: `.github/dependabot.yml`.
 - Renovate config: `renovate.json`.
-
-## Copy and assets updates
-- Replace imagery in `public/images` with real photography when available.
-- Update testimonials and case studies in `app/page.tsx` and `app/case-studies/page.tsx`.
-- Contact details are set in `components/site/footer.tsx` and `app/contact/page.tsx`.

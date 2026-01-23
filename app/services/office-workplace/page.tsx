@@ -12,13 +12,19 @@ export const metadata = buildMetadata({
 })
 
 const inclusions = [
-  "Desk, touchpoint, and meeting room sanitisation",
-  "Reception, breakout, and communal areas",
+  "Desk surfaces, touchpoints, and meeting room sanitisation",
+  "Reception areas, breakout spaces, and communal areas",
   "Washroom cleaning and consumable restocking",
   "Kitchen and refreshment areas",
   "Waste and recycling management",
   "Additional areas can be included within a tailored scope of works"
 ]
+
+const whoFor = [
+  "Corporate and professional offices",
+  "Shared workspaces and managed buildings",
+  "Property-managed office portfolios"
+];
 
 export default function OfficeWorkplacePage() {
   return (
@@ -31,10 +37,9 @@ export default function OfficeWorkplacePage() {
           <Badge className="bg-red-50 text-red-700">Office &amp; workplace</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Office &amp; Workplace Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Professional office and workplace cleaning services delivered with consistency, discretion, and accountability. We support offices and professional environments with daily or out-of-hours cleaning that fits around live operations.
-            <br />
-            <br />
-            Our service is structured around clear scopes, consistent staffing, and quality oversight to maintain standards long-term.
+            Professional office and workplace cleaning services delivered with discretion, consistency, and accountability. We support live office environments with daily or out-of-hours cleaning that fits around operations and maintains a professional working environment.
+            <br /><br />
+            Services are delivered to agreed scopes of works, with consistent teams and quality oversight to ensure standards are maintained long-term.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
@@ -57,6 +62,19 @@ export default function OfficeWorkplacePage() {
                   <li key={item}>• {item}</li>
                 ))}
               </ul>
+              <h2 className="text-2xl font-semibold text-gray-900">Ideal for</h2>
+              <ul className="space-y-2 text-gray-600">
+                {whoFor.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+              <p className="mt-6 text-gray-600">
+                <strong>Why it works:</strong> Maintains hygiene and presentation in live office environments without disrupting daily operations.
+              </p>
+              <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
+              <p className="text-gray-600">
+                Office cleaning delivered across Tayside, Angus, Fife, Perth, Aberdeen & Aberdeenshire, as part of our East Coast of Scotland coverage.
+              </p>
             </CardContent>
           </Card>
         </div>

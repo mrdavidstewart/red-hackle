@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react"
 import AboutPage from "@/app/about/page"
-import CaseStudiesPage from "@/app/case-studies/page"
 import CommercialCleaningPage from "@/app/commercial-cleaning/page"
 import ConsumablesPage from "@/app/consumables/page"
 import ContactPage from "@/app/contact/page"
@@ -12,11 +11,6 @@ describe("static pages", () => {
   it("renders the About page", () => {
     render(<AboutPage />)
     expect(screen.getByRole("heading", { level: 1, name: /A disciplined, accountable cleaning partner/i })).toBeInTheDocument()
-  })
-
-  it("renders the Case Studies page", () => {
-    render(<CaseStudiesPage />)
-    expect(screen.getByRole("heading", { name: /examples of commercial outcomes/i })).toBeInTheDocument()
   })
 
   it("renders the Commercial Cleaning page", () => {

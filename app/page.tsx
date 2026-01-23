@@ -27,29 +27,6 @@ const headlineStats = [
   { label: "Availability", value: "Daytime or out-of-hours" },
 ]
 
-const sectors = [
-  {
-    title: "Offices & Workplaces",
-    description: "Daily and out-of-hours cleaning for teams that need a consistent, professional environment.",
-    icon: Building2,
-  },
-  {
-    title: "Property Management",
-    description: "Multi-site scheduling, compliance-ready reporting, and reliable handover cleans.",
-    icon: ClipboardCheck,
-  },
-  {
-    title: "Hospitality & Retail",
-    description: "Front-of-house presentation cleaning, washroom checks, and rapid response cover.",
-    icon: Sparkles,
-  },
-  {
-    title: "Construction & Developers",
-    description: "Sparkle cleans, builder handovers, and snagging support to protect project timelines.",
-    icon: BadgeCheck,
-  },
-]
-
 const services = [
   {
     title: "Office & Workplace Cleaning",
@@ -76,6 +53,11 @@ const services = [
     description: "Intensive cleans for audits, seasonal resets, or specialist scopes with tailored plans.",
     href: "/services/deep-one-off",
   },
+  {
+    title: "Short-Stay & Serviced Accommodation Housekeeping",
+    description: "Professional housekeeping services for short-stay and serviced accommodation properties across the East Coast of Scotland.",
+    href: "/services/accommodation-housekeeping",
+  }
 ]
 
 const whyChooseItems = [
@@ -121,35 +103,9 @@ const processSteps = [
 
 export default async function HomePage() {
   const googleReviews = await fetchGoogleReviews()
-  const reviewSchema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    itemListElement: googleReviews.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Review",
-        author: {
-          "@type": "Person",
-          name: item.name,
-        },
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: item.rating,
-          bestRating: "5",
-        },
-        reviewBody: item.quote,
-        publisher: {
-          "@type": "Organization",
-          name: "Red Hackle Cleaning Services",
-        },
-      },
-    })),
-  }
 
   return (
     <main className="pb-16 md:pb-0">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
@@ -225,68 +181,13 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="coverage" className="scroll-mt-24 bg-white">
-        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
-          <div className="flex flex-col gap-3">
-            <Badge className="w-fit bg-red-50 text-red-700">Sectors served</Badge>
-            <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Cleaning support built for B2B operations</h2>
-            <p className="text-lg text-gray-600">
-              We design scopes around your occupancy, compliance, and reporting needs so your stakeholders always have
-              confidence in the space.
-            </p>
-          </div>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {sectors.map((sector) => (
-              <Card key={sector.title} className="border border-gray-200">
-                <CardContent className="space-y-3 p-6">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50 text-red-600">
-                      <sector.icon className="h-5 w-5" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900">{sector.title}</h3>
-                  </div>
-                  <p className="text-gray-600">{sector.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="mt-10 rounded-3xl border border-gray-200 bg-gray-50 p-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Coverage</p>
-            <p className="mt-2 text-base text-gray-700">
-              Commercial Cleaning East Coast of Scotland, with multi-site coverage available on request.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="trust-compliance" className="scroll-mt-24 bg-gray-50">
-        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
-          <div className="flex flex-col gap-3">
-            <Badge className="w-fit bg-red-50 text-red-700">Trust &amp; Compliance</Badge>
-            <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Trust &amp; Compliance</h2>
-            <p className="text-lg text-gray-600">
-              Commercial assurance points that help procurement and facilities teams move quickly.
-            </p>
-          </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {trustComplianceItems.map((item) => (
-              <div key={item} className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white p-4">
-                <ShieldCheck className="mt-0.5 h-5 w-5 text-red-600" />
-                <span className="text-sm font-semibold text-gray-800">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="services" className="scroll-mt-24 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
           <div className="flex flex-col gap-3">
             <Badge className="w-fit bg-red-50 text-red-700">Services</Badge>
             <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Commercial cleaning services built for business</h2>
             <p className="text-lg text-gray-600">
-              Red Hackle delivers structured commercial cleaning services for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland. Our disciplined teams, documented specifications, and measurable quality controls ensure consistent standards from day one.
-            </p>
+              Red Hackle delivers structured commercial cleaning services for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland. Our disciplined teams, documented specifications, and measurable quality controls ensure consistent standards from day one. Established in 2013, Red Hackle is a commercial-first cleaning partner based in Broughty Ferry, supporting businesses across the East Coast of Scotland.</p>
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
@@ -329,7 +230,27 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="process" className="scroll-mt-24 bg-white">
+      <section id="trust-compliance" className="scroll-mt-24 bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
+          <div className="flex flex-col gap-3">
+            <Badge className="w-fit bg-red-50 text-red-700">Trust &amp; Compliance</Badge>
+            <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Trust &amp; Compliance</h2>
+            <p className="text-lg text-gray-600">
+              Commercial assurance points that help procurement and facilities teams move quickly.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {trustComplianceItems.map((item) => (
+              <div key={item} className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white p-4">
+                <ShieldCheck className="mt-0.5 h-5 w-5 text-red-600" />
+                <span className="text-sm font-semibold text-gray-800">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="process" className="scroll-mt-24 bg-gray-50">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
           <div className="flex flex-col gap-3">
             <Badge className="w-fit bg-red-50 text-red-700">Onboarding process</Badge>
@@ -349,7 +270,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="testimonials" className="scroll-mt-24 bg-gray-50">
+      <section id="testimonials" className="scroll-mt-24 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
           <div className="flex flex-col gap-3">
             <Badge className="w-fit bg-red-50 text-red-700">Proof &amp; outcomes</Badge>
@@ -396,21 +317,30 @@ export default async function HomePage() {
               </Card>
             ))}
           </div>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
               <a
                 href="https://search.google.com/local/writereview?placeid=ChIJR0u96mlI9IoRuloi_-UDkeg"
                 target="_blank"
                 rel="noreferrer"
               >
-                View / Leave a Google review
+                Leave a Google review
+              </a>
+            </Button>
+            <Button asChild variant="outline" className="border-gray-300">
+              <a
+                href="https://www.google.com/maps/place/?q=place_id:ChIJR0u96mlI9IoRuloi_-UDkeg"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View all reviews
               </a>
             </Button>
           </div>
         </div>
       </section>
 
-      <section id="about" className="bg-white scroll-mt-24">
+      <section id="about" className="bg-gray-50 scroll-mt-24">
         <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-4">
             <Badge className="w-fit bg-red-50 text-red-700">About Red Hackle</Badge>
@@ -424,9 +354,6 @@ export default async function HomePage() {
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button asChild className="bg-red-600 text-white hover:bg-red-700">
                 <Link href="/about">Learn about our operations</Link>
-              </Button>
-              <Button asChild variant="outline" className="border-gray-300">
-                <Link href="/case-studies">View case studies</Link>
               </Button>
             </div>
           </div>
@@ -442,7 +369,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="faq" className="scroll-mt-24 bg-gray-50">
+      <section id="faq" className="scroll-mt-24 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
           <div className="flex flex-col gap-3">
             <Badge className="w-fit bg-red-50 text-red-700">FAQ</Badge>
@@ -478,7 +405,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="contact" className="scroll-mt-24 bg-white">
+      <section id="contact" className="scroll-mt-24 bg-gray-50">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="space-y-4">
