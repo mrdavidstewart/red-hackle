@@ -46,7 +46,7 @@ export default function TermsOfServicePage() {
                   Red Hackle Cleaning Services provides professional commercial and contract cleaning services across the East Coast of Scotland.
                 </p>
                 <p className="text-gray-600">
-                  These Terms of Service govern the provision of cleaning services by Red Hackle Cleaning Services ("we", "us", "our") to our clients ("you", "the client").
+                  These Terms of Service govern the provision of cleaning services by Red Hackle Cleaning Services (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) to our clients (&ldquo;you&rdquo;, &ldquo;the client&rdquo;).
                 </p>
               </CardContent>
             </Card>
