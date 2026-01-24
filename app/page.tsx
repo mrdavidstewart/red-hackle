@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { fetchGoogleReviews } from "@/lib/googleReviews"
 import { buildMetadata } from "@/lib/seo"
-import { buildAggregateRatingSchema, serviceAreaStatement } from "@/lib/structured-data"
+import { buildAggregateRatingSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Commercial Cleaning Services ${serviceAreaStatement}`,
+  title: `Commercial Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement}`,
   description:
-    `Commercial cleaning partner for offices, property managers, hospitality venues, and construction handovers ${serviceAreaStatement}`,
+    `Commercial cleaning partner for offices, property managers, hospitality venues, and construction handovers across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/",
 })
 
@@ -24,7 +24,7 @@ const trustSignals = [
 
 const headlineStats = [
   { label: "Response time", value: "Quotes in 24 hours" },
-  { label: "Coverage", value: serviceAreaStatement },
+  { label: "Coverage", value: eastCoastOfScotland },
   { label: "Availability", value: "Daytime or out-of-hours" },
 ]
 
@@ -56,7 +56,7 @@ const services = [
   },
   {
     title: "Short-Stay & Serviced Accommodation Housekeeping",
-    description: `Professional housekeeping services for short-stay and serviced accommodation properties ${serviceAreaStatement}`,
+    description: `Professional housekeeping services for short-stay and serviced accommodation properties.`,
     href: "/services/accommodation-housekeeping",
   }
 ]
@@ -134,7 +134,7 @@ export default async function HomePage() {
               </h1>
               <p className="text-lg text-gray-200">
                 A disciplined cleaning partner for offices, property managers, hospitality venues, and construction
-                handovers {serviceAreaStatement}
+                handovers across {eastCoastOfScotland}{includingAreaStatement}
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button asChild className="bg-red-600 text-white hover:bg-red-700">
@@ -203,9 +203,9 @@ export default async function HomePage() {
             <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Commercial cleaning services built for business</h2>
             <p className="text-lg text-gray-600">
               Red Hackle delivers structured commercial cleaning services for offices, property managers, hospitality
-              venues, and construction handovers {serviceAreaStatement} Our disciplined teams, documented
+              venues, and construction handovers across {eastCoastOfScotland}{includingAreaStatement} Our disciplined teams, documented
               specifications, and measurable quality controls ensure consistent standards from day one. Established in
-              2013, Red Hackle is a commercial-first cleaning partner supporting businesses {serviceAreaStatement}
+              2013, Red Hackle is a commercial-first cleaning partner supporting businesses across {eastCoastOfScotland}{includingAreaStatement}
             </p>
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -423,32 +423,6 @@ export default async function HomePage() {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="resources" className="scroll-mt-24 bg-gray-50">
-        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
-          <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="space-y-4">
-              <Badge className="w-fit bg-red-50 text-red-700">Resources</Badge>
-              <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Planning support for facilities teams</h2>
-              <p className="text-lg text-gray-600">
-                Explore guides and checklists designed for procurement teams, property managers, and hospitality
-                operators planning commercial cleaning {serviceAreaStatement}
-              </p>
-            </div>
-            <Card className="border border-gray-200 bg-white">
-              <CardContent className="space-y-4 p-6">
-                <p className="text-sm text-gray-600">
-                  Build stronger scopes of work, compliance requirements, and mobilisation plans with our resource
-                  library.
-                </p>
-                <Button asChild className="bg-red-600 text-white hover:bg-red-700">
-                  <Link href="/resources">Visit resources</Link>
-                </Button>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>

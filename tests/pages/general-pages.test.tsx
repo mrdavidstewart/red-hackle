@@ -6,6 +6,7 @@ import ContactPage from "@/app/contact/page"
 import CareersPage from "@/app/careers/page"
 import PrivacyPolicyPage from "@/app/privacy-policy/page"
 import TermsOfServicePage from "@/app/terms-of-service/page"
+import { businessInfo } from "@/lib/structured-data"
 
 describe("static pages", () => {
   it("renders the About page", () => {
@@ -49,7 +50,7 @@ describe("static pages", () => {
     expect(screen.getByText(/operations@redhacklegroup.com/i)).toBeInTheDocument()
     expect(
       screen.getByText(
-        /across the East Coast of Scotland, including Tayside, Angus, Fife, Perth, Aberdeen & Aberdeenshire\./i,
+        new RegExp(`${businessInfo.address.streetAddress}, ${businessInfo.address.postalCode}, ${businessInfo.address.addressCountry}`, 'i'),
       ),
     ).toBeInTheDocument()
   })

@@ -5,12 +5,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, serviceAreaStatement } from "@/lib/structured-data"
+import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Office Cleaning Services ${serviceAreaStatement}`,
+  title: `Office Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement}`,
   description:
-    `Office and workplace cleaning ${serviceAreaStatement} With flexible schedules and quality reporting.`,
+    `Office and workplace cleaning across ${eastCoastOfScotland}${includingAreaStatement} With flexible schedules and quality reporting.`,
   path: "/services/office-workplace",
 })
 
@@ -38,7 +38,7 @@ const faqItems = [
   {
     question: "Do you offer coverage across multiple office locations?",
     answer:
-      `We support multi-site office portfolios ${serviceAreaStatement} With consistent reporting and supervision.`,
+      `We support multi-site office portfolios across ${eastCoastOfScotland}${includingAreaStatement} With consistent reporting and supervision.`,
   },
 ]
 
@@ -64,7 +64,7 @@ export default function OfficeWorkplacePage() {
   const serviceSchema = buildServiceSchema({
     name: "Office & Workplace Cleaning",
     description:
-      `Office and workplace cleaning ${serviceAreaStatement} With flexible schedules and quality reporting.`,
+      `Office and workplace cleaning across ${eastCoastOfScotland}${includingAreaStatement} With flexible schedules and quality reporting.`,
     slug: "/services/office-workplace",
   })
 
@@ -83,7 +83,7 @@ export default function OfficeWorkplacePage() {
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Office &amp; Workplace Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Professional office and workplace cleaning services delivered with discretion, consistency, and
-            accountability. We support live office environments {serviceAreaStatement} With daily or out-of-hours
+            accountability. We support live office environments {` across ${eastCoastOfScotland}${includingAreaStatement}`} With daily or out-of-hours
             cleaning that fits around operations and maintains a professional working environment.
             <br />
             <br />
@@ -122,7 +122,7 @@ export default function OfficeWorkplacePage() {
               </p>
               <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
               <p className="text-gray-600">
-                Office cleaning delivered {serviceAreaStatement}
+                Office cleaning delivered {` across ${eastCoastOfScotland}${includingAreaStatement}`}
               </p>
             </CardContent>
           </Card>

@@ -6,14 +6,13 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Mail, MapPin, Menu, Phone, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { serviceAreaStatement } from "@/lib/structured-data"
+import { eastCoastOfScotland } from "@/lib/structured-data"
 
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Commercial Cleaning", href: "/commercial-cleaning" },
   { label: "Consumables", href: "/consumables" },
   { label: "Services", href: "/services" },
-  { label: "Resources", href: "/resources" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ]
@@ -43,7 +42,7 @@ export function SiteHeader() {
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="h-3 w-3 text-red-400" />
-            <span>{serviceAreaStatement}</span>
+            <span>{eastCoastOfScotland}</span>
           </div>
         </div>
       </div>

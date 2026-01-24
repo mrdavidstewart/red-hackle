@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Phone, Mail, MapPin } from "lucide-react"
-import { serviceAreaStatement } from "@/lib/structured-data"
+import { eastCoastOfScotland, includingAreaStatement, businessInfo } from "@/lib/structured-data"
 
 export function SiteFooter() {
   return (
@@ -11,18 +11,18 @@ export function SiteFooter() {
             <p className="text-lg font-semibold text-white">Red Hackle Cleaning Services</p>
             <p className="mt-3 text-sm text-gray-300">
               Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction
-              handovers {serviceAreaStatement}
+              handovers across {eastCoastOfScotland}{includingAreaStatement}
             </p>
             <div className="mt-6 space-y-2 text-sm text-gray-300">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-red-500" />
                 <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(serviceAreaStatement)}`}
+                  href={`https://maps.google.com/?q=${encodeURIComponent(businessInfo.address.streetAddress + ", " + businessInfo.address.postalCode + ", " + businessInfo.address.addressCountry)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white"
                 >
-                  {serviceAreaStatement}
+                  {businessInfo.address.streetAddress}, {businessInfo.address.postalCode}, {businessInfo.address.addressCountry}
                 </a>
               </div>
               <div className="flex items-center gap-2">

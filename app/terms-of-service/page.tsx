@@ -3,12 +3,12 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
-import { serviceAreaStatement } from "@/lib/structured-data"
+import { businessInfo, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
   title: "Terms of Service | Red Hackle Cleaning Services",
   description:
-    `Service terms and conditions for Red Hackle Cleaning Services ${serviceAreaStatement}`,
+    `Service terms and conditions for Red Hackle Cleaning Services ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/terms-of-service",
 })
 
@@ -44,8 +44,8 @@ export default function TermsOfServicePage() {
               <CardContent className="space-y-4 p-6">
                 <h2 className="text-2xl font-semibold text-gray-900">1. About us</h2>
                 <p className="text-gray-600">
-                  Red Hackle Cleaning Services provides professional commercial and contract cleaning services
-                  {` ${serviceAreaStatement}`}
+                  Red Hackle Cleaning Services provides professional commercial and contract cleaning services across
+                  {` ${eastCoastOfScotland}${includingAreaStatement}`}
                 </p>
                 <p className="text-gray-600">
                   These Terms of Service govern the provision of cleaning services by Red Hackle Cleaning Services (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) to our clients (&ldquo;you&rdquo;, &ldquo;the client&rdquo;).
@@ -185,7 +185,7 @@ export default function TermsOfServicePage() {
                 </p>
                 <p className="text-gray-600">
                   <strong>Red Hackle Cleaning Services</strong><br />
-                  {serviceAreaStatement}<br />
+                  {businessInfo.address.streetAddress}, {businessInfo.address.postalCode}, {businessInfo.address.addressCountry}<br />
                   📧 <a className="font-semibold text-red-600 hover:text-red-700" href="mailto:operations@redhacklegroup.com">
                     operations@redhacklegroup.com
                   </a>

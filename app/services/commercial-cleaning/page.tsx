@@ -5,12 +5,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, serviceAreaStatement } from "@/lib/structured-data"
+import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Commercial Cleaning Services ${serviceAreaStatement}`,
+  title: `Commercial Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement}`,
   description:
-    `Commercial cleaning services for offices, retail spaces, and businesses ${serviceAreaStatement}`,
+    `Commercial cleaning services for offices, retail spaces, and businesses across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/services/commercial-cleaning",
 })
 
@@ -57,7 +57,7 @@ export default function CommercialCleaningPage() {
   const serviceSchema = buildServiceSchema({
     name: "Commercial Cleaning",
     description:
-      `Commercial cleaning services for offices, retail spaces, and businesses ${serviceAreaStatement}`,
+      `Commercial cleaning services for offices, retail spaces, and businesses across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/services/commercial-cleaning",
   })
 
@@ -76,7 +76,7 @@ export default function CommercialCleaningPage() {
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Managed Contract Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Professional cleaning services for businesses, offices, and commercial properties to maintain a clean,
-            healthy environment {serviceAreaStatement}
+            healthy environment across {eastCoastOfScotland}{includingAreaStatement}
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">

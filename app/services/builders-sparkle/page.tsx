@@ -5,12 +5,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, serviceAreaStatement } from "@/lib/structured-data"
+import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Builders & Sparkle Cleaning ${serviceAreaStatement}`,
+  title: `Builders & Sparkle Cleaning across ${eastCoastOfScotland}${includingAreaStatement}`,
   description:
-    `Post-construction and sparkle cleaning for developers and contractors ${serviceAreaStatement}`,
+    `Post-construction and sparkle cleaning for developers and contractors across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/services/builders-sparkle",
 })
 
@@ -63,7 +63,7 @@ export default function BuildersSparklePage() {
   const serviceSchema = buildServiceSchema({
     name: "Builders & Sparkle Cleaning",
     description:
-      `Post-construction and sparkle cleaning for developers and contractors ${serviceAreaStatement}`,
+      `Post-construction and sparkle cleaning for developers and contractors across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/services/builders-sparkle",
   })
 
@@ -86,7 +86,7 @@ export default function BuildersSparklePage() {
             <br />
             <br />
             Our team regularly supports projects working to fixed handover deadlines, delivering cleans aligned to site
-            programmes {serviceAreaStatement}
+            programmes across {eastCoastOfScotland}{includingAreaStatement}
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
@@ -120,7 +120,7 @@ export default function BuildersSparklePage() {
               </p>
               <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
               <p className="text-gray-600">
-                Builder & sparkle cleaning delivered {serviceAreaStatement}
+                Builder & sparkle cleaning delivered across {eastCoastOfScotland}{includingAreaStatement}
               </p>
             </CardContent>
           </Card>

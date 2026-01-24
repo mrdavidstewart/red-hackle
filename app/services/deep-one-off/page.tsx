@@ -5,12 +5,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, serviceAreaStatement } from "@/lib/structured-data"
+import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Deep Cleaning Services ${serviceAreaStatement}`,
+  title: `Deep Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement}`,
   description:
-    `Intensive deep and specialist cleaning services for commercial properties ${serviceAreaStatement}`,
+    `Intensive deep and specialist cleaning services for commercial properties across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/services/deep-one-off",
 })
 
@@ -64,7 +64,7 @@ export default function DeepOneOffPage() {
   const serviceSchema = buildServiceSchema({
     name: "Deep & One-off Cleaning",
     description:
-      `Intensive deep and specialist cleaning services for commercial properties ${serviceAreaStatement}`,
+      `Intensive deep and specialist cleaning services for commercial properties across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/services/deep-one-off",
   })
 
@@ -83,7 +83,7 @@ export default function DeepOneOffPage() {
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">One-off / Deep / Specialist Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Planned commercial deep cleaning services for environments requiring an intensive reset or inspection
-            support {serviceAreaStatement}
+            support across {eastCoastOfScotland}{includingAreaStatement}
             <br />
             <br />
             These services are commonly used by established clients to support audits, inspections, executive visits,
@@ -121,7 +121,7 @@ export default function DeepOneOffPage() {
               </p>
               <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
               <p className="text-gray-600">
-                Deep and specialist cleaning delivered {serviceAreaStatement}
+                Deep and specialist cleaning delivered across {eastCoastOfScotland}{includingAreaStatement}
               </p>
             </CardContent>
           </Card>

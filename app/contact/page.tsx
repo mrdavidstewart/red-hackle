@@ -4,16 +4,16 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ContactForm } from "@/components/site/contact-form"
 import { buildMetadata } from "@/lib/seo"
-import { serviceAreaStatement } from "@/lib/structured-data"
+import { businessInfo, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Contact Red Hackle Cleaning ${serviceAreaStatement}`,
+  title: `Contact Red Hackle Cleaning across ${eastCoastOfScotland}${includingAreaStatement}`,
   description:
-    `Request a commercial cleaning quote ${serviceAreaStatement} Fast response and tailored proposals.`,
+    `Request a commercial cleaning quote across ${eastCoastOfScotland}${includingAreaStatement} Fast response and tailored proposals.`,
   path: "/contact",
 })
 
-const officeAddress = serviceAreaStatement
+const officeAddress = `${eastCoastOfScotland}${includingAreaStatement}`
 const directionsLink = `https://maps.google.com/?q=${encodeURIComponent(officeAddress)}`
 
 const contactDetails = [
@@ -39,7 +39,7 @@ const contactDetails = [
     title: "Find us",
     detail: officeAddress,
     href: directionsLink,
-    hint: `Service coverage ${serviceAreaStatement}`,
+    hint: `${businessInfo.address.streetAddress}, ${businessInfo.address.postalCode}, ${businessInfo.address.addressCountry}`,
     icon: MapPin,
     actions: [{ label: "Directions", href: directionsLink, variant: "outline" as const }],
   },
@@ -144,7 +144,7 @@ export default function ContactPage() {
             <CardContent className="space-y-3 p-6">
               <h2 className="text-2xl font-semibold text-gray-900">Coverage area</h2>
               <p className="text-gray-600">
-                Commercial cleaning services delivered {serviceAreaStatement} Supporting single-site and multi-site
+                Commercial cleaning services delivered across {eastCoastOfScotland}{includingAreaStatement} Supporting single-site and multi-site
                 operations.
               </p>
             </CardContent>

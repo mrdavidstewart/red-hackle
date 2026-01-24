@@ -3,12 +3,12 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
-import { serviceAreaStatement } from "@/lib/structured-data"
+import { businessInfo, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
   title: "Privacy Policy | Red Hackle Cleaning Services",
   description:
-    `Privacy policy for Red Hackle Cleaning Services, commercial cleaning specialists ${serviceAreaStatement}`,
+    `Privacy policy for Red Hackle Cleaning Services, commercial cleaning specialists across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/privacy-policy",
 })
 
@@ -45,14 +45,14 @@ export default function PrivacyPolicyPage() {
                 <h2 className="text-2xl font-semibold text-gray-900">Who we are</h2>
                 <p className="text-gray-600">
                   Red Hackle Cleaning Services provides professional commercial and contract cleaning services across
-                  {serviceAreaStatement}
+                  {eastCoastOfScotland}{includingAreaStatement}
                   <br />
                   <br />
                   For the purposes of UK data protection law, we are the data controller for any personal information
                   you provide to us.
                   <br />
                   <br />
-                  Registered address: {serviceAreaStatement}
+                  Registered address: {businessInfo.address.streetAddress}, {businessInfo.address.postalCode} {businessInfo.address.addressCountry}
                   <br />
                   Email: operations@redhacklegroup.com
                 </p>
@@ -191,7 +191,7 @@ export default function PrivacyPolicyPage() {
                   <br /><br />
                   Red Hackle Cleaning Services
                   <br />
-                  {serviceAreaStatement}
+                  {businessInfo.address.streetAddress}, {businessInfo.address.postalCode} {businessInfo.address.addressCountry}
                   <br />
                   Email:{" "}
                   <a className="font-semibold text-red-600 hover:text-red-700" href="mailto:operations@redhacklegroup.com">
