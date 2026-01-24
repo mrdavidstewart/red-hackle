@@ -203,8 +203,7 @@ export default async function HomePage() {
             <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Commercial cleaning services built for business</h2>
             <p className="text-lg text-gray-600">
               Red Hackle delivers structured commercial cleaning services for offices, property managers, hospitality
-              venues, and construction handovers across {eastCoastOfScotland}{includingAreaStatement} Our disciplined teams, documented
-              specifications, and measurable quality controls ensure consistent standards from day one. Established in
+              venues, and construction handovers. Our disciplined teams, documented specifications, and measurable quality controls ensure consistent standards from day one. Established in
               2013, Red Hackle is a commercial-first cleaning partner supporting businesses across {eastCoastOfScotland}{includingAreaStatement}
             </p>
           </div>
