@@ -4,18 +4,27 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
-import { eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { buildBreadcrumbSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `About Red Hackle Cleaning`,
+  title: "Commercial Cleaning Team",
   description:
-    `Learn about Red Hackle Cleaning Services, our commercial-first operations, and coverage across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Meet the Red Hackle Cleaning Services team delivering disciplined commercial cleaning with clear reporting across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/about",
 })
 
 export default function AboutPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+  ])
+
   return (
     <main className="pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
@@ -52,6 +61,9 @@ export default function AboutPage() {
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button asChild className="bg-red-600 text-white hover:bg-red-700">
                 <Link href="/contact">Request a site survey</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <Link href="/services">Explore our services</Link>
               </Button>
             </div>
           </div>

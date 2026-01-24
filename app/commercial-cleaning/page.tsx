@@ -6,12 +6,19 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { resources } from "@/lib/resources"
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  eastCoastOfScotland,
+  includingAreaStatement,
+} from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Managed Contract Cleaning across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Managed Contract Cleaning",
   description:
-    `Managed contract cleaning with onboarding, SLAs, and quality reporting across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Managed contract cleaning with onboarding, SLAs, and quality reporting across ${eastCoastOfScotland}${includingAreaStatement} Speak to our team for a tailored proposal.`,
   path: "/commercial-cleaning",
 })
 
@@ -82,12 +89,25 @@ export default function CommercialCleaningPage() {
       `Managed contract cleaning with onboarding, SLAs, and quality reporting across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/commercial-cleaning",
   })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Commercial Cleaning", path: "/commercial-cleaning" },
+  ])
+  const faqSchema = buildFaqSchema(faqItems)
 
   return (
     <main className="pb-16 md:pb-0">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
@@ -217,6 +237,29 @@ export default function CommercialCleaningPage() {
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200 bg-white">
+            <CardContent className="space-y-4 p-6">
+              <h2 className="text-2xl font-semibold text-gray-900">Commercial cleaning planning resources</h2>
+              <p className="text-gray-600">
+                Support procurement and mobilisation planning with checklists and handover guidance tailored to
+                commercial estates.
+              </p>
+              <ul className="space-y-2 text-sm font-semibold text-gray-700">
+                {resources.map((resource) => (
+                  <li key={resource.slug}>
+                    <Link href={resource.slug} className="hover:text-red-600">
+                      {resource.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
         </div>
       </section>
 

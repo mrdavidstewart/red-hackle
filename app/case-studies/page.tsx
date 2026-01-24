@@ -3,12 +3,12 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
-import { eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { buildBreadcrumbSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Commercial Cleaning Case Studies across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Commercial Cleaning Results",
   description:
-    `Commercial cleaning case studies from Red Hackle Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement} Showcasing measurable outcomes for offices, property managers, and construction handovers.`,
+    `Commercial cleaning case studies across ${eastCoastOfScotland}${includingAreaStatement} Highlighting measurable outcomes for offices, property managers, and construction handovers.`,
   path: "/case-studies",
 })
 
@@ -34,8 +34,17 @@ const caseStudies = [
 ]
 
 export default function CaseStudiesPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Case Studies", path: "/case-studies" },
+  ])
+
   return (
     <main className="pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
@@ -64,9 +73,12 @@ export default function CaseStudiesPage() {
               </Card>
             ))}
           </div>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
               <Link href="/contact">Talk to our team</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/services">View services</Link>
             </Button>
           </div>
         </div>

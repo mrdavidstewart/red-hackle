@@ -47,6 +47,68 @@ export const buildServiceSchema = ({
   },
 })
 
+export const buildBreadcrumbSchema = (items: { name: string; path: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.name,
+    item: `${baseUrl}${item.path}`,
+  })),
+})
+
+export const buildFaqSchema = (items: { question: string; answer: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+})
+
+export const buildBlogPostingSchema = ({
+  headline,
+  description,
+  slug,
+  datePublished,
+  dateModified,
+  image,
+}: {
+  headline: string
+  description: string
+  slug: string
+  datePublished: string
+  dateModified: string
+  image: string
+}) => ({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline,
+  description,
+  url: `${baseUrl}${slug}`,
+  image: [image],
+  datePublished,
+  dateModified,
+  author: {
+    "@type": "Organization",
+    name: businessInfo.name,
+    url: businessInfo.url,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: businessInfo.name,
+    logo: {
+      "@type": "ImageObject",
+      url: businessInfo.logo,
+    },
+  },
+})
+
 export const buildAggregateRatingSchema = ({
   ratingValue,
   reviewCount,

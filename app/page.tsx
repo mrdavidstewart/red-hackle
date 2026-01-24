@@ -6,12 +6,18 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { fetchGoogleReviews } from "@/lib/googleReviews"
 import { buildMetadata } from "@/lib/seo"
-import { buildAggregateRatingSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { resources } from "@/lib/resources"
+import {
+  buildAggregateRatingSchema,
+  buildBreadcrumbSchema,
+  eastCoastOfScotland,
+  includingAreaStatement,
+} from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Commercial Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Commercial Cleaning Services",
   description:
-    `Commercial cleaning partner for offices, property managers, hospitality venues, and construction handovers across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Commercial cleaning partner for offices, property managers, hospitality venues, and construction handovers across ${eastCoastOfScotland}${includingAreaStatement} Request a tailored quote.`,
   path: "/",
 })
 
@@ -112,9 +118,14 @@ export default async function HomePage() {
     googleReviews.length > 0
       ? buildAggregateRatingSchema({ ratingValue: averageRating, reviewCount: googleReviews.length })
       : null
+  const breadcrumbSchema = buildBreadcrumbSchema([{ name: "Home", path: "/" }])
 
   return (
     <main className="pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {aggregateRatingSchema ? (
         <script
           type="application/ld+json"
@@ -224,6 +235,39 @@ export default async function HomePage() {
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
               <Link href="/services">View all services</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className="space-y-3">
+              <Badge className="bg-red-50 text-red-700">Resources</Badge>
+              <h2 className="text-3xl font-black text-gray-900">Cleaning insights for decision-makers</h2>
+              <p className="max-w-2xl text-gray-600">
+                Access guides and checklists built for facilities managers, procurement teams, and contractors who
+                need consistent commercial cleaning outcomes.
+              </p>
+            </div>
+            <Link href="/resources" className="text-sm font-semibold text-red-600 hover:text-red-700">
+              Browse all resources →
+            </Link>
+          </div>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {resources.map((resource) => (
+              <Card key={resource.slug} className="border border-gray-200 bg-white">
+                <CardContent className="space-y-3 p-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">{resource.category}</p>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    <Link href={resource.slug} className="hover:text-red-600">
+                      {resource.title}
+                    </Link>
+                  </h3>
+                  <p className="text-sm text-gray-600">{resource.excerpt}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

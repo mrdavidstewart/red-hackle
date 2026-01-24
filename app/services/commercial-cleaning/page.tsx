@@ -5,12 +5,19 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { resources } from "@/lib/resources"
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  eastCoastOfScotland,
+  includingAreaStatement,
+} from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Commercial Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Commercial Cleaning Plans",
   description:
-    `Commercial cleaning services for offices, retail spaces, and businesses across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Commercial cleaning services for offices, retail spaces, and businesses across ${eastCoastOfScotland}${includingAreaStatement} Speak to our team for a tailored scope.`,
   path: "/services/commercial-cleaning",
 })
 
@@ -60,12 +67,26 @@ export default function CommercialCleaningPage() {
       `Commercial cleaning services for offices, retail spaces, and businesses across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/services/commercial-cleaning",
   })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Commercial Cleaning", path: "/services/commercial-cleaning" },
+  ])
+  const faqSchema = buildFaqSchema(faqItems)
 
   return (
     <main className="bg-white pb-16 md:pb-0">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
@@ -97,6 +118,32 @@ export default function CommercialCleaningPage() {
               <ul className="space-y-2 text-gray-600">
                 {deliverables.map((item) => (
                   <li key={item}>• {item}</li>
+                ))}
+              </ul>
+              <p className="text-gray-600">
+                <strong>Operational fit:</strong> Cleaning schedules and staffing plans are aligned with your opening
+                hours, access protocols, and compliance requirements to protect day-to-day operations.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
+          <Card className="border border-gray-200 bg-gray-50">
+            <CardContent className="space-y-3 p-6">
+              <h2 className="text-2xl font-semibold text-gray-900">Planning resources</h2>
+              <p className="text-gray-600">
+                Use these guides to align commercial cleaning scopes, mobilisation steps, and QA reporting.
+              </p>
+              <ul className="space-y-2 text-sm font-semibold text-gray-700">
+                {resources.map((resource) => (
+                  <li key={resource.slug}>
+                    <Link href={resource.slug} className="hover:text-red-600">
+                      {resource.title}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </CardContent>

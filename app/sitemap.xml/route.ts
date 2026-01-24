@@ -23,6 +23,8 @@ export function GET() {
     "/services/deep-one-off",
     "/services/linen-services",
     "/terms-of-service",
+    "/resources/commercial-cleaning-checklist",
+    "/resources/builders-clean-handover-guide",
   ]
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

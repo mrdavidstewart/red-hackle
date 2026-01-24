@@ -3,18 +3,27 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
-import { businessInfo, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { buildBreadcrumbSchema, businessInfo, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Privacy Policy | Red Hackle Cleaning Services",
+  title: "Privacy Policy for Clients",
   description:
-    `Privacy policy for Red Hackle Cleaning Services, commercial cleaning specialists across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Privacy policy for Red Hackle Cleaning Services, covering data handling for commercial cleaning clients across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/privacy-policy",
 })
 
 export default function PrivacyPolicyPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Privacy Policy", path: "/privacy-policy" },
+  ])
+
   return (
     <main className="bg-white pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />

@@ -1,17 +1,26 @@
 import { Badge } from "@/components/ui/badge"
 import { buildMetadata } from "@/lib/seo"
-import { eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { buildBreadcrumbSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Commercial Cleaning Careers across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Commercial Cleaning Careers",
   description:
-    `Commercial cleaning careers across ${eastCoastOfScotland}${includingAreaStatement} With a structured team culture.`,
+    `Commercial cleaning careers across ${eastCoastOfScotland}${includingAreaStatement} Join a structured, accountable team with clear standards.`,
   path: "/careers",
 })
 
 export default function CareersPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Careers", path: "/careers" },
+  ])
+
   return (
     <main className="bg-white pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />

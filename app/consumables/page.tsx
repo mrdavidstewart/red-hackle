@@ -5,10 +5,17 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { resources } from "@/lib/resources"
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  eastCoastOfScotland,
+  includingAreaStatement,
+} from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Commercial Cleaning Consumables across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Commercial Cleaning Supplies",
   description:
     `Commercial consumables and hygiene supply management to keep washrooms, cleaning stations, and shared areas stocked across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/consumables",
@@ -89,8 +96,32 @@ const relatedServices = [
 ]
 
 export default function ConsumablesPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Consumables", path: "/consumables" },
+  ])
+  const faqSchema = buildFaqSchema(faqItems)
+  const serviceSchema = buildServiceSchema({
+    name: "Consumables & Hygiene Supplies",
+    description:
+      `Commercial consumables and hygiene supply management to keep washrooms, cleaning stations, and shared areas stocked across ${eastCoastOfScotland}${includingAreaStatement}`,
+    slug: "/consumables",
+  })
+
   return (
     <main className="bg-white pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
@@ -191,6 +222,28 @@ export default function ConsumablesPage() {
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
+          <Card className="border border-gray-200 bg-white">
+            <CardContent className="space-y-3 p-6">
+              <h2 className="text-2xl font-semibold text-gray-900">Consumables planning resources</h2>
+              <p className="text-gray-600">
+                Use these guides to align cleaning scopes, consumables usage, and reporting expectations.
+              </p>
+              <ul className="space-y-2 text-sm font-semibold text-gray-700">
+                {resources.map((resource) => (
+                  <li key={resource.slug}>
+                    <Link href={resource.slug} className="hover:text-red-600">
+                      {resource.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
