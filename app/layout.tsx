@@ -4,16 +4,17 @@ import Script from "next/script"
 import { SiteHeader } from "@/components/site/header"
 import { SiteFooter } from "@/components/site/footer"
 import { MobileStickyCta } from "@/components/site/mobile-cta"
+import { businessInfo, baseUrl, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.redhacklecleaningservices.com"),
+  metadataBase: new URL(baseUrl),
   title: {
     default: "Red Hackle Cleaning Services | Commercial & Contract Cleaning",
     template: "%s | Red Hackle Cleaning Services",
   },
   description:
-    "Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland.",
+    `Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across ${eastCoastOfScotland}${includingAreaStatement}`,
   keywords:
     "commercial cleaning east coast of scotland, managed contract cleaning, commercial cleaning services, contract cleaning, office cleaning, builders clean",
   authors: [{ name: "Red Hackle Cleaning Services" }],
@@ -30,8 +31,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Red Hackle Cleaning Services | Commercial & Contract Cleaning",
     description:
-      "Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland.",
-    url: "https://www.redhacklecleaningservices.com/",
+      `Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across ${eastCoastOfScotland}${includingAreaStatement}`,
+    url: `${baseUrl}/`,
     siteName: "Red Hackle Cleaning Services",
     locale: "en_GB",
     type: "website",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Red Hackle Cleaning Services | Commercial & Contract Cleaning",
     description:
-      "Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland.",
+      `Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across ${eastCoastOfScotland}${includingAreaStatement}`,
     images: ["/images/team-photo.jpg"],
   },
   robots: {
@@ -70,37 +71,29 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "LocalBusiness",
-        "@id": "https://www.redhacklecleaningservices.com/#business",
-        name: "Red Hackle Cleaning Services",
-        url: "https://www.redhacklecleaningservices.com/",
-        image: "https://www.redhacklecleaningservices.com/images/team-photo.jpg",
-        telephone: "+447966881555",
-        priceRange: "££",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "165 Brook Street",
-          addressLocality: "East Coast of Scotland",
-          addressRegion: "Scotland",
-          postalCode: "DD5 1DJ",
-          addressCountry: "GB",
-        },
-        areaServed: ["East Coast of Scotland"],
-        sameAs: [
-          "https://www.facebook.com/profile.php?id=61555545779742",
-          "https://instagram.com/redhacklegroup",
-          "https://g.co/kgs/geKtfwz",
-        ],
+        "@id": `${baseUrl}/#business`,
+        name: businessInfo.name,
+        url: businessInfo.url,
+        image: businessInfo.image,
+        telephone: businessInfo.telephone,
+        email: businessInfo.email,
+        priceRange: businessInfo.priceRange,
+        address: businessInfo.address,
+        areaServed: businessInfo.areaServed,
+        serviceArea: `${eastCoastOfScotland}${includingAreaStatement}`,
+        sameAs: businessInfo.sameAs,
       },
       {
         "@type": "Organization",
-        "@id": "https://www.redhacklecleaningservices.com/#organization",
-        name: "Red Hackle Cleaning Services",
-        url: "https://www.redhacklecleaningservices.com/",
-        logo: "https://www.redhacklecleaningservices.com/images/new-logo.png",
+        "@id": `${baseUrl}/#organization`,
+        name: businessInfo.name,
+        url: businessInfo.url,
+        logo: businessInfo.logo,
         contactPoint: [
           {
             "@type": "ContactPoint",
-            telephone: "+447966881555",
+            telephone: businessInfo.telephone,
+            email: businessInfo.email,
             contactType: "sales",
             areaServed: "GB",
             availableLanguage: ["English"],
@@ -137,8 +130,8 @@ export default function RootLayout({
         "@type": "Service",
         name: service.name,
         description: service.description,
-        areaServed: ["East Coast of Scotland"],
-        provider: { "@id": "https://www.redhacklecleaningservices.com/#business" },
+        areaServed: businessInfo.areaServed,
+        provider: { "@id": `${baseUrl}/#business` },
       })),
     ],
   }

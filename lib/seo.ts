@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
-
-const baseUrl = "https://www.redhacklecleaningservices.com"
+import { baseUrl } from "@/lib/structured-data"
 const defaultImage = "/images/team-photo.jpg"
 
 type SeoConfig = {

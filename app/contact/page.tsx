@@ -4,15 +4,16 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ContactForm } from "@/components/site/contact-form"
 import { buildMetadata } from "@/lib/seo"
+import { businessInfo, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Contact",
+  title: `Contact Red Hackle Cleaning across ${eastCoastOfScotland}${includingAreaStatement}`,
   description:
-    "Request a commercial cleaning quote for the East Coast of Scotland. Fast response, on-site surveys, and tailored proposals.",
+    `Request a commercial cleaning quote across ${eastCoastOfScotland}${includingAreaStatement} Fast response and tailored proposals.`,
   path: "/contact",
 })
 
-const officeAddress = "165 Brook Street, DD5 1DJ"
+const officeAddress = `${eastCoastOfScotland}${includingAreaStatement}`
 const directionsLink = `https://maps.google.com/?q=${encodeURIComponent(officeAddress)}`
 
 const contactDetails = [
@@ -38,7 +39,7 @@ const contactDetails = [
     title: "Find us",
     detail: officeAddress,
     href: directionsLink,
-    hint: "Serving the East Coast of Scotland.",
+    hint: `${businessInfo.address.streetAddress}, ${businessInfo.address.postalCode}, ${businessInfo.address.addressCountry}`,
     icon: MapPin,
     actions: [{ label: "Directions", href: directionsLink, variant: "outline" as const }],
   },
@@ -143,7 +144,8 @@ export default function ContactPage() {
             <CardContent className="space-y-3 p-6">
               <h2 className="text-2xl font-semibold text-gray-900">Coverage area</h2>
               <p className="text-gray-600">
-                Commercial cleaning services delivered across the East Coast of Scotland, supporting single-site and multi-site operations.
+                Commercial cleaning services delivered across {eastCoastOfScotland}{includingAreaStatement} Supporting single-site and multi-site
+                operations.
               </p>
             </CardContent>
           </Card>

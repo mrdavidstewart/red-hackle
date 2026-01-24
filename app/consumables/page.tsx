@@ -2,12 +2,15 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { FaqSection } from "@/components/site/faq-section"
+import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
+import { eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Consumables & Hygiene Supplies",
+  title: `Commercial Cleaning Consumables across ${eastCoastOfScotland}${includingAreaStatement}`,
   description:
-    "Commercial consumables and hygiene supply management to keep washrooms, cleaning stations, and shared areas stocked across the East Coast of Scotland.",
+    `Commercial consumables and hygiene supply management to keep washrooms, cleaning stations, and shared areas stocked across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/consumables",
 })
 
@@ -54,6 +57,37 @@ const deliveryOptions = [
   "Scoped per site to support budget control and stock visibility",
 ]
 
+const faqItems = [
+  {
+    question: "Can consumables be bundled with our cleaning contract?",
+    answer:
+      "Yes. Consumables can be integrated into your contract cleaning scope so stock levels and refills are handled alongside routine cleaning visits.",
+  },
+  {
+    question: "Do you supply eco-friendly options?",
+    answer:
+      "We can propose sustainable paper, soaps, and cleaning products where required, aligned to site standards and procurement policies.",
+  },
+]
+
+const relatedServices = [
+  {
+    title: "Contract Cleaning",
+    description: "Ongoing cleaning contracts with supervision, SLAs, and reporting.",
+    href: "/services/contract-cleaning",
+  },
+  {
+    title: "Office & Workplace Cleaning",
+    description: "Daily or out-of-hours cleaning for offices and shared workspaces.",
+    href: "/services/office-workplace",
+  },
+  {
+    title: "Commercial Cleaning",
+    description: "Managed commercial cleaning support for multi-site operations.",
+    href: "/commercial-cleaning",
+  },
+]
+
 export default function ConsumablesPage() {
   return (
     <main className="bg-white pb-16 md:pb-0">
@@ -65,7 +99,7 @@ export default function ConsumablesPage() {
           <Badge className="bg-white/10 text-white">Consumables</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Consumables &amp; Hygiene Supplies</h1>
           <p className="mt-4 text-lg text-gray-300">
-            Integrated consumables management for commercial environments
+            Integrated consumables management for commercial environments across {eastCoastOfScotland}{includingAreaStatement}
           </p>
         </div>
       </section>
@@ -159,6 +193,18 @@ export default function ConsumablesPage() {
           </div>
         </div>
       </section>
+
+      <FaqSection
+        title="Consumables supply FAQs"
+        description={`Answers for facilities teams planning consumables and hygiene stock across ${eastCoastOfScotland}${includingAreaStatement}`}
+        items={faqItems}
+      />
+
+      <RelatedServices
+        title="Related cleaning services"
+        description="Pair consumables management with ongoing commercial cleaning services."
+        services={relatedServices}
+      />
     </main>
   )
 }

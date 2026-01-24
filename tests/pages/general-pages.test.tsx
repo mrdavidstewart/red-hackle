@@ -6,6 +6,7 @@ import ContactPage from "@/app/contact/page"
 import CareersPage from "@/app/careers/page"
 import PrivacyPolicyPage from "@/app/privacy-policy/page"
 import TermsOfServicePage from "@/app/terms-of-service/page"
+import { businessInfo } from "@/lib/structured-data"
 
 describe("static pages", () => {
   it("renders the About page", () => {
@@ -47,7 +48,11 @@ describe("static pages", () => {
     // Check all contact details are rendered
     expect(screen.getAllByText(/07966 881 555/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/operations@redhacklegroup.com/i)).toBeInTheDocument()
-    expect(screen.getByText(/165 Brook Street, DD5 1DJ/i)).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        new RegExp(`${businessInfo.address.streetAddress}, ${businessInfo.address.postalCode}, ${businessInfo.address.addressCountry}`, 'i'),
+      ),
+    ).toBeInTheDocument()
   })
 
   it("renders the Careers page with key content", () => {

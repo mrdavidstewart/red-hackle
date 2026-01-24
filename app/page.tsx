@@ -6,11 +6,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { fetchGoogleReviews } from "@/lib/googleReviews"
 import { buildMetadata } from "@/lib/seo"
+import { buildAggregateRatingSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Commercial & Contract Cleaning Services",
+  title: `Commercial Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement}`,
   description:
-    "Commercial cleaning partner for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland.",
+    `Commercial cleaning partner for offices, property managers, hospitality venues, and construction handovers across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/",
 })
 
@@ -23,7 +24,7 @@ const trustSignals = [
 
 const headlineStats = [
   { label: "Response time", value: "Quotes in 24 hours" },
-  { label: "Coverage", value: "East Coast of Scotland" },
+  { label: "Coverage", value: eastCoastOfScotland },
   { label: "Availability", value: "Daytime or out-of-hours" },
 ]
 
@@ -55,7 +56,7 @@ const services = [
   },
   {
     title: "Short-Stay & Serviced Accommodation Housekeeping",
-    description: "Professional housekeeping services for short-stay and serviced accommodation properties across the East Coast of Scotland.",
+    description: `Professional housekeeping services for short-stay and serviced accommodation properties.`,
     href: "/services/accommodation-housekeeping",
   }
 ]
@@ -103,9 +104,23 @@ const processSteps = [
 
 export default async function HomePage() {
   const googleReviews = await fetchGoogleReviews()
+  const averageRating =
+    googleReviews.length > 0
+      ? googleReviews.reduce((total, review) => total + review.rating, 0) / googleReviews.length
+      : 0
+  const aggregateRatingSchema =
+    googleReviews.length > 0
+      ? buildAggregateRatingSchema({ ratingValue: averageRating, reviewCount: googleReviews.length })
+      : null
 
   return (
     <main className="pb-16 md:pb-0">
+      {aggregateRatingSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }}
+        />
+      ) : null}
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
@@ -119,7 +134,7 @@ export default async function HomePage() {
               </h1>
               <p className="text-lg text-gray-200">
                 A disciplined cleaning partner for offices, property managers, hospitality venues, and construction
-                handovers across the East Coast of Scotland.
+                handovers across {eastCoastOfScotland}{includingAreaStatement}
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button asChild className="bg-red-600 text-white hover:bg-red-700">
@@ -187,7 +202,10 @@ export default async function HomePage() {
             <Badge className="w-fit bg-red-50 text-red-700">Services</Badge>
             <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Commercial cleaning services built for business</h2>
             <p className="text-lg text-gray-600">
-              Red Hackle delivers structured commercial cleaning services for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland. Our disciplined teams, documented specifications, and measurable quality controls ensure consistent standards from day one. Established in 2013, Red Hackle is a commercial-first cleaning partner based in Broughty Ferry, supporting businesses across the East Coast of Scotland.</p>
+              Red Hackle delivers structured commercial cleaning services for offices, property managers, hospitality
+              venues, and construction handovers. Our disciplined teams, documented specifications, and measurable quality controls ensure consistent standards from day one. Established in
+              2013, Red Hackle is a commercial-first cleaning partner supporting businesses across {eastCoastOfScotland}{includingAreaStatement}
+            </p>
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
@@ -215,7 +233,10 @@ export default async function HomePage() {
           <div className="flex flex-col gap-3">
             <Badge className="w-fit bg-red-50 text-red-700">Why choose us</Badge>
             <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Why businesses choose Red Hackle</h2>
-            <p className="text-lg text-gray-600">Our commercial cleaning delivery is built on predictable outcomes, operational discipline and quality assurance, ensuring performance you can trust across every site</p>
+            <p className="text-lg text-gray-600">
+              Our commercial cleaning delivery is built on predictable outcomes, operational discipline, and quality
+              assurance, ensuring performance you can trust across every site.
+            </p>
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {whyChooseItems.map((service) => (

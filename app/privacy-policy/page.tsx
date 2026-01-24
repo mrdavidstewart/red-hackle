@@ -3,11 +3,12 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
+import { businessInfo, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Privacy Policy",
+  title: "Privacy Policy | Red Hackle Cleaning Services",
   description:
-    "Privacy policy for Red Hackle Cleaning Services, commercial cleaning specialists across the East Coast of Scotland.",
+    `Privacy policy for Red Hackle Cleaning Services, commercial cleaning specialists across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/privacy-policy",
 })
 
@@ -43,12 +44,16 @@ export default function PrivacyPolicyPage() {
               <CardContent className="space-y-4 p-6">
                 <h2 className="text-2xl font-semibold text-gray-900">Who we are</h2>
                 <p className="text-gray-600">
-                  Red Hackle Cleaning Services provides professional commercial and contract cleaning services across the East Coast of Scotland.
-                  <br /><br />
-                  For the purposes of UK data protection law, we are the data controller for any personal information you provide to us.
-                  <br /><br />
-                  Registered address:
-                  165 Brook Street, Broughty Ferry, Dundee, DD5 1DJ
+                  Red Hackle Cleaning Services provides professional commercial and contract cleaning services across
+                  {eastCoastOfScotland}{includingAreaStatement}
+                  <br />
+                  <br />
+                  For the purposes of UK data protection law, we are the data controller for any personal information
+                  you provide to us.
+                  <br />
+                  <br />
+                  Registered address: {businessInfo.address.streetAddress}, {businessInfo.address.postalCode} {businessInfo.address.addressCountry}
+                  <br />
                   Email: operations@redhacklegroup.com
                 </p>
               </CardContent>
@@ -186,7 +191,7 @@ export default function PrivacyPolicyPage() {
                   <br /><br />
                   Red Hackle Cleaning Services
                   <br />
-                  165 Brook Street, Broughty Ferry, Dundee, DD5 1DJ
+                  {businessInfo.address.streetAddress}, {businessInfo.address.postalCode} {businessInfo.address.addressCountry}
                   <br />
                   Email:{" "}
                   <a className="font-semibold text-red-600 hover:text-red-700" href="mailto:operations@redhacklegroup.com">
@@ -198,6 +203,6 @@ export default function PrivacyPolicyPage() {
           </div>
         </div>
       </section>
-    </main >
+    </main>
   )
 }

@@ -1,10 +1,11 @@
 import { Badge } from "@/components/ui/badge"
 import { buildMetadata } from "@/lib/seo"
+import { eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Careers at Red Hackle",
+  title: `Commercial Cleaning Careers across ${eastCoastOfScotland}${includingAreaStatement}`,
   description:
-    "Careers at Red Hackle for disciplined, reliable commercial cleaning professionals who value structured roles and trusted team culture.",
+    `Commercial cleaning careers across ${eastCoastOfScotland}${includingAreaStatement} With a structured team culture.`,
   path: "/careers",
 })
 
@@ -21,7 +22,7 @@ export default function CareersPage() {
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Red Hackle is built on discipline, reliability, and pride in doing the job properly. We deliver structured
             commercial cleaning services across offices, hospitality venues, property portfolios, and construction
-            sites.
+            sites across {eastCoastOfScotland}{includingAreaStatement}
           </p>
         </div>
       </section>

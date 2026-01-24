@@ -3,12 +3,15 @@ import { BadgeCheck, ClipboardList, ShieldCheck } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { FaqSection } from "@/components/site/faq-section"
+import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
+import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Managed Contract Cleaning",
+  title: `Managed Contract Cleaning across ${eastCoastOfScotland}${includingAreaStatement}`,
   description:
-    "Managed contract cleaning with onboarding, SLAs, quality control, and reporting across the East Coast of Scotland.",
+    `Managed contract cleaning with onboarding, SLAs, and quality reporting across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/commercial-cleaning",
 })
 
@@ -41,9 +44,51 @@ const trustComplianceItems = [
   "Keyholding & alarm response protocols",
 ]
 
+const faqItems = [
+  {
+    question: "How quickly can a commercial contract be mobilised?",
+    answer:
+      "Most sites can be mobilised within 5–10 working days once the scope, access arrangements, and compliance needs are confirmed.",
+  },
+  {
+    question: "Do you provide reporting for facilities teams?",
+    answer:
+      "Yes. We supply inspection reports, snagging lists, and QA summaries aligned to your SLAs and reporting cadence.",
+  },
+]
+
+const relatedServices = [
+  {
+    title: "Office & Workplace Cleaning",
+    description: "Daily or out-of-hours office cleaning with measurable quality controls.",
+    href: "/services/office-workplace",
+  },
+  {
+    title: "Builders & Sparkle Cleaning",
+    description: "Post-construction cleaning for compliant handovers.",
+    href: "/services/builders-sparkle",
+  },
+  {
+    title: "Deep & One-off Cleaning",
+    description: "Scheduled deep cleans for audits or seasonal resets.",
+    href: "/services/deep-one-off",
+  },
+]
+
 export default function CommercialCleaningPage() {
+  const serviceSchema = buildServiceSchema({
+    name: "Managed Contract Cleaning",
+    description:
+      `Managed contract cleaning with onboarding, SLAs, and quality reporting across ${eastCoastOfScotland}${includingAreaStatement}`,
+    slug: "/commercial-cleaning",
+  })
+
   return (
     <main className="pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
@@ -52,7 +97,8 @@ export default function CommercialCleaningPage() {
           <Badge className="bg-white/10 text-white">Commercial &amp; contract cleaning</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Managed contract cleaning with clear accountability</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Red Hackle provides commercial and contract cleaning services for organisations that require predictable outcomes, consistent standards, and reliable reporting.
+            Red Hackle provides commercial and contract cleaning services for organisations that require predictable
+            outcomes, consistent standards, and reliable reporting across {eastCoastOfScotland}{includingAreaStatement}
             <br />
             <br />
             Since 2013, we’ve supported office managers, hospitality groups, and property teams with managed cleaning contracts built around documented specifications, supervised teams, and agreed service levels — ensuring performance doesn’t drift over time.</p>
@@ -173,6 +219,18 @@ export default function CommercialCleaningPage() {
           </div>
         </div>
       </section>
+
+      <FaqSection
+        title="Contract cleaning FAQs"
+        description={`Practical answers for facilities managers across ${eastCoastOfScotland}${includingAreaStatement}`}
+        items={faqItems}
+      />
+
+      <RelatedServices
+        title="Related commercial cleaning services"
+        description="Pair managed contract cleaning with specialist services as your estate grows."
+        services={relatedServices}
+      />
     </main>
   )
 }
