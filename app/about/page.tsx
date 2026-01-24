@@ -6,9 +6,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "About",
+  title: "About Red Hackle Cleaning | East Coast Scotland",
   description:
-    "Learn about Red Hackle Cleaning Services, our commercial-first operations, team oversight, and coverage across the East Coast of Scotland.",
+    "Learn about Red Hackle Cleaning Services, our commercial-first operations, and coverage across the East Coast of Scotland.",
   path: "/about",
 })
 
@@ -25,7 +25,7 @@ export default function AboutPage() {
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Red Hackle Cleaning Services supports commercial clients with structured onboarding, consistent delivery,
             and clear reporting. We take pride in doing the basics brilliantly and maintaining high standards across
-            every site we serve.
+            every site we serve in Broughty Ferry, Dundee, Angus, and Fife.
           </p>
         </div>
       </section>
@@ -35,11 +35,19 @@ export default function AboutPage() {
           <div className="space-y-4">
             <h2 className="text-3xl font-black text-gray-900">About Red Hackle Commercial Cleaning Specialists</h2>
             <p className="text-lg text-gray-600">
-              Red Hackle was founded to bring disciplined, process-driven cleaning expertise to business environments. Led by Managing Director, Arthur, a leader shaped by structured operations, the company specialises in reliable commercial cleaning services that deliver measurable outcomes for offices, hospitality venues, property managers, and construction handovers.
-              <br /><br />
-              Built on a foundation of pride, accountability, and operational consistency, we support clients who expect dependable delivery, clear communication, and quality assurance at every stage, from mobilisation through to routine reporting.
-              <br /><br />
-              This kind of language reads more like facility management and procurement and less like a small local cleaner.
+              Red Hackle was founded to bring disciplined, process-driven cleaning expertise to business environments.
+              Led by Managing Director Arthur, the company specialises in reliable commercial cleaning services that
+              deliver measurable outcomes for offices, hospitality venues, property managers, and construction
+              handovers across the East Coast of Scotland.
+              <br />
+              <br />
+              Built on a foundation of pride, accountability, and operational consistency, we support clients who
+              expect dependable delivery, clear communication, and quality assurance at every stage, from mobilisation
+              through to routine reporting.
+              <br />
+              <br />
+              Based in Broughty Ferry, our teams cover Dundee, Angus, Fife, and St Andrews with consistent on-site
+              supervision and documented specifications.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button asChild className="bg-red-600 text-white hover:bg-red-700">

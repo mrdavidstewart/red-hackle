@@ -2,12 +2,15 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { FaqSection } from "@/components/site/faq-section"
+import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
+import { buildServiceSchema } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "One-off / Deep / Specialist Cleaning",
+  title: "Deep Cleaning Services | East Coast Scotland",
   description:
-    "Intensive one-off, deep, and specialist cleaning services for commercial and managed properties across the East Coast of Scotland.",
+    "Intensive deep and specialist cleaning services for commercial properties across Dundee, Angus, and Fife.",
   path: "/services/deep-one-off",
 })
 
@@ -24,11 +27,53 @@ const idealFor = [
   "Post-event or hospitality changeovers",
   "Executive visits and inspections",
   "One-off deep cleans",
-];
+]
+
+const faqItems = [
+  {
+    question: "How is a deep clean scoped?",
+    answer:
+      "We complete a site survey and create a detailed scope of work that targets high-touch and high-risk areas.",
+  },
+  {
+    question: "Can deep cleans be scheduled outside business hours?",
+    answer:
+      "Yes. We can schedule deep cleaning overnight or at weekends to avoid operational disruption.",
+  },
+]
+
+const relatedServices = [
+  {
+    title: "Office & Workplace Cleaning",
+    description: "Routine office cleaning with flexible scheduling.",
+    href: "/services/office-workplace",
+  },
+  {
+    title: "Builders & Sparkle Cleaning",
+    description: "Post-construction cleaning for handovers.",
+    href: "/services/builders-sparkle",
+  },
+  {
+    title: "Contract Cleaning",
+    description: "Managed commercial cleaning contracts with QA reporting.",
+    href: "/services/contract-cleaning",
+  },
+]
 
 export default function DeepOneOffPage() {
+  const serviceSchema = buildServiceSchema({
+    name: "Deep & One-off Cleaning",
+    description:
+      "Intensive deep and specialist cleaning services for commercial properties across Dundee, Angus, and Fife.",
+    slug: "/services/deep-one-off",
+  })
+
   return (
     <main className="bg-white pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
@@ -37,9 +82,13 @@ export default function DeepOneOffPage() {
           <Badge className="bg-red-50 text-red-700">One-off / deep / specialist</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">One-off / Deep / Specialist Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Planned commercial deep cleaning services for environments requiring an intensive reset or inspection support.
-            <br /><br />
-            These services are commonly used by established clients to support audits, inspections, executive visits, and operational resets.</p>
+            Planned commercial deep cleaning services for environments requiring an intensive reset or inspection
+            support across Dundee, Angus, and Fife.
+            <br />
+            <br />
+            These services are commonly used by established clients to support audits, inspections, executive visits,
+            and operational resets.
+          </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
               <Link href="/contact">Request a quote</Link>
@@ -61,7 +110,7 @@ export default function DeepOneOffPage() {
                   <li key={item}>• {item}</li>
                 ))}
               </ul>
-              <h2 className="text-2xl font-semibold text-gray-900">Ideal for</h2>
+              <h2 className="text-2xl font-semibold text-gray-900">Best suited to</h2>
               <ul className="space-y-2 text-gray-600">
                 {idealFor.map((item) => (
                   <li key={item}>• {item}</li>
@@ -72,12 +121,25 @@ export default function DeepOneOffPage() {
               </p>
               <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
               <p className="text-gray-600">
-                Deep and specialist cleaning delivered across the East Coast of Scotland including Tayside, Angus, Fife, Perth, Aberdeen & Aberdeenshire.
+                Deep and specialist cleaning delivered across Broughty Ferry, Dundee, Angus, Fife, and St Andrews as
+                part of our East Coast of Scotland coverage.
               </p>
             </CardContent>
           </Card>
         </div>
       </section>
+
+      <FaqSection
+        title="Deep cleaning FAQs"
+        description="Key questions from facilities and hospitality teams."
+        items={faqItems}
+      />
+
+      <RelatedServices
+        title="Related deep cleaning services"
+        description="Combine deep cleans with routine contract coverage."
+        services={relatedServices}
+      />
     </main>
   )
 }

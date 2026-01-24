@@ -25,6 +25,10 @@ export function proxy(request: NextRequest) {
   response.headers.set("X-XSS-Protection", "1; mode=block")
   response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin")
 
+  if (host.endsWith(".vercel.app") && host !== "www.redhacklecleaningservices.com") {
+    response.headers.set("X-Robots-Tag", "noindex, nofollow")
+  }
+
   // Special handling for new-starter route
   if (request.nextUrl.pathname.startsWith("/new-starter")) {
     // Extra privacy headers for the private route

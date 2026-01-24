@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Case Studies",
+  title: "Commercial Cleaning Case Studies | East Coast Scotland",
   description:
     "Commercial cleaning case studies from Red Hackle Cleaning Services across the East Coast of Scotland, showcasing measurable outcomes for offices, property managers, and construction handovers.",
   path: "/case-studies",

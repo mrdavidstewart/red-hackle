@@ -2,9 +2,9 @@ import { Badge } from "@/components/ui/badge"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Careers at Red Hackle",
+  title: "Commercial Cleaning Careers | East Coast Scotland",
   description:
-    "Careers at Red Hackle for disciplined, reliable commercial cleaning professionals who value structured roles and trusted team culture.",
+    "Commercial cleaning careers in Broughty Ferry, Dundee, and across the East Coast of Scotland with a structured team culture.",
   path: "/careers",
 })
 
@@ -21,7 +21,7 @@ export default function CareersPage() {
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Red Hackle is built on discipline, reliability, and pride in doing the job properly. We deliver structured
             commercial cleaning services across offices, hospitality venues, property portfolios, and construction
-            sites.
+            sites in Broughty Ferry, Dundee, Angus, and Fife.
           </p>
         </div>
       </section>

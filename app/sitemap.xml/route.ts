@@ -5,18 +5,23 @@ export function GET() {
 
   const urls = [
     "/",
+    "/about",
+    "/case-studies",
+    "/careers",
     "/commercial-cleaning",
     "/consumables",
+    "/contact",
+    "/privacy-policy",
+    "/resources",
     "/services",
+    "/services/accommodation-housekeeping",
+    "/services/builders-sparkle",
+    "/services/commercial-cleaning",
     "/services/office-workplace",
     "/services/contract-cleaning",
     "/services/end-of-tenancy",
-    "/services/builders-sparkle",
     "/services/deep-one-off",
-    "/about",
-    "/contact",
-    "/careers",
-    "/privacy-policy",
+    "/services/linen-services",
     "/terms-of-service",
   ]
 

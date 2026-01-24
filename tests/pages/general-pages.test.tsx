@@ -47,7 +47,7 @@ describe("static pages", () => {
     // Check all contact details are rendered
     expect(screen.getAllByText(/07966 881 555/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/operations@redhacklegroup.com/i)).toBeInTheDocument()
-    expect(screen.getByText(/165 Brook Street, DD5 1DJ/i)).toBeInTheDocument()
+    expect(screen.getByText(/165 Brook Street, Broughty Ferry, Dundee, DD5 1DJ/i)).toBeInTheDocument()
   })
 
   it("renders the Careers page with key content", () => {

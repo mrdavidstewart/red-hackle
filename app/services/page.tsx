@@ -5,9 +5,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Services",
+  title: "Commercial Cleaning Services in East Coast Scotland",
   description:
-    "Commercial cleaning services across the East Coast of Scotland, including managed contract cleaning and specialist deep cleans.",
+    "Commercial cleaning services across the East Coast of Scotland, including managed contract cleaning, office cleaning, and specialist deep cleans.",
   path: "/services",
 })
 
@@ -56,12 +56,19 @@ export default function ServicesPage() {
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Commercial cleaning services</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Flexible cleaning services tailored for offices, hospitality venues, property managers, and construction
-            teams across the East Coast of Scotland.
+            teams across Dundee, Angus, Fife, and the wider East Coast of Scotland.
           </p>
         </div>
       </section>
 
       <section className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
+        <div className="max-w-3xl space-y-4 pb-8 text-gray-600">
+          <h2 className="text-2xl font-semibold text-gray-900">Services built for commercial decision makers</h2>
+          <p>
+            Each service is delivered through documented scopes of work, supervised teams, and measurable quality
+            controls. Use the service links below to explore detailed service coverage and related cleaning options.
+          </p>
+        </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {serviceCards.map((service) => (
             <Card key={service.title} className="border border-gray-200">

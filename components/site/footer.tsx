@@ -16,12 +16,12 @@ export function SiteFooter() {
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-red-500" />
                 <a
-                  href="https://maps.google.com/?q=165+Brook+Street%2C+DD5+1DJ"
+                  href="https://maps.google.com/?q=165+Brook+Street%2C+Broughty+Ferry%2C+Dundee%2C+DD5+1DJ"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white"
                 >
-                  165 Brook Street, DD5 1DJ
+                  165 Brook Street, Broughty Ferry, Dundee, DD5 1DJ
                 </a>
               </div>
               <div className="flex items-center gap-2">
@@ -50,6 +50,11 @@ export function SiteFooter() {
               <li>
                 <Link href="/services" className="hover:text-white">
                   Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources" className="hover:text-white">
+                  Resources
                 </Link>
               </li>
               <li>

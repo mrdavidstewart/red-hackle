@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Terms of Service",
+  title: "Terms of Service | Red Hackle Cleaning Services",
   description:
     "Service terms and conditions for Red Hackle Cleaning Services across the East Coast of Scotland.",
   path: "/terms-of-service",

@@ -2,12 +2,15 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { FaqSection } from "@/components/site/faq-section"
+import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
+import { buildServiceSchema } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Managed Contract Cleaning",
+  title: "Commercial Cleaning Services | East Coast Scotland",
   description:
-    "Managed contract cleaning and commercial cleaning services for offices, retail spaces, and businesses across the East Coast of Scotland.",
+    "Commercial cleaning services for offices, retail spaces, and businesses across Dundee, Angus, and Fife.",
   path: "/services/commercial-cleaning",
 })
 
@@ -19,9 +22,51 @@ const deliverables = [
   "Flexible scheduling to suit your business needs",
 ]
 
+const faqItems = [
+  {
+    question: "Do you provide quotes after a site survey?",
+    answer:
+      "Yes. We complete a site walk-through to align the scope of works with compliance and budget requirements.",
+  },
+  {
+    question: "Can commercial cleaning include consumables?",
+    answer:
+      "Consumables can be supplied as part of the service to keep washrooms and shared areas stocked.",
+  },
+]
+
+const relatedServices = [
+  {
+    title: "Office & Workplace Cleaning",
+    description: "Daily or out-of-hours office cleaning with QA oversight.",
+    href: "/services/office-workplace",
+  },
+  {
+    title: "Contract Cleaning",
+    description: "Managed contract cleaning with SLAs and reporting.",
+    href: "/services/contract-cleaning",
+  },
+  {
+    title: "Consumables Supply",
+    description: "Consumables management aligned to cleaning schedules.",
+    href: "/consumables",
+  },
+]
+
 export default function CommercialCleaningPage() {
+  const serviceSchema = buildServiceSchema({
+    name: "Commercial Cleaning",
+    description:
+      "Commercial cleaning services for offices, retail spaces, and businesses across Dundee, Angus, and Fife.",
+    slug: "/services/commercial-cleaning",
+  })
+
   return (
     <main className="bg-white pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
@@ -31,7 +76,7 @@ export default function CommercialCleaningPage() {
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Managed Contract Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Professional cleaning services for businesses, offices, and commercial properties to maintain a clean,
-            healthy environment.
+            healthy environment across Dundee, Angus, and Fife.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
@@ -58,6 +103,18 @@ export default function CommercialCleaningPage() {
           </Card>
         </div>
       </section>
+
+      <FaqSection
+        title="Commercial cleaning FAQs"
+        description="Answers for facilities managers and procurement teams."
+        items={faqItems}
+      />
+
+      <RelatedServices
+        title="Related commercial services"
+        description="Explore office cleaning and contract support options."
+        services={relatedServices}
+      />
     </main>
   )
 }

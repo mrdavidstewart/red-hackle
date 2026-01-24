@@ -6,13 +6,13 @@ import { ContactForm } from "@/components/site/contact-form"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Contact",
+  title: "Contact Red Hackle Cleaning | East Coast Scotland",
   description:
-    "Request a commercial cleaning quote for the East Coast of Scotland. Fast response, on-site surveys, and tailored proposals.",
+    "Request a commercial cleaning quote for Dundee, Angus, Fife, and the East Coast of Scotland. Fast response and tailored proposals.",
   path: "/contact",
 })
 
-const officeAddress = "165 Brook Street, DD5 1DJ"
+const officeAddress = "165 Brook Street, Broughty Ferry, Dundee, DD5 1DJ"
 const directionsLink = `https://maps.google.com/?q=${encodeURIComponent(officeAddress)}`
 
 const contactDetails = [
@@ -38,7 +38,7 @@ const contactDetails = [
     title: "Find us",
     detail: officeAddress,
     href: directionsLink,
-    hint: "Serving the East Coast of Scotland.",
+    hint: "Based in Broughty Ferry with teams across Dundee, Angus, and Fife.",
     icon: MapPin,
     actions: [{ label: "Directions", href: directionsLink, variant: "outline" as const }],
   },
@@ -143,7 +143,8 @@ export default function ContactPage() {
             <CardContent className="space-y-3 p-6">
               <h2 className="text-2xl font-semibold text-gray-900">Coverage area</h2>
               <p className="text-gray-600">
-                Commercial cleaning services delivered across the East Coast of Scotland, supporting single-site and multi-site operations.
+                Commercial cleaning services delivered across Dundee, Broughty Ferry, Angus, Fife, and the wider East
+                Coast of Scotland, supporting single-site and multi-site operations.
               </p>
             </CardContent>
           </Card>

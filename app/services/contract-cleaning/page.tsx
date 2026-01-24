@@ -2,12 +2,15 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { FaqSection } from "@/components/site/faq-section"
+import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
+import { buildServiceSchema } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Contract Cleaning",
+  title: "Contract Cleaning Services | East Coast Scotland",
   description:
-    "Contract cleaning services with SLAs, onboarding, and quality reporting for commercial clients across the East Coast of Scotland.",
+    "Contract cleaning services with SLAs, onboarding, and quality reporting for commercial clients across Dundee, Angus, and Fife.",
   path: "/services/contract-cleaning",
 })
 
@@ -18,9 +21,51 @@ const outcomes = [
   "Flexible staffing for holidays and seasonal peaks",
 ]
 
+const faqItems = [
+  {
+    question: "What industries do you support?",
+    answer:
+      "We support offices, hospitality venues, property managers, and construction handovers across the East Coast of Scotland.",
+  },
+  {
+    question: "Can you align to our procurement process?",
+    answer:
+      "Yes. We provide tender-ready scopes of work, RAMS, and compliance documentation aligned to procurement needs.",
+  },
+]
+
+const relatedServices = [
+  {
+    title: "Commercial Cleaning",
+    description: "Managed contract cleaning with SLAs and reporting.",
+    href: "/commercial-cleaning",
+  },
+  {
+    title: "Office & Workplace Cleaning",
+    description: "Office cleaning with flexible schedules and quality oversight.",
+    href: "/services/office-workplace",
+  },
+  {
+    title: "Deep & One-off Cleaning",
+    description: "Detailed deep cleans for audits and resets.",
+    href: "/services/deep-one-off",
+  },
+]
+
 export default function ContractCleaningPage() {
+  const serviceSchema = buildServiceSchema({
+    name: "Contract Cleaning",
+    description:
+      "Contract cleaning services with SLAs, onboarding, and quality reporting for commercial clients across Dundee, Angus, and Fife.",
+    slug: "/services/contract-cleaning",
+  })
+
   return (
     <main className="bg-white pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
@@ -30,7 +75,7 @@ export default function ContractCleaningPage() {
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Contract Cleaning Services</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Service-led contract cleaning for commercial environments that need accountability, reporting, and reliable
-            staffing.
+            staffing across Dundee, Angus, Fife, and the wider East Coast of Scotland.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
@@ -57,6 +102,18 @@ export default function ContractCleaningPage() {
           </Card>
         </div>
       </section>
+
+      <FaqSection
+        title="Contract cleaning FAQs"
+        description="Helpful answers for facilities and procurement teams."
+        items={faqItems}
+      />
+
+      <RelatedServices
+        title="Related contract services"
+        description="Combine contract cleaning with deep cleans and office support."
+        services={relatedServices}
+      />
     </main>
   )
 }
