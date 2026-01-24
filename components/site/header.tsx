@@ -6,6 +6,7 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Mail, MapPin, Menu, Phone, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { serviceAreaStatement } from "@/lib/structured-data"
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -42,7 +43,7 @@ export function SiteHeader() {
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="h-3 w-3 text-red-400" />
-            <span>East Coast of Scotland</span>
+            <span>{serviceAreaStatement}</span>
           </div>
         </div>
       </div>

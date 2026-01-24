@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { fetchGoogleReviews } from "@/lib/googleReviews"
 import { buildMetadata } from "@/lib/seo"
-import { buildAggregateRatingSchema } from "@/lib/structured-data"
+import { buildAggregateRatingSchema, serviceAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning Services | East Coast Scotland",
+  title: `Commercial Cleaning Services ${serviceAreaStatement}`,
   description:
-    "Commercial cleaning partner for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland.",
+    `Commercial cleaning partner for offices, property managers, hospitality venues, and construction handovers ${serviceAreaStatement}`,
   path: "/",
 })
 
@@ -24,7 +24,7 @@ const trustSignals = [
 
 const headlineStats = [
   { label: "Response time", value: "Quotes in 24 hours" },
-  { label: "Coverage", value: "East Coast of Scotland" },
+  { label: "Coverage", value: serviceAreaStatement },
   { label: "Availability", value: "Daytime or out-of-hours" },
 ]
 
@@ -56,7 +56,7 @@ const services = [
   },
   {
     title: "Short-Stay & Serviced Accommodation Housekeeping",
-    description: "Professional housekeeping services for short-stay and serviced accommodation properties across the East Coast of Scotland.",
+    description: `Professional housekeeping services for short-stay and serviced accommodation properties ${serviceAreaStatement}`,
     href: "/services/accommodation-housekeeping",
   }
 ]
@@ -134,8 +134,7 @@ export default async function HomePage() {
               </h1>
               <p className="text-lg text-gray-200">
                 A disciplined cleaning partner for offices, property managers, hospitality venues, and construction
-                handovers across the East Coast of Scotland, with teams based in Broughty Ferry and coverage across
-                Dundee, Angus, and Fife.
+                handovers {serviceAreaStatement}
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button asChild className="bg-red-600 text-white hover:bg-red-700">
@@ -204,10 +203,9 @@ export default async function HomePage() {
             <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Commercial cleaning services built for business</h2>
             <p className="text-lg text-gray-600">
               Red Hackle delivers structured commercial cleaning services for offices, property managers, hospitality
-              venues, and construction handovers across the East Coast of Scotland. Our disciplined teams, documented
+              venues, and construction handovers {serviceAreaStatement} Our disciplined teams, documented
               specifications, and measurable quality controls ensure consistent standards from day one. Established in
-              2013, Red Hackle is a commercial-first cleaning partner based in Broughty Ferry, supporting businesses
-              across Dundee, Angus, Fife, and St Andrews.
+              2013, Red Hackle is a commercial-first cleaning partner supporting businesses {serviceAreaStatement}
             </p>
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -437,7 +435,7 @@ export default async function HomePage() {
               <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Planning support for facilities teams</h2>
               <p className="text-lg text-gray-600">
                 Explore guides and checklists designed for procurement teams, property managers, and hospitality
-                operators planning commercial cleaning across Dundee, Angus, and Fife.
+                operators planning commercial cleaning {serviceAreaStatement}
               </p>
             </div>
             <Card className="border border-gray-200 bg-white">

@@ -5,12 +5,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema } from "@/lib/structured-data"
+import { buildServiceSchema, serviceAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Contract Cleaning Services | East Coast Scotland",
+  title: `Contract Cleaning Services ${serviceAreaStatement}`,
   description:
-    "Contract cleaning services with SLAs, onboarding, and quality reporting for commercial clients across Dundee, Angus, and Fife.",
+    `Contract cleaning services with SLAs, onboarding, and quality reporting for commercial clients ${serviceAreaStatement}`,
   path: "/services/contract-cleaning",
 })
 
@@ -25,7 +25,7 @@ const faqItems = [
   {
     question: "What industries do you support?",
     answer:
-      "We support offices, hospitality venues, property managers, and construction handovers across the East Coast of Scotland.",
+      `We support offices, hospitality venues, property managers, and construction handovers ${serviceAreaStatement}`,
   },
   {
     question: "Can you align to our procurement process?",
@@ -56,7 +56,7 @@ export default function ContractCleaningPage() {
   const serviceSchema = buildServiceSchema({
     name: "Contract Cleaning",
     description:
-      "Contract cleaning services with SLAs, onboarding, and quality reporting for commercial clients across Dundee, Angus, and Fife.",
+      `Contract cleaning services with SLAs, onboarding, and quality reporting for commercial clients ${serviceAreaStatement}`,
     slug: "/services/contract-cleaning",
   })
 
@@ -75,7 +75,7 @@ export default function ContractCleaningPage() {
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Contract Cleaning Services</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Service-led contract cleaning for commercial environments that need accountability, reporting, and reliable
-            staffing across Dundee, Angus, Fife, and the wider East Coast of Scotland.
+            staffing {serviceAreaStatement}
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">

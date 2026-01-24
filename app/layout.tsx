@@ -4,7 +4,7 @@ import Script from "next/script"
 import { SiteHeader } from "@/components/site/header"
 import { SiteFooter } from "@/components/site/footer"
 import { MobileStickyCta } from "@/components/site/mobile-cta"
-import { businessInfo, baseUrl } from "@/lib/structured-data"
+import { businessInfo, baseUrl, serviceAreaStatement } from "@/lib/structured-data"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | Red Hackle Cleaning Services",
   },
   description:
-    "Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland.",
+    `Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers ${serviceAreaStatement}`,
   keywords:
     "commercial cleaning east coast of scotland, managed contract cleaning, commercial cleaning services, contract cleaning, office cleaning, builders clean",
   authors: [{ name: "Red Hackle Cleaning Services" }],
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Red Hackle Cleaning Services | Commercial & Contract Cleaning",
     description:
-      "Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland.",
+      `Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers ${serviceAreaStatement}`,
     url: `${baseUrl}/`,
     siteName: "Red Hackle Cleaning Services",
     locale: "en_GB",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Red Hackle Cleaning Services | Commercial & Contract Cleaning",
     description:
-      "Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across the East Coast of Scotland.",
+      `Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers ${serviceAreaStatement}`,
     images: ["/images/team-photo.jpg"],
   },
   robots: {
@@ -80,6 +80,7 @@ export default function RootLayout({
         priceRange: businessInfo.priceRange,
         address: businessInfo.address,
         areaServed: businessInfo.areaServed,
+        serviceArea: serviceAreaStatement,
         sameAs: businessInfo.sameAs,
       },
       {

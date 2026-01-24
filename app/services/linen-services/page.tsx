@@ -5,12 +5,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema } from "@/lib/structured-data"
+import { buildServiceSchema, serviceAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Linen Services for Serviced Accommodation | East Coast Scotland",
+  title: `Linen Services for Serviced Accommodation ${serviceAreaStatement}`,
   description:
-    "Linen laundering and rental services for serviced accommodation and short-stay properties across Dundee, Angus, and Fife.",
+    `Linen laundering and rental services for serviced accommodation and short-stay properties ${serviceAreaStatement}`,
   path: "/services/linen-services",
 })
 
@@ -69,7 +69,7 @@ export default function LinenServicesPage() {
   const serviceSchema = buildServiceSchema({
     name: "Linen Laundering & Linen Rental",
     description:
-      "Linen laundering and rental services for serviced accommodation and short-stay properties across Dundee, Angus, and Fife.",
+      `Linen laundering and rental services for serviced accommodation and short-stay properties ${serviceAreaStatement}`,
     slug: "/services/linen-services",
   })
 
@@ -88,8 +88,8 @@ export default function LinenServicesPage() {
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Linen Laundering &amp; Linen Rental</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             To support reliable changeovers and consistent guest presentation, Red Hackle can arrange linen laundering
-            services or provide linen rental solutions as part of our managed housekeeping offering across Dundee,
-            Angus, and Fife.
+            services or provide linen rental solutions as part of our managed housekeeping offering
+            {` ${serviceAreaStatement}`}
             <br />
             <br />
             This flexible approach allows operators to select the most suitable option for their operation, occupancy
@@ -138,8 +138,8 @@ export default function LinenServicesPage() {
               </p>
               <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
               <p className="text-gray-600">
-                Linen laundering and rental services are available as part of our housekeeping support across Broughty
-                Ferry, Dundee, Angus, Fife, and St Andrews.
+                Linen laundering and rental services are available as part of our housekeeping support
+                {` ${serviceAreaStatement}`}
               </p>
             </CardContent>
           </Card>

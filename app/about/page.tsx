@@ -4,11 +4,12 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
+import { serviceAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "About Red Hackle Cleaning | East Coast Scotland",
+  title: `About Red Hackle Cleaning ${serviceAreaStatement}`,
   description:
-    "Learn about Red Hackle Cleaning Services, our commercial-first operations, and coverage across the East Coast of Scotland.",
+    `Learn about Red Hackle Cleaning Services, our commercial-first operations, and coverage ${serviceAreaStatement}`,
   path: "/about",
 })
 
@@ -25,7 +26,7 @@ export default function AboutPage() {
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Red Hackle Cleaning Services supports commercial clients with structured onboarding, consistent delivery,
             and clear reporting. We take pride in doing the basics brilliantly and maintaining high standards across
-            every site we serve in Broughty Ferry, Dundee, Angus, and Fife.
+            every site we serve {serviceAreaStatement}
           </p>
         </div>
       </section>
@@ -38,7 +39,7 @@ export default function AboutPage() {
               Red Hackle was founded to bring disciplined, process-driven cleaning expertise to business environments.
               Led by Managing Director Arthur, the company specialises in reliable commercial cleaning services that
               deliver measurable outcomes for offices, hospitality venues, property managers, and construction
-              handovers across the East Coast of Scotland.
+              handovers {serviceAreaStatement}
               <br />
               <br />
               Built on a foundation of pride, accountability, and operational consistency, we support clients who
@@ -46,8 +47,7 @@ export default function AboutPage() {
               through to routine reporting.
               <br />
               <br />
-              Based in Broughty Ferry, our teams cover Dundee, Angus, Fife, and St Andrews with consistent on-site
-              supervision and documented specifications.
+              Our teams deliver consistent on-site supervision and documented specifications {serviceAreaStatement}
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button asChild className="bg-red-600 text-white hover:bg-red-700">

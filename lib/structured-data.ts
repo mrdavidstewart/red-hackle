@@ -1,4 +1,6 @@
 export const baseUrl = "https://www.redhacklecleaningservices.com"
+export const serviceAreaStatement =
+  "across the East Coast of Scotland, including Tayside, Angus, Fife, Perth, Aberdeen & Aberdeenshire."
 
 export const businessInfo = {
   name: "Red Hackle Cleaning Services",
@@ -12,20 +14,10 @@ export const businessInfo = {
   address: {
     "@type": "PostalAddress",
     streetAddress: "165 Brook Street",
-    addressLocality: "Broughty Ferry",
-    addressRegion: "Dundee",
     postalCode: "DD5 1DJ",
     addressCountry: "GB",
   },
-  areaServed: [
-    "Broughty Ferry",
-    "Dundee",
-    "Tayside",
-    "Angus",
-    "Fife",
-    "St Andrews",
-    "East Coast of Scotland",
-  ],
+  areaServed: [serviceAreaStatement],
   sameAs: [
     "https://www.facebook.com/profile.php?id=61555545779742",
     "https://instagram.com/redhacklegroup",
@@ -49,6 +41,7 @@ export const buildServiceSchema = ({
   description,
   url: `${baseUrl}${slug}`,
   areaServed: businessInfo.areaServed,
+  serviceArea: serviceAreaStatement,
   provider: {
     "@id": `${baseUrl}/#business`,
   },

@@ -5,12 +5,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema } from "@/lib/structured-data"
+import { buildServiceSchema, serviceAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Serviced Accommodation Housekeeping | East Coast Scotland",
+  title: `Serviced Accommodation Housekeeping ${serviceAreaStatement}`,
   description:
-    "Professional housekeeping services for short-stay and serviced accommodation properties across Dundee, Angus, and Fife.",
+    `Professional housekeeping services for short-stay and serviced accommodation properties ${serviceAreaStatement}`,
   path: "/services/accommodation-housekeeping",
 })
 
@@ -74,7 +74,7 @@ export default function AccommodationHousekeepingPage() {
   const serviceSchema = buildServiceSchema({
     name: "Short-Stay & Serviced Accommodation Housekeeping",
     description:
-      "Professional housekeeping services for short-stay and serviced accommodation properties across Dundee, Angus, and Fife.",
+      `Professional housekeeping services for short-stay and serviced accommodation properties ${serviceAreaStatement}`,
     slug: "/services/accommodation-housekeeping",
   })
 
@@ -93,8 +93,8 @@ export default function AccommodationHousekeepingPage() {
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Short-Stay &amp; Serviced Accommodation Housekeeping</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Red Hackle provides managed housekeeping services for short-stay and serviced accommodation portfolios,
-            including serviced apartments, holiday lets, and professionally managed short-term rentals across Dundee,
-            Angus, and Fife.
+            including serviced apartments, holiday lets, and professionally managed short-term rentals
+            {` ${serviceAreaStatement}`}
             <br />
             <br />
             Our service is designed for operators, agents, and property managers who require consistent presentation,
@@ -143,8 +143,7 @@ export default function AccommodationHousekeepingPage() {
               </p>
               <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
               <p className="text-gray-600">
-                Short-stay and serviced accommodation housekeeping is delivered across Broughty Ferry, Dundee, Angus,
-                Fife, and St Andrews as part of our East Coast of Scotland coverage.
+                Short-stay and serviced accommodation housekeeping is delivered {serviceAreaStatement}
               </p>
             </CardContent>
           </Card>

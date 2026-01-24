@@ -4,11 +4,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
 import { resources } from "@/lib/resources"
+import { serviceAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning Resources | East Coast Scotland",
+  title: `Commercial Cleaning Resources ${serviceAreaStatement}`,
   description:
-    "Guides and resources for facilities managers, property teams, and hospitality operators planning commercial cleaning across the East Coast of Scotland.",
+    `Guides and resources for facilities managers, property teams, and hospitality operators planning commercial cleaning ${serviceAreaStatement}`,
   path: "/resources",
 })
 
@@ -31,8 +32,7 @@ export default function ResourcesPage() {
           <Badge className="bg-white/10 text-white">Resources</Badge>
           <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Commercial cleaning resources</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Insights and planning tools for commercial cleaning decision makers in Broughty Ferry, Dundee, Angus, and
-            across the East Coast of Scotland.
+            Insights and planning tools for commercial cleaning decision makers {serviceAreaStatement}
           </p>
         </div>
       </section>
@@ -81,7 +81,7 @@ export default function ResourcesPage() {
               {resources.length === 0 ? (
                 <p className="text-gray-600">
                   New resources will appear here as they are published. In the meantime, explore our service pages to
-                  understand how we deliver commercial cleaning across the East Coast of Scotland.
+                  understand how we deliver commercial cleaning {serviceAreaStatement}
                 </p>
               ) : (
                 <ul className="space-y-2 text-sm text-gray-600">

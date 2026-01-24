@@ -3,11 +3,12 @@ import { ArrowRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
+import { serviceAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning Services in East Coast Scotland",
+  title: `Commercial Cleaning Services ${serviceAreaStatement}`,
   description:
-    "Commercial cleaning services across the East Coast of Scotland, including managed contract cleaning, office cleaning, and specialist deep cleans.",
+    `Commercial cleaning services ${serviceAreaStatement} Including managed contract cleaning, office cleaning, and specialist deep cleans.`,
   path: "/services",
 })
 
@@ -39,7 +40,7 @@ const serviceCards = [
   },
   {
     title: "Short-Stay & Serviced Accommodation Housekeeping",
-    description: "Professional housekeeping services for short-stay and serviced accommodation properties across the East Coast of Scotland.",
+    description: `Professional housekeeping services for short-stay and serviced accommodation properties ${serviceAreaStatement}`,
     href: "/services/accommodation-housekeeping",
   }
 ]
@@ -56,7 +57,7 @@ export default function ServicesPage() {
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Commercial cleaning services</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Flexible cleaning services tailored for offices, hospitality venues, property managers, and construction
-            teams across Dundee, Angus, Fife, and the wider East Coast of Scotland.
+            teams {serviceAreaStatement}
           </p>
         </div>
       </section>

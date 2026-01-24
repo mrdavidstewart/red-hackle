@@ -5,12 +5,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema } from "@/lib/structured-data"
+import { buildServiceSchema, serviceAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "End of Tenancy Cleaning | East Coast Scotland",
+  title: `End of Tenancy Cleaning ${serviceAreaStatement}`,
   description:
-    "Inventory-ready end of tenancy cleaning for landlords, agents, and property managers across Dundee, Angus, and Fife.",
+    `Inventory-ready end of tenancy cleaning for landlords, agents, and property managers ${serviceAreaStatement}`,
   path: "/services/end-of-tenancy",
 })
 
@@ -37,7 +37,7 @@ const faqItems = [
   {
     question: "Can you support bulk property portfolios?",
     answer:
-      "We support multi-property schedules across Dundee, Angus, and Fife with coordinated booking and reporting.",
+      `We support multi-property schedules ${serviceAreaStatement} With coordinated booking and reporting.`,
   },
 ]
 
@@ -63,7 +63,7 @@ export default function EndOfTenancyPage() {
   const serviceSchema = buildServiceSchema({
     name: "End of Tenancy Cleaning",
     description:
-      "Inventory-ready end of tenancy cleaning for landlords, agents, and property managers across Dundee, Angus, and Fife.",
+      `Inventory-ready end of tenancy cleaning for landlords, agents, and property managers ${serviceAreaStatement}`,
     slug: "/services/end-of-tenancy",
   })
 
@@ -82,7 +82,7 @@ export default function EndOfTenancyPage() {
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">End of Tenancy Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Our end of tenancy cleaning services support landlords, letting agents, and property managers with
-            inventory-ready cleans delivered to documented checklists across Dundee, Angus, and Fife.
+            inventory-ready cleans delivered to documented checklists {serviceAreaStatement}
             <br />
             <br />
             With over a decade of operational experience, each clean is completed with presentation, hygiene, and
@@ -120,8 +120,7 @@ export default function EndOfTenancyPage() {
               </p>
               <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
               <p className="text-gray-600">
-                End of tenancy cleaning delivered across Broughty Ferry, Dundee, Angus, Fife, and St Andrews as part of
-                our East Coast of Scotland coverage.
+                End of tenancy cleaning delivered {serviceAreaStatement}
               </p>
             </CardContent>
           </Card>

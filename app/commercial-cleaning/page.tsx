@@ -6,12 +6,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema } from "@/lib/structured-data"
+import { buildServiceSchema, serviceAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Managed Contract Cleaning | East Coast Scotland",
+  title: `Managed Contract Cleaning ${serviceAreaStatement}`,
   description:
-    "Managed contract cleaning with onboarding, SLAs, and quality reporting across Dundee, Angus, Fife, and the East Coast of Scotland.",
+    `Managed contract cleaning with onboarding, SLAs, and quality reporting ${serviceAreaStatement}`,
   path: "/commercial-cleaning",
 })
 
@@ -79,7 +79,7 @@ export default function CommercialCleaningPage() {
   const serviceSchema = buildServiceSchema({
     name: "Managed Contract Cleaning",
     description:
-      "Managed contract cleaning with onboarding, SLAs, and quality reporting across Dundee, Angus, Fife, and the East Coast of Scotland.",
+      `Managed contract cleaning with onboarding, SLAs, and quality reporting ${serviceAreaStatement}`,
     slug: "/commercial-cleaning",
   })
 
@@ -98,8 +98,7 @@ export default function CommercialCleaningPage() {
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Managed contract cleaning with clear accountability</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             Red Hackle provides commercial and contract cleaning services for organisations that require predictable
-            outcomes, consistent standards, and reliable reporting across Dundee, Angus, Fife, and the East Coast of
-            Scotland.
+            outcomes, consistent standards, and reliable reporting {serviceAreaStatement}
             <br />
             <br />
             Since 2013, we’ve supported office managers, hospitality groups, and property teams with managed cleaning contracts built around documented specifications, supervised teams, and agreed service levels — ensuring performance doesn’t drift over time.</p>
@@ -223,7 +222,7 @@ export default function CommercialCleaningPage() {
 
       <FaqSection
         title="Contract cleaning FAQs"
-        description="Practical answers for facilities managers across Dundee, Angus, and Fife."
+        description={`Practical answers for facilities managers ${serviceAreaStatement}`}
         items={faqItems}
       />
 

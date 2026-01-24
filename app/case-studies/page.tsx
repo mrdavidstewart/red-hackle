@@ -3,11 +3,12 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
+import { serviceAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning Case Studies | East Coast Scotland",
+  title: `Commercial Cleaning Case Studies ${serviceAreaStatement}`,
   description:
-    "Commercial cleaning case studies from Red Hackle Cleaning Services across the East Coast of Scotland, showcasing measurable outcomes for offices, property managers, and construction handovers.",
+    `Commercial cleaning case studies from Red Hackle Cleaning Services ${serviceAreaStatement} Showcasing measurable outcomes for offices, property managers, and construction handovers.`,
   path: "/case-studies",
 })
 
@@ -15,7 +16,7 @@ const caseStudies = [
   {
     title: "Multi-site property management",
     summary:
-      "An East Coast of Scotland property manager needed consistent end-of-tenancy cleans across four residential blocks with strict handover deadlines.",
+      `A property manager needed consistent end-of-tenancy cleans ${serviceAreaStatement}`,
     outcome: "Reduced turnaround time by 30% and delivered compliance-ready checklists for every unit.",
   },
   {

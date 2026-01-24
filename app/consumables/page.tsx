@@ -5,11 +5,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
+import { serviceAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning Consumables | East Coast Scotland",
+  title: `Commercial Cleaning Consumables ${serviceAreaStatement}`,
   description:
-    "Commercial consumables and hygiene supply management to keep washrooms, cleaning stations, and shared areas stocked across the East Coast of Scotland.",
+    `Commercial consumables and hygiene supply management to keep washrooms, cleaning stations, and shared areas stocked ${serviceAreaStatement}`,
   path: "/consumables",
 })
 
@@ -98,7 +99,7 @@ export default function ConsumablesPage() {
           <Badge className="bg-white/10 text-white">Consumables</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Consumables &amp; Hygiene Supplies</h1>
           <p className="mt-4 text-lg text-gray-300">
-            Integrated consumables management for commercial environments across Dundee, Angus, and Fife.
+            Integrated consumables management for commercial environments {serviceAreaStatement}
           </p>
         </div>
       </section>
@@ -195,7 +196,7 @@ export default function ConsumablesPage() {
 
       <FaqSection
         title="Consumables supply FAQs"
-        description="Answers for facilities teams planning consumables and hygiene stock in Dundee, Angus, and Fife."
+        description={`Answers for facilities teams planning consumables and hygiene stock ${serviceAreaStatement}`}
         items={faqItems}
       />
 
