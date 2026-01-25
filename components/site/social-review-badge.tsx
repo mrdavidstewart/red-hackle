@@ -4,7 +4,7 @@ export function SocialReviewBadge() {
     const socialLinks = [
         {
             name: "Google",
-            url: "https://g.co/kgs/geKtfwz",
+            url: "https://share.google/u2UfQm1m2W8SZQqba",
             icon: "🔍",
             label: "Visit Red Hackle on Google",
         },

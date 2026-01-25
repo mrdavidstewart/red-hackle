@@ -22,7 +22,7 @@ export const businessInfo = {
   sameAs: [
     "https://www.facebook.com/profile.php?id=61555545779742",
     "https://instagram.com/redhacklegroup",
-    "https://g.co/kgs/geKtfwz",
+    "https://share.google/u2UfQm1m2W8SZQqba",
   ],
 }
 
