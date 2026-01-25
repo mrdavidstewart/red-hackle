@@ -31,8 +31,8 @@ export default function AboutPage() {
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-white/10 text-white">About Red Hackle Cleaning Services</Badge>
-          <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">A disciplined, accountable cleaning partner</h1>
-          <p className="mt-4 max-w-2xl text-lg text-gray-300">
+          <h1 className="mt-4 text-4xl font-black sm:text-5xl">A disciplined, accountable cleaning partner</h1>
+          <p className="mt-4 text-lg text-gray-300">
             Red Hackle Cleaning Services supports commercial clients with structured onboarding, consistent delivery,
             and clear reporting. We take pride in doing the basics brilliantly and maintaining high standards across
             every site we serve across {eastCoastOfScotland}{includingAreaStatement}
@@ -59,7 +59,7 @@ export default function AboutPage() {
               Our teams deliver consistent on-site supervision and documented specifications
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+              <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
                 <Link href="/contact">Request a site survey</Link>
               </Button>
               <Button asChild variant="outline">

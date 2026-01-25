@@ -47,7 +47,13 @@ const serviceCards = [
     title: "Short-Stay & Serviced Accommodation Housekeeping",
     description: `Professional housekeeping services for short-stay and serviced accommodation properties`,
     href: "/services/accommodation-housekeeping",
+  },
+  {
+    title: "Linen Laundering & Linen Rental",
+    description: `Linen laundering and rental services for serviced accommodation and short-stay properties `,
+    href: "/services/linen-services",
   }
+
 ]
 
 export default function ServicesPage() {
@@ -69,7 +75,7 @@ export default function ServicesPage() {
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-white/10 text-white">Services</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Commercial cleaning services</h1>
-          <p className="mt-4 max-w-2xl text-lg text-gray-300">
+          <p className="mt-4 text-lg text-gray-300">
             Flexible cleaning services tailored for offices, hospitality venues, property managers, and construction
             teams {` across ${eastCoastOfScotland}${includingAreaStatement}`}
           </p>
@@ -92,7 +98,7 @@ export default function ServicesPage() {
                 <p className="text-sm text-gray-600">{service.description}</p>
                 <Link
                   href={service.href}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-red-600"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-destructive hover:text-destructive/80"
                 >
                   View service <ArrowRight className="h-4 w-4" />
                 </Link>

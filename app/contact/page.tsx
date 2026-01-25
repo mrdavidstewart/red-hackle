@@ -1,10 +1,10 @@
-import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
+import { Clock, Mail, MessageCircle, Phone } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ContactForm } from "@/components/site/contact-form"
 import { buildMetadata } from "@/lib/seo"
-import { buildBreadcrumbSchema, businessInfo, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { buildBreadcrumbSchema, eastCoastOfScotland, includingAreaStatement, officeAddress } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
   title: "Commercial Cleaning Contact",
@@ -12,9 +12,6 @@ export const metadata = buildMetadata({
     `Request a commercial cleaning quote across ${eastCoastOfScotland}${includingAreaStatement} Fast response times, tailored proposals, and clear next steps.`,
   path: "/contact",
 })
-
-const officeAddress = `${eastCoastOfScotland}${includingAreaStatement}`
-const directionsLink = `https://maps.google.com/?q=${encodeURIComponent(officeAddress)}`
 
 const contactDetails = [
   {
@@ -34,14 +31,6 @@ const contactDetails = [
     href: "mailto:operations@redhacklegroup.com",
     hint: "Send site details or tender requirements.",
     icon: Mail,
-  },
-  {
-    title: "Find us",
-    detail: officeAddress,
-    href: directionsLink,
-    hint: `${businessInfo.address.streetAddress}, ${businessInfo.address.postalCode}, ${businessInfo.address.addressCountry}`,
-    icon: MapPin,
-    actions: [{ label: "Directions", href: directionsLink, variant: "outline" as const }],
   },
 ]
 
@@ -71,7 +60,7 @@ export default function ContactPage() {
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-white/10 text-white">Contact</Badge>
           <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Request a commercial cleaning quote</h1>
-          <p className="mt-4 max-w-2xl text-lg text-gray-300">
+          <p className="mt-4 text-lg text-gray-300">
             Tell us about your site, schedule, and compliance requirements. We&apos;ll respond quickly with a tailored
             proposal and next steps.
           </p>
@@ -92,7 +81,7 @@ export default function ContactPage() {
                 <Card key={item.title} className="border border-gray-200">
                   <CardContent className="space-y-2 p-6">
                     <div className="flex items-center gap-3">
-                      <item.icon className="h-5 w-5 text-red-600" />
+                      <item.icon className="h-5 w-5 text-destructive" />
                       <p className="text-sm font-semibold text-gray-900">{item.title}</p>
                     </div>
                     {item.href ? (
@@ -135,14 +124,33 @@ export default function ContactPage() {
               <Card className="border border-gray-200">
                 <CardContent className="space-y-2 p-6">
                   <div className="flex items-center gap-3">
-                    <Clock className="h-5 w-5 text-red-600" />
+                    <Clock className="h-5 w-5 text-destructive" />
                     <p className="text-sm font-semibold text-gray-900">Business hours</p>
                   </div>
-                  <p className="text-sm text-gray-600">Monday–Friday: 8:00am–6:00pm</p>
+                  <p className="text-sm text-gray-600">Monday-Sunday: 9:00am–8:00pm</p>
                   <p className="text-sm text-gray-600">Out-of-hours and weekend schedules available for contracts.</p>
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-2 sm:px-6">
+          <h2 className="mb-6 text-2xl font-semibold text-gray-900">Visit us</h2>
+          <div className="bg-gray-100 rounded-lg overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2204.009521726332!2d-2.8768968000000004!3d56.467597000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8af48469ea7db047%3A0xe89103e5ff225aba!2sRed%20Hackle%20Cleaning%20Services!5e0!3m2!1sen!2suk!4v1765015352595!5m2!1sen!2suk"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-lg"
+              title={`Google Maps showing Red Hackle Cleaning Services location at ${officeAddress}`}
+            />
           </div>
         </div>
       </section>
@@ -154,7 +162,7 @@ export default function ContactPage() {
               <h2 className="text-2xl font-semibold text-gray-900">Coverage area</h2>
               <p className="text-gray-600">
                 Commercial cleaning services delivered across {eastCoastOfScotland}{includingAreaStatement} Supporting single-site and multi-site
-                operations. Explore our <a href="/services" className="font-semibold text-red-600 hover:text-red-700">full services list</a> to
+                operations. Explore our <a href="/services" className="font-semibold text-destructive hover:text-destructive/80">full services list</a> to
                 align scopes before requesting a quote.
               </p>
             </CardContent>
@@ -173,7 +181,7 @@ export default function ContactPage() {
               <ul className="grid gap-3 text-sm text-gray-700 sm:grid-cols-2">
                 {trustComplianceItems.map((item) => (
                   <li key={item} className="flex items-start gap-2">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-red-600" />
+                    <span className="mt-1 h-2 w-2 rounded-full bg-destructive" />
                     <span className="font-semibold text-gray-800">{item}</span>
                   </li>
                 ))}

@@ -114,15 +114,15 @@ export default function CommercialCleaningPage() {
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-white/10 text-white">Commercial &amp; contract cleaning</Badge>
-          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Managed contract cleaning with clear accountability</h1>
-          <p className="mt-4 max-w-2xl text-lg text-gray-300">
+          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Contract cleaning with clear accountability</h1>
+          <p className="mt-4 text-lg text-gray-300">
             Red Hackle provides commercial and contract cleaning services for organisations that require predictable
             outcomes, consistent standards, and reliable reporting across {eastCoastOfScotland}{includingAreaStatement}
             <br />
             <br />
-            Since 2013, we’ve supported office managers, hospitality groups, and property teams with managed cleaning contracts built around documented specifications, supervised teams, and agreed service levels — ensuring performance doesn’t drift over time.</p>
+            Since 2013, we’ve supported office managers, hospitality groups, and property teams with managed cleaning contracts built around documented specifications, supervised teams, and agreed service levels ensuring performance doesn’t drift over time.</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+            <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
               <Link href="/contact">Request a commercial quote</Link>
             </Button>
             <Button asChild variant="outlineOnDark">
@@ -156,7 +156,7 @@ export default function CommercialCleaningPage() {
               <ul className="mt-6 space-y-3 text-gray-600">
                 {onboarding.map((step) => (
                   <li key={step} className="flex items-start gap-3">
-                    <ShieldCheck className="mt-1 h-4 w-4 text-red-600" />
+                    <ShieldCheck className="mt-1 h-4 w-4 text-destructive" />
                     <span>{step}</span>
                   </li>
                 ))}
@@ -166,7 +166,7 @@ export default function CommercialCleaningPage() {
               <Card className="border border-gray-200">
                 <CardContent className="space-y-2 p-6">
                   <div className="flex items-center gap-3">
-                    <ClipboardList className="h-5 w-5 text-red-600" />
+                    <ClipboardList className="h-5 w-5 text-destructive" />
                     <p className="text-sm font-semibold text-gray-900">Reporting &amp; QA</p>
                   </div>
                   <p className="text-sm text-gray-600">
@@ -177,7 +177,7 @@ export default function CommercialCleaningPage() {
               <Card className="border border-gray-200">
                 <CardContent className="space-y-2 p-6">
                   <div className="flex items-center gap-3">
-                    <BadgeCheck className="h-5 w-5 text-red-600" />
+                    <BadgeCheck className="h-5 w-5 text-destructive" />
                     <p className="text-sm font-semibold text-gray-900">Health &amp; safety</p>
                   </div>
                   <p className="text-sm text-gray-600">
@@ -188,7 +188,7 @@ export default function CommercialCleaningPage() {
               <Card className="border border-gray-200">
                 <CardContent className="space-y-2 p-6">
                   <div className="flex items-center gap-3">
-                    <ShieldCheck className="h-5 w-5 text-red-600" />
+                    <ShieldCheck className="h-5 w-5 text-destructive" />
                     <p className="text-sm font-semibold text-gray-900">Secure access</p>
                   </div>
                   <p className="text-sm text-gray-600">
@@ -211,7 +211,7 @@ export default function CommercialCleaningPage() {
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               {trustComplianceItems.map((item) => (
                 <div key={item} className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white p-4">
-                  <ShieldCheck className="mt-0.5 h-5 w-5 text-red-600" />
+                  <ShieldCheck className="mt-0.5 h-5 w-5 text-destructive" />
                   <span className="text-sm font-semibold text-gray-800">{item}</span>
                 </div>
               ))}
@@ -224,11 +224,11 @@ export default function CommercialCleaningPage() {
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
           <div className="rounded-3xl border border-gray-200 bg-gray-900 px-6 py-10 text-white sm:px-10">
             <h2 className="text-3xl font-black">Need a contract cleaning partner?</h2>
-            <p className="mt-3 max-w-2xl text-gray-300">
+            <p className="mt-3 text-gray-300">
               We&apos;ll build a compliant cleaning plan with measurable service levels and a reliable team on the ground.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+              <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
                 <Link href="/contact">Book a site survey</Link>
               </Button>
               <Button asChild variant="outlineOnDark">

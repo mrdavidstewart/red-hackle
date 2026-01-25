@@ -1,6 +1,7 @@
 export const baseUrl = "https://www.redhacklecleaningservices.com"
 export const eastCoastOfScotland = "East Coast of Scotland"
 export const includingAreaStatement = ", including Tayside, Angus, Fife, Perth, Aberdeen & Aberdeenshire."
+export const officeAddress = "165 Brook St, Broughty Ferry, Dundee DD5 1DJ"
 
 export const businessInfo = {
   name: "Red Hackle Cleaning Services",

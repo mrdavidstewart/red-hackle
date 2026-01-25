@@ -143,7 +143,7 @@ export default function ConsumablesPage() {
               supply arrangement.
             </p>
             <p>
-              Our consumables offering is designed to complement your cleaning programme — ensuring key areas remain
+              Our consumables offering is designed to complement your cleaning programme ensuring key areas remain
               stocked, compliant, and presentation-ready without the need for separate suppliers or reactive ordering.
             </p>
             <p>
@@ -198,7 +198,7 @@ export default function ConsumablesPage() {
             <Card className="border border-gray-200 bg-gray-50">
               <CardContent className="space-y-3 p-6 text-gray-600">
                 <p>
-                  This approach helps reduce shortages, ad-hoc purchasing, and inconsistent presentation across sites —
+                  This approach helps reduce shortages, ad-hoc purchasing, and inconsistent presentation across sites
                   particularly valuable for multi-site operations.
                 </p>
               </CardContent>
@@ -211,12 +211,12 @@ export default function ConsumablesPage() {
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
           <div className="rounded-3xl border border-gray-200 bg-gray-900 px-6 py-10 text-white sm:px-10">
             <h2 className="text-3xl font-black">Speak to us about consumables supply</h2>
-            <p className="mt-3 max-w-2xl text-gray-300">
+            <p className="mt-3 text-gray-300">
               We&apos;re happy to review your current setup and advise how consumables can be integrated into your
               cleaning programme.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+              <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
                 <Link href="/contact">Contact us</Link>
               </Button>
             </div>

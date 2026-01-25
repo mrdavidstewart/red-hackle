@@ -6,6 +6,8 @@ import ContractCleaningPage from "@/app/services/contract-cleaning/page"
 import DeepOneOffPage from "@/app/services/deep-one-off/page"
 import EndOfTenancyPage from "@/app/services/end-of-tenancy/page"
 import OfficeWorkplacePage from "@/app/services/office-workplace/page"
+import AccommodationHousekeepingPage from "@/app/services/accommodation-housekeeping/page"
+import LinenServicesPage from "@/app/services/linen-services/page"
 
 describe("services pages", () => {
   it("renders the services overview", () => {
@@ -41,5 +43,15 @@ describe("services pages", () => {
   it("renders the commercial cleaning service page", () => {
     render(<CommercialCleaningServicePage />)
     expect(screen.getByRole("heading", { name: /retail & public-facing commercial cleaning/i })).toBeInTheDocument()
+  })
+
+  it("renders the accommodation housekeeping service page", () => {
+    render(<AccommodationHousekeepingPage />)
+    expect(screen.getByRole("heading", { name: /short-stay & serviced accommodation housekeeping/i })).toBeInTheDocument()
+  })
+
+  it("renders the linen services page", () => {
+    render(<LinenServicesPage />)
+    expect(screen.getByRole("heading", { name: /linen laundering & linen rental/i })).toBeInTheDocument()
   })
 })

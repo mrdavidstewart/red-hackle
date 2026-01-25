@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
-import { buildBreadcrumbSchema, businessInfo, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { buildBreadcrumbSchema, eastCoastOfScotland, includingAreaStatement, officeAddress } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
   title: "Privacy Policy for Clients",
@@ -31,12 +31,12 @@ export default function PrivacyPolicyPage() {
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-red-50 text-red-700">Privacy Policy</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Privacy Policy</h1>
-          <p className="mt-4 max-w-2xl text-lg text-gray-300">
+          <p className="mt-4 text-lg text-gray-300">
             How we collect, use, and protect your personal information in line with UK GDPR
           </p>
           <p className="mt-2 text-sm text-gray-400">Last updated: 23 January 2026</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+            <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
               <Link href="/contact">Contact us</Link>
             </Button>
             <Button asChild variant="outlineOnDark">
@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
                   you provide to us.
                   <br />
                   <br />
-                  Registered address: {businessInfo.address.streetAddress}, {businessInfo.address.postalCode} {businessInfo.address.addressCountry}
+                  Registered address: {officeAddress}
                   <br />
                   Email: operations@redhacklegroup.com
                 </p>
@@ -162,7 +162,7 @@ export default function PrivacyPolicyPage() {
                 </ul>
                 <p className="mt-4 text-gray-600">
                   To exercise any of these rights, please contact:{""}
-                  <a className="font-semibold text-red-600 hover:text-red-700" href="mailto:operations@redhacklegroup.com">
+                  <a className="font-semibold text-destructive hover:text-destructive/80" href="mailto:operations@redhacklegroup.com">
                     operations@redhacklegroup.com
                   </a>
                   .
@@ -200,10 +200,10 @@ export default function PrivacyPolicyPage() {
                   <br /><br />
                   Red Hackle Cleaning Services
                   <br />
-                  {businessInfo.address.streetAddress}, {businessInfo.address.postalCode} {businessInfo.address.addressCountry}
+                  {officeAddress}
                   <br />
                   Email:{" "}
-                  <a className="font-semibold text-red-600 hover:text-red-700" href="mailto:operations@redhacklegroup.com">
+                  <a className="font-semibold text-destructive hover:text-destructive/80" href="mailto:operations@redhacklegroup.com">
                     operations@redhacklegroup.com
                   </a>
                 </p>

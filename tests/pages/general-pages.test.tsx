@@ -6,7 +6,7 @@ import ContactPage from "@/app/contact/page"
 import CareersPage from "@/app/careers/page"
 import PrivacyPolicyPage from "@/app/privacy-policy/page"
 import TermsOfServicePage from "@/app/terms-of-service/page"
-import { businessInfo } from "@/lib/structured-data"
+import { officeAddress } from "@/lib/structured-data"
 
 describe("static pages", () => {
   it("renders the About page", () => {
@@ -17,7 +17,7 @@ describe("static pages", () => {
   it("renders the Commercial Cleaning page", () => {
     render(<CommercialCleaningPage />)
     expect(
-      screen.getByRole("heading", { name: /managed contract cleaning with clear accountability/i }),
+      screen.getByRole("heading", { name: /contract cleaning with clear accountability/i }),
     ).toBeInTheDocument()
   })
 
@@ -48,9 +48,10 @@ describe("static pages", () => {
     // Check all contact details are rendered
     expect(screen.getAllByText(/07966 881 555/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/operations@redhacklegroup.com/i)).toBeInTheDocument()
+    // Check office address is in the Google Maps iframe title
     expect(
-      screen.getByText(
-        new RegExp(`${businessInfo.address.streetAddress}, ${businessInfo.address.postalCode}, ${businessInfo.address.addressCountry}`, 'i'),
+      screen.getByTitle(
+        new RegExp(`${officeAddress}`, 'i'),
       ),
     ).toBeInTheDocument()
   })

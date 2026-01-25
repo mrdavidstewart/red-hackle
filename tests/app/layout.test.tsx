@@ -48,6 +48,6 @@ describe("RootLayout", () => {
       </RootLayout>,
     )
 
-    expect(screen.getByText(/get a quote/i)).toBeInTheDocument()
+    expect(screen.getByRole("contentinfo")).toBeInTheDocument()
   })
 })

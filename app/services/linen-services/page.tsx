@@ -106,7 +106,7 @@ export default function LinenServicesPage() {
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-red-50 text-red-700">Linen Laundering &amp; Linen Rental</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Linen Laundering &amp; Linen Rental</h1>
-          <p className="mt-4 max-w-2xl text-lg text-gray-300">
+          <p className="mt-4 text-lg text-gray-300">
             To support reliable changeovers and consistent guest presentation, Red Hackle can arrange linen laundering
             services or provide linen rental solutions as part of our managed housekeeping offering
             {` across ${eastCoastOfScotland}${includingAreaStatement}`}
@@ -116,11 +116,11 @@ export default function LinenServicesPage() {
             levels, and budget.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+            <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
               <Link href="/contact">Request a quote</Link>
             </Button>
             <Button asChild variant="outlineOnDark">
-              <Link href="/services/accommodation-housekeeping">Back to housekeeping</Link>
+              <Link href="/services">Back to services</Link>
             </Button>
           </div>
         </div>
