@@ -18,7 +18,7 @@ export function SiteFooter() {
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-destructive" />
                 <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(officeAddress)}`}
+                  href="https://maps.app.goo.gl/jH3Mhg8sSeBwEqKY8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white"
