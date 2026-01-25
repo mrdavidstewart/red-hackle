@@ -14,9 +14,9 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Contract Cleaning Services",
+  title: "Multi-Site Contract Cleaning Services",
   description:
-    `Contract cleaning services with SLAs, onboarding, and reporting for commercial clients across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Multi-site contract cleaning with SLAs, onboarding, and reporting for commercial portfolios across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/services/contract-cleaning",
 })
 
@@ -24,6 +24,7 @@ const outcomes = [
   "Documented service levels and cleaning schedules",
   "Dedicated account lead and on-site supervisor",
   "Routine inspections with reporting and action plans",
+  "Multi-site mobilisation plans with standardised reporting",
   "Flexible staffing for holidays and seasonal peaks",
 ]
 
@@ -60,9 +61,9 @@ const relatedServices = [
 
 export default function ContractCleaningPage() {
   const serviceSchema = buildServiceSchema({
-    name: "Contract Cleaning",
+    name: "Multi-Site Contract Cleaning",
     description:
-      `Contract cleaning services with SLAs, onboarding, and quality reporting for commercial clients across ${eastCoastOfScotland}${includingAreaStatement}`,
+      `Multi-site contract cleaning with SLAs, onboarding, and quality reporting for commercial portfolios across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/services/contract-cleaning",
   })
   const breadcrumbSchema = buildBreadcrumbSchema([
@@ -91,10 +92,10 @@ export default function ContractCleaningPage() {
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-          <Badge className="bg-red-50 text-red-700">Contract cleaning</Badge>
-          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Contract Cleaning Services</h1>
+          <Badge className="bg-red-50 text-red-700">Multi-site contract cleaning</Badge>
+          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Multi-Site Contract Cleaning Services</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Service-led contract cleaning for commercial environments that need accountability, reporting, and reliable
+            Contract cleaning for multi-site commercial environments that need accountability, reporting, and reliable
             staffing across {eastCoastOfScotland}{includingAreaStatement}
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">

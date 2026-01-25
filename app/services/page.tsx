@@ -19,6 +19,11 @@ const serviceCards = [
     href: "/services/office-workplace",
   },
   {
+    title: "Retail & Public-Facing Cleaning",
+    description: "Commercial cleaning for shops, showrooms, and customer-facing areas with consistent presentation.",
+    href: "/services/commercial-cleaning",
+  },
+  {
     title: "Managed Contract Cleaning",
     description: "Ongoing, supervised contracts with KPIs, mobilisation plans, and regular quality audits.",
     href: "/commercial-cleaning",

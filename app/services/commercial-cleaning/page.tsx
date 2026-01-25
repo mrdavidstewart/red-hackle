@@ -14,15 +14,16 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning Plans",
+  title: "Retail & Public-Facing Commercial Cleaning",
   description:
-    `Commercial cleaning services for offices, retail spaces, and businesses across ${eastCoastOfScotland}${includingAreaStatement} Speak to our team for a tailored scope.`,
+    `Retail and public-facing commercial cleaning for shops, showrooms, and shared spaces across ${eastCoastOfScotland}${includingAreaStatement} Speak to our team for a tailored scope.`,
   path: "/services/commercial-cleaning",
 })
 
 const deliverables = [
   "Daily, weekly, or monthly cleaning schedules",
-  "Office spaces, reception areas, and meeting rooms",
+  "Shop floors, showrooms, and customer-facing areas",
+  "Reception, lobby, and shared space cleaning",
   "Washroom deep cleans and restocking",
   "Window cleaning and floor maintenance",
   "Flexible scheduling to suit your business needs",
@@ -35,9 +36,9 @@ const faqItems = [
       "Yes. We complete a site walk-through to align the scope of works with compliance and budget requirements.",
   },
   {
-    question: "Can commercial cleaning include consumables?",
+    question: "Can retail cleaning be scheduled outside trading hours?",
     answer:
-      "Consumables can be supplied as part of the service to keep washrooms and shared areas stocked.",
+      "Yes. We offer early-morning, evening, and overnight schedules so public-facing spaces stay clean without disrupting customers.",
   },
 ]
 
@@ -61,9 +62,9 @@ const relatedServices = [
 
 export default function CommercialCleaningPage() {
   const serviceSchema = buildServiceSchema({
-    name: "Commercial Cleaning",
+    name: "Retail & Public-Facing Commercial Cleaning",
     description:
-      `Commercial cleaning services for offices, retail spaces, and businesses across ${eastCoastOfScotland}${includingAreaStatement}`,
+      `Retail and public-facing commercial cleaning for shops, showrooms, and shared spaces across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/services/commercial-cleaning",
   })
   const breadcrumbSchema = buildBreadcrumbSchema([
@@ -92,11 +93,11 @@ export default function CommercialCleaningPage() {
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-          <Badge className="bg-red-50 text-red-700">Managed contract cleaning</Badge>
-          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Managed Contract Cleaning</h1>
+          <Badge className="bg-red-50 text-red-700">Retail &amp; public-facing sites</Badge>
+          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Retail &amp; Public-Facing Commercial Cleaning</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Professional cleaning services for businesses, offices, and commercial properties to maintain a clean,
-            healthy environment across {eastCoastOfScotland}{includingAreaStatement}
+            Commercial cleaning for shops, showrooms, and public-facing spaces that need consistent presentation and
+            safe, hygienic environments across {eastCoastOfScotland}{includingAreaStatement}
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-red-600 text-white hover:bg-red-700">
