@@ -12,7 +12,6 @@ export function GET() {
     "/consumables",
     "/contact",
     "/privacy-policy",
-    "/resources",
     "/services",
     "/services/accommodation-housekeeping",
     "/services/builders-sparkle",

@@ -7,6 +7,11 @@ import { MobileStickyCta } from "@/components/site/mobile-cta"
 import { businessInfo, baseUrl, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 import "./globals.css"
 
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_ID
+const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID
+const gtagIds = [googleAnalyticsId, googleAdsId].filter(Boolean) as string[]
+
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
@@ -56,9 +61,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "wNnr855I09kRLLMfWF5YbdhTgODBUYzqgnwPxq5JHF0",
-  },
+  verification: googleSiteVerification ? { google: googleSiteVerification } : undefined,
 }
 
 export default function RootLayout({
@@ -149,7 +152,6 @@ export default function RootLayout({
           httpEquiv="Permissions-Policy"
           content='camera=(), microphone=(), geolocation=(), payment=(self "https://calendly.com" "https://*.calendly.com")'
         />
-        <meta name="google-site-verification" content="wNnr855I09kRLLMfWF5YbdhTgODBUYzqgnwPxq5JHF0" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
@@ -162,15 +164,19 @@ export default function RootLayout({
           <SiteFooter />
         </div>
         <MobileStickyCta />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-17541701344" strategy="afterInteractive" />
-        <Script id="google-ads-config" strategy="afterInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'AW-17541701344');
-        `}
-        </Script>
+        {gtagIds.length ? (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${gtagIds[0]}`} strategy="afterInteractive" />
+            <Script id="gtag-config" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                ${gtagIds.map((id) => `gtag('config', '${id}', { anonymize_ip: true });`).join("\n")}
+              `}
+            </Script>
+          </>
+        ) : null}
       </body>
     </html>
   )

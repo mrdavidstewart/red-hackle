@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ContactForm } from "@/components/site/contact-form"
 import { buildMetadata } from "@/lib/seo"
-import { businessInfo, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { buildBreadcrumbSchema, businessInfo, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Contact Red Hackle Cleaning across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Commercial Cleaning Contact",
   description:
-    `Request a commercial cleaning quote across ${eastCoastOfScotland}${includingAreaStatement} Fast response and tailored proposals.`,
+    `Request a commercial cleaning quote across ${eastCoastOfScotland}${includingAreaStatement} Fast response times, tailored proposals, and clear next steps.`,
   path: "/contact",
 })
 
@@ -53,8 +53,17 @@ const trustComplianceItems = [
 ]
 
 export default function ContactPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Contact", path: "/contact" },
+  ])
+
   return (
     <main className="pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
@@ -145,7 +154,8 @@ export default function ContactPage() {
               <h2 className="text-2xl font-semibold text-gray-900">Coverage area</h2>
               <p className="text-gray-600">
                 Commercial cleaning services delivered across {eastCoastOfScotland}{includingAreaStatement} Supporting single-site and multi-site
-                operations.
+                operations. Explore our <a href="/services" className="font-semibold text-red-600 hover:text-red-700">full services list</a> to
+                align scopes before requesting a quote.
               </p>
             </CardContent>
           </Card>

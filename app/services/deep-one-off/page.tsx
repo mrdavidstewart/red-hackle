@@ -5,12 +5,18 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  eastCoastOfScotland,
+  includingAreaStatement,
+} from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Deep Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Deep Cleaning Services",
   description:
-    `Intensive deep and specialist cleaning services for commercial properties across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Intensive deep and specialist cleaning services for commercial properties across ${eastCoastOfScotland}${includingAreaStatement} Book a tailored scope.`,
   path: "/services/deep-one-off",
 })
 
@@ -67,12 +73,26 @@ export default function DeepOneOffPage() {
       `Intensive deep and specialist cleaning services for commercial properties across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/services/deep-one-off",
   })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Deep & One-off Cleaning", path: "/services/deep-one-off" },
+  ])
+  const faqSchema = buildFaqSchema(faqItems)
 
   return (
     <main className="bg-white pb-16 md:pb-0">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
@@ -118,6 +138,11 @@ export default function DeepOneOffPage() {
               </ul>
               <p className="text-gray-600">
                 <strong>Why it works:</strong> Provides a focused reset where hygiene, presentation, or inspection readiness is critical.
+              </p>
+              <h2 className="text-2xl font-semibold text-gray-900">Operational planning</h2>
+              <p className="text-gray-600">
+                We schedule deep cleans around your trading hours, prioritise high-risk areas, and document outcomes
+                so facilities teams can report improvements confidently.
               </p>
               <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
               <p className="text-gray-600">

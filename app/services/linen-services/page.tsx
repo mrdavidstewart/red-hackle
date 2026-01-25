@@ -5,10 +5,16 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  eastCoastOfScotland,
+  includingAreaStatement,
+} from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Linen Services for Serviced Accommodation across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Linen Services for Short-Stays",
   description:
     `Linen laundering and rental services for serviced accommodation and short-stay properties across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/services/linen-services",
@@ -72,12 +78,26 @@ export default function LinenServicesPage() {
       `Linen laundering and rental services for serviced accommodation and short-stay properties across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/services/linen-services",
   })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Linen Services", path: "/services/linen-services" },
+  ])
+  const faqSchema = buildFaqSchema(faqItems)
 
   return (
     <main className="bg-white pb-16 md:pb-0">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
@@ -135,6 +155,11 @@ export default function LinenServicesPage() {
               <p className="text-gray-600">
                 <strong>Why it works:</strong> Integrated linen support reduces operational complexity and ensures
                 properties are consistently guest-ready without last-minute logistics issues.
+              </p>
+              <h2 className="text-2xl font-semibold text-gray-900">Operational benefits</h2>
+              <p className="text-gray-600">
+                Linen schedules are matched to booking calendars, while clean/soiled separation reduces on-site
+                handling and protects guest presentation standards.
               </p>
               <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
               <p className="text-gray-600">

@@ -6,12 +6,18 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  eastCoastOfScotland,
+  includingAreaStatement,
+} from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Managed Contract Cleaning across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Managed Contract Cleaning",
   description:
-    `Managed contract cleaning with onboarding, SLAs, and quality reporting across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Managed contract cleaning with onboarding, SLAs, and quality reporting across ${eastCoastOfScotland}${includingAreaStatement} Speak to our team for a tailored proposal.`,
   path: "/commercial-cleaning",
 })
 
@@ -82,12 +88,25 @@ export default function CommercialCleaningPage() {
       `Managed contract cleaning with onboarding, SLAs, and quality reporting across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/commercial-cleaning",
   })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Commercial Cleaning", path: "/commercial-cleaning" },
+  ])
+  const faqSchema = buildFaqSchema(faqItems)
 
   return (
     <main className="pb-16 md:pb-0">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">

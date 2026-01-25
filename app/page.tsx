@@ -6,12 +6,17 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { fetchGoogleReviews } from "@/lib/googleReviews"
 import { buildMetadata } from "@/lib/seo"
-import { buildAggregateRatingSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import {
+  buildAggregateRatingSchema,
+  buildBreadcrumbSchema,
+  eastCoastOfScotland,
+  includingAreaStatement,
+} from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Commercial Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Commercial Cleaning Services",
   description:
-    `Commercial cleaning partner for offices, property managers, hospitality venues, and construction handovers across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Commercial cleaning partner for offices, property managers, hospitality venues, and construction handovers across ${eastCoastOfScotland}${includingAreaStatement} Request a tailored quote.`,
   path: "/",
 })
 
@@ -112,9 +117,14 @@ export default async function HomePage() {
     googleReviews.length > 0
       ? buildAggregateRatingSchema({ ratingValue: averageRating, reviewCount: googleReviews.length })
       : null
+  const breadcrumbSchema = buildBreadcrumbSchema([{ name: "Home", path: "/" }])
 
   return (
     <main className="pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {aggregateRatingSchema ? (
         <script
           type="application/ld+json"

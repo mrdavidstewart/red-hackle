@@ -5,12 +5,18 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  eastCoastOfScotland,
+  includingAreaStatement,
+} from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Commercial Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Commercial Cleaning Plans",
   description:
-    `Commercial cleaning services for offices, retail spaces, and businesses across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Commercial cleaning services for offices, retail spaces, and businesses across ${eastCoastOfScotland}${includingAreaStatement} Speak to our team for a tailored scope.`,
   path: "/services/commercial-cleaning",
 })
 
@@ -60,12 +66,26 @@ export default function CommercialCleaningPage() {
       `Commercial cleaning services for offices, retail spaces, and businesses across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/services/commercial-cleaning",
   })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Commercial Cleaning", path: "/services/commercial-cleaning" },
+  ])
+  const faqSchema = buildFaqSchema(faqItems)
 
   return (
     <main className="bg-white pb-16 md:pb-0">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
@@ -99,6 +119,10 @@ export default function CommercialCleaningPage() {
                   <li key={item}>• {item}</li>
                 ))}
               </ul>
+              <p className="text-gray-600">
+                <strong>Operational fit:</strong> Cleaning schedules and staffing plans are aligned with your opening
+                hours, access protocols, and compliance requirements to protect day-to-day operations.
+              </p>
             </CardContent>
           </Card>
         </div>

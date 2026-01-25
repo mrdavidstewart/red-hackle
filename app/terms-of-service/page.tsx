@@ -3,18 +3,27 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
-import { businessInfo, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { buildBreadcrumbSchema, businessInfo, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Terms of Service | Red Hackle Cleaning Services",
+  title: "Terms of Service for Clients",
   description:
-    `Service terms and conditions for Red Hackle Cleaning Services ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Service terms and conditions for Red Hackle Cleaning Services covering commercial cleaning across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/terms-of-service",
 })
 
 export default function TermsOfServicePage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Terms of Service", path: "/terms-of-service" },
+  ])
+
   return (
     <main className="bg-white pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />

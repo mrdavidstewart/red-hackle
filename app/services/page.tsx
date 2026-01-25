@@ -3,12 +3,12 @@ import { ArrowRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
-import { eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { buildBreadcrumbSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Commercial Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Commercial Cleaning Directory",
   description:
-    `Commercial cleaning services across ${eastCoastOfScotland}${includingAreaStatement} Including managed contract cleaning, office cleaning, and specialist deep cleans.`,
+    `Explore commercial cleaning services across ${eastCoastOfScotland}${includingAreaStatement} Including managed contracts, office cleaning, and specialist deep cleans.`,
   path: "/services",
 })
 
@@ -46,8 +46,17 @@ const serviceCards = [
 ]
 
 export default function ServicesPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+  ])
+
   return (
     <main className="bg-white pb-16 md:pb-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />

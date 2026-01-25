@@ -5,12 +5,18 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  eastCoastOfScotland,
+  includingAreaStatement,
+} from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Contract Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Contract Cleaning Services",
   description:
-    `Contract cleaning services with SLAs, onboarding, and quality reporting for commercial clients across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Contract cleaning services with SLAs, onboarding, and reporting for commercial clients across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/services/contract-cleaning",
 })
 
@@ -59,12 +65,26 @@ export default function ContractCleaningPage() {
       `Contract cleaning services with SLAs, onboarding, and quality reporting for commercial clients across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/services/contract-cleaning",
   })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Contract Cleaning", path: "/services/contract-cleaning" },
+  ])
+  const faqSchema = buildFaqSchema(faqItems)
 
   return (
     <main className="bg-white pb-16 md:pb-0">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
@@ -98,6 +118,10 @@ export default function ContractCleaningPage() {
                   <li key={item}>• {item}</li>
                 ))}
               </ul>
+              <p className="text-gray-600">
+                <strong>Operational focus:</strong> Cleaning programmes are designed around access requirements, staff
+                availability, and compliance priorities so standards stay consistent over the life of the contract.
+              </p>
             </CardContent>
           </Card>
         </div>

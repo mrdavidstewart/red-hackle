@@ -5,12 +5,18 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  eastCoastOfScotland,
+  includingAreaStatement,
+} from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Builders & Sparkle Cleaning across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Builders & Sparkle Cleaning",
   description:
-    `Post-construction and sparkle cleaning for developers and contractors across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Post-construction and sparkle cleaning for developers and contractors across ${eastCoastOfScotland}${includingAreaStatement} Aligned to handover deadlines.`,
   path: "/services/builders-sparkle",
 })
 
@@ -66,12 +72,26 @@ export default function BuildersSparklePage() {
       `Post-construction and sparkle cleaning for developers and contractors across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/services/builders-sparkle",
   })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Builders & Sparkle Cleaning", path: "/services/builders-sparkle" },
+  ])
+  const faqSchema = buildFaqSchema(faqItems)
 
   return (
     <main className="bg-white pb-16 md:pb-0">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
@@ -117,6 +137,11 @@ export default function BuildersSparklePage() {
               </ul>
               <p className="text-gray-600">
                 <strong>Why it works:</strong> Supports inspections and handover deadlines by aligning cleaning delivery to construction programmes.
+              </p>
+              <h2 className="text-2xl font-semibold text-gray-900">Handover readiness</h2>
+              <p className="text-gray-600">
+                We plan the clean in phases, identify high-risk snagging areas, and coordinate access with site
+                managers to keep projects on track for completion.
               </p>
               <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
               <p className="text-gray-600">

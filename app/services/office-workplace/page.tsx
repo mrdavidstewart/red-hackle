@@ -5,12 +5,18 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  eastCoastOfScotland,
+  includingAreaStatement,
+} from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Office Cleaning Services across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Office Cleaning Services",
   description:
-    `Office and workplace cleaning across ${eastCoastOfScotland}${includingAreaStatement} With flexible schedules and quality reporting.`,
+    `Office and workplace cleaning across ${eastCoastOfScotland}${includingAreaStatement} With flexible schedules, supervised teams, and quality reporting.`,
   path: "/services/office-workplace",
 })
 
@@ -67,12 +73,26 @@ export default function OfficeWorkplacePage() {
       `Office and workplace cleaning across ${eastCoastOfScotland}${includingAreaStatement} With flexible schedules and quality reporting.`,
     slug: "/services/office-workplace",
   })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Office & Workplace Cleaning", path: "/services/office-workplace" },
+  ])
+  const faqSchema = buildFaqSchema(faqItems)
 
   return (
     <main className="bg-white pb-16 md:pb-0">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
@@ -119,6 +139,11 @@ export default function OfficeWorkplacePage() {
               </ul>
               <p className="mt-6 text-gray-600">
                 <strong>Why it works:</strong> Maintains hygiene and presentation in live office environments without disrupting daily operations.
+              </p>
+              <h2 className="text-2xl font-semibold text-gray-900">Process &amp; reporting</h2>
+              <p className="text-gray-600">
+                Every office programme is delivered to an agreed scope of works with routine inspections, escalation
+                points, and optional reporting dashboards for facilities teams and building managers.
               </p>
               <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
               <p className="text-gray-600">

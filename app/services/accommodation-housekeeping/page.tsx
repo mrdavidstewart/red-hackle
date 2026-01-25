@@ -5,10 +5,16 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { buildServiceSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+  buildServiceSchema,
+  eastCoastOfScotland,
+  includingAreaStatement,
+} from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: `Serviced Accommodation Housekeeping across ${eastCoastOfScotland}${includingAreaStatement}`,
+  title: "Short-Stay Housekeeping",
   description:
     `Professional housekeeping services for short-stay and serviced accommodation properties across ${eastCoastOfScotland}${includingAreaStatement}`,
   path: "/services/accommodation-housekeeping",
@@ -77,12 +83,26 @@ export default function AccommodationHousekeepingPage() {
       `Professional housekeeping services for short-stay and serviced accommodation properties across ${eastCoastOfScotland}${includingAreaStatement}`,
     slug: "/services/accommodation-housekeeping",
   })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Services", path: "/services" },
+    { name: "Accommodation Housekeeping", path: "/services/accommodation-housekeeping" },
+  ])
+  const faqSchema = buildFaqSchema(faqItems)
 
   return (
     <main className="bg-white pb-16 md:pb-0">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
@@ -140,6 +160,11 @@ export default function AccommodationHousekeepingPage() {
               <p className="text-gray-600">
                 <strong>Why it works:</strong> A structured housekeeping model ensures consistent guest presentation
                 and reliable turnaround across repeat stays without relying on ad-hoc cleaning arrangements.
+              </p>
+              <h2 className="text-2xl font-semibold text-gray-900">Operational benefits</h2>
+              <p className="text-gray-600">
+                We align cleaning windows with booking schedules, document property-specific notes, and provide a
+                consistent team so presentation standards stay predictable for every guest arrival.
               </p>
               <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
               <p className="text-gray-600">
