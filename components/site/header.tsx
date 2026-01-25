@@ -28,20 +28,20 @@ export function SiteHeader() {
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-2 text-xs">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
-              <Phone className="h-3 w-3 text-red-400" />
+              <Phone className="h-3 w-3 text-destructive" />
               <a href="tel:+447966881555" className="hover:text-white">
                 07966 881 555
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="h-3 w-3 text-red-400" />
+              <Mail className="h-3 w-3 text-destructive" />
               <a href="mailto:operations@redhacklegroup.com" className="hover:text-white">
                 operations@redhacklegroup.com
               </a>
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <MapPin className="h-3 w-3 text-red-400" />
+            <MapPin className="h-3 w-3 text-destructive" />
             <span>{eastCoastOfScotland}</span>
           </div>
         </div>
@@ -64,7 +64,7 @@ export function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className={`hover:text-red-600 ${isActive(link.href) ? "text-red-600" : ""}`}
+              className={`hover:text-destructive ${isActive(link.href) ? "text-destructive" : ""}`}
             >
               {link.label}
             </Link>
@@ -78,7 +78,7 @@ export function SiteHeader() {
               07966 881 555
             </a>
           </Button>
-          <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+          <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
             <Link href="/contact">Request a Quote</Link>
           </Button>
         </div>
@@ -101,7 +101,7 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`hover:text-red-600 ${isActive(link.href) ? "text-red-600" : ""}`}
+                className={`hover:text-destructive ${isActive(link.href) ? "text-destructive" : ""}`}
               >
                 {link.label}
               </Link>
@@ -113,7 +113,7 @@ export function SiteHeader() {
                   Call 07966 881 555
                 </a>
               </Button>
-              <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+              <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
                 <Link href="/contact">Request a Quote</Link>
               </Button>
             </div>

@@ -28,7 +28,7 @@ export default function CareersPage() {
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-white/10 text-white">Careers</Badge>
           <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Careers at Red Hackle</h1>
-          <p className="mt-4 max-w-2xl text-lg text-gray-300">
+          <p className="mt-4 text-lg text-gray-300">
             Red Hackle is built on discipline, reliability, and pride in doing the job properly. We deliver structured
             commercial cleaning services across offices, hospitality venues, property portfolios, and construction
             sites across {eastCoastOfScotland}{includingAreaStatement}
@@ -41,19 +41,19 @@ export default function CareersPage() {
           <h2 className="text-2xl font-bold text-gray-900">We’re always keen to hear from people who:</h2>
           <ul className="space-y-3 text-base text-gray-600">
             <li className="flex gap-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-red-600" aria-hidden="true" />
+              <span className="mt-2 h-2 w-2 rounded-full bg-destructive" aria-hidden="true" />
               <span>Take pride in high standards</span>
             </li>
             <li className="flex gap-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-red-600" aria-hidden="true" />
+              <span className="mt-2 h-2 w-2 rounded-full bg-destructive" aria-hidden="true" />
               <span>Work well in structured environments</span>
             </li>
             <li className="flex gap-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-red-600" aria-hidden="true" />
+              <span className="mt-2 h-2 w-2 rounded-full bg-destructive" aria-hidden="true" />
               <span>Are reliable, communicative, and professional</span>
             </li>
             <li className="flex gap-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-red-600" aria-hidden="true" />
+              <span className="mt-2 h-2 w-2 rounded-full bg-destructive" aria-hidden="true" />
               <span>Want to be part of a trusted commercial team</span>
             </li>
           </ul>
@@ -63,19 +63,19 @@ export default function CareersPage() {
           <h2 className="text-2xl font-bold text-gray-900">Why work with Red Hackle</h2>
           <ul className="space-y-3 text-base text-gray-600">
             <li className="flex gap-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-red-600" aria-hidden="true" />
+              <span className="mt-2 h-2 w-2 rounded-full bg-destructive" aria-hidden="true" />
               <span>Clear expectations and structured roles</span>
             </li>
             <li className="flex gap-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-red-600" aria-hidden="true" />
+              <span className="mt-2 h-2 w-2 rounded-full bg-destructive" aria-hidden="true" />
               <span>Supportive supervision and training</span>
             </li>
             <li className="flex gap-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-red-600" aria-hidden="true" />
+              <span className="mt-2 h-2 w-2 rounded-full bg-destructive" aria-hidden="true" />
               <span>Varied commercial environments</span>
             </li>
             <li className="flex gap-3">
-              <span className="mt-2 h-2 w-2 rounded-full bg-red-600" aria-hidden="true" />
+              <span className="mt-2 h-2 w-2 rounded-full bg-destructive" aria-hidden="true" />
               <span>A team culture built on trust and accountability</span>
             </li>
           </ul>
@@ -90,7 +90,7 @@ export default function CareersPage() {
               Email{" "}
               <a
                 href="mailto:operations@redhacklegroup.com"
-                className="font-semibold text-red-600 hover:text-red-700"
+                className="font-semibold text-destructive hover:text-destructive/80"
               >
                 operations@redhacklegroup.com
               </a>{" "}

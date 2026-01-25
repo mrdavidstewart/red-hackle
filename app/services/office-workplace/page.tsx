@@ -101,7 +101,7 @@ export default function OfficeWorkplacePage() {
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-red-50 text-red-700">Office &amp; workplace</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">Office &amp; Workplace Cleaning</h1>
-          <p className="mt-4 max-w-2xl text-lg text-gray-300">
+          <p className="mt-4 text-lg text-gray-300">
             Professional office and workplace cleaning services delivered with discretion, consistency, and
             accountability. We support live office environments {` across ${eastCoastOfScotland}${includingAreaStatement}`} With daily or out-of-hours
             cleaning that fits around operations and maintains a professional working environment.
@@ -111,7 +111,7 @@ export default function OfficeWorkplacePage() {
             standards are maintained long-term.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+            <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
               <Link href="/contact">Request a quote</Link>
             </Button>
             <Button asChild variant="outlineOnDark">

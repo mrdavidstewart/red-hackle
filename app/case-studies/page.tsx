@@ -52,7 +52,7 @@ export default function CaseStudiesPage() {
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-white/10 text-white">Case studies</Badge>
           <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Examples of commercial outcomes</h1>
-          <p className="mt-4 max-w-2xl text-lg text-gray-300">
+          <p className="mt-4 text-lg text-gray-300">
             Early examples show how our teams support commercial stakeholders with reliability, reporting, and measurable
             improvements.
           </p>
@@ -74,7 +74,7 @@ export default function CaseStudiesPage() {
             ))}
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+            <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
               <Link href="/contact">Talk to our team</Link>
             </Button>
             <Button asChild variant="outline">

@@ -101,7 +101,7 @@ export default function DeepOneOffPage() {
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-red-50 text-red-700">One-off / deep / specialist</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">One-off / Deep / Specialist Cleaning</h1>
-          <p className="mt-4 max-w-2xl text-lg text-gray-300">
+          <p className="mt-4 text-lg text-gray-300">
             Planned commercial deep cleaning services for environments requiring an intensive reset or inspection
             support across {eastCoastOfScotland}{includingAreaStatement}
             <br />
@@ -110,7 +110,7 @@ export default function DeepOneOffPage() {
             and operational resets.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+            <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
               <Link href="/contact">Request a quote</Link>
             </Button>
             <Button asChild variant="outlineOnDark">

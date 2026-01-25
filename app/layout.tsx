@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import Script from "next/script"
 import { SiteHeader } from "@/components/site/header"
 import { SiteFooter } from "@/components/site/footer"
-import { MobileStickyCta } from "@/components/site/mobile-cta"
 import { businessInfo, baseUrl, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 import "./globals.css"
 
@@ -163,7 +162,6 @@ export default function RootLayout({
           {children}
           <SiteFooter />
         </div>
-        <MobileStickyCta />
         {gtagIds.length ? (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${gtagIds[0]}`} strategy="afterInteractive" />

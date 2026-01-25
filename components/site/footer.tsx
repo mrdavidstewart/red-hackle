@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Phone, Mail, MapPin } from "lucide-react"
-import { eastCoastOfScotland, includingAreaStatement, businessInfo } from "@/lib/structured-data"
+import { eastCoastOfScotland, includingAreaStatement, officeAddress } from "@/lib/structured-data"
+import { SocialReviewBadge } from "./social-review-badge"
 
 export function SiteFooter() {
   return (
@@ -15,24 +16,24 @@ export function SiteFooter() {
             </p>
             <div className="mt-6 space-y-2 text-sm text-gray-300">
               <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-red-500" />
+                <MapPin className="h-4 w-4 text-destructive" />
                 <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(businessInfo.address.streetAddress + ", " + businessInfo.address.postalCode + ", " + businessInfo.address.addressCountry)}`}
+                  href={`https://maps.google.com/?q=${encodeURIComponent(officeAddress)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white"
                 >
-                  {businessInfo.address.streetAddress}, {businessInfo.address.postalCode}, {businessInfo.address.addressCountry}
+                  {officeAddress}
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-red-500" />
+                <Phone className="h-4 w-4 text-destructive" />
                 <a href="tel:+447966881555" className="hover:text-white">
                   07966 881 555
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-red-500" />
+                <Mail className="h-4 w-4 text-destructive" />
                 <a href="mailto:operations@redhacklegroup.com" className="hover:text-white">
                   operations@redhacklegroup.com
                 </a>
@@ -86,6 +87,10 @@ export function SiteFooter() {
               </li>
             </ul>
           </div>
+        </div>
+
+        <div className="mt-5">
+          <SocialReviewBadge />
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-gray-800 pt-6 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">

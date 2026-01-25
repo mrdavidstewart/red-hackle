@@ -114,7 +114,7 @@ export function ContactForm() {
             aria-describedby={fieldErrors.firstName ? "firstName-error" : undefined}
           />
           {fieldErrors.firstName ? (
-            <p id="firstName-error" className="text-sm text-red-600" role="alert">
+            <p id="firstName-error" className="text-sm text-destructive" role="alert">
               {fieldErrors.firstName}
             </p>
           ) : null}
@@ -135,7 +135,7 @@ export function ContactForm() {
             aria-describedby={fieldErrors.lastName ? "lastName-error" : undefined}
           />
           {fieldErrors.lastName ? (
-            <p id="lastName-error" className="text-sm text-red-600" role="alert">
+            <p id="lastName-error" className="text-sm text-destructive" role="alert">
               {fieldErrors.lastName}
             </p>
           ) : null}
@@ -160,7 +160,7 @@ export function ContactForm() {
             aria-describedby={fieldErrors.email ? "email-error" : undefined}
           />
           {fieldErrors.email ? (
-            <p id="email-error" className="text-sm text-red-600" role="alert">
+            <p id="email-error" className="text-sm text-destructive" role="alert">
               {fieldErrors.email}
             </p>
           ) : null}
@@ -182,7 +182,7 @@ export function ContactForm() {
             aria-describedby={fieldErrors.phone ? "phone-error" : undefined}
           />
           {fieldErrors.phone ? (
-            <p id="phone-error" className="text-sm text-red-600" role="alert">
+            <p id="phone-error" className="text-sm text-destructive" role="alert">
               {fieldErrors.phone}
             </p>
           ) : null}
@@ -205,7 +205,7 @@ export function ContactForm() {
           aria-describedby={fieldErrors.message ? "message-error" : undefined}
         />
         {fieldErrors.message ? (
-          <p id="message-error" className="text-sm text-red-600" role="alert">
+          <p id="message-error" className="text-sm text-destructive" role="alert">
             {fieldErrors.message}
           </p>
         ) : null}
@@ -213,7 +213,7 @@ export function ContactForm() {
 
       <input type="text" name="website" tabIndex={-1} aria-hidden="true" className="hidden" />
 
-      <Button type="submit" className="w-full bg-red-600 text-white hover:bg-red-700" disabled={formStatus === "submitting"}>
+      <Button type="submit" className="w-full bg-destructive text-white hover:bg-destructive/90" disabled={formStatus === "submitting"}>
         <Mail className="mr-2 h-4 w-4" />
         {formStatus === "submitting" ? "Sending..." : "Send enquiry"}
       </Button>
@@ -224,7 +224,7 @@ export function ContactForm() {
         </p>
       )}
       {formStatus === "error" && (
-        <p className="text-sm text-red-600" role="alert">
+        <p className="text-sm text-destructive" role="alert">
           {formError || "Something went wrong. Please try again."}
         </p>
       )}

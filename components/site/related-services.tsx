@@ -32,7 +32,7 @@ export function RelatedServices({
               <CardContent className="space-y-4 p-6">
                 <h3 className="text-lg font-semibold text-gray-900">{service.title}</h3>
                 <p className="text-sm text-gray-600">{service.description}</p>
-                <Link href={service.href} className="inline-flex items-center gap-2 text-sm font-semibold text-red-600">
+                <Link href={service.href} className="inline-flex items-center gap-2 text-sm font-semibold text-destructive hover:text-destructive/80">
                   View service <ArrowRight className="h-4 w-4" />
                 </Link>
               </CardContent>

@@ -40,6 +40,11 @@ const services = [
     href: "/services/office-workplace",
   },
   {
+    title: "Retail & Public-Facing Cleaning",
+    description: "Commercial cleaning for shops, showrooms, and customer-facing areas with consistent presentation.",
+    href: "/services/commercial-cleaning",
+  },
+  {
     title: "Managed Contract Cleaning",
     description: "Ongoing, supervised contract cleaning with SLAs, onboarding, and performance reviews.",
     href: "/commercial-cleaning",
@@ -63,6 +68,11 @@ const services = [
     title: "Short-Stay & Serviced Accommodation Housekeeping",
     description: `Professional housekeeping services for short-stay and serviced accommodation properties.`,
     href: "/services/accommodation-housekeeping",
+  },
+  {
+    title: "Linen Laundering & Linen Rental",
+    description: `Linen laundering and rental services for serviced accommodation and short-stay properties `,
+    href: "/services/linen-services",
   }
 ]
 
@@ -147,7 +157,7 @@ export default async function HomePage() {
                 handovers across {eastCoastOfScotland}{includingAreaStatement}
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+                <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
                   <Link href="/contact">Contact Us</Link>
                 </Button>
                 <Button asChild variant="outlineOnDark">
@@ -157,14 +167,14 @@ export default async function HomePage() {
               <div className="grid gap-3 text-sm text-gray-200 sm:grid-cols-2">
                 {trustSignals.map((signal) => (
                   <div key={signal} className="flex items-start gap-2">
-                    <ShieldCheck className="mt-0.5 h-4 w-4 text-red-400" />
+                    <ShieldCheck className="mt-0.5 h-4 w-4 text-destructive" />
                     <span>{signal}</span>
                   </div>
                 ))}
               </div>
             </div>
             <div className="flex justify-center lg:justify-end">
-              <div className="relative w-56 sm:w-64 md:w-72">
+              <div className="relative w-72 sm:w-80 md:w-96">
                 <Image
                   src="/red-hackle-logo-new-800.png"
                   alt="Red Hackle Cleaning Services logo"
@@ -199,7 +209,7 @@ export default async function HomePage() {
             { label: "Flexible schedules", icon: Building2 },
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-3">
-              <item.icon className="h-5 w-5 text-red-600" />
+              <item.icon className="h-5 w-5 text-destructive" />
               <span>{item.label}</span>
             </div>
           ))}
@@ -223,7 +233,7 @@ export default async function HomePage() {
                 <CardContent className="space-y-4 p-6">
                   <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
                   <p className="text-sm text-gray-600">{service.description}</p>
-                  <Link href={service.href} className="inline-flex items-center gap-2 text-sm font-semibold text-red-600">
+                  <Link href={service.href} className="inline-flex items-center gap-2 text-sm font-semibold text-destructive hover:text-destructive/80">
                     Learn more <ArrowRight className="h-4 w-4" />
                   </Link>
                 </CardContent>
@@ -231,7 +241,7 @@ export default async function HomePage() {
             ))}
           </div>
           <div className="mt-8">
-            <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+            <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
               <Link href="/services">View all services</Link>
             </Button>
           </div>
@@ -273,7 +283,7 @@ export default async function HomePage() {
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {trustComplianceItems.map((item) => (
               <div key={item} className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white p-4">
-                <ShieldCheck className="mt-0.5 h-5 w-5 text-red-600" />
+                <ShieldCheck className="mt-0.5 h-5 w-5 text-destructive" />
                 <span className="text-sm font-semibold text-gray-800">{item}</span>
               </div>
             ))}
@@ -291,7 +301,7 @@ export default async function HomePage() {
             {processSteps.map((step, index) => (
               <Card key={step.title} className="border border-gray-200">
                 <CardContent className="space-y-3 p-6">
-                  <div className="text-sm font-semibold text-red-600">Step {index + 1}</div>
+                  <div className="text-sm font-semibold text-destructive">Step {index + 1}</div>
                   <h3 className="text-xl font-semibold text-gray-900">{step.title}</h3>
                   <p className="text-gray-600">{step.description}</p>
                 </CardContent>
@@ -338,7 +348,7 @@ export default async function HomePage() {
                         href={item.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-xs font-semibold text-red-600 hover:text-red-700"
+                        className="text-xs font-semibold text-destructive hover:text-destructive/80"
                       >
                         Read on Google
                       </a>
@@ -349,7 +359,7 @@ export default async function HomePage() {
             ))}
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+            <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
               <a
                 href="https://search.google.com/local/writereview?placeid=ChIJR0u96mlI9IoRuloi_-UDkeg"
                 target="_blank"
@@ -383,7 +393,7 @@ export default async function HomePage() {
               Timings on site are recorded for full traceability, with before-and-after imagery and quality checks used to support reporting and continuous improvement. This allows us to support multi-site clients with consistent standards, clear communication, and flexible scheduling that works around live environments.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button asChild className="bg-red-600 text-white hover:bg-red-700">
+              <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
                 <Link href="/about">Learn about our operations</Link>
               </Button>
             </div>
@@ -450,10 +460,10 @@ export default async function HomePage() {
             <Card className="border border-gray-200 bg-gray-50">
               <CardContent className="space-y-4 p-6">
                 <div className="flex items-center gap-3">
-                  <Sparkles className="h-5 w-5 text-red-600" />
+                  <Sparkles className="h-5 w-5 text-destructive" />
                   <p className="text-sm text-gray-700">Fast quotes, dedicated account lead, clear reporting.</p>
                 </div>
-                <Button asChild className="w-full bg-red-600 text-white hover:bg-red-700">
+                <Button asChild className="w-full bg-destructive text-white hover:bg-destructive/90">
                   <Link href="/contact">Request a quote</Link>
                 </Button>
                 <Button asChild variant="outline" className="w-full">
