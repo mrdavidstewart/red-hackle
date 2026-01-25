@@ -40,6 +40,6 @@ describe("services pages", () => {
 
   it("renders the commercial cleaning service page", () => {
     render(<CommercialCleaningServicePage />)
-    expect(screen.getByRole("heading", { name: /managed contract cleaning/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /retail & public-facing commercial cleaning/i })).toBeInTheDocument()
   })
 })
