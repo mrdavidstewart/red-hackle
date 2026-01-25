@@ -12,7 +12,6 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Commercial Cleaning", href: "/commercial-cleaning" },
   { label: "Consumables", href: "/consumables" },
-  { label: "Resources", href: "/resources" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },

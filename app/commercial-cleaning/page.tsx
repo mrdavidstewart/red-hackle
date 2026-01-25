@@ -6,7 +6,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { resources } from "@/lib/resources"
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -237,29 +236,6 @@ export default function CommercialCleaningPage() {
               </Button>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="bg-gray-50">
-        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-          <Card className="border border-gray-200 bg-white">
-            <CardContent className="space-y-4 p-6">
-              <h2 className="text-2xl font-semibold text-gray-900">Commercial cleaning planning resources</h2>
-              <p className="text-gray-600">
-                Support procurement and mobilisation planning with checklists and handover guidance tailored to
-                commercial estates.
-              </p>
-              <ul className="space-y-2 text-sm font-semibold text-gray-700">
-                {resources.map((resource) => (
-                  <li key={resource.slug}>
-                    <Link href={resource.slug} className="hover:text-red-600">
-                      {resource.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
         </div>
       </section>
 

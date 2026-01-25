@@ -95,20 +95,6 @@ export default function ServicesPage() {
             </Card>
           ))}
         </div>
-        <div className="mt-10">
-          <Card className="border border-gray-200 bg-gray-50">
-            <CardContent className="space-y-3 p-6">
-              <h2 className="text-xl font-semibold text-gray-900">Need help planning your cleaning scope?</h2>
-              <p className="text-sm text-gray-600">
-                Use our commercial cleaning resources to compare service levels, compliance expectations, and
-                handover checklists before requesting a quote.
-              </p>
-              <Link href="/resources" className="text-sm font-semibold text-red-600 hover:text-red-700">
-                View cleaning resources →
-              </Link>
-            </CardContent>
-          </Card>
-        </div>
       </section>
     </main>
   )

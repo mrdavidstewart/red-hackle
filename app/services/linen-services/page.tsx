@@ -5,7 +5,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import { resources } from "@/lib/resources"
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -167,28 +166,6 @@ export default function LinenServicesPage() {
                 Linen laundering and rental services are available as part of our housekeeping support
                 {` across ${eastCoastOfScotland}${includingAreaStatement}`}
               </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section className="bg-white">
-        <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6">
-          <Card className="border border-gray-200 bg-gray-50">
-            <CardContent className="space-y-3 p-6">
-              <h2 className="text-2xl font-semibold text-gray-900">Short-stay operations resources</h2>
-              <p className="text-gray-600">
-                Use these guides to align housekeeping expectations, linen handling, and compliance reporting.
-              </p>
-              <ul className="space-y-2 text-sm font-semibold text-gray-700">
-                {resources.map((resource) => (
-                  <li key={resource.slug}>
-                    <Link href={resource.slug} className="hover:text-red-600">
-                      {resource.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
             </CardContent>
           </Card>
         </div>
