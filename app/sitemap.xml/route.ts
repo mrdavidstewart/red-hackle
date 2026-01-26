@@ -11,6 +11,7 @@ export function GET() {
     "/commercial-cleaning",
     "/consumables",
     "/contact",
+    "/outsourcing",
     "/privacy-policy",
     "/services",
     "/services/accommodation-housekeeping",
