@@ -2,19 +2,19 @@ import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { 
-  Card, 
-  CardContent, 
-  CardHeader, 
-  CardTitle, 
-  CardDescription, 
-  CardAction, 
-  CardFooter 
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardAction,
+  CardFooter
 } from "@/components/ui/card"
-import { 
-  Dialog, 
-  DialogContent, 
-  DialogDescription, 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
   DialogTitle,
   DialogHeader,
   DialogFooter,
@@ -27,6 +27,17 @@ describe("UI components", () => {
   it("renders a badge", () => {
     render(<Badge>Certified</Badge>)
     expect(screen.getByText(/certified/i)).toBeInTheDocument()
+  })
+
+  it("renders a badge with variant", () => {
+    render(<Badge variant="destructive">Error</Badge>)
+    expect(screen.getByText(/error/i)).toBeInTheDocument()
+  })
+
+  it("renders a badge with asChild prop", () => {
+    render(<Badge asChild><a href="/test">Link Badge</a></Badge>)
+    expect(screen.getByText(/link badge/i)).toBeInTheDocument()
+    expect(screen.getByRole("link")).toBeInTheDocument()
   })
 
   it("renders a button with text", () => {
@@ -118,7 +129,7 @@ describe("UI components", () => {
 
   it("opens dialog with trigger button", async () => {
     const user = userEvent.setup()
-    
+
     render(
       <Dialog>
         <DialogTrigger asChild>
