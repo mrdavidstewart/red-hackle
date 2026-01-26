@@ -1,8 +1,10 @@
 import {
   checkRateLimit,
+  clearRateLimit,
   generateSecureToken,
   isValidEmail,
   isValidPhone,
+  isValidPostcode,
   sanitizeInput,
   secureHeaders,
 } from "@/lib/security"
@@ -27,6 +29,14 @@ describe("security utilities", () => {
     expect(isValidPhone("12345")).toBe(false)
   })
 
+  it("validates UK postcodes", () => {
+    expect(isValidPostcode("SW1A 1AA")).toBe(true)
+    expect(isValidPostcode("B33 8TH")).toBe(true)
+    expect(isValidPostcode("sw1a1aa")).toBe(true)
+    expect(isValidPostcode("INVALID")).toBe(false)
+    expect(isValidPostcode("")).toBe(false)
+  })
+
   it("enforces rate limits within a window", () => {
     vi.useFakeTimers()
     vi.setSystemTime(new Date("2024-01-01T00:00:00Z"))
@@ -42,10 +52,61 @@ describe("security utilities", () => {
     vi.useRealTimers()
   })
 
+  it("resets rate limit after window expires", () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date("2024-01-01T00:00:00Z"))
+
+    const key = "reset-test"
+    expect(checkRateLimit(key, 1, 1000)).toBe(true)
+    expect(checkRateLimit(key, 1, 1000)).toBe(false)
+
+    // Move time forward past the window
+    vi.setSystemTime(new Date("2024-01-01T00:00:01.001Z"))
+    expect(checkRateLimit(key, 1, 1000)).toBe(true)
+
+    vi.useRealTimers()
+    clearRateLimit()
+  })
+
   it("generates secure tokens", () => {
     const token = generateSecureToken()
     expect(token).toEqual(expect.any(String))
     expect(token.length).toBeGreaterThan(10)
+  })
+
+  it("sanitizes non-string input", () => {
+    expect(sanitizeInput(null as any)).toBe("")
+    expect(sanitizeInput(undefined as any)).toBe("")
+  })
+
+  it("truncates long strings", () => {
+    const longString = "a".repeat(2000)
+    const result = sanitizeInput(longString)
+    expect(result.length).toBeLessThanOrEqual(1000)
+  })
+
+  it("generates tokens using window.crypto when available", () => {
+    // Mock window.crypto
+    const originalWindow = global.window
+    const mockCrypto = {
+      getRandomValues: vi.fn((array: Uint8Array) => {
+        for (let i = 0; i < array.length; i++) {
+          array[i] = i % 256
+        }
+        return array
+      }),
+    }
+
+    Object.defineProperty(global, "window", {
+      value: { crypto: mockCrypto },
+      writable: true,
+    })
+
+    const token = generateSecureToken()
+    expect(token).toEqual(expect.any(String))
+    expect(mockCrypto.getRandomValues).toHaveBeenCalled()
+
+    global.window = originalWindow
   })
 
   it("exposes secure headers", () => {

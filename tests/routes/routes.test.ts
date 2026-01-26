@@ -8,11 +8,11 @@ import { clearRateLimit } from "@/lib/security"
 // Mock the Resend module
 const mockResendSend = vi.fn()
 vi.mock("resend", () => ({
-  Resend: vi.fn(() => ({
-    emails: {
+  Resend: class {
+    emails = {
       send: mockResendSend,
-    },
-  })),
+    }
+  },
 }))
 
 describe("route handlers", () => {

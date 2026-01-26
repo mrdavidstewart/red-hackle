@@ -29,6 +29,17 @@ describe("UI components", () => {
     expect(screen.getByText(/certified/i)).toBeInTheDocument()
   })
 
+  it("renders a badge with variant", () => {
+    render(<Badge variant="destructive">Error</Badge>)
+    expect(screen.getByText(/error/i)).toBeInTheDocument()
+  })
+
+  it("renders a badge with asChild prop", () => {
+    render(<Badge asChild><a href="/test">Link Badge</a></Badge>)
+    expect(screen.getByText(/link badge/i)).toBeInTheDocument()
+    expect(screen.getByRole("link")).toBeInTheDocument()
+  })
+
   it("renders a button with text", () => {
     render(<Button>Click me</Button>)
     expect(screen.getByRole("button", { name: /click me/i })).toBeInTheDocument()
