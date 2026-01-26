@@ -11,6 +11,7 @@ import { eastCoastOfScotland } from "@/lib/structured-data"
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Commercial Cleaning", href: "/commercial-cleaning" },
+  { label: "Outsourcing", href: "/outsourcing" },
   { label: "Consumables", href: "/consumables" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },

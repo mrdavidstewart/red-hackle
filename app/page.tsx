@@ -73,6 +73,11 @@ const services = [
     title: "Linen Laundering & Linen Rental",
     description: `Linen laundering and rental services for serviced accommodation and short-stay properties `,
     href: "/services/linen-services",
+  },
+  {
+    title: "Outsourced Cleaning Management",
+    description: `End-to-end outsourced cleaning management for property managers and national portfolios.`,
+    href: "/outsourcing",
   }
 ]
 
