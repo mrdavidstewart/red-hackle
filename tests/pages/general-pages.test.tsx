@@ -69,10 +69,28 @@ describe("static pages", () => {
   it("renders the Privacy Policy page", () => {
     render(<PrivacyPolicyPage />)
     expect(screen.getByRole("heading", { name: /privacy policy/i })).toBeInTheDocument()
+    expect(screen.getByText(/last updated: 26 january 2026/i)).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /who we are/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /what personal data we collect/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /how we use your information/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /your data protection rights/i })).toBeInTheDocument()
+    expect(screen.getByRole("link", { name: /operations@redhacklegroup.com/i })).toHaveAttribute(
+      "href",
+      "mailto:operations@redhacklegroup.com",
+    )
   })
 
   it("renders the Terms of Service page", () => {
     render(<TermsOfServicePage />)
     expect(screen.getByRole("heading", { name: /terms of service/i })).toBeInTheDocument()
+    expect(screen.getByText(/last updated: 26 january 2026/i)).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /about us/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /services/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /pricing and payment/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /governing law/i })).toBeInTheDocument()
+    expect(screen.getByRole("link", { name: /operations@redhacklegroup.com/i })).toHaveAttribute(
+      "href",
+      "mailto:operations@redhacklegroup.com",
+    )
   })
 })
