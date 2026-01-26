@@ -10,6 +10,7 @@ export function SiteFooter() {
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
             <p className="text-lg font-semibold text-white">Red Hackle Cleaning Services</p>
+            <p className="text-xs font-semibold tracking-widest text-gray-400">FAST, FLEXIBLE, RELIABLE</p>
             <p className="mt-3 text-sm text-gray-300">
               Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction
               handovers across {eastCoastOfScotland}{includingAreaStatement}
@@ -94,7 +95,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-gray-800 pt-6 text-xs text-gray-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; 2025 Red Hackle Cleaning Services Ltd. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Red Hackle Cleaning Services Ltd. All rights reserved.</p>
           <p>Red Hackle Cleaning Services Ltd - Registered in Scotland - Company No: SC463742 - VAT No: GB256909665</p>
         </div>
       </div>

@@ -7,6 +7,10 @@ import { Textarea } from "@/components/ui/textarea"
 import { Mail } from "lucide-react"
 import { isValidEmail, isValidPhone } from "@/lib/security"
 
+interface GtagWindow extends Window {
+  gtag?: (event: string, action: string, data: Record<string, string | number>) => void
+}
+
 const initialForm = {
   firstName: "",
   lastName: "",
@@ -84,6 +88,15 @@ export function ContactForm() {
 
       if (!response.ok) {
         throw new Error(data.error || "Unable to send message")
+      }
+
+      // Track conversion in Google Ads
+      if (typeof window !== "undefined" && (window as GtagWindow).gtag) {
+        (window as GtagWindow).gtag!("event", "conversion", {
+          send_to: "AW-17541701344/wYB2CKbM_-wbEOC9xKxB",
+          value: 1.0,
+          currency: "GBP",
+        })
       }
 
       setFormStatus("success")
