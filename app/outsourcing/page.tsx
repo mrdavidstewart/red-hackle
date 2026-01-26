@@ -6,40 +6,73 @@ import { buildMetadata } from "@/lib/seo"
 import { buildBreadcrumbSchema } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-    title: "Outsourced Cleaning Services",
+    title: "Outsourced Cleaning Delivery",
     description:
-        "A trusted delivery partner for national contracts. Red Hackle supports national organisations and facilities managers with reliable outsourced cleaning delivery across their portfolio.",
+        "A dependable contractor for service partners. Red Hackle provides reliable outsourced cleaning delivery with clear accountability, professional teams and consistent standards across Scotland.",
     path: "/outsourcing",
 })
 
-const whyPartner = [
+const approachItems = [
     {
-        title: "Commercial cleaning expertise",
+        title: "Structured onboarding and mobilisation",
         description:
-            "We specialise in commercial and contract cleaning, supporting offices, hospitality venues, managed properties and specialist sites. Our focus is operational performance and accountability.",
+            "We begin with a thorough site survey, confirm access and compliance requirements, and agree scopes, schedules and expectations before work starts.",
     },
     {
-        title: "Trained and accountable teams",
+        title: "Clear scope and performance reporting",
         description:
-            "Our operatives are trained for commercial environments and work to clearly defined scopes, site requirements and quality benchmarks agreed in advance.",
+            "Every service is delivered against documented specifications, with quality checks and transparent communication so standards are consistently maintained.",
     },
     {
-        title: "Compliance led delivery",
+        title: "Experienced, supervised teams",
         description:
-            "We support health, safety and hygiene obligations through structured processes and site-specific understanding, ensuring services are delivered responsibly and professionally.",
+            "Our operatives are trained for commercial environments, fully insured and professionally presented, with supervision in place to ensure reliability and consistency.",
     },
     {
-        title: "Scalable support",
+        title: "Flexible scheduling",
         description:
-            "Whether supporting individual locations or wider portfolios, our model allows services to scale while maintaining control and consistency.",
+            "We adapt around operational requirements, including daytime, out-of-hours and weekend working where required.",
     },
 ]
 
-const serviceTypes = [
-    "Ongoing contract cleaning",
-    "One-off and specialist services",
-    "Short-term cover and transitional support",
-    "Multi-site portfolio delivery",
+const serviceAreas = [
+    "Tayside",
+    "Angus",
+    "Fife",
+    "Perth and Perthshire",
+    "Glasgow",
+    "Edinburgh",
+    "Aberdeen and Aberdeenshire",
+]
+
+const idealPartners = [
+    "Already have cleaning contracts or service commitments in place",
+    "Need dependable delivery without day-to-day operational management",
+    "Expect professional teams aligned to defined scopes and standards",
+    "Value clear communication, reporting and accountability",
+]
+
+const whyChoose = [
+    {
+        title: "Accountability and quality assurance",
+        description:
+            "Defined scopes, supervised teams and structured oversight ensure predictable service outcomes.",
+    },
+    {
+        title: "Fast response and mobilisation",
+        description:
+            "Once scope and access are confirmed, we mobilise efficiently and communicate clearly throughout.",
+    },
+    {
+        title: "Transparent delivery",
+        description:
+            "You always know what is being delivered, how it is being measured and who is responsible.",
+    },
+    {
+        title: "Professional representation",
+        description:
+            "Our teams represent your standards on site, maintaining a professional and consistent presence.",
+    },
 ]
 
 export default function OutsourcingPage() {
@@ -62,49 +95,45 @@ export default function OutsourcingPage() {
                 </div>
                 <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
                     <Badge className="bg-white/10 text-white">Outsourcing</Badge>
-                    <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Outsourced Cleaning Services</h1>
-                    <p className="mt-4 text-lg text-gray-300">A trusted delivery partner for national contracts</p>
+                    <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Outsourced Cleaning Delivery</h1>
+                    <p className="mt-4 text-lg text-gray-300">A dependable contractor for service partners</p>
                 </div>
             </section>
 
             {/* Introduction Section */}
             <section className="bg-white">
-                <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
+                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
                     <div className="max-w-3xl space-y-6 text-gray-600">
-                        <div className="space-y-4">
-                            <p className="text-base leading-relaxed">
-                                Red Hackle Cleaning Services supports national organisations, facilities managers and service providers
-                                who require reliable outsourced cleaning delivery across their portfolio.
-                            </p>
-                            <p className="text-base leading-relaxed">
-                                We operate as your delivery partner, integrating into existing contracts to provide consistent, compliant
-                                and professional cleaning services. Our role is to protect your standards, your reputation and your client
-                                relationships through dependable on-the-ground delivery.
-                            </p>
-                            <p className="text-base leading-relaxed font-semibold">
-                                If you need a contractor who can align quickly and deliver without disruption, Red Hackle is built for that
-                                role.
-                            </p>
-                        </div>
+                        <p className="text-base leading-relaxed">
+                            At Red Hackle Cleaning Services, we specialise in commercial and contract cleaning services designed to support organisations that need reliable delivery and consistent standards.
+                        </p>
+                        <p className="text-base leading-relaxed">
+                            Whether you are managing multiple sites, working with facilities teams, or coordinating service delivery for property portfolios, we provide the operational strength and disciplined delivery you expect from a professional cleaning contractor. Our teams operate to clear scopes, quality assurance processes and straightforward communication that protects your standards and reputation.
+                        </p>
                     </div>
                 </div>
             </section>
 
             {/* Operational Complexity Section */}
             <section className="bg-gray-50">
-                <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-                    <div className="max-w-3xl space-y-6">
-                        <div className="space-y-4">
-                            <h2 className="text-2xl font-semibold text-gray-900">Built to support national service delivery</h2>
-                            <p className="text-base leading-relaxed text-gray-600">
-                                Managing cleaning across multiple locations brings operational challenges around staffing, consistency,
-                                access and compliance.
-                            </p>
-                            <p className="text-base leading-relaxed text-gray-600">
-                                Red Hackle removes that complexity by acting as a dependable extension of your operation. We deliver
-                                cleaning services in line with your agreed scopes, reporting requirements and quality expectations, allowing
-                                you to retain contract ownership while we manage delivery.
-                            </p>
+                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+                    <div className="space-y-6">
+                        <h2 className="text-3xl font-black text-gray-900">What partnering with Red Hackle looks like</h2>
+                        <p className="max-w-3xl text-base text-gray-600">
+                            We act as a trusted contractor for outsourced cleaning delivery, giving you confidence that services are executed exactly as agreed, with accountability and no surprises.
+                        </p>
+                        <p className="max-w-3xl text-base text-gray-600">
+                            Our approach includes:
+                        </p>
+                        <div className="grid gap-6 md:grid-cols-2">
+                            {approachItems.map((item) => (
+                                <Card key={item.title} className="border border-gray-200">
+                                    <CardContent className="space-y-4 p-6">
+                                        <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                                        <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+                                    </CardContent>
+                                </Card>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -112,40 +141,58 @@ export default function OutsourcingPage() {
 
             {/* Fit Section */}
             <section className="bg-white">
-                <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
+                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
                     <div className="max-w-3xl space-y-6">
-                        <h2 className="text-2xl font-semibold text-gray-900">Is outsourcing to Red Hackle the right fit?</h2>
-                        <p className="text-base text-gray-600">We typically work with organisations who can answer yes to the following:</p>
-                        <ul className="space-y-3 text-gray-600">
-                            <li className="flex gap-3">
-                                <span className="font-semibold text-destructive">✓</span>
-                                <span>You manage national or multi-site cleaning contracts</span>
-                            </li>
-                            <li className="flex gap-3">
-                                <span className="font-semibold text-destructive">✓</span>
-                                <span>You require reliable, consistent service delivery</span>
-                            </li>
-                            <li className="flex gap-3">
-                                <span className="font-semibold text-destructive">✓</span>
-                                <span>You need a trusted contractor to uphold your standards</span>
-                            </li>
+                        <h2 className="text-3xl font-black text-gray-900">Coverage across Scotland</h2>
+                        <p className="text-base text-gray-600">
+                            We support organisations with service delivery across Scotland, providing dependable coverage throughout:
+                        </p>
+                        <ul className="grid gap-3 md:grid-cols-2 text-gray-600">
+                            {serviceAreas.map((area) => (
+                                <li key={area} className="flex gap-3">
+                                    <span className="font-semibold text-destructive">•</span>
+                                    <span>{area}</span>
+                                </li>
+                            ))}
                         </ul>
-                        <p className="text-base font-semibold text-gray-900 pt-4">If this reflects your operation, we can support you.</p>
-                        <Button asChild className="bg-destructive text-white hover:bg-destructive/90 mt-4">
-                            <Link href="/contact">Speak to us today to discuss outsourcing support</Link>
-                        </Button>
+                        <p className="text-base text-gray-600">
+                            This allows us to support multi-site requirements while maintaining local oversight, responsive management and consistent standards.
+                        </p>
                     </div>
                 </div>
             </section>
 
             {/* Why Partner Section */}
             <section className="bg-gray-50">
-                <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-                    <div className="mb-12">
-                        <h2 className="text-2xl font-semibold text-gray-900">Why national organisations partner with Red Hackle</h2>
+                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+                    <div className="space-y-8">
+                        <h2 className="text-3xl font-black text-gray-900">Who we support</h2>
+                        <p className="max-w-3xl text-base text-gray-600">
+                            Our outsourcing model works best for organisations that:
+                        </p>
+                        <ul className="max-w-3xl space-y-3 text-gray-600">
+                            {idealPartners.map((item) => (
+                                <li key={item} className="flex gap-3">
+                                    <span className="font-semibold text-destructive">✓</span>
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                        <p className="max-w-3xl text-base text-gray-600">
+                            We work alongside facilities teams, property managers, landlords, commercial operators and service providers who need confidence in execution.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Service Types Section */}
+            <section className="bg-white">
+                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+                    <div className="mb-8">
+                        <h2 className="text-3xl font-black text-gray-900">Why partners choose Red Hackle</h2>
                     </div>
                     <div className="grid gap-6 md:grid-cols-2">
-                        {whyPartner.map((item) => (
+                        {whyChoose.map((item) => (
                             <Card key={item.title} className="border border-gray-200">
                                 <CardContent className="space-y-4 p-6">
                                     <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
@@ -157,48 +204,20 @@ export default function OutsourcingPage() {
                 </div>
             </section>
 
-            {/* Service Types Section */}
-            <section className="bg-white">
-                <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-                    <div className="max-w-3xl space-y-6">
-                        <div className="space-y-4">
-                            <h2 className="text-2xl font-semibold text-gray-900">Outsourced cleaning support for national organisations</h2>
-                            <p className="text-base text-gray-600">
-                                We work alongside organisations operating across the UK to provide outsourced cleaning support in all
-                                capacities, including:
-                            </p>
-                            <ul className="space-y-2 text-gray-600">
-                                {serviceTypes.map((service) => (
-                                    <li key={service} className="flex gap-3">
-                                        <span className="font-semibold text-destructive">•</span>
-                                        <span>{service}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <p className="text-base font-semibold text-gray-900 pt-4">
-                                Our approach is collaborative, transparent and delivery focused.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             {/* Closing CTA Section */}
-            <section className="bg-gray-50">
-                <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-                    <div className="max-w-3xl space-y-6">
-                        <div className="space-y-4">
-                            <h2 className="text-2xl font-semibold text-gray-900">Strengthen your national cleaning contracts</h2>
-                            <p className="text-base leading-relaxed text-gray-600">
-                                Outsourcing delivery to the right contractor allows you to reduce operational risk, improve consistency and
-                                focus on client relationships.
-                            </p>
-                            <p className="text-base leading-relaxed text-gray-600">
-                                Red Hackle is built to support national partners who take service delivery seriously and expect the same from
-                                their contractors.
-                            </p>
-                            <Button asChild className="bg-destructive text-white hover:bg-destructive/90 mt-4">
-                                <Link href="/contact">Contact us today to discuss outsourcing support</Link>
+            <section className="bg-white">
+                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+                    <div className="rounded-3xl border border-gray-200 bg-gray-900 px-6 py-10 text-white sm:px-10">
+                        <h2 className="text-3xl font-black">Strengthen your contract delivery</h2>
+                        <p className="mt-3 text-gray-300">
+                            Outsourcing cleaning delivery should simplify operations, not complicate them.
+                        </p>
+                        <p className="mt-3 text-gray-300">
+                            Red Hackle provides reliable execution, consistent standards and clear communication, allowing you to focus on client relationships and wider service delivery with confidence.
+                        </p>
+                        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                            <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
+                                <Link href="/contact">Contact us today to discuss cleaning delivery requirements</Link>
                             </Button>
                         </div>
                     </div>
