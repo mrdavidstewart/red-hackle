@@ -75,8 +75,8 @@ describe("security utilities", () => {
   })
 
   it("sanitizes non-string input", () => {
-    expect(sanitizeInput(null as any)).toBe("")
-    expect(sanitizeInput(undefined as any)).toBe("")
+    expect(sanitizeInput(null as unknown as string)).toBe("")
+    expect(sanitizeInput(undefined as unknown as string)).toBe("")
   })
 
   it("truncates long strings", () => {
