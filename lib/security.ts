@@ -61,6 +61,13 @@ export function checkRateLimit(identifier: string, maxRequests = 10, windowMs = 
 }
 
 /**
+ * Clear rate limit store (for testing)
+ */
+export function clearRateLimit(): void {
+  rateLimitStore.clear()
+}
+
+/**
  * Generate secure random token
  */
 export function generateSecureToken(): string {

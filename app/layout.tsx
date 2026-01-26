@@ -1,17 +1,26 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import Script from "next/script"
+import { SiteHeader } from "@/components/site/header"
+import { SiteFooter } from "@/components/site/footer"
+import { businessInfo, baseUrl, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_ID
+const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID
+const gtagIds = [googleAnalyticsId, googleAdsId].filter(Boolean) as string[]
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.redhacklecleaningservices.com"),
-  title: "Red Hackle Cleaning Services | Domestic and Commercial Cleaning in Dundee, Tayside, Fife and Angus",
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: "Red Hackle Cleaning Services | Commercial & Contract Cleaning",
+    template: "%s | Red Hackle Cleaning Services",
+  },
   description:
-    "Professional domestic, commercial, end of tenancy, deep and one-off cleaning services across Dundee, Tayside, Fife and Angus. Reliable, fully insured local cleaners. Request your free quote today.",
+    `Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across ${eastCoastOfScotland}${includingAreaStatement}`,
   keywords:
-    "cleaning services, Dundee, Tayside, Fife, Angus, domestic cleaning, commercial cleaning, end of tenancy, deep cleaning, carpet cleaning",
+    "commercial cleaning east coast of scotland, managed contract cleaning, commercial cleaning services, contract cleaning, office cleaning, builders clean",
   authors: [{ name: "Red Hackle Cleaning Services" }],
   creator: "Red Hackle Cleaning Services",
   publisher: "Red Hackle Cleaning Services",
@@ -24,10 +33,10 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Red Hackle Cleaning Services | Domestic and Commercial Cleaning in Dundee, Tayside, Fife and Angus",
+    title: "Red Hackle Cleaning Services | Commercial & Contract Cleaning",
     description:
-      "Professional domestic, commercial, end of tenancy, deep and one-off cleaning services across Dundee, Tayside, Fife and Angus. Reliable, fully insured local cleaners. Request your free quote today.",
-    url: "https://www.redhacklecleaningservices.com/",
+      `Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across ${eastCoastOfScotland}${includingAreaStatement}`,
+    url: `${baseUrl}/`,
     siteName: "Red Hackle Cleaning Services",
     locale: "en_GB",
     type: "website",
@@ -35,9 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Red Hackle Cleaning Services | Domestic and Commercial Cleaning in Dundee, Tayside, Fife and Angus",
+    title: "Red Hackle Cleaning Services | Commercial & Contract Cleaning",
     description:
-      "Professional domestic, commercial, end of tenancy, deep and one-off cleaning services across Dundee, Tayside, Fife and Angus. Reliable, fully insured local cleaners. Request your free quote today.",
+      `Commercial-first cleaning partner for offices, property managers, hospitality venues, and construction handovers across ${eastCoastOfScotland}${includingAreaStatement}`,
     images: ["/images/team-photo.jpg"],
   },
   robots: {
@@ -51,10 +60,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "wNnr855I09kRLLMfWF5YbdhTgODBUYzqgnwPxq5JHF0",
-  },
-  generator: "v0.app",
+  verification: googleSiteVerification ? { google: googleSiteVerification } : undefined,
 }
 
 export default function RootLayout({
@@ -67,174 +73,68 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "LocalBusiness",
-        "@id": "https://www.redhacklecleaningservices.com/#business",
-        name: "Red Hackle Cleaning Services",
-        url: "https://www.redhacklecleaningservices.com/",
-        image: "https://www.redhacklecleaningservices.com/images/team-photo.jpg",
-        telephone: "+447966881555",
-        priceRange: "££",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "165 Brook Street",
-          addressLocality: "Dundee",
-          addressRegion: "Dundee City",
-          postalCode: "DD5 1DJ",
-          addressCountry: "GB",
-        },
-        areaServed: ["Dundee", "Tayside", "Fife", "Angus", "Broughty Ferry", "Carnoustie", "Newport-on-Tay"],
-        sameAs: [
-          "https://www.facebook.com/profile.php?id=61555545779742",
-          "https://instagram.com/redhacklegroup",
-          "https://g.co/kgs/geKtfwz",
-        ],
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "5.0",
-          reviewCount: "4",
-        },
-        review: [
+        "@id": `${baseUrl}/#business`,
+        name: businessInfo.name,
+        url: businessInfo.url,
+        image: businessInfo.image,
+        telephone: businessInfo.telephone,
+        email: businessInfo.email,
+        priceRange: businessInfo.priceRange,
+        address: businessInfo.address,
+        areaServed: businessInfo.areaServed,
+        serviceArea: `${eastCoastOfScotland}${includingAreaStatement}`,
+        sameAs: businessInfo.sameAs,
+      },
+      {
+        "@type": "Organization",
+        "@id": `${baseUrl}/#organization`,
+        name: businessInfo.name,
+        url: businessInfo.url,
+        logo: businessInfo.logo,
+        contactPoint: [
           {
-            "@type": "Review",
-            author: { "@type": "Person", name: "Margaret Douglas" },
-            reviewBody: "Happy with work carried out. Would recommend David and his team without hesitation.",
-            reviewRating: { "@type": "Rating", ratingValue: "5" },
-          },
-          {
-            "@type": "Review",
-            author: { "@type": "Person", name: "Tara Macandrew" },
-            reviewBody:
-              "Excellent friendly service from Arthur and his team. From first contact to job completion, I knew they wouldn't let me down.",
-            reviewRating: { "@type": "Rating", ratingValue: "5" },
-          },
-          {
-            "@type": "Review",
-            author: { "@type": "Person", name: "Moira Elizabeth" },
-            reviewBody:
-              "From start to finish had such a great level of service. Felt safe and comfortable so I could trust and not worry.",
-            reviewRating: { "@type": "Rating", ratingValue: "5" },
-          },
-          {
-            "@type": "Review",
-            author: { "@type": "Person", name: "Karen Cooper" },
-            reviewBody:
-              "Great help keeping on top of my home while recovering. Would recommend the team without hesitation.",
-            reviewRating: { "@type": "Rating", ratingValue: "5" },
+            "@type": "ContactPoint",
+            telephone: businessInfo.telephone,
+            email: businessInfo.email,
+            contactType: "sales",
+            areaServed: "GB",
+            availableLanguage: ["English"],
           },
         ],
       },
       ...[
         {
-          name: "Domestic Cleaning in Dundee and Surrounding Areas",
+          name: "Commercial & Contract Cleaning",
           description:
-            "Weekly, fortnightly or one-off home cleans for kitchens, bathrooms, dusting and floors with vetted local cleaners.",
-          areaServed: ["Dundee", "Tayside", "Fife", "Angus", "Broughty Ferry", "Carnoustie", "Newport-on-Tay"],
+            "Managed commercial cleaning for offices, multi-site property managers, and hospitality venues with SLAs, onboarding, and quality reporting.",
         },
         {
-          name: "Commercial and Office Cleaning Across Dundee, Tayside and Fife",
+          name: "Office & Workplace Cleaning",
           description:
-            "After-hours or daytime cleaning for offices, retail and hospitality venues with flexible schedules and alarm-code access.",
-          areaServed: ["Dundee", "Tayside", "Fife", "Angus", "Broughty Ferry", "Carnoustie", "Newport-on-Tay"],
+            "Daily or out-of-hours office cleaning with desk sanitisation, washrooms, waste handling, and kitchen refreshes.",
         },
         {
-          name: "End of Tenancy Cleaning in Dundee and Angus",
+          name: "End of Tenancy Cleaning",
           description:
-            "Inventory-ready move-out cleans including appliances, bathrooms, skirtings and high-traffic areas for landlords and tenants.",
-          areaServed: ["Dundee", "Tayside", "Fife", "Angus", "Broughty Ferry", "Carnoustie", "Newport-on-Tay"],
+            "Inventory-ready deep cleans for landlords and agents with appliance detailing and compliance-ready checklists.",
         },
         {
-          name: "Deep Cleaning and One-Off Cleans Across Tayside",
+          name: "Builders & Sparkle Cleaning",
           description:
-            "Intensive degreasing and limescale removal for kitchens, bathrooms and whole-home refreshes ahead of events or spring cleans.",
-          areaServed: ["Dundee", "Tayside", "Fife", "Angus", "Broughty Ferry", "Carnoustie", "Newport-on-Tay"],
+            "Post-construction cleaning to remove dust, residue, and snagging issues before handover.",
         },
         {
-          name: "Carpet Cleaning Services in Dundee and Fife",
+          name: "Deep & One-off Cleaning",
           description:
-            "Professional carpet and upholstery care with stain treatment and fast-drying methods safe for families and pets.",
-          areaServed: ["Dundee", "Tayside", "Fife", "Angus", "Broughty Ferry", "Carnoustie", "Newport-on-Tay"],
-        },
-        {
-          name: "After-Build Cleaning in Dundee, Fife and Angus",
-          description:
-            "Dust and debris removal after renovations, including wipe-downs, vacuuming and detailed finishes ready for handover.",
-          areaServed: ["Dundee", "Tayside", "Fife", "Angus", "Broughty Ferry", "Carnoustie", "Newport-on-Tay"],
+            "Intensive cleaning for seasonal resets, audits, or special events with detailed scope plans.",
         },
       ].map((service) => ({
         "@type": "Service",
         name: service.name,
         description: service.description,
-        areaServed: service.areaServed,
-        provider: { "@id": "https://www.redhacklecleaningservices.com/#business" },
+        areaServed: businessInfo.areaServed,
+        provider: { "@id": `${baseUrl}/#business` },
       })),
-      {
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "Do you bring your own cleaning equipment?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. We arrive with our own professional equipment. If you have scent-free or allergy considerations, tell us and we'll follow your preferences.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What areas do you cover?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "We cover Dundee, Tayside, Angus and Fife, including Broughty Ferry, Carnoustie, St Andrews, Perth and nearby towns within roughly 30 miles.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Do you offer one-off deep cleans?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Absolutely. One-off deep cleans are available for homes and workplaces, including kitchens, bathrooms, skirtings, tiles and high-traffic areas.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Are your cleaners insured?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. Our team is fully insured, vetted and supervised for your peace of mind.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Do you offer end of tenancy cleaning?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. We provide end of tenancy cleaning for tenants, landlords and agents to help properties pass inventory checks and handovers.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "Do you offer commercial cleaning services?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. We provide commercial cleaning for offices, hospitality venues, retail spaces and more with flexible schedules and alarm-code access.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "How quickly can you book a clean or quote?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "We aim to respond within hours and can often schedule quotes or urgent cleans within 24–48 hours where availability allows.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "How do you handle keys and access?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "We arrange secure key collection or access codes in advance and return keys as agreed. We confirm access details before each visit.",
-            },
-          },
-        ],
-      },
     ],
   }
 
@@ -246,21 +146,36 @@ export default function RootLayout({
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#dc2626" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+          httpEquiv="Permissions-Policy"
+          content='camera=(), microphone=(), geolocation=(), payment=(self "https://calendly.com" "https://*.calendly.com")'
         />
-              <meta
-        httpEquiv="Permissions-Policy"
-        content='camera=(), microphone=(), geolocation=(), payment=(self "https://calendly.com" "https://*.calendly.com")'
-      />
-      <meta name="google-site-verification" content="wNnr855I09kRLLMfWF5YbdhTgODBUYzqgnwPxq5JHF0" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className="font-sans">
+        <div className="min-h-screen bg-white text-gray-900">
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </div>
+        {gtagIds.length ? (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${gtagIds[0]}`} strategy="afterInteractive" />
+            <Script id="gtag-config" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                ${gtagIds.map((id) => `gtag('config', '${id}', { anonymize_ip: true });`).join("\n")}
+              `}
+            </Script>
+          </>
+        ) : null}
+      </body>
     </html>
   )
 }

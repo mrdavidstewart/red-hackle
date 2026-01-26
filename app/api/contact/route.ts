@@ -1,12 +1,13 @@
 import { type NextRequest, NextResponse } from "next/server"
+import { Resend } from "resend"
 import { sanitizeInput, isValidEmail, isValidPhone, checkRateLimit, secureHeaders } from "@/lib/security"
 
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting
-    const clientIP = request.headers.get("x-forwarded-for") || 
-                     request.headers.get("x-real-ip") || 
-                     "unknown"
+    const clientIP = request.headers.get("x-forwarded-for") ||
+      request.headers.get("x-real-ip") ||
+      "unknown"
     if (!checkRateLimit(clientIP, 5, 300000)) {
       return NextResponse.json(
         { error: "Too many requests" },
@@ -85,24 +86,56 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // In production, you would:
-    // 1. Save to secure database
-    // 2. Send email notification
-    // 3. Log the submission securely
+    const resendApiKey = process.env.RESEND_API_KEY
+    if (!resendApiKey) {
+      return NextResponse.json(
+        { error: "Email service not configured" },
+        {
+          status: 500,
+          headers: secureHeaders,
+        },
+      )
+    }
 
-    // Contact form submission would be logged to monitoring service in production
-    // Data: firstName, lastName, email, phone, message (truncated), timestamp, ip
+    const fromEmail = process.env.FROM_EMAIL || "Red Hackle <onboarding@resend.dev>"
+    const emailSubject = `New contact form enquiry from ${firstName} ${lastName}`
+    const emailText = [
+      `Name: ${firstName} ${lastName}`,
+      `Email: ${email}`,
+      `Phone: ${phone}`,
+      "",
+      "Message:",
+      message,
+    ].join("\n")
+
+    const resend = new Resend(resendApiKey)
+
+    const { data, error } = await resend.emails.send({
+      from: fromEmail,
+      to: "operations@redhacklegroup.com",
+      subject: emailSubject,
+      text: emailText,
+      replyTo: email,
+    })
+
+    if (error) {
+      return NextResponse.json(
+        { error: "Failed to send email" },
+        {
+          status: 500,
+          headers: secureHeaders,
+        },
+      )
+    }
 
     return NextResponse.json(
-      { success: true, message: "Message sent successfully" },
+      { success: true, data },
       {
         status: 200,
         headers: secureHeaders,
       },
     )
   } catch {
-    // Error would be logged to monitoring service in production
-
     return NextResponse.json(
       { error: "Internal server error" },
       {

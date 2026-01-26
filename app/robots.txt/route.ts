@@ -1,24 +1,18 @@
 import { NextResponse } from "next/server"
 
 export function GET() {
-  const robotsTxt = `
-User-agent: *
+  const robotsTxt = `User-agent: *
 Allow: /
-Disallow: /new-starter
-Disallow: /new-starter/
+Disallow: /api/
 
-# Specific bot instructions
 User-agent: Googlebot
-Disallow: /new-starter
-Disallow: /new-starter/
+Disallow: /api/
 
 User-agent: Bingbot
-Disallow: /new-starter
-Disallow: /new-starter/
+Disallow: /api/
 
 User-agent: Slurp
-Disallow: /new-starter
-Disallow: /new-starter/
+Disallow: /api/
 
 Sitemap: https://www.redhacklecleaningservices.com/sitemap.xml
 `
