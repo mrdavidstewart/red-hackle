@@ -96,21 +96,11 @@ export default function OutsourcingPage() {
                 <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
                     <Badge className="bg-white/10 text-white">Outsourcing</Badge>
                     <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Outsourced Cleaning Delivery</h1>
-                    <p className="mt-4 text-lg text-gray-300">A dependable contractor for service partners</p>
-                </div>
-            </section>
-
-            {/* Introduction Section */}
-            <section className="bg-white">
-                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-                    <div className="max-w-3xl space-y-6 text-gray-600">
-                        <p className="text-base leading-relaxed">
-                            At Red Hackle Cleaning Services, we specialise in commercial and contract cleaning services designed to support organisations that need reliable delivery and consistent standards.
-                        </p>
-                        <p className="text-base leading-relaxed">
-                            Whether you are managing multiple sites, working with facilities teams, or coordinating service delivery for property portfolios, we provide the operational strength and disciplined delivery you expect from a professional cleaning contractor. Our teams operate to clear scopes, quality assurance processes and straightforward communication that protects your standards and reputation.
-                        </p>
-                    </div>
+                    <p className="mt-4 text-lg text-gray-300">
+                        At Red Hackle Cleaning Services, we specialise in commercial and contract cleaning services designed to support organisations that need reliable delivery and consistent standards.
+                        <br /><br />
+                        Whether you are managing multiple sites, working with facilities teams, or coordinating service delivery for property portfolios, we provide the operational strength and disciplined delivery you expect from a professional cleaning contractor. Our teams operate to clear scopes, quality assurance processes and straightforward communication that protects your standards and reputation.
+                    </p>
                 </div>
             </section>
 

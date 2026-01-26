@@ -9,12 +9,7 @@ describe("Outsourcing page", () => {
         ).toBeInTheDocument()
     })
 
-    it("renders the subheading", () => {
-        render(<OutsourcingPage />)
-        expect(screen.getByText(/a dependable contractor for service partners/i)).toBeInTheDocument()
-    })
-
-    it("renders the introduction section", () => {
+    it("renders the introduction in hero section", () => {
         render(<OutsourcingPage />)
         expect(
             screen.getByText(/at red hackle cleaning services, we specialise in commercial and contract cleaning services/i),
