@@ -177,4 +177,5 @@ describe("fetchGoogleReviews", () => {
     expect(reviews[0].rating).toBe(1)
     expect(reviews[0].role).toBe("1 day ago")
     expect(reviews[1].role).toBe("Google review")
-  })})
+  })
+})
