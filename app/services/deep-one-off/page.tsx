@@ -14,37 +14,32 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Deep Cleaning Services",
+  title: "Deep & One-off Cleaning",
   description:
-    `Intensive deep and specialist cleaning services for commercial properties across ${eastCoastOfScotland}${includingAreaStatement} Book a tailored scope.`,
+    `Professional deep and one-off cleaning for businesses, property managers, and landlords across ${eastCoastOfScotland}${includingAreaStatement} Task-led resets, not time-led.`,
   path: "/services/deep-one-off",
 })
 
-const useCases = [
-  "Seasonal resets and hygiene audits",
-  "Post-event or hospitality changeovers",
-  "Executive visits and inspections",
-  "One-off deep cleans",
-  "Additional areas can be included within a tailored scope of works",
-]
-
-const idealFor = [
-  "Seasonal resets and hygiene audits",
-  "Post-event or hospitality changeovers",
-  "Executive visits and inspections",
-  "One-off deep cleans",
-]
-
 const faqItems = [
   {
-    question: "How is a deep clean scoped?",
+    question: "How is a deep clean different from regular cleaning?",
     answer:
-      "We complete a site survey and create a detailed scope of work that targets high-touch and high-risk areas.",
+      "A deep clean focuses on detail, build-up, and areas not covered during routine cleans.",
   },
   {
-    question: "Can deep cleans be scheduled outside business hours?",
+    question: "Is this suitable before starting a contract clean?",
     answer:
-      "Yes. We can schedule deep cleaning overnight or at weekends to avoid operational disruption.",
+      "Yes, many clients use a deep clean to set the standard before ongoing cleaning.",
+  },
+  {
+    question: "Do you work out of hours?",
+    answer:
+      "Yes, subject to availability.",
+  },
+  {
+    question: "Do you provide all equipment and products?",
+    answer:
+      "Yes, all equipment and professional-grade products are supplied.",
   },
 ]
 
@@ -70,7 +65,7 @@ export default function DeepOneOffPage() {
   const serviceSchema = buildServiceSchema({
     name: "Deep & One-off Cleaning",
     description:
-      `Intensive deep and specialist cleaning services for commercial properties across ${eastCoastOfScotland}${includingAreaStatement}`,
+      `Professional deep and one-off cleaning for businesses, property managers, and landlords across ${eastCoastOfScotland}${includingAreaStatement} Task-led resets, not time-led.`,
     slug: "/services/deep-one-off",
   })
   const breadcrumbSchema = buildBreadcrumbSchema([
@@ -99,15 +94,13 @@ export default function DeepOneOffPage() {
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-          <Badge className="bg-red-50 text-red-700">One-off / deep / specialist</Badge>
-          <h1 className="mt-4 text-4xl font-black sm:text-5xl">One-off / Deep / Specialist Cleaning</h1>
+          <Badge className="bg-red-50 text-red-700">Deep & one-off</Badge>
+          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Deep & One-off Cleaning</h1>
           <p className="mt-4 text-lg text-gray-300">
-            Planned commercial deep cleaning services for environments requiring an intensive reset or inspection
-            support across {eastCoastOfScotland}{includingAreaStatement}
+            Professional deep and one-off cleaning for businesses, property managers, and landlords across {eastCoastOfScotland}{includingAreaStatement}
             <br />
             <br />
-            These services are commonly used by established clients to support audits, inspections, executive visits,
-            and operational resets.
+            Task-led resets, not time-led. Set the benchmark before routine cleaning begins.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
@@ -123,31 +116,186 @@ export default function DeepOneOffPage() {
       <section className="bg-gray-50">
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
           <Card className="border border-gray-200">
-            <CardContent className="space-y-4 p-6">
-              <h2 className="text-2xl font-semibold text-gray-900">Ideal for</h2>
-              <ul className="space-y-2 text-gray-600">
-                {useCases.map((item) => (
-                  <li key={item}>• {item}</li>
-                ))}
+            <CardContent className="p-6">
+              <div className="grid gap-8 md:grid-cols-2">
+                <div>
+                  <h3 className="font-semibold text-gray-900">This service is ideal for:</h3>
+                  <ul className="mt-4 space-y-2 text-gray-600">
+                    <li>• Businesses preparing for reopening or inspections</li>
+                    <li>• Property managers and landlords</li>
+                    <li>• Offices needing a periodic reset</li>
+                    <li>• Sites following maintenance or refurbishment</li>
+                    <li>• Clients transitioning into a contract clean</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Not the right fit if:</h3>
+                  <ul className="mt-4 space-y-2 text-gray-600">
+                    <li>• You&apos;re looking for a light, routine clean</li>
+                    <li>• You want a fixed &quot;per hour&quot; tidy-up</li>
+                    <li>• The site is still in active use during cleaning</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <h2 className="text-2xl font-semibold text-gray-900">What&apos;s Included?</h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900">Standard Deep / One-Off Clean</h3>
+                <ul className="mt-4 space-y-2 text-gray-600">
+                  <li>• Detailed cleaning of all accessible surfaces</li>
+                  <li>• Kitchens deep cleaned (units, splashbacks, appliances exteriors)</li>
+                  <li>• Toilets and washrooms deep cleaned and sanitised</li>
+                  <li>• Internal windows, frames, and sills cleaned</li>
+                  <li>• Skirting boards, doors, frames, and touchpoints cleaned</li>
+                  <li>• Floors vacuumed and wet cleaned as appropriate</li>
+                  <li>• High and low-level dusting</li>
+                  <li>• Cobweb removal and presentation finish</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900">Optional Add-Ons</h3>
+                <ul className="mt-4 space-y-2 text-gray-600">
+                  <li>• Carpet and upholstery cleaning</li>
+                  <li>• Floor machine scrubs</li>
+                  <li>• Internal high-level glazing</li>
+                  <li>• Appliance internal cleans</li>
+                  <li>• Post-works clean-backs</li>
+                  <li>• Out-of-hours or weekend cleans</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200">
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold text-gray-900">Common scenarios we handle</h2>
+              <p className="mt-4 text-gray-600">We regularly support:</p>
+              <ul className="mt-4 space-y-2 text-gray-600">
+                <li>• Offices needing a periodic deep clean</li>
+                <li>• Properties following refurbishment or repairs</li>
+                <li>• End of tenancy clean-ups requiring additional detail</li>
+                <li>• New occupants moving into premises</li>
+                <li>• Sites transitioning to ongoing contract cleaning</li>
+                <li>• This service is often used to set the benchmark before routine cleaning begins.</li>
               </ul>
-              <h2 className="text-2xl font-semibold text-gray-900">Best suited to</h2>
-              <ul className="space-y-2 text-gray-600">
-                {idealFor.map((item) => (
-                  <li key={item}>• {item}</li>
-                ))}
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <h2 className="text-2xl font-semibold text-gray-900">How we deliver</h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">1</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Site Review &amp; Scope Agreement</h3>
+                    <p className="mt-2 text-sm text-gray-600">We assess:</p>
+                    <ul className="mt-2 space-y-1 text-sm text-gray-600">
+                      <li>• Size and condition of the space</li>
+                      <li>• Areas requiring additional attention</li>
+                      <li>• Flooring and surface types</li>
+                      <li>• Access and time constraints</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">2</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Structured Deep Clean</h3>
+                    <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                      <li>• Task-led cleaning, not time-led</li>
+                      <li>• Focus on overlooked and hygiene-critical areas</li>
+                      <li>• Add-ons agreed in advance to avoid surprises</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">3</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Quality Check</h3>
+                    <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                      <li>• Visual inspection before completion</li>
+                      <li>• Client walk-through if required</li>
+                      <li>• Clear communication on outcomes</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">4</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Reset &amp; Handover</h3>
+                    <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                      <li>• Space left clean, fresh, and ready for use</li>
+                      <li>• Recommendations provided for ongoing maintenance if needed</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200">
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold text-gray-900">What success looks like</h2>
+              <ul className="mt-4 space-y-2 text-gray-600">
+                <li>✔ A visibly cleaner, refreshed environment</li>
+                <li>✔ Removal of built-up dirt and grime</li>
+                <li>✔ Improved hygiene and presentation</li>
+                <li>✔ A strong foundation for future cleaning</li>
               </ul>
-              <p className="text-gray-600">
-                <strong>Why it works:</strong> Provides a focused reset where hygiene, presentation, or inspection readiness is critical.
-              </p>
-              <h2 className="text-2xl font-semibold text-gray-900">Operational planning</h2>
-              <p className="text-gray-600">
-                We schedule deep cleans around your trading hours, prioritise high-risk areas, and document outcomes
-                so facilities teams can report improvements confidently.
-              </p>
-              <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
-              <p className="text-gray-600">
-                Deep and specialist cleaning delivered across {eastCoastOfScotland}{includingAreaStatement}
-              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200 bg-gray-50">
+            <CardContent className="space-y-6 p-6 sm:p-8">
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-900">Case Study</h2>
+                <p className="mt-4 font-semibold text-gray-900">Commercial Workspace Reset – Brechin</p>
+                <p className="mt-3 text-gray-600">
+                  We were instructed to complete a one-off deep clean of a commercial workspace ahead of reopening. The clean included detailed attention to kitchens, washrooms, flooring, and touchpoints, restoring the space to a clean, professional standard.
+                </p>
+                <p className="mt-3 text-gray-600">
+                  <strong>The client used this clean as a baseline before moving into a regular contract cleaning arrangement.</strong>
+                </p>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -155,9 +303,36 @@ export default function DeepOneOffPage() {
 
       <FaqSection
         title="Deep cleaning FAQs"
-        description="Key questions from facilities and hospitality teams."
+        description="Key questions from facilities and property teams."
         items={faqItems}
       />
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200 bg-gray-50">
+            <CardContent className="space-y-6 p-6 sm:p-8">
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-900">Need a one-off or deep clean carried out properly, not rushed?</h2>
+                <p className="mt-4 text-gray-600"><strong>Tell us:</strong></p>
+                <ul className="mt-4 space-y-3 text-gray-600">
+                  <li>• Type of property or site</li>
+                  <li>• Areas of concern</li>
+                  <li>• Preferred timing</li>
+                  <li>• Any access or compliance requirements</li>
+                </ul>
+                <p className="mt-4 text-gray-600">
+                  We&apos;ll provide a clear scope and tailored quotation based on what the site actually needs.
+                </p>
+                <div className="mt-6">
+                  <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
+                    <Link href="/contact">Request a quote</Link>
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
       <RelatedServices
         title="Related deep cleaning services"
