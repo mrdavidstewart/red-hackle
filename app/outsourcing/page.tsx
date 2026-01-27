@@ -8,9 +8,9 @@ import { buildMetadata } from "@/lib/seo"
 import { buildBreadcrumbSchema } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-    title: "Outsourcing Support",
+    title: "Regional Cleaning Outsourcing | White-Label & Contractor Support",
     description:
-        "Reliable regional cleaning delivery for contractors, FM providers, and multi-site organisations across Scotland. Discreet service, consistent standards, your reputation protected.",
+        "White-label cleaning outsourcing: Discreet regional delivery for FM contractors, property managers & multi-site operators across Scotland. Your brand, our reliability, protected reputation.",
     path: "/outsourcing",
 })
 

@@ -15,9 +15,9 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Managed Contract Cleaning",
+  title: "Managed Contract Cleaning with SLAs & QA Reporting | Red Hackle",
   description:
-    `Managed contract cleaning with onboarding, SLAs, and quality reporting across ${eastCoastOfScotland}${includingAreaStatement} Speak to our team for a tailored proposal.`,
+    `Managed contract cleaning with onboarding, SLAs & quality reporting. Professional teams, supervision & compliance-ready reporting for offices & facilities across Scotland.`,
   path: "/commercial-cleaning",
 })
 

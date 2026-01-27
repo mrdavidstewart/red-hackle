@@ -6,9 +6,9 @@ import { buildMetadata } from "@/lib/seo"
 import { buildBreadcrumbSchema } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Privacy Policy",
+  title: "Privacy Policy | Red Hackle Cleaning Services",
   description:
-    `Privacy Policy for Red Hackle Cleaning Services. We explain how we collect, use, store and protect personal data in line with UK GDPR.`,
+    `Privacy Policy: Red Hackle explains how we collect, use & protect your personal data in line with UK GDPR. Your data, your rights, fully protected.`,
   path: "/privacy-policy",
 })
 

@@ -14,9 +14,9 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Deep & One-off Cleaning",
+  title: "Deep Cleaning Services in Dundee, Fife & Tayside | Professional",
   description:
-    `Professional deep and one-off cleaning for businesses, property managers, and landlords across ${eastCoastOfScotland}${includingAreaStatement} Task-led resets, not time-led.`,
+    `Deep cleaning services: Professional intensive cleans for audits, seasonal resets & specialist requirements. Available across Dundee, Fife & East Coast Scotland. Task-focused.`,
   path: "/services/deep-one-off",
 })
 

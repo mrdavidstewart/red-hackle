@@ -7,9 +7,9 @@ import { buildMetadata } from "@/lib/seo"
 import { buildBreadcrumbSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning Team",
+  title: "Meet Our Commercial Cleaning Team | Red Hackle Scotland",
   description:
-    `Meet the Red Hackle Cleaning Services team delivering disciplined commercial cleaning with clear reporting across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Meet the Red Hackle team: disciplined commercial cleaners with clear reporting & proven standards across East Coast Scotland. Local, accountable, reliable.`,
   path: "/about",
 })
 

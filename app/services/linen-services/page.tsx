@@ -12,9 +12,9 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Linen Services for Short-Stay Accommodation",
+  title: "Professional Linen Services & Laundering | Holiday Lets & Serviced Apartments",
   description:
-    "Reliable linen provision for serviced apartments, holiday lets, and multi-property portfolios. Guest-ready beds, consistent presentation, scalable support.",
+    "Professional linen services: Rental & laundering for holiday lets, serviced apartments & multi-property portfolios. Guest-ready beds, consistent standards & flexible terms.",
   path: "/services/linen-services",
 })
 

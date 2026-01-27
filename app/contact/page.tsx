@@ -7,9 +7,9 @@ import { buildMetadata } from "@/lib/seo"
 import { buildBreadcrumbSchema, eastCoastOfScotland, includingAreaStatement, officeAddress } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning Contact",
+  title: "Request a Commercial Cleaning Quote | Fast Response | Red Hackle",
   description:
-    `Request a commercial cleaning quote across ${eastCoastOfScotland}${includingAreaStatement} Fast response times, tailored proposals, and clear next steps.`,
+    `Request a commercial cleaning quote: 24-hour response guaranteed. Tailored proposals for offices, retail, construction & property management across East Coast Scotland.`,
   path: "/contact",
 })
 

@@ -14,9 +14,9 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Contract Cleaning Services",
+  title: "Managed Contract Cleaning in Dundee & Fife | SLA-Backed",
   description:
-    `Professional contract cleaning for office managers and commercial buildings across ${eastCoastOfScotland}${includingAreaStatement} Discreet, reliable, accountable.`,
+    `Managed contract cleaning with SLAs & QA reporting. Offices, facilities & commercial buildings in Dundee, Fife & Tayside. Discreet, reliable & fully accountable service.`,
   path: "/services/contract-cleaning",
 })
 

@@ -14,9 +14,9 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "End of Tenancy Cleaning",
+  title: "End of Tenancy Cleaning in Dundee, Fife & Tayside | Fast",
   description:
-    `Professional end of tenancy cleaning for landlords, agents, and property investors across ${eastCoastOfScotland}${includingAreaStatement} Fast turnarounds and inspection-ready standards.`,
+    `Fast end of tenancy cleaning: Inspection-ready standards for landlords, agents & property investors. Dundee, Fife & Tayside. Inventory checklists included. Quick turnaround.`,
   path: "/services/end-of-tenancy",
 })
 

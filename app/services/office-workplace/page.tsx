@@ -14,9 +14,9 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Office & Workplace Cleaning",
+  title: "Professional Office Cleaning in Dundee & Fife | 24/7 Available",
   description:
-    `Office and workplace cleaning for professional services and corporate environments across ${eastCoastOfScotland}${includingAreaStatement} Reliable, discreet, consistent.`,
+    `Professional office cleaning in Dundee, Fife & Tayside. Daily, out-of-hours & weekend availability. Discreet, consistent standards & reliable service for corporate teams.`,
   path: "/services/office-workplace",
 })
 

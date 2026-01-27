@@ -6,9 +6,9 @@ import { buildMetadata } from "@/lib/seo"
 import { buildBreadcrumbSchema } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Terms of Service",
+  title: "Terms of Service | Red Hackle Cleaning Services",
   description:
-    `Terms of Service for Red Hackle Cleaning Services. Read our service terms and conditions for cleaning services.`,
+    `Terms of Service: Red Hackle's service terms & conditions. Clear agreements, transparent pricing, professional standards. Read before engaging our services.`,
   path: "/terms-of-service",
 })
 

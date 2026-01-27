@@ -12,9 +12,9 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Managed Consumables & Hygiene Supply",
+  title: "Commercial Consumables Supply & Hygiene Management | Bundled or Standalone",
   description:
-    "Never run out of stock again. Managed consumables supply for offices, facilities, and shared commercial spaces. Standalone or bundled with cleaning.",
+    "Managed consumables supply: Never run out again. Toilet rolls, hand soap, paper towels & more. Standalone or bundled with cleaning. Flexible terms for offices & facilities.",
   path: "/consumables",
 })
 

@@ -12,9 +12,9 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-    title: "Accommodation Housekeeping",
+    title: "Professional Changeover Housekeeping | Holiday Lets & Serviced Apartments",
     description:
-        "Reliable changeover housekeeping for serviced apartments, holiday lets, and multi-property portfolios. Consistent teams, documented standards, guest-ready presentation.",
+        "Professional changeover housekeeping for holiday lets & serviced apartments. Fast turnarounds, consistent teams, documented standards & guest-ready presentation throughout.",
     path: "/services/accommodation-housekeeping",
 })
 

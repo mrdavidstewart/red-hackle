@@ -14,8 +14,8 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Builders & Sparkle Cleaning",
-  description: "Post-construction and sparkle cleaning for developers and contractors. Aligned to handover deadlines and site requirements.",
+  title: "Post-Construction Cleaning in Dundee & Fife | Handover Ready",
+  description: "Professional post-construction cleaning aligned to handover deadlines. Dust removal, snagging & final sparkle for developers & contractors in Dundee, Fife & beyond.",
   path: "/services/builders-sparkle",
 })
 
