@@ -329,7 +329,7 @@ export default function ContractCleaningPage() {
                 </p>
                 <div className="mt-6">
                   <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
-                    <Link href="/contact">Request a contract quote</Link>
+                    <Link href="/contact">Request a quote</Link>
                   </Button>
                 </div>
               </div>

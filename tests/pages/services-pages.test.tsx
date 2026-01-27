@@ -17,7 +17,7 @@ describe("services pages", () => {
 
   it("renders the office & workplace service page", () => {
     render(<OfficeWorkplacePage />)
-    expect(screen.getByRole("heading", { name: /office & workplace cleaning/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /office & workplace cleaning/i, level: 1 })).toBeInTheDocument()
   })
 
   it("renders the contract cleaning service page", () => {
