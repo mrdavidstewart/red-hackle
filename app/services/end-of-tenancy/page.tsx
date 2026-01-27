@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
-import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
 import {
   buildBreadcrumbSchema,
@@ -16,52 +15,30 @@ import {
 export const metadata = buildMetadata({
   title: "End of Tenancy Cleaning",
   description:
-    `Inventory-ready end of tenancy cleaning for landlords, agents, and property managers across ${eastCoastOfScotland}${includingAreaStatement}`,
+    `Professional end of tenancy cleaning for landlords, agents, and property investors across ${eastCoastOfScotland}${includingAreaStatement} Fast turnarounds and inspection-ready standards.`,
   path: "/services/end-of-tenancy",
 })
 
-const checklist = [
-  "Appliance interiors and exteriors cleaned",
-  "Bathrooms descaled and sanitised",
-  "Skirting boards, doors, frames, and touchpoints",
-  "Floors vacuumed, mopped, and edge-finished",
-  "Ready for inventory and handover",
-  "Scopes can align to individual agent check-out standards."
-]
-
-const idealFor = [
-  "Landlords and letting agents",
-  "Property managers and portfolio owners",
-]
-
 const faqItems = [
   {
-    question: "Do you work to letting agent checklists?",
+    question: "Does this guarantee a deposit return?",
     answer:
-      "Yes. We align to agent or landlord check-out standards to help achieve inventory-ready handovers.",
+      "We provide a thorough, professional clean, but deposit decisions sit with landlords and inventory clerks.",
   },
   {
-    question: "Can you support bulk property portfolios?",
+    question: "Do you work to inventory standards?",
     answer:
-      `We support multi-property schedules across ${eastCoastOfScotland}${includingAreaStatement} With coordinated booking and reporting.`,
-  },
-]
-
-const relatedServices = [
-  {
-    title: "Builders & Sparkle Cleaning",
-    description: "Post-construction cleans for handovers and snagging lists.",
-    href: "/services/builders-sparkle",
+      "Yes. Our cleans are designed to support inspection and inventory requirements.",
   },
   {
-    title: "Deep & One-off Cleaning",
-    description: "Intensive cleans for seasonal resets and audits.",
-    href: "/services/deep-one-off",
+    question: "Can you clean after maintenance or repairs?",
+    answer:
+      "Yes, we regularly complete clean-backs following works.",
   },
   {
-    title: "Commercial Cleaning",
-    description: "Managed commercial cleaning for property managers.",
-    href: "/commercial-cleaning",
+    question: "Do you provide same-day cleans?",
+    answer:
+      "Subject to availability, we can support urgent turnaround cleans.",
   },
 ]
 
@@ -69,7 +46,7 @@ export default function EndOfTenancyPage() {
   const serviceSchema = buildServiceSchema({
     name: "End of Tenancy Cleaning",
     description:
-      `Inventory-ready end of tenancy cleaning for landlords, agents, and property managers across ${eastCoastOfScotland}${includingAreaStatement}`,
+      `Professional end of tenancy cleaning for landlords, agents, and property investors across ${eastCoastOfScotland}${includingAreaStatement} Fast turnarounds and inspection-ready standards.`,
     slug: "/services/end-of-tenancy",
   })
   const breadcrumbSchema = buildBreadcrumbSchema([
@@ -101,12 +78,10 @@ export default function EndOfTenancyPage() {
           <Badge className="bg-red-50 text-red-700">End of tenancy</Badge>
           <h1 className="mt-4 text-4xl font-black sm:text-5xl">End of Tenancy Cleaning</h1>
           <p className="mt-4 text-lg text-gray-300">
-            Our end of tenancy cleaning services support landlords, letting agents, and property managers with
-            inventory-ready cleans delivered to documented checklists across {eastCoastOfScotland}{includingAreaStatement}
+            Professional end of tenancy cleaning for landlords, agents, and property investors across {eastCoastOfScotland}{includingAreaStatement}
             <br />
             <br />
-            With over a decade of operational experience, each clean is completed with presentation, hygiene, and
-            inspection requirements in mind.
+            Fast turnarounds, inspection-ready standards, fewer disputes.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
@@ -122,31 +97,185 @@ export default function EndOfTenancyPage() {
       <section className="bg-gray-50">
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
           <Card className="border border-gray-200">
-            <CardContent className="space-y-4 p-6">
-              <h2 className="text-2xl font-semibold text-gray-900">Typical scope</h2>
-              <ul className="space-y-2 text-gray-600">
-                {checklist.map((item) => (
-                  <li key={item}>• {item}</li>
-                ))}
+            <CardContent className="p-6">
+              <div className="grid gap-8 md:grid-cols-2">
+                <div>
+                  <h3 className="font-semibold text-gray-900">This service is ideal for:</h3>
+                  <ul className="mt-4 space-y-2 text-gray-600">
+                    <li>• Letting and property management agents</li>
+                    <li>• Private landlords</li>
+                    <li>• Build-to-rent operators</li>
+                    <li>• Developers preparing rental units</li>
+                    <li>• Property investors managing multiple properties</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Not the right fit if:</h3>
+                  <ul className="mt-4 space-y-2 text-gray-600">
+                    <li>• You&apos;re looking for a quick &quot;surface clean&quot;</li>
+                    <li>• You want the cheapest possible option</li>
+                    <li>• The property is still occupied or not ready for cleaning</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <h2 className="text-2xl font-semibold text-gray-900">What&apos;s Included?</h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900">Standard End of Tenancy Clean</h3>
+                <ul className="mt-4 space-y-2 text-gray-600">
+                  <li>• Full kitchen clean (units, worktops, splashbacks, appliances exteriors)</li>
+                  <li>• Bathrooms deep cleaned and sanitised</li>
+                  <li>• Internal windows, frames, and sills cleaned</li>
+                  <li>• Floors vacuumed and wet cleaned as appropriate</li>
+                  <li>• Skirting boards, doors, frames, and touchpoints cleaned</li>
+                  <li>• Cobwebs removed and high/low levels addressed</li>
+                  <li>• Internal glass and mirrors cleaned</li>
+                  <li>• Property left clean and presentable throughout</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900">Optional Add-Ons</h3>
+                <ul className="mt-4 space-y-2 text-gray-600">
+                  <li>• Oven deep cleaning</li>
+                  <li>• Fridge and freezer internal cleaning</li>
+                  <li>• Carpet cleaning</li>
+                  <li>• Upholstery cleaning</li>
+                  <li>• External/internal high-level glazing</li>
+                  <li>• Post-maintenance or post-repair clean-backs</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200">
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold text-gray-900">Common scenarios we handle</h2>
+              <p className="mt-4 text-gray-600">We regularly support:</p>
+              <ul className="mt-4 space-y-2 text-gray-600">
+                <li>• Changeovers between tenancies</li>
+                <li>• End of lease inspections and inventories</li>
+                <li>• Properties following maintenance or refurb works</li>
+                <li>• Short turnaround re-lets</li>
+                <li>• Portfolio cleans for landlords and agents</li>
+                <li>• Our cleans are scope-led, not rushed, helping reduce disputes and re-clean requests.</li>
               </ul>
-              <h2 className="text-2xl font-semibold text-gray-900">Ideal for</h2>
-              <ul className="space-y-2 text-gray-600">
-                {idealFor.map((item) => (
-                  <li key={item}>• {item}</li>
-                ))}
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <h2 className="text-2xl font-semibold text-gray-900">How we deliver</h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">1</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Property Review &amp; Scope Confirmation</h3>
+                    <p className="mt-2 text-sm text-gray-600">We assess:</p>
+                    <ul className="mt-2 space-y-1 text-sm text-gray-600">
+                      <li>• Property size and layout</li>
+                      <li>• Furnished vs unfurnished</li>
+                      <li>• Flooring types</li>
+                      <li>• Access arrangements and deadlines</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">2</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900\">Structured Cleaning</h3>
+                    <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                      <li>• Task-based cleaning across all rooms</li>
+                      <li>• Attention to inspection-critical areas</li>
+                      <li>• Optional add-ons agreed in advance</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">3</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Quality Check</h3>
+                    <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                      <li>• Visual inspection before completion</li>
+                      <li>• Issues flagged clearly</li>
+                      <li>• Return visits arranged if required</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">4</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Ready for Inspection</h3>
+                    <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                      <li>• Property left clean, fresh, and ready for inventory or viewings</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200">
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold text-gray-900">What success looks like</h2>
+              <ul className="mt-4 space-y-2 text-gray-600">
+                <li>✔ Properties returned to a high, consistent standard</li>
+                <li>✔ Fewer disputes or call-backs</li>
+                <li>✔ Faster turnaround between tenancies</li>
+                <li>✔ Confidence at inventory and inspection stage</li>
               </ul>
-              <p className="text-gray-600">
-                <strong>Why it works:</strong> Delivered to documented checklists to support inventory inspections and reduce call-backs.
-              </p>
-              <h2 className="text-2xl font-semibold text-gray-900">Handover process</h2>
-              <p className="text-gray-600">
-                We align cleaning to agent checklists, appliance specifications, and handover timelines so inventory
-                assessments are completed without delays.
-              </p>
-              <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
-              <p className="text-gray-600">
-                End of tenancy cleaning delivered across {eastCoastOfScotland}{includingAreaStatement}
-              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200 bg-gray-50">
+            <CardContent className="space-y-6 p-6 sm:p-8">
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-900">Case Study</h2>
+                <p className="mt-4 font-semibold text-gray-900">Managed Rental Property – Dundee</p>
+                <p className="mt-3 text-gray-600">
+                  We were instructed to complete an end of tenancy clean for a managed rental property ahead of inspection. Following a full property clean and agreed add-ons, the property was returned to a clean, presentable standard suitable for immediate re-letting.
+                </p>
+                <p className="mt-3 text-gray-600">
+                  <strong>The agent reported a smooth inspection process and no re-clean requests.</strong>
+                </p>
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -154,15 +283,36 @@ export default function EndOfTenancyPage() {
 
       <FaqSection
         title="End of tenancy FAQs"
-        description="Answers for landlords, agents, and portfolio managers."
+        description="Answers for landlords, agents, and property investors."
         items={faqItems}
       />
 
-      <RelatedServices
-        title="Related property services"
-        description="Combine tenancy cleans with post-build or deep cleaning support."
-        services={relatedServices}
-      />
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200 bg-gray-50">
+            <CardContent className="space-y-6 p-6 sm:p-8">
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-900">Need a reliable end of tenancy clean without the back-and-forth?</h2>
+                <p className="mt-4 text-gray-600"><strong>Tell us:</strong></p>
+                <ul className="mt-4 space-y-3 text-gray-600">
+                  <li>• Property size and layout</li>
+                  <li>• Furnished or unfurnished</li>
+                  <li>• Deadline for inspection</li>
+                  <li>• Any additional services required</li>
+                </ul>
+                <p className="mt-4 text-gray-600">
+                  We&apos;ll provide a clear scope and fixed quotation tailored to the property.
+                </p>
+                <div className="mt-6">
+                  <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
+                    <Link href="/contact">Request a quote</Link>
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
     </main>
   )
 }
