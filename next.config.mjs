@@ -40,13 +40,13 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://assets.calendly.com https://www.google.com https://maps.googleapis.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://assets.calendly.com https://www.google.com https://maps.googleapis.com https://challenges.cloudflare.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com https://r2cdn.perplexity.ai",
               "img-src 'self' data: https: blob:",
               "media-src 'self' https:",
-              "connect-src 'self' https://api.calendly.com https://maps.googleapis.com https://notifier-configs.airbrake.io https://browser-intake-datadoghq.com",
-              "frame-src 'self' https://calendly.com https://www.google.com",
+              "connect-src 'self' https://api.calendly.com https://maps.googleapis.com https://notifier-configs.airbrake.io https://browser-intake-datadoghq.com https://challenges.cloudflare.com",
+              "frame-src 'self' https://calendly.com https://www.google.com https://challenges.cloudflare.com",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
@@ -91,6 +91,7 @@ const nextConfig = {
   // Environment variables validation
   env: {
     CUSTOM_KEY: process.env.CUSTOM_KEY,
+    TURNSTILE_SITE_KEY: process.env.TURNSTILE_SITE_KEY,
   },
 
   // TypeScript configuration
