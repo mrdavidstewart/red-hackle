@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { FaqSection } from "@/components/site/faq-section"
+import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
 import {
   buildBreadcrumbSchema,
@@ -39,6 +40,24 @@ const faqItems = [
     question: "Do you provide same-day cleans?",
     answer:
       "Subject to availability, we can support urgent turnaround cleans.",
+  },
+]
+
+const relatedServices = [
+  {
+    title: "Builders & Sparkle Cleaning",
+    description: "Post-construction cleans for handovers and snagging lists.",
+    href: "/services/builders-sparkle",
+  },
+  {
+    title: "Deep & One-off Cleaning",
+    description: "Intensive cleans for seasonal resets and audits.",
+    href: "/services/deep-one-off",
+  },
+  {
+    title: "Contract Cleaning",
+    description: "Ongoing cleaning contracts with supervision, SLAs, and reporting.",
+    href: "/services/contract-cleaning",
   },
 ]
 
@@ -313,6 +332,12 @@ export default function EndOfTenancyPage() {
           </Card>
         </div>
       </section>
+
+      <RelatedServices
+        title="Related property services"
+        description="Combine tenancy cleans with post-build or deep cleaning support."
+        services={relatedServices}
+      />
     </main>
   )
 }
