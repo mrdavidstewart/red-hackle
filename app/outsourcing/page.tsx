@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { CoverageSection } from "@/components/site/coverage-section"
+import { FaqSectionCard } from "@/components/site/faq-section-card"
 import { buildMetadata } from "@/lib/seo"
 import { buildBreadcrumbSchema } from "@/lib/structured-data"
 
@@ -272,21 +273,7 @@ export default function OutsourcingPage() {
             </section>
 
             {/* FAQ Section */}
-            <section className="bg-gray-50">
-                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-                    <h2 className="mb-6 text-2xl font-semibold text-gray-900">Outsourcing FAQs</h2>
-                    <div className="space-y-4">
-                        {approachItems.map((item) => (
-                            <Card key={item.title} className="border border-gray-200">
-                                <CardContent className="space-y-2 p-6">
-                                    <h3 className="font-semibold text-gray-900">{item.title}</h3>
-                                    <p className="text-sm text-gray-600">{item.description}</p>
-                                </CardContent>
-                            </Card>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <FaqSectionCard items={approachItems.map((item) => ({ question: item.title, answer: item.description }))} title="Outsourcing FAQs" />
 
             {/* CTA Section */}
             <section className="bg-white">

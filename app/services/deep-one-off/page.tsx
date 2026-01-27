@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { FaqSection } from "@/components/site/faq-section"
+import { FaqSectionCard } from "@/components/site/faq-section-card"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
 import {
@@ -301,11 +301,7 @@ export default function DeepOneOffPage() {
         </div>
       </section>
 
-      <FaqSection
-        title="Deep cleaning FAQs"
-        description="Key questions from facilities and property teams."
-        items={faqItems}
-      />
+      <FaqSectionCard items={faqItems} title="Deep cleaning FAQs" />
 
       <section className="bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">

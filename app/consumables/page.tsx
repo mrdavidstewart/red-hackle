@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { FaqSectionCard } from "@/components/site/faq-section-card"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
 import {
@@ -294,21 +295,7 @@ export default function ConsumablesPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-gray-50">
-        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-          <h2 className="mb-6 text-2xl font-semibold text-gray-900">Consumables FAQs</h2>
-          <div className="space-y-4">
-            {faqItems.map((item) => (
-              <Card key={item.question} className="border border-gray-200">
-                <CardContent className="space-y-2 p-6">
-                  <h3 className="font-semibold text-gray-900">{item.question}</h3>
-                  <p className="text-sm text-gray-600">{item.answer}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FaqSectionCard items={faqItems} title="Consumables FAQs" />
 
       {/* CTA Section */}
       <section className="bg-white">
