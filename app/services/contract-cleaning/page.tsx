@@ -125,7 +125,7 @@ export default function ContractCleaningPage() {
                     <li>• Property managers and managing agents</li>
                     <li>• Multi-tenant commercial buildings</li>
                     <li>• Professional services firms</li>
-                    <li>• Industrial and operational workplaces</li>
+                    <li>• Operational workplaces</li>
                   </ul>
                 </div>
                 <div>
@@ -191,7 +191,7 @@ export default function ContractCleaningPage() {
                 <li>• Growing businesses needing flexible scope changes</li>
                 <li>• Sites with access control, alarms, or keyholding</li>
                 <li>• Locations requiring discretion and confidentiality</li>
-                <li>• We don&apos;t just clean — we manage the service properly.</li>
+                <li>• We don&apos;t just clean, we manage the service properly.</li>
               </ul>
             </CardContent>
           </Card>
