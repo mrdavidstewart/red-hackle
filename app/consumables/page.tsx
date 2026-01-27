@@ -2,77 +2,41 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { FaqSection } from "@/components/site/faq-section"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
   buildServiceSchema,
-  eastCoastOfScotland,
-  includingAreaStatement,
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning Supplies",
+  title: "Managed Consumables & Hygiene Supply",
   description:
-    `Commercial consumables and hygiene supply management to keep washrooms, cleaning stations, and shared areas stocked across ${eastCoastOfScotland}${includingAreaStatement}`,
+    "Never run out of stock again. Managed consumables supply for offices, facilities, and shared commercial spaces. Standalone or bundled with cleaning.",
   path: "/consumables",
 })
 
-const productRanges = [
-  {
-    title: "Washroom & hygiene essentials",
-    items: [
-      "Toilet tissue, jumbo rolls, and folded paper products",
-      "Paper hand towels and roll towel systems",
-      "Hand soaps, sanitisers, and dispenser refills",
-      "Feminine hygiene units and associated consumables",
-    ],
-  },
-  {
-    title: "Waste & environmental supplies",
-    items: [
-      "Bin liners and waste sacks (various grades and sizes)",
-      "Recycling liners and segregation solutions",
-      "Odour control and hygiene products for waste areas",
-    ],
-  },
-  {
-    title: "Cleaning & sanitising products",
-    items: [
-      "Surface cleaners and disinfectants",
-      "Washroom and descaling products",
-      "Kitchen and food-area safe cleaning solutions",
-      "Floor care products aligned to site finishes",
-    ],
-  },
-  {
-    title: "Dispensers & fixtures",
-    items: [
-      "Soap, towel, and sanitiser dispensers",
-      "Hygiene stations and refill systems",
-      "Replacement parts and consumable fittings",
-    ],
-  },
-]
-
-const deliveryOptions = [
-  "Integrated into your regular cleaning schedule",
-  "Supplied on an agreed replenishment cycle",
-  "Scoped per site to support budget control and stock visibility",
-]
-
 const faqItems = [
   {
-    question: "Can consumables be bundled with our cleaning contract?",
+    question: "Can consumables be included in our cleaning contract?",
     answer:
-      "Yes. Consumables can be integrated into your contract cleaning scope so stock levels and refills are handled alongside routine cleaning visits.",
+      "Yes, many clients choose a bundled solution for simplicity.",
   },
   {
-    question: "Do you supply eco-friendly options?",
+    question: "Can we keep our existing products?",
     answer:
-      "We can propose sustainable paper, soaps, and cleaning products where required, aligned to site standards and procurement policies.",
+      "In most cases, yes. We'll advise if alternatives offer better value or performance.",
+  },
+  {
+    question: "Are eco-friendly options available?",
+    answer:
+      "Yes, sustainability-led ranges can be supplied where required.",
+  },
+  {
+    question: "How is usage tracked?",
+    answer:
+      "Usage is reviewed informally through replenishment patterns and adjusted as needed.",
   },
 ]
 
@@ -101,9 +65,9 @@ export default function ConsumablesPage() {
   ])
   const faqSchema = buildFaqSchema(faqItems)
   const serviceSchema = buildServiceSchema({
-    name: "Consumables & Hygiene Supplies",
+    name: "Managed Consumables & Hygiene Supply",
     description:
-      `Commercial consumables and hygiene supply management to keep washrooms, cleaning stations, and shared areas stocked across ${eastCoastOfScotland}${includingAreaStatement}`,
+      "Never run out of stock again. Managed consumables supply for offices, facilities, and shared commercial spaces. Standalone or bundled with cleaning.",
     slug: "/consumables",
   })
 
@@ -121,114 +85,258 @@ export default function ConsumablesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
+      {/* Hero Section */}
       <section className="relative overflow-hidden bg-gray-950 text-white">
         <div className="absolute inset-0">
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-white/10 text-white">Consumables</Badge>
-          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Consumables &amp; Hygiene Supplies</h1>
+          <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Managed Consumables &amp; Hygiene Supply</h1>
           <p className="mt-4 text-lg text-gray-300">
-            Integrated consumables management for commercial environments across {eastCoastOfScotland}{includingAreaStatement}
+            Never run out of stock again. Managed consumables for offices, facilities, and shared commercial spaces.
+            <br /><br />
+            Standalone or bundled with your cleaning contract.
           </p>
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-          <div className="max-w-3xl space-y-6 text-gray-600">
-            <p>
-              To support consistent standards and reduce operational overhead, Red Hackle can supply a full range of
-              washroom, hygiene, and cleaning consumables as part of your commercial cleaning service or as a standalone
-              supply arrangement.
-            </p>
-            <p>
-              Our consumables offering is designed to complement your cleaning programme ensuring key areas remain
-              stocked, compliant, and presentation-ready without the need for separate suppliers or reactive ordering.
-            </p>
-            <p>
-              We work with site teams to agree product ranges, usage levels, and replenishment schedules that suit your
-              environment, footfall, and compliance requirements.
-            </p>
-          </div>
-        </div>
-      </section>
-
+      {/* Who This Service Is For Section */}
       <section className="bg-gray-50">
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-3xl font-black text-gray-900">Product range</h2>
-              <p className="mt-3 text-gray-600">Our commercial consumables and hygiene supplies typically include:</p>
-            </div>
-            <div className="grid gap-6 md:grid-cols-2">
-              {productRanges.map((range) => (
-                <Card key={range.title} className="border border-gray-200">
-                  <CardContent className="space-y-4 p-6">
-                    <h3 className="text-lg font-semibold text-gray-900">{range.title}</h3>
-                    <ul className="space-y-2 text-sm text-gray-600">
-                      {range.items.map((item) => (
-                        <li key={item}>• {item}</li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <p className="max-w-3xl text-gray-600">
-              Product selection can be aligned to existing site standards or adjusted as part of a wider cleaning
-              review.
-            </p>
-          </div>
+          <Card className="border border-gray-200">
+            <CardContent className="p-6">
+              <div className="grid gap-8 md:grid-cols-2">
+                <div>
+                  <h3 className="font-semibold text-gray-900">This service is ideal for:</h3>
+                  <ul className="mt-4 space-y-2 text-gray-600">
+                    <li>• Offices and shared commercial buildings</li>
+                    <li>• Facilities and operations managers</li>
+                    <li>• Property managers and managing agents</li>
+                    <li>• Sites with multiple washrooms or kitchens</li>
+                    <li>• Businesses looking to simplify supplier management</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Not the right fit if:</h3>
+                  <ul className="mt-4 space-y-2 text-gray-600">
+                    <li>• You only need a one-off product purchase</li>
+                    <li>• You want to self-manage stock ordering</li>
+                    <li>• Your site has minimal or infrequent usage</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
+      {/* What We Supply Section */}
       <section className="bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-          <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div>
-              <h2 className="text-3xl font-black text-gray-900">Designed for control, consistency, and visibility</h2>
-              <p className="mt-3 text-gray-600">Consumables can be:</p>
+          <h2 className="text-2xl font-semibold text-gray-900">What We Supply</h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900">Standard Consumables</h3>
+                <ul className="mt-4 space-y-2 text-gray-600">
+                  <li>• Toilet rolls and paper hand towels</li>
+                  <li>• Hand soap and sanitiser</li>
+                  <li>• Bin liners and waste bags</li>
+                  <li>• Dishwasher and kitchen hygiene products</li>
+                  <li>• Surface cleaners and disinfectants</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900">Optional / Site-Specific Items</h3>
+                <ul className="mt-4 space-y-2 text-gray-600">
+                  <li>• Air fresheners and odour control</li>
+                  <li>• Specialist hygiene products</li>
+                  <li>• Eco-friendly or sustainability-led ranges</li>
+                  <li>• Dispensers and refills</li>
+                  <li>• Seasonal or high-usage items</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+          <p className="mt-6 text-gray-600">Consumables can be supplied standalone or bundled into a cleaning contract.</p>
+        </div>
+      </section>
+
+      {/* Common Scenarios Section */}
+      <section className="bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200">
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold text-gray-900">Common scenarios we support</h2>
+              <p className="mt-4 text-gray-600">We regularly support:</p>
               <ul className="mt-4 space-y-2 text-gray-600">
-                {deliveryOptions.map((option) => (
-                  <li key={option}>• {option}</li>
-                ))}
+                <li>• Offices tired of running out of stock</li>
+                <li>• Multi-tenant buildings with shared facilities</li>
+                <li>• Businesses with unpredictable footfall</li>
+                <li>• Sites wanting to reduce supplier admin</li>
+                <li>• Clients looking for consistent, approved products across sites</li>
               </ul>
-            </div>
-            <Card className="border border-gray-200 bg-gray-50">
-              <CardContent className="space-y-3 p-6 text-gray-600">
-                <p>
-                  This approach helps reduce shortages, ad-hoc purchasing, and inconsistent presentation across sites
-                  particularly valuable for multi-site operations.
-                </p>
+              <p className="mt-4 text-gray-600">Our focus is availability, consistency, and control, not selling you products you don&apos;t need.</p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* How We Manage Section */}
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <h2 className="text-2xl font-semibold text-gray-900">How we manage consumables</h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">1</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Site Review &amp; Usage Assessment</h3>
+                    <p className="mt-2 text-sm text-gray-600">We assess:</p>
+                    <ul className="mt-2 space-y-1 text-sm text-gray-600">
+                      <li>• Number of washrooms and kitchens</li>
+                      <li>• Staff numbers and footfall</li>
+                      <li>• Current usage patterns</li>
+                      <li>• Storage and access</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">2</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Product Selection &amp; Setup</h3>
+                    <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                      <li>• Suitable products agreed for your site</li>
+                      <li>• Dispensers reviewed or supplied if required</li>
+                      <li>• Stock levels aligned to real usage</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">3</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Ongoing Replenishment</h3>
+                    <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                      <li>• Stock checked during cleans (where bundled)</li>
+                      <li>• Top-ups completed before shortages occur</li>
+                      <li>• Clear visibility of what&apos;s being used</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">4</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Review &amp; Optimisation</h3>
+                    <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                      <li>• Adjustments made as usage changes</li>
+                      <li>• Waste and over-ordering reduced</li>
+                      <li>• Costs kept predictable and transparent</li>
+                    </ul>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
+      {/* What Success Looks Like Section */}
+      <section className="bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200">
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold text-gray-900">What success looks like</h2>
+              <ul className="mt-4 space-y-2 text-gray-600">
+                <li>✔ No more empty dispensers or last-minute orders</li>
+                <li>✔ Consistent products across the site</li>
+                <li>✔ Reduced admin and supplier management</li>
+                <li>✔ Clear, predictable consumables spend</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Case Study Section */}
       <section className="bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-          <div className="rounded-3xl border border-gray-200 bg-gray-900 px-6 py-10 text-white sm:px-10">
-            <h2 className="text-3xl font-black">Speak to us about consumables supply</h2>
-            <p className="mt-3 text-gray-300">
-              We&apos;re happy to review your current setup and advise how consumables can be integrated into your
-              cleaning programme.
-            </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
-                <Link href="/contact">Contact us</Link>
-              </Button>
-            </div>
+          <Card className="border border-gray-200 bg-gray-50">
+            <CardContent className="space-y-6 p-6 sm:p-8">
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-900">Case Study</h2>
+                <p className="mt-4 font-semibold text-gray-900">Commercial Office &amp; Shared Facilities – St Andrews</p>
+                <p className="mt-3 text-gray-600">
+                  We introduced a managed consumables solution alongside contract cleaning for a commercial office with shared washroom facilities. Following a usage review, we standardised products and implemented regular stock checks during cleaning visits.
+                </p>
+                <p className="mt-3 text-gray-600">
+                  <strong>The result: fewer stock issues, reduced ordering time for the client, and improved consistency across the building.</strong>
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <h2 className="mb-6 text-2xl font-semibold text-gray-900">Consumables FAQs</h2>
+          <div className="space-y-4">
+            {faqItems.map((item) => (
+              <Card key={item.question} className="border border-gray-200">
+                <CardContent className="space-y-2 p-6">
+                  <h3 className="font-semibold text-gray-900">{item.question}</h3>
+                  <p className="text-sm text-gray-600">{item.answer}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      <FaqSection
-        title="Consumables supply FAQs"
-        description={`Answers for facilities teams planning consumables and hygiene stock across ${eastCoastOfScotland}${includingAreaStatement}`}
-        items={faqItems}
-      />
+      {/* CTA Section */}
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200 bg-gray-50">
+            <CardContent className="space-y-6 p-6 sm:p-8">
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-900">Want to take the hassle out of managing cleaning and hygiene consumables?</h2>
+                <p className="mt-4 text-gray-600"><strong>Tell us:</strong></p>
+                <ul className="mt-4 space-y-3 text-gray-600">
+                  <li>• Type of site</li>
+                  <li>• Number of washrooms and kitchens</li>
+                  <li>• Approximate staff or footfall</li>
+                  <li>• Whether you want standalone supply or a bundled service</li>
+                </ul>
+                <p className="mt-4 text-gray-600">
+                  We&apos;ll recommend a simple, cost-effective setup tailored to your site.
+                </p>
+                <div className="mt-6">
+                  <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
+                    <Link href="/contact">Request a Consumables Quote</Link>
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
       <RelatedServices
         title="Related cleaning services"

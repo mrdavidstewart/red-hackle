@@ -25,16 +25,16 @@ describe("static pages", () => {
     render(<ConsumablesPage />)
 
     expect(
-      screen.getByRole("heading", { level: 1, name: /consumables & hygiene supplies/i }),
-    ).toBeInTheDocument()
-    expect(screen.getByRole("heading", { level: 2, name: /product range/i })).toBeInTheDocument()
-    expect(
-      screen.getByRole("heading", { level: 2, name: /speak to us about consumables supply/i }),
+      screen.getByRole("heading", { level: 1, name: /managed consumables & hygiene supply/i }),
     ).toBeInTheDocument()
     expect(
-      screen.getByText(
-        /we're happy to review your current setup and advise how consumables can be integrated into your cleaning programme\./i,
-      ),
+      screen.getByRole("heading", { name: /what we supply/i }),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole("heading", { name: /common scenarios we support/i }),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole("heading", { name: /how we manage consumables/i }),
     ).toBeInTheDocument()
   })
 
