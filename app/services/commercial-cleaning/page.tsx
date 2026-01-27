@@ -14,9 +14,9 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Retail & Public-Facing Commercial Cleaning",
+  title: "Retail Cleaning Services in Dundee, Fife & Tayside | 24hr",
   description:
-    `Retail and public-facing commercial cleaning for shops, showrooms, and shared spaces across ${eastCoastOfScotland}${includingAreaStatement} Speak to our team for a tailored scope.`,
+    `Professional retail cleaning for shops, showrooms & customer-facing areas. Early-morning, evening & overnight schedules across Dundee, Fife & Tayside. Get a quote today.`,
   path: "/services/commercial-cleaning",
 })
 

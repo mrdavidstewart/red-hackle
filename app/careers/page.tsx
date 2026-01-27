@@ -3,9 +3,9 @@ import { buildMetadata } from "@/lib/seo"
 import { buildBreadcrumbSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning Careers",
+  title: "Commercial Cleaning Jobs in Scotland | Join Red Hackle",
   description:
-    `Commercial cleaning careers across ${eastCoastOfScotland}${includingAreaStatement} Join a structured, accountable team with clear standards.`,
+    `Careers in commercial cleaning: Join a structured team with clear standards & professional development. Positions across East Coast Scotland. Apply to Red Hackle now.`,
   path: "/careers",
 })
 

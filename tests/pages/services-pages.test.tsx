@@ -17,7 +17,7 @@ describe("services pages", () => {
 
   it("renders the office & workplace service page", () => {
     render(<OfficeWorkplacePage />)
-    expect(screen.getByRole("heading", { name: /office & workplace cleaning/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /office & workplace cleaning/i, level: 1 })).toBeInTheDocument()
   })
 
   it("renders the contract cleaning service page", () => {
@@ -37,7 +37,7 @@ describe("services pages", () => {
 
   it("renders the deep & one-off service page", () => {
     render(<DeepOneOffPage />)
-    expect(screen.getByRole("heading", { name: /one-off \/ deep \/ specialist cleaning/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /deep & one-off cleaning/i, level: 1 })).toBeInTheDocument()
   })
 
   it("renders the commercial cleaning service page", () => {
@@ -47,11 +47,15 @@ describe("services pages", () => {
 
   it("renders the accommodation housekeeping service page", () => {
     render(<AccommodationHousekeepingPage />)
-    expect(screen.getByRole("heading", { name: /short-stay & serviced accommodation housekeeping/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { level: 1, name: /accommodation housekeeping/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /what's included/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /how we deliver/i })).toBeInTheDocument()
   })
 
   it("renders the linen services page", () => {
     render(<LinenServicesPage />)
-    expect(screen.getByRole("heading", { name: /linen laundering & linen rental/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { level: 1, name: /linen services for short-stay accommodation/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /what's included/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /how we deliver/i })).toBeInTheDocument()
   })
 })

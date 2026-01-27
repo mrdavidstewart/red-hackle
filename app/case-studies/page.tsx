@@ -3,12 +3,12 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
-import { buildBreadcrumbSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { buildBreadcrumbSchema } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning Results",
+  title: "Commercial Cleaning Case Studies | Real Results | Red Hackle",
   description:
-    `Commercial cleaning case studies across ${eastCoastOfScotland}${includingAreaStatement} Highlighting measurable outcomes for offices, property managers, and construction handovers.`,
+    `Commercial cleaning case studies: Real results from offices, property managers & construction projects. See measurable outcomes, ROI & successful projects across Scotland.`,
   path: "/case-studies",
 })
 
