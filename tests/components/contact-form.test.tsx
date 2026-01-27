@@ -3,13 +3,86 @@ import userEvent from "@testing-library/user-event"
 import { ContactForm } from "@/components/site/contact-form"
 import { vi } from "vitest"
 
+// Mock Next.js Script component to trigger onLoad immediately
+vi.mock("next/script", () => ({
+  default: ({ onLoad, src }: { onLoad?: () => void; src?: string }) => {
+    if (onLoad && src?.includes("turnstile")) {
+      // Simulate script loading asynchronously
+      setTimeout(() => onLoad(), 10)
+    }
+    return null
+  },
+}))
+
+// Mock process.env for the ContactForm component
+vi.stubEnv("TURNSTILE_SITE_KEY", "test-site-key")
+
+interface MockTurnstile {
+  render: ReturnType<typeof vi.fn>
+  execute: ReturnType<typeof vi.fn>
+  reset: ReturnType<typeof vi.fn>
+  _callback: ((token: string) => void) | null
+  _errorCallback: (() => void) | null
+}
+
+interface WindowWithTurnstile extends Window {
+  turnstile?: MockTurnstile
+}
+
 describe("ContactForm", () => {
+  let mockTurnstile: MockTurnstile
+
   beforeEach(() => {
     vi.resetAllMocks()
+    
+    // Mock Turnstile widget with proper async behavior
+    mockTurnstile = {
+      render: vi.fn((element: HTMLElement, options: {
+        sitekey: string
+        size?: string
+        callback?: (token: string) => void
+        "error-callback"?: () => void
+        "expired-callback"?: () => void
+      }) => {
+        // Store the callback for later use
+        mockTurnstile._callback = options.callback || null
+        mockTurnstile._errorCallback = options["error-callback"] || null
+        // Immediately call the callback to simulate successful render
+        setTimeout(() => {
+          if (mockTurnstile._callback) {
+            mockTurnstile._callback("initial-token")
+          }
+        }, 0)
+        return "widget-id"
+      }),
+      execute: vi.fn(() => {
+        // When execute is called, provide a new token
+        setTimeout(() => {
+          if (mockTurnstile._callback) {
+            mockTurnstile._callback("test-turnstile-token")
+          }
+        }, 0)
+      }),
+      reset: vi.fn(() => {
+        // Reset clears the token
+        if (mockTurnstile._callback) {
+          setTimeout(() => {
+            if (mockTurnstile._callback) {
+              mockTurnstile._callback("reset-token")
+            }
+          }, 0)
+        }
+      }),
+      _callback: null,
+      _errorCallback: null,
+    }
+    
+    ;(window as WindowWithTurnstile).turnstile = mockTurnstile
   })
 
   afterEach(() => {
     vi.unstubAllGlobals()
+    delete (window as WindowWithTurnstile).turnstile
   })
 
   it("validates email and phone formats", async () => {

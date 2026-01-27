@@ -90,7 +90,6 @@ export async function POST(request: NextRequest) {
     // Verify Turnstile token before sending any email.
     const turnstileSecret = process.env.TURNSTILE_SECRET_KEY
     if (!turnstileSecret) {
-      console.error("TURNSTILE_SECRET_KEY is not configured")
       return NextResponse.json(
         { error: "Captcha verification unavailable" },
         {
@@ -124,7 +123,6 @@ export async function POST(request: NextRequest) {
       })
 
       if (!verificationResponse.ok) {
-        console.warn("Turnstile verification failed", { status: verificationResponse.status })
         return NextResponse.json(
           { error: "Captcha verification failed" },
           {
@@ -140,7 +138,6 @@ export async function POST(request: NextRequest) {
       }
 
       if (!verificationData.success) {
-        console.warn("Turnstile verification rejected", verificationData)
         return NextResponse.json(
           { error: "Captcha verification failed" },
           {
@@ -149,8 +146,7 @@ export async function POST(request: NextRequest) {
           },
         )
       }
-    } catch (error) {
-      console.error("Turnstile verification error", error)
+    } catch {
       return NextResponse.json(
         { error: "Captcha verification failed" },
         {

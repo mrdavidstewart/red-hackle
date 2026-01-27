@@ -18,7 +18,7 @@ interface TurnstileWindow extends Window {
       element: HTMLElement,
       options: {
         sitekey: string
-        size?: "invisible" | "normal" | "compact"
+        size?: "normal" | "compact" | "flexible"
         callback?: (token: string) => void
         "error-callback"?: () => void
         "expired-callback"?: () => void
@@ -47,10 +47,6 @@ export function ContactForm() {
   const turnstileTokenRef = useRef("")
   const turnstileWidgetRef = useRef<string | null>(null)
   const turnstileContainerRef = useRef<HTMLDivElement | null>(null)
-  const turnstilePromiseRef = useRef<{
-    resolve: (token: string) => void
-    reject: (error: Error) => void
-  } | null>(null)
   const turnstileSiteKey = process.env.TURNSTILE_SITE_KEY || ""
 
   useEffect(() => {
@@ -58,25 +54,17 @@ export function ContactForm() {
     const turnstile = (window as TurnstileWindow).turnstile
     if (!turnstile || turnstileWidgetRef.current) return
 
-    // Render the invisible Turnstile widget and capture tokens for form submission.
+    // Render the Turnstile widget and capture tokens for form submission.
     turnstileWidgetRef.current = turnstile.render(turnstileContainerRef.current, {
       sitekey: turnstileSiteKey,
-      size: "invisible",
+      size: "compact",
       callback: (token) => {
         setTurnstileToken(token)
         turnstileTokenRef.current = token
-        if (turnstilePromiseRef.current) {
-          turnstilePromiseRef.current.resolve(token)
-          turnstilePromiseRef.current = null
-        }
       },
       "error-callback": () => {
         setTurnstileToken("")
         turnstileTokenRef.current = ""
-        if (turnstilePromiseRef.current) {
-          turnstilePromiseRef.current.reject(new Error("Captcha verification failed."))
-          turnstilePromiseRef.current = null
-        }
       },
       "expired-callback": () => {
         setTurnstileToken("")
@@ -84,19 +72,6 @@ export function ContactForm() {
       },
     })
   }, [turnstileReady, turnstileSiteKey])
-
-  const ensureTurnstileToken = async () => {
-    if (turnstileTokenRef.current) return turnstileTokenRef.current
-    const turnstile = (window as TurnstileWindow).turnstile
-    if (!turnstile || !turnstileWidgetRef.current) {
-      throw new Error("Captcha is not ready. Please try again.")
-    }
-
-    return await new Promise<string>((resolve, reject) => {
-      turnstilePromiseRef.current = { resolve, reject }
-      turnstile.execute(turnstileWidgetRef.current!)
-    })
-  }
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target
@@ -147,22 +122,25 @@ export function ContactForm() {
       return
     }
 
-    setFormStatus("submitting")
-
     if (!turnstileSiteKey) {
       setFormStatus("error")
       setFormError("Captcha is not configured. Please try again later.")
       return
     }
 
+    if (!turnstileToken) {
+      setFormStatus("error")
+      setFormError("Please complete the captcha verification.")
+      return
+    }
+
+    setFormStatus("submitting")
+
     const payload = new FormData(event.currentTarget)
     payload.set("timestamp", Date.now().toString())
+    payload.set("turnstileToken", turnstileToken)
 
     try {
-      // Ensure the Turnstile challenge is solved before sending the form data.
-      const token = await ensureTurnstileToken()
-      payload.set("turnstileToken", token)
-
       const response = await fetch("/api/contact", {
         method: "POST",
         body: payload,
@@ -325,7 +303,7 @@ export function ContactForm() {
       </div>
 
       <input type="text" name="website" tabIndex={-1} aria-hidden="true" className="hidden" />
-      <div ref={turnstileContainerRef} aria-hidden="true" className="hidden" />
+      <div ref={turnstileContainerRef} className="flex justify-center my-4" />
       <input type="hidden" name="turnstileToken" value={turnstileToken} />
 
       <Button type="submit" className="w-full bg-destructive text-white hover:bg-destructive/90" disabled={formStatus === "submitting"}>
