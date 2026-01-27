@@ -121,19 +121,19 @@ export default function ContractCleaningPage() {
                 <div>
                   <h3 className="font-semibold text-gray-900">This service is ideal for:</h3>
                   <ul className="mt-4 space-y-2 text-gray-600">
-                    <li>\u2022 Office managers and facilities teams</li>
-                    <li>\u2022 Property managers and managing agents</li>
-                    <li>\u2022 Multi-tenant commercial buildings</li>
-                    <li>\u2022 Professional services firms</li>
-                    <li>\u2022 Industrial and operational workplaces</li>
+                    <li>• Office managers and facilities teams</li>
+                    <li>• Property managers and managing agents</li>
+                    <li>• Multi-tenant commercial buildings</li>
+                    <li>• Professional services firms</li>
+                    <li>• Industrial and operational workplaces</li>
                   </ul>
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900">Not the right fit if:</h3>
                   <ul className="mt-4 space-y-2 text-gray-600">
-                    <li>\u2022 You only need a one-off clean</li>
-                    <li>\u2022 You&apos;re looking for the cheapest hourly rate</li>
-                    <li>\u2022 You don&apos;t want defined scopes or accountability</li>
+                    <li>• You only need a one-off clean</li>
+                    <li>• You&apos;re looking for the cheapest hourly rate</li>
+                    <li>• You don&apos;t want defined scopes or accountability</li>
                   </ul>
                 </div>
               </div>
@@ -150,14 +150,14 @@ export default function ContractCleaningPage() {
               <CardContent className="p-6">
                 <h3 className="font-semibold text-gray-900">Standard Contract Cleaning</h3>
                 <ul className="mt-4 space-y-2 text-gray-600">
-                  <li>\u2022 Daily or scheduled cleaning of workspaces</li>
-                  <li>\u2022 Kitchens and break areas cleaned and sanitised</li>
-                  <li>\u2022 Toilets and washrooms cleaned and replenished*</li>
-                  <li>\u2022 Floors vacuumed and wet cleaned as appropriate</li>
-                  <li>\u2022 Touchpoints sanitised (handles, switches, desks)</li>
-                  <li>\u2022 Bins emptied and waste managed</li>
-                  <li>\u2022 Internal glass cleaned to reach</li>
-                  <li>\u2022 Consistent attendance and supervision</li>
+                  <li>• Daily or scheduled cleaning of workspaces</li>
+                  <li>• Kitchens and break areas cleaned and sanitised</li>
+                  <li>• Toilets and washrooms cleaned and replenished*</li>
+                  <li>• Floors vacuumed and wet cleaned as appropriate</li>
+                  <li>• Touchpoints sanitised (handles, switches, desks)</li>
+                  <li>• Bins emptied and waste managed</li>
+                  <li>• Internal glass cleaned to reach</li>
+                  <li>• Consistent attendance and supervision</li>
                 </ul>
                 <p className="mt-3 text-xs text-gray-500">*Consumables can be supplied or client-provided depending on contract.</p>
               </CardContent>
@@ -166,12 +166,12 @@ export default function ContractCleaningPage() {
               <CardContent className="p-6">
                 <h3 className="font-semibold text-gray-900">Optional Add-Ons</h3>
                 <ul className="mt-4 space-y-2 text-gray-600">
-                  <li>\u2022 Periodic deep cleans</li>
-                  <li>\u2022 Floor machine cleaning</li>
-                  <li>\u2022 Carpet and upholstery cleaning</li>
-                  <li>\u2022 Internal window cleaning</li>
-                  <li>\u2022 Consumables supply &amp; stock control</li>
-                  <li>\u2022 Out-of-hours or weekend cleans</li>
+                  <li>• Periodic deep cleans</li>
+                  <li>• Floor machine cleaning</li>
+                  <li>• Carpet and upholstery cleaning</li>
+                  <li>• Internal window cleaning</li>
+                  <li>• Consumables supply &amp; stock control</li>
+                  <li>• Out-of-hours or weekend cleans</li>
                 </ul>
               </CardContent>
             </Card>
@@ -186,12 +186,12 @@ export default function ContractCleaningPage() {
               <h2 className="text-2xl font-semibold text-gray-900">Common scenarios we handle</h2>
               <p className="mt-4 text-gray-600">We regularly support:</p>
               <ul className="mt-4 space-y-2 text-gray-600">
-                <li>\u2022 Offices requiring early-morning or evening cleans</li>
-                <li>\u2022 Shared buildings with multiple tenants</li>
-                <li>\u2022 Growing businesses needing flexible scope changes</li>
-                <li>\u2022 Sites with access control, alarms, or keyholding</li>
-                <li>\u2022 Locations requiring discretion and confidentiality</li>
-                <li>\u2022 We don&apos;t just clean — we manage the service properly.</li>
+                <li>• Offices requiring early-morning or evening cleans</li>
+                <li>• Shared buildings with multiple tenants</li>
+                <li>• Growing businesses needing flexible scope changes</li>
+                <li>• Sites with access control, alarms, or keyholding</li>
+                <li>• Locations requiring discretion and confidentiality</li>
+                <li>• We don&apos;t just clean — we manage the service properly.</li>
               </ul>
             </CardContent>
           </Card>
@@ -210,10 +210,10 @@ export default function ContractCleaningPage() {
                     <h3 className="font-semibold text-gray-900">Site Review &amp; Scope Build</h3>
                     <p className="mt-2 text-sm text-gray-600">We take time to understand:</p>
                     <ul className="mt-2 space-y-1 text-sm text-gray-600">
-                      <li>\u2022 Building layout and usage</li>
-                      <li>\u2022 Footfall and risk areas</li>
-                      <li>\u2022 Frequency requirements</li>
-                      <li>\u2022 Access and security protocols</li>
+                      <li>• Building layout and usage</li>
+                      <li>• Footfall and risk areas</li>
+                      <li>• Frequency requirements</li>
+                      <li>• Access and security protocols</li>
                     </ul>
                   </div>
                 </div>
@@ -226,10 +226,10 @@ export default function ContractCleaningPage() {
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-900">Mobilisation &amp; Onboarding</h3>
                     <ul className="mt-4 space-y-2 text-sm text-gray-600">
-                      <li>\u2022 Disclosure-checked, uniformed operatives</li>
-                      <li>\u2022 Site-specific inductions</li>
-                      <li>\u2022 Agreed cleaning schedules and scope</li>
-                      <li>\u2022 Clear start dates and review points</li>
+                      <li>• Disclosure-checked, uniformed operatives</li>
+                      <li>• Site-specific inductions</li>
+                      <li>• Agreed cleaning schedules and scope</li>
+                      <li>• Clear start dates and review points</li>
                     </ul>
                   </div>
                 </div>
@@ -242,10 +242,10 @@ export default function ContractCleaningPage() {
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-900">Ongoing Quality Control</h3>
                     <ul className="mt-4 space-y-2 text-sm text-gray-600">
-                      <li>\u2022 Supervisor oversight</li>
-                      <li>\u2022 Spot checks and quality reviews</li>
-                      <li>\u2022 Clear communication with your point of contact</li>
-                      <li>\u2022 Issues resolved quickly, not ignored</li>
+                      <li>• Supervisor oversight</li>
+                      <li>• Spot checks and quality reviews</li>
+                      <li>• Clear communication with your point of contact</li>
+                      <li>• Issues resolved quickly, not ignored</li>
                     </ul>
                   </div>
                 </div>
@@ -258,9 +258,9 @@ export default function ContractCleaningPage() {
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-900">Continuous Improvement</h3>
                     <ul className="mt-4 space-y-2 text-sm text-gray-600">
-                      <li>\u2022 Scope adjusted as needs change</li>
-                      <li>\u2022 Seasonal or reactive support added</li>
-                      <li>\u2022 Regular reviews to maintain standards</li>
+                      <li>• Scope adjusted as needs change</li>
+                      <li>• Seasonal or reactive support added</li>
+                      <li>• Regular reviews to maintain standards</li>
                     </ul>
                   </div>
                 </div>
@@ -276,10 +276,10 @@ export default function ContractCleaningPage() {
             <CardContent className="p-6">
               <h2 className="text-2xl font-semibold text-gray-900">What success looks like</h2>
               <ul className="mt-4 space-y-2 text-gray-600">
-                <li>\u2714 A consistently clean, professional workspace</li>
-                <li>\u2714 Fewer complaints and service issues</li>
-                <li>\u2714 Clear accountability and communication</li>
-                <li>\u2714 Confidence your cleaning is being handled properly</li>
+                <li>✔ A consistently clean, professional workspace</li>
+                <li>✔ Fewer complaints and service issues</li>
+                <li>✔ Clear accountability and communication</li>
+                <li>✔ Confidence your cleaning is being handled properly</li>
               </ul>
             </CardContent>
           </Card>
@@ -319,10 +319,10 @@ export default function ContractCleaningPage() {
                 <h2 className="text-2xl font-semibold text-gray-900">Looking for a contract cleaning partner you don&apos;t need to manage day-to-day?</h2>
                 <p className="mt-4 text-gray-600"><strong>Tell us:</strong></p>
                 <ul className="mt-4 space-y-3 text-gray-600">
-                  <li>\u2022 Building type and size</li>
-                  <li>\u2022 Preferred cleaning times</li>
-                  <li>\u2022 Frequency required</li>
-                  <li>\u2022 Any access or compliance needs</li>
+                  <li>• Building type and size</li>
+                  <li>• Preferred cleaning times</li>
+                  <li>• Frequency required</li>
+                  <li>• Any access or compliance needs</li>
                 </ul>
                 <p className="mt-4 text-gray-600">
                   We&apos;ll provide a clear, structured proposal, not a vague hourly quote.

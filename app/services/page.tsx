@@ -26,7 +26,7 @@ const serviceCards = [
   {
     title: "Managed Contract Cleaning",
     description: "Ongoing, supervised contracts with KPIs, mobilisation plans, and regular quality audits.",
-    href: "/commercial-cleaning",
+    href: "/services/contract-cleaning",
   },
   {
     title: "End of Tenancy Cleaning",
