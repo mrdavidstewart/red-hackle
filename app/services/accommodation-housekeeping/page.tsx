@@ -2,59 +2,42 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { FaqSection } from "@/components/site/faq-section"
+import { FaqSectionCard } from "@/components/site/faq-section-card"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
 import {
     buildBreadcrumbSchema,
     buildFaqSchema,
     buildServiceSchema,
-    eastCoastOfScotland,
-    includingAreaStatement,
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-    title: "Short-Stay Housekeeping",
+    title: "Accommodation Housekeeping",
     description:
-        `Professional housekeeping services for short-stay and serviced accommodation properties across ${eastCoastOfScotland}${includingAreaStatement}`,
+        "Reliable changeover housekeeping for serviced apartments, holiday lets, and multi-property portfolios. Consistent teams, documented standards, guest-ready presentation.",
     path: "/services/accommodation-housekeeping",
 })
-
-const deliverables = [
-    "Agreed housekeeping specifications per property or portfolio",
-    "Scheduled turnaround cleans aligned to guest changeovers",
-    "Consistent operatives familiar with each property",
-    "Supervision and spot checks to maintain presentation standards",
-    "Optional coordination with linen handling and replenishment",
-]
-
-const scopeOfWorks = [
-    "Full property clean between guest stays",
-    "Bedrooms, bathrooms, kitchens, and living areas serviced",
-    "Bed making and linen changeovers (where provided)",
-    "Restocking of agreed guest essentials",
-    "Waste removal and presentation checks",
-    "Pre-arrival readiness for incoming guests",
-    "Scopes are tailored per property and documented to ensure consistency",
-]
-
-const idealFor = [
-    "Serviced apartment operators",
-    "Short-stay and holiday let management companies",
-    "Property agents managing Airbnb portfolios",
-    "Hospitality-led accommodation providers",
-]
 
 const faqItems = [
     {
         question: "Can you handle high-frequency changeovers?",
         answer:
-            "Yes. We align housekeeping schedules to booking calendars and provide consistent teams for fast, reliable changeovers.",
+            "Yes, we align housekeeping schedules to booking calendars and provide consistent teams for fast, reliable changeovers.",
     },
     {
         question: "Do you include linen services?",
         answer:
-            "We can coordinate linen laundering or rental options to maintain consistent guest presentation.",
+            "We can coordinate linen laundering or linen rental options to maintain consistent guest presentation.",
+    },
+    {
+        question: "Do you provide guest essentials / consumables?",
+        answer:
+            "We can restock agreed essentials and manage consumables alongside housekeeping where required.",
+    },
+    {
+        question: "Can you support single properties and portfolios?",
+        answer:
+            "Yes, the service works for single units, multi-unit buildings, and managed portfolios.",
     },
 ]
 
@@ -77,18 +60,18 @@ const relatedServices = [
 ]
 
 export default function AccommodationHousekeepingPage() {
-    const serviceSchema = buildServiceSchema({
-        name: "Short-Stay & Serviced Accommodation Housekeeping",
-        description:
-            `Professional housekeeping services for short-stay and serviced accommodation properties across ${eastCoastOfScotland}${includingAreaStatement}`,
-        slug: "/services/accommodation-housekeeping",
-    })
     const breadcrumbSchema = buildBreadcrumbSchema([
         { name: "Home", path: "/" },
         { name: "Services", path: "/services" },
         { name: "Accommodation Housekeeping", path: "/services/accommodation-housekeeping" },
     ])
     const faqSchema = buildFaqSchema(faqItems)
+    const serviceSchema = buildServiceSchema({
+        name: "Accommodation Housekeeping",
+        description:
+            "Reliable changeover housekeeping for serviced apartments, holiday lets, and multi-property portfolios. Consistent teams, documented standards, guest-ready presentation.",
+        slug: "/services/accommodation-housekeeping",
+    })
 
     return (
         <main className="bg-white pb-16 md:pb-0">
@@ -109,77 +92,230 @@ export default function AccommodationHousekeepingPage() {
                     <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
                 </div>
                 <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-                    <Badge className="bg-red-50 text-red-700">Short-Stay &amp; Serviced Accommodation Housekeeping</Badge>
-                    <h1 className="mt-4 text-4xl font-black sm:text-5xl">Short-Stay &amp; Serviced Accommodation Housekeeping</h1>
+                    <Badge className="bg-white/10 text-white">Accommodation Housekeeping</Badge>
+                    <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Accommodation Housekeeping</h1>
                     <p className="mt-4 text-lg text-gray-300">
-                        Red Hackle provides managed housekeeping services for short-stay and serviced accommodation portfolios,
-                        including serviced apartments, holiday lets, and professionally managed short-term rentals across
-                        {` ${eastCoastOfScotland}${includingAreaStatement}`}
-                        <br />
-                        <br />
-                        Our service is designed for operators, agents, and property managers who require consistent presentation,
-                        reliable turnaround, and structured delivery across single or multiple properties.
-                        <br />
-                        <br />
-                        Housekeeping is delivered to documented specifications, aligned with booking schedules, and supported by
-                        supervision and quality checks to maintain standards over time.
+                        Reliable changeover housekeeping for serviced apartments, holiday lets, and multi-property portfolios.
+                        <br /><br />
+                        Consistent teams, documented standards, guest-ready presentation.
                     </p>
-                    <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                        <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
-                            <Link href="/contact">Request a quote</Link>
-                        </Button>
-                        <Button asChild variant="outlineOnDark">
-                            <Link href="/services">Back to services</Link>
-                        </Button>
-                    </div>
                 </div>
             </section>
 
+            {/* Who This Service Is For Section */}
             <section className="bg-gray-50">
                 <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
                     <Card className="border border-gray-200">
-                        <CardContent className="space-y-4 p-6">
-                            <h2 className="text-2xl font-semibold text-gray-900">How the service is delivered</h2>
-                            <ul className="space-y-2 text-gray-600">
-                                {deliverables.map((item) => (
-                                    <li key={item}>• {item}</li>
-                                ))}
-                            </ul>
-                            <h2 className="text-2xl font-semibold text-gray-900">Typical scope of works</h2>
-                            <ul className="space-y-2 text-gray-600">
-                                {scopeOfWorks.map((item) => (
-                                    <li key={item}>• {item}</li>
-                                ))}
-                            </ul>
-                            <h2 className="text-2xl font-semibold text-gray-900">Ideal for</h2>
-                            <ul className="space-y-2 text-gray-600">
-                                {idealFor.map((item) => (
-                                    <li key={item}>• {item}</li>
-                                ))}
-                            </ul>
-                            <p className="text-gray-600">
-                                <strong>Why it works:</strong> A structured housekeeping model ensures consistent guest presentation
-                                and reliable turnaround across repeat stays without relying on ad-hoc cleaning arrangements.
-                            </p>
-                            <h2 className="text-2xl font-semibold text-gray-900">Operational benefits</h2>
-                            <p className="text-gray-600">
-                                We align cleaning windows with booking schedules, document property-specific notes, and provide a
-                                consistent team so presentation standards stay predictable for every guest arrival.
-                            </p>
-                            <h2 className="text-2xl font-semibold text-gray-900">Coverage</h2>
-                            <p className="text-gray-600">
-                                Short-stay and serviced accommodation housekeeping is delivered across {eastCoastOfScotland}{includingAreaStatement}
-                            </p>
+                        <CardContent className="p-6">
+                            <div className="grid gap-8 md:grid-cols-2">
+                                <div>
+                                    <h3 className="font-semibold text-gray-900">This service is ideal for:</h3>
+                                    <ul className="mt-4 space-y-2 text-gray-600">
+                                        <li>• Serviced apartment operators</li>
+                                        <li>• Short-stay / holiday-let management companies</li>
+                                        <li>• Property managers running Airbnb portfolios</li>
+                                        <li>• Hospitality-led accommodation providers</li>
+                                        <li>• Owners moving from ad-hoc cleaners to a managed solution</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-gray-900">Not the right fit if:</h3>
+                                    <ul className="mt-4 space-y-2 text-gray-600">
+                                        <li>• You only need occasional, last-minute cleans with no schedule</li>
+                                        <li>• You&apos;re looking for the cheapest clean rather than reliable presentation</li>
+                                        <li>• Your changeovers can&apos;t be planned around bookings at all</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </CardContent>
                     </Card>
                 </div>
             </section>
 
-            <FaqSection
-                title="Accommodation housekeeping FAQs"
-                description="Answers for serviced accommodation operators and property managers."
-                items={faqItems}
-            />
+            {/* What's Included Section */}
+            <section className="bg-white">
+                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+                    <h2 className="text-2xl font-semibold text-gray-900">What&apos;s Included</h2>
+                    <div className="mt-6 grid gap-6 md:grid-cols-2">
+                        <Card className="border border-gray-200">
+                            <CardContent className="p-6">
+                                <h3 className="font-semibold text-gray-900">Standard Turnaround Housekeeping</h3>
+                                <ul className="mt-4 space-y-2 text-gray-600">
+                                    <li>• Full property clean between guest stays</li>
+                                    <li>• Bedrooms, bathrooms, kitchens, and living areas serviced</li>
+                                    <li>• Bed making and linen changeovers (where provided)</li>
+                                    <li>• Restocking of agreed guest essentials</li>
+                                    <li>• Waste removal and presentation checks</li>
+                                    <li>• Pre-arrival readiness checks before guest entry</li>
+                                    <li>• Property-specific notes followed to keep standards consistent</li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                        <Card className="border border-gray-200">
+                            <CardContent className="p-6">
+                                <h3 className="font-semibold text-gray-900">Optional Add-Ons</h3>
+                                <ul className="mt-4 space-y-2 text-gray-600">
+                                    <li>• Linen coordination (laundering or rental support)</li>
+                                    <li>• Deep cleans for seasonal resets / inspections</li>
+                                    <li>• Consumables replenishment (toiletries, paper goods, bin liners)</li>
+                                    <li>• Mid-stay refresh cleans</li>
+                                    <li>• Same-day back-to-back changeovers (capacity dependent)</li>
+                                </ul>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
+            </section>
+
+            {/* Common Scenarios Section */}
+            <section className="bg-gray-50">
+                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+                    <Card className="border border-gray-200">
+                        <CardContent className="p-6">
+                            <h2 className="text-2xl font-semibold text-gray-900">Common scenarios we handle</h2>
+                            <p className="mt-4 text-gray-600">We regularly support:</p>
+                            <ul className="mt-4 space-y-2 text-gray-600">
+                                <li>• High-frequency changeovers across multiple properties</li>
+                                <li>• Back-to-back bookings with tight turnaround windows</li>
+                                <li>• Multi-unit buildings where consistency matters</li>
+                                <li>• Portfolio operators who need a dependable team, not a revolving door</li>
+                                <li>• Standards slipping due to ad-hoc cleaners or lack of QA</li>
+                            </ul>
+                        </CardContent>
+                    </Card>
+                </div>
+            </section>
+
+            {/* How We Deliver Section */}
+            <section className="bg-white">
+                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+                    <h2 className="text-2xl font-semibold text-gray-900">How we deliver</h2>
+                    <div className="mt-6 grid gap-6 md:grid-cols-2">
+                        <Card className="border border-gray-200">
+                            <CardContent className="p-6">
+                                <div className="flex items-start gap-3">
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">1</div>
+                                    <div className="flex-1">
+                                        <h3 className="font-semibold text-gray-900">Standards &amp; Specification</h3>
+                                        <ul className="mt-2 space-y-1 text-sm text-gray-600">
+                                            <li>• Agreed housekeeping specification per property / portfolio</li>
+                                            <li>• Key notes documented (bins, linen locations, quirks, preferred finish)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                        <Card className="border border-gray-200">
+                            <CardContent className="p-6">
+                                <div className="flex items-start gap-3">
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">2</div>
+                                    <div className="flex-1">
+                                        <h3 className="font-semibold text-gray-900">Scheduling Aligned to Bookings</h3>
+                                        <ul className="mt-2 space-y-1 text-sm text-gray-600">
+                                            <li>• Turnaround cleans scheduled around your booking calendar</li>
+                                            <li>• Clear arrival windows and completion targets</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                        <Card className="border border-gray-200">
+                            <CardContent className="p-6">
+                                <div className="flex items-start gap-3">
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">3</div>
+                                    <div className="flex-1">
+                                        <h3 className="font-semibold text-gray-900">Consistent Team + Oversight</h3>
+                                        <ul className="mt-2 space-y-1 text-sm text-gray-600">
+                                            <li>• Familiar operatives assigned where possible</li>
+                                            <li>• Spot checks and supervision to maintain presentation standards over time</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                        <Card className="border border-gray-200">
+                            <CardContent className="p-6">
+                                <div className="flex items-start gap-3">
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">4</div>
+                                    <div className="flex-1">
+                                        <h3 className="font-semibold text-gray-900">Guest-Ready Sign-Off</h3>
+                                        <ul className="mt-2 space-y-1 text-sm text-gray-600">
+                                            <li>• Presentation checks completed</li>
+                                            <li>• Escalation process if issues are found (damage, missing items, maintenance flags)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
+            </section>
+
+            {/* What Success Looks Like Section */}
+            <section className="bg-gray-50">
+                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+                    <Card className="border border-gray-200">
+                        <CardContent className="p-6">
+                            <h2 className="text-2xl font-semibold text-gray-900">What success looks like</h2>
+                            <ul className="mt-4 space-y-2 text-gray-600">
+                                <li>✔ Consistent presentation across every stay</li>
+                                <li>✔ Reliable changeovers without last-minute panic</li>
+                                <li>✔ Fewer guest complaints and better reviews</li>
+                                <li>✔ A housekeeping partner you don&apos;t need to chase</li>
+                            </ul>
+                        </CardContent>
+                    </Card>
+                </div>
+            </section>
+
+            {/* Case Study Section */}
+            <section className="bg-white">
+                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+                    <Card className="border border-gray-200 bg-gray-50">
+                        <CardContent className="space-y-6 p-6 sm:p-8">
+                            <div>
+                                <h2 className="text-2xl font-semibold text-gray-900">Case Study</h2>
+                                <p className="mt-4 font-semibold text-gray-900">Serviced Accommodation Portfolio – Tayside, Angus &amp; Fife</p>
+                                <p className="mt-3 text-gray-600">
+                                    We supported a short-stay operator managing multiple properties with frequent changeovers. By documenting property standards, aligning housekeeping windows to booking cycles, and maintaining consistent delivery, the operator achieved dependable guest presentation across the portfolio and reduced last-minute issues between stays.
+                                </p>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <FaqSectionCard items={faqItems} title="Accommodation Housekeeping FAQs" />
+
+            {/* CTA Section */}
+            <section className="bg-white">
+                <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+                    <Card className="border border-gray-200 bg-gray-50">
+                        <CardContent className="space-y-6 p-6 sm:p-8">
+                            <div>
+                                <h2 className="text-2xl font-semibold text-gray-900">Need housekeeping you can rely on for every changeover?</h2>
+                                <p className="mt-4 text-gray-600"><strong>Tell us:</strong></p>
+                                <ul className="mt-4 space-y-3 text-gray-600">
+                                    <li>• Number of properties</li>
+                                    <li>• Typical weekly changeovers</li>
+                                    <li>• Locations</li>
+                                    <li>• Linen approach (own stock vs rental)</li>
+                                    <li>• Required turnaround windows</li>
+                                </ul>
+                                <p className="mt-4 text-gray-600">
+                                    We&apos;ll provide a structured housekeeping proposal built around your booking cycles.
+                                </p>
+                                <div className="mt-6">
+                                    <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
+                                        <Link href="/contact">Request a Quote</Link>
+                                    </Button>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </section>
 
             <RelatedServices
                 title="Related accommodation services"

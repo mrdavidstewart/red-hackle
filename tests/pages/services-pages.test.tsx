@@ -47,7 +47,9 @@ describe("services pages", () => {
 
   it("renders the accommodation housekeeping service page", () => {
     render(<AccommodationHousekeepingPage />)
-    expect(screen.getByRole("heading", { name: /short-stay & serviced accommodation housekeeping/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { level: 1, name: /accommodation housekeeping/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /what's included/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /how we deliver/i })).toBeInTheDocument()
   })
 
   it("renders the linen services page", () => {
