@@ -5,122 +5,107 @@ describe("Outsourcing page", () => {
     it("renders the main heading", () => {
         render(<OutsourcingPage />)
         expect(
-            screen.getByRole("heading", { level: 1, name: /outsourced cleaning delivery/i }),
+            screen.getByRole("heading", { level: 1, name: /outsourcing support/i }),
         ).toBeInTheDocument()
     })
 
     it("renders the introduction in hero section", () => {
         render(<OutsourcingPage />)
         expect(
-            screen.getByText(/at red hackle cleaning services, we specialise in commercial and contract cleaning services/i),
-        ).toBeInTheDocument()
-        expect(
-            screen.getByText(/whether you are managing multiple sites, working with facilities teams/i),
+            screen.getByText(/reliable regional cleaning delivery for national contractors/i),
         ).toBeInTheDocument()
     })
 
-    it("renders the what partnering looks like section", () => {
+    it("renders the who is this service for section", () => {
         render(<OutsourcingPage />)
         expect(
-            screen.getByRole("heading", { name: /what partnering with red hackle looks like/i }),
+            screen.getByText(/this service is ideal for:/i),
         ).toBeInTheDocument()
         expect(
-            screen.getByText(/we act as a trusted contractor for outsourced cleaning delivery/i),
+            screen.getByText(/national cleaning companies needing regional delivery/i),
         ).toBeInTheDocument()
     })
 
-    it("renders all approach items", () => {
+    it("renders the what we provide section", () => {
         render(<OutsourcingPage />)
-        expect(screen.getByRole("heading", { name: /structured onboarding and mobilisation/i })).toBeInTheDocument()
-        expect(screen.getByRole("heading", { name: /clear scope and performance reporting/i })).toBeInTheDocument()
-        expect(screen.getByRole("heading", { name: /experienced, supervised teams/i })).toBeInTheDocument()
-        expect(screen.getByRole("heading", { name: /flexible scheduling/i })).toBeInTheDocument()
+        expect(
+            screen.getByRole("heading", { name: /what we provide/i }),
+        ).toBeInTheDocument()
+        expect(
+            screen.getByText(/outsourced cleaning delivery/i),
+        ).toBeInTheDocument()
+        expect(
+            screen.getByText(/flexible support options/i),
+        ).toBeInTheDocument()
     })
 
-    it("renders the coverage across Scotland section", () => {
+    it("renders the common scenarios section", () => {
+        render(<OutsourcingPage />)
+        expect(
+            screen.getByRole("heading", { name: /common scenarios we support/i }),
+        ).toBeInTheDocument()
+        expect(
+            screen.getByText(/national contractors with scottish sites/i),
+        ).toBeInTheDocument()
+    })
+
+    it("renders the coverage section", () => {
         render(<OutsourcingPage />)
         expect(
             screen.getByRole("heading", { name: /coverage across scotland/i }),
         ).toBeInTheDocument()
-        expect(screen.getByText(/tayside/i)).toBeInTheDocument()
-        expect(screen.getByText(/glasgow/i)).toBeInTheDocument()
-        expect(screen.getByText(/edinburgh/i)).toBeInTheDocument()
-        expect(screen.getByText(/aberdeen and aberdeenshire/i)).toBeInTheDocument()
-    })
-
-    it("renders the who we support section", () => {
-        render(<OutsourcingPage />)
         expect(
-            screen.getByRole("heading", { name: /who we support/i }),
-        ).toBeInTheDocument()
-        expect(
-            screen.getByText(/already have cleaning contracts or service commitments in place/i),
-        ).toBeInTheDocument()
-        expect(
-            screen.getByText(/need dependable delivery without day-to-day operational management/i),
-        ).toBeInTheDocument()
-        expect(
-            screen.getByText(/expect professional teams aligned to defined scopes and standards/i),
-        ).toBeInTheDocument()
-        expect(
-            screen.getByText(/value clear communication, reporting and accountability/i),
+            screen.getByText(/we support organisations with service delivery across scotland/i),
         ).toBeInTheDocument()
     })
 
-    it("renders the why partners choose Red Hackle section", () => {
+    it("renders the how we work section", () => {
         render(<OutsourcingPage />)
         expect(
-            screen.getByRole("heading", { name: /why partners choose red hackle/i }),
+            screen.getByRole("heading", { name: /how we work with partners/i }),
         ).toBeInTheDocument()
-        expect(screen.getByRole("heading", { name: /accountability and quality assurance/i })).toBeInTheDocument()
-        expect(screen.getByRole("heading", { name: /fast response and mobilisation/i })).toBeInTheDocument()
-        expect(screen.getByRole("heading", { name: /transparent delivery/i })).toBeInTheDocument()
-        expect(screen.getByRole("heading", { name: /professional representation/i })).toBeInTheDocument()
-    })
-
-    it("renders accountability card content", () => {
-        render(<OutsourcingPage />)
         expect(
-            screen.getByText(/defined scopes, supervised teams and structured oversight ensure predictable service outcomes/i),
+            screen.getByText(/discovery & alignment/i),
         ).toBeInTheDocument()
     })
 
-    it("renders response card content", () => {
+    it("renders the what success looks like section", () => {
         render(<OutsourcingPage />)
         expect(
-            screen.getByText(/once scope and access are confirmed, we mobilise efficiently and communicate clearly/i),
+            screen.getByRole("heading", { name: /what success looks like/i }),
+        ).toBeInTheDocument()
+        expect(
+            screen.getByText(/seamless delivery across scottish sites/i),
         ).toBeInTheDocument()
     })
 
-    it("renders transparency card content", () => {
+    it("renders the case study section", () => {
         render(<OutsourcingPage />)
         expect(
-            screen.getByText(/you always know what is being delivered, how it is being measured and who is responsible/i),
+            screen.getByRole("heading", { name: /case study/i }),
+        ).toBeInTheDocument()
+        expect(
+            screen.getByText(/outsourced regional support/i),
         ).toBeInTheDocument()
     })
 
-    it("renders professional representation card content", () => {
+    it("renders the FAQ section", () => {
         render(<OutsourcingPage />)
         expect(
-            screen.getByText(/our teams represent your standards on site, maintaining a professional and consistent presence/i),
+            screen.getByRole("heading", { name: /outsourcing faqs/i }),
+        ).toBeInTheDocument()
+        expect(
+            screen.getByText(/can you operate under our brand/i),
         ).toBeInTheDocument()
     })
 
-    it("renders the closing CTA section", () => {
+    it("renders the CTA section", () => {
         render(<OutsourcingPage />)
         expect(
-            screen.getByRole("heading", { name: /strengthen your contract delivery/i }),
+            screen.getByRole("heading", { name: /looking for a reliable regional partner/i }),
         ).toBeInTheDocument()
         expect(
-            screen.getByText(/outsourcing cleaning delivery should simplify operations, not complicate them/i),
+            screen.getByRole("link", { name: /discuss outsourcing support/i }),
         ).toBeInTheDocument()
-    })
-
-    it("renders contact CTA link", () => {
-        render(<OutsourcingPage />)
-        expect(screen.getByRole("link", { name: /contact us today to discuss cleaning delivery requirements/i })).toHaveAttribute(
-            "href",
-            "/contact",
-        )
     })
 })
