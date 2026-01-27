@@ -29,6 +29,13 @@ describe("route handlers", () => {
     // Ensure test environment variables are available
     process.env.RESEND_API_KEY = "test-key"
     process.env.FROM_EMAIL = "Red Hackle <test@example.com>"
+    process.env.TURNSTILE_SECRET_KEY = "test-turnstile-secret"
+
+    // Mock successful Turnstile verification by default
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ success: true }),
+    }) as unknown as typeof fetch
 
     clearRateLimit()
   })
@@ -71,6 +78,7 @@ describe("route handlers", () => {
     formData.set("phone", "07966881555")
     formData.set("message", "Office cleaning quote request.")
     formData.set("timestamp", Date.now().toString())
+    formData.set("turnstileToken", "valid-test-token")
 
     const request = new NextRequest("http://localhost/api/contact", {
       method: "POST",
@@ -210,6 +218,7 @@ describe("route handlers", () => {
     formData.set("phone", "07966881555")
     formData.set("message", "Test message")
     formData.set("timestamp", Date.now().toString())
+    formData.set("turnstileToken", "valid-test-token")
 
     const request = new NextRequest("http://localhost/api/contact", {
       method: "POST",
@@ -233,6 +242,7 @@ describe("route handlers", () => {
     formData.set("phone", "07966881555")
     formData.set("message", "Test message")
     formData.set("timestamp", Date.now().toString())
+    formData.set("turnstileToken", "valid-test-token")
 
     const request = new NextRequest("http://localhost/api/contact", {
       method: "POST",
@@ -274,6 +284,7 @@ describe("route handlers", () => {
       formData.set("phone", "07966881555")
       formData.set("message", "Test message")
       formData.set("timestamp", Date.now().toString())
+      formData.set("turnstileToken", "valid-test-token")
 
       const request = new NextRequest("http://localhost/api/contact", {
         method: "POST",
@@ -294,6 +305,7 @@ describe("route handlers", () => {
     formData.set("phone", "07966881555")
     formData.set("message", "Test message")
     formData.set("timestamp", Date.now().toString())
+    formData.set("turnstileToken", "valid-test-token")
 
     const request = new NextRequest("http://localhost/api/contact", {
       method: "POST",
@@ -320,6 +332,7 @@ describe("route handlers", () => {
     formData.set("phone", "07966881555")
     formData.set("message", "Test message")
     formData.set("timestamp", Date.now().toString())
+    formData.set("turnstileToken", "valid-test-token")
 
     const request = new NextRequest("http://localhost/api/contact", {
       method: "POST",
@@ -344,6 +357,7 @@ describe("route handlers", () => {
     formData.set("phone", "07966881555")
     formData.set("message", "Test message")
     formData.set("timestamp", Date.now().toString())
+    formData.set("turnstileToken", "valid-test-token")
 
     const request = new NextRequest("http://localhost/api/contact", {
       method: "POST",
