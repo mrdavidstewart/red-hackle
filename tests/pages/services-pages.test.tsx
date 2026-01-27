@@ -54,6 +54,8 @@ describe("services pages", () => {
 
   it("renders the linen services page", () => {
     render(<LinenServicesPage />)
-    expect(screen.getByRole("heading", { name: /linen laundering & linen rental/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { level: 1, name: /linen services for short-stay accommodation/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /what's included/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /how we deliver/i })).toBeInTheDocument()
   })
 })

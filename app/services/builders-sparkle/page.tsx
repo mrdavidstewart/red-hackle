@@ -15,8 +15,7 @@ import {
 
 export const metadata = buildMetadata({
   title: "Builders & Sparkle Cleaning",
-  description:
-    `Post-construction and sparkle cleaning for developers and contractors across ${eastCoastOfScotland}${includingAreaStatement} Aligned to handover deadlines.`,
+  description: "Post-construction and sparkle cleaning for developers and contractors. Aligned to handover deadlines and site requirements.",
   path: "/services/builders-sparkle",
 })
 
