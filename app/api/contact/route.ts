@@ -28,6 +28,7 @@ export async function POST(request: NextRequest) {
     const message = sanitizeInput((formData.get("message") as string) || "")
     const timestamp = (formData.get("timestamp") as string) || ""
     const honeypot = (formData.get("website") as string) || ""
+    const turnstileToken = (formData.get("turnstileToken") as string) || ""
 
     // Security checks
     if (honeypot) {
@@ -81,6 +82,79 @@ export async function POST(request: NextRequest) {
         { error: "Invalid phone format" },
         {
           status: 400,
+          headers: secureHeaders,
+        },
+      )
+    }
+
+    // Verify Turnstile token before sending any email.
+    const turnstileSecret = process.env.TURNSTILE_SECRET_KEY
+    if (!turnstileSecret) {
+      console.error("TURNSTILE_SECRET_KEY is not configured")
+      return NextResponse.json(
+        { error: "Captcha verification unavailable" },
+        {
+          status: 500,
+          headers: secureHeaders,
+        },
+      )
+    }
+
+    if (!turnstileToken) {
+      return NextResponse.json(
+        { error: "Captcha verification failed" },
+        {
+          status: 400,
+          headers: secureHeaders,
+        },
+      )
+    }
+
+    try {
+      const verificationResponse = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          secret: turnstileSecret,
+          response: turnstileToken,
+          ...(clientIP !== "unknown" ? { remoteip: clientIP } : {}),
+        }),
+      })
+
+      if (!verificationResponse.ok) {
+        console.warn("Turnstile verification failed", { status: verificationResponse.status })
+        return NextResponse.json(
+          { error: "Captcha verification failed" },
+          {
+            status: 400,
+            headers: secureHeaders,
+          },
+        )
+      }
+
+      const verificationData = (await verificationResponse.json()) as {
+        success?: boolean
+        "error-codes"?: string[]
+      }
+
+      if (!verificationData.success) {
+        console.warn("Turnstile verification rejected", verificationData)
+        return NextResponse.json(
+          { error: "Captcha verification failed" },
+          {
+            status: 400,
+            headers: secureHeaders,
+          },
+        )
+      }
+    } catch (error) {
+      console.error("Turnstile verification error", error)
+      return NextResponse.json(
+        { error: "Captcha verification failed" },
+        {
+          status: 502,
           headers: secureHeaders,
         },
       )

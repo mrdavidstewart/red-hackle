@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import Script from "next/script"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -9,6 +10,23 @@ import { isValidEmail, isValidPhone } from "@/lib/security"
 
 interface GtagWindow extends Window {
   gtag?: (event: string, action: string, data: Record<string, string | number>) => void
+}
+
+interface TurnstileWindow extends Window {
+  turnstile?: {
+    render: (
+      element: HTMLElement,
+      options: {
+        sitekey: string
+        size?: "invisible" | "normal" | "compact"
+        callback?: (token: string) => void
+        "error-callback"?: () => void
+        "expired-callback"?: () => void
+      },
+    ) => string
+    execute: (widgetId: string) => void
+    reset: (widgetId: string) => void
+  }
 }
 
 const initialForm = {
@@ -24,6 +42,61 @@ export function ContactForm() {
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({})
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
   const [formError, setFormError] = useState<string | null>(null)
+  const [turnstileReady, setTurnstileReady] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState("")
+  const turnstileTokenRef = useRef("")
+  const turnstileWidgetRef = useRef<string | null>(null)
+  const turnstileContainerRef = useRef<HTMLDivElement | null>(null)
+  const turnstilePromiseRef = useRef<{
+    resolve: (token: string) => void
+    reject: (error: Error) => void
+  } | null>(null)
+  const turnstileSiteKey = process.env.TURNSTILE_SITE_KEY || ""
+
+  useEffect(() => {
+    if (!turnstileReady || !turnstileSiteKey || !turnstileContainerRef.current) return
+    const turnstile = (window as TurnstileWindow).turnstile
+    if (!turnstile || turnstileWidgetRef.current) return
+
+    // Render the invisible Turnstile widget and capture tokens for form submission.
+    turnstileWidgetRef.current = turnstile.render(turnstileContainerRef.current, {
+      sitekey: turnstileSiteKey,
+      size: "invisible",
+      callback: (token) => {
+        setTurnstileToken(token)
+        turnstileTokenRef.current = token
+        if (turnstilePromiseRef.current) {
+          turnstilePromiseRef.current.resolve(token)
+          turnstilePromiseRef.current = null
+        }
+      },
+      "error-callback": () => {
+        setTurnstileToken("")
+        turnstileTokenRef.current = ""
+        if (turnstilePromiseRef.current) {
+          turnstilePromiseRef.current.reject(new Error("Captcha verification failed."))
+          turnstilePromiseRef.current = null
+        }
+      },
+      "expired-callback": () => {
+        setTurnstileToken("")
+        turnstileTokenRef.current = ""
+      },
+    })
+  }, [turnstileReady, turnstileSiteKey])
+
+  const ensureTurnstileToken = async () => {
+    if (turnstileTokenRef.current) return turnstileTokenRef.current
+    const turnstile = (window as TurnstileWindow).turnstile
+    if (!turnstile || !turnstileWidgetRef.current) {
+      throw new Error("Captcha is not ready. Please try again.")
+    }
+
+    return await new Promise<string>((resolve, reject) => {
+      turnstilePromiseRef.current = { resolve, reject }
+      turnstile.execute(turnstileWidgetRef.current!)
+    })
+  }
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target
@@ -76,10 +149,20 @@ export function ContactForm() {
 
     setFormStatus("submitting")
 
+    if (!turnstileSiteKey) {
+      setFormStatus("error")
+      setFormError("Captcha is not configured. Please try again later.")
+      return
+    }
+
     const payload = new FormData(event.currentTarget)
     payload.set("timestamp", Date.now().toString())
 
     try {
+      // Ensure the Turnstile challenge is solved before sending the form data.
+      const token = await ensureTurnstileToken()
+      payload.set("turnstileToken", token)
+
       const response = await fetch("/api/contact", {
         method: "POST",
         body: payload,
@@ -102,14 +185,31 @@ export function ContactForm() {
       setFormStatus("success")
       setFormData(initialForm)
       setFieldErrors({})
+      setTurnstileToken("")
+      turnstileTokenRef.current = ""
+      if ((window as TurnstileWindow).turnstile && turnstileWidgetRef.current) {
+        ;(window as TurnstileWindow).turnstile?.reset(turnstileWidgetRef.current)
+      }
     } catch (error) {
       setFormStatus("error")
       setFormError(error instanceof Error ? error.message : "Something went wrong")
+      setTurnstileToken("")
+      turnstileTokenRef.current = ""
+      if ((window as TurnstileWindow).turnstile && turnstileWidgetRef.current) {
+        ;(window as TurnstileWindow).turnstile?.reset(turnstileWidgetRef.current)
+      }
     }
   }
 
   return (
     <form className="space-y-4" onSubmit={handleSubmit}>
+      {turnstileSiteKey ? (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          strategy="afterInteractive"
+          onLoad={() => setTurnstileReady(true)}
+        />
+      ) : null}
       <div className="grid gap-4 md:grid-cols-2">
         <div className="space-y-2">
           <label className="text-sm font-semibold text-gray-700" htmlFor="firstName">
@@ -225,6 +325,8 @@ export function ContactForm() {
       </div>
 
       <input type="text" name="website" tabIndex={-1} aria-hidden="true" className="hidden" />
+      <div ref={turnstileContainerRef} aria-hidden="true" className="hidden" />
+      <input type="hidden" name="turnstileToken" value={turnstileToken} />
 
       <Button type="submit" className="w-full bg-destructive text-white hover:bg-destructive/90" disabled={formStatus === "submitting"}>
         <Mail className="mr-2 h-4 w-4" />
