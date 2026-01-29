@@ -77,6 +77,10 @@ describe("route handlers", () => {
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("message", "Office cleaning quote request.")
+    formData.set("addressLine1", "123 Main Street")
+    formData.set("addressLine2", "Suite 100")
+    formData.set("townCity", "Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("timestamp", Date.now().toString())
     formData.set("turnstileToken", "valid-test-token")
 
@@ -101,6 +105,10 @@ describe("route handlers", () => {
     formData.set("email", "invalid-email")
     formData.set("phone", "12345")
     formData.set("message", "")
+    // include address fields to satisfy new required fields on server validation
+    formData.set("addressLine1", "")
+    formData.set("townCity", "")
+    formData.set("postcode", "")
     formData.set("timestamp", Date.now().toString())
 
     const request = new NextRequest("http://localhost/api/contact", {
@@ -148,6 +156,9 @@ describe("route handlers", () => {
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("message", "Test message")
+    formData.set("addressLine1", "123 Main Street")
+    formData.set("townCity", "Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("timestamp", (Date.now() - 400000).toString())
 
     const request = new NextRequest("http://localhost/api/contact", {
@@ -171,6 +182,9 @@ describe("route handlers", () => {
     formData.set("email", "notanemail")
     formData.set("phone", "07966881555")
     formData.set("message", "Test message")
+    formData.set("addressLine1", "123 Main Street")
+    formData.set("townCity", "Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("timestamp", Date.now().toString())
 
     const request = new NextRequest("http://localhost/api/contact", {
@@ -194,6 +208,9 @@ describe("route handlers", () => {
     formData.set("email", "jamie@example.com")
     formData.set("phone", "12345")
     formData.set("message", "Test message")
+    formData.set("addressLine1", "123 Main Street")
+    formData.set("townCity", "Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("timestamp", Date.now().toString())
 
     const request = new NextRequest("http://localhost/api/contact", {
@@ -217,6 +234,10 @@ describe("route handlers", () => {
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("message", "Test message")
+    formData.set("addressLine1", "123 Main Street")
+    formData.set("addressLine2", "Suite 100")
+    formData.set("townCity", "Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("timestamp", Date.now().toString())
     formData.set("turnstileToken", "valid-test-token")
 
@@ -241,6 +262,10 @@ describe("route handlers", () => {
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("message", "Test message")
+    formData.set("addressLine1", "123 Main Street")
+    formData.set("addressLine2", "Suite 100")
+    formData.set("townCity", "Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("timestamp", Date.now().toString())
     formData.set("turnstileToken", "valid-test-token")
 
@@ -283,6 +308,10 @@ describe("route handlers", () => {
       formData.set("email", "jamie@example.com")
       formData.set("phone", "07966881555")
       formData.set("message", "Test message")
+      formData.set("addressLine1", "123 Main Street")
+      formData.set("addressLine2", "Suite 100")
+      formData.set("townCity", "Manchester")
+      formData.set("postcode", "M1 1AA")
       formData.set("timestamp", Date.now().toString())
       formData.set("turnstileToken", "valid-test-token")
 
@@ -304,6 +333,10 @@ describe("route handlers", () => {
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("message", "Test message")
+    formData.set("addressLine1", "123 Main Street")
+    formData.set("addressLine2", "Suite 100")
+    formData.set("townCity", "Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("timestamp", Date.now().toString())
     formData.set("turnstileToken", "valid-test-token")
 
@@ -331,6 +364,10 @@ describe("route handlers", () => {
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("message", "Test message")
+    formData.set("addressLine1", "123 Main Street")
+    formData.set("addressLine2", "Suite 100")
+    formData.set("townCity", "Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("timestamp", Date.now().toString())
     formData.set("turnstileToken", "valid-test-token")
 
@@ -356,6 +393,10 @@ describe("route handlers", () => {
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("message", "Test message")
+    formData.set("addressLine1", "123 Main Street")
+    formData.set("addressLine2", "Suite 100")
+    formData.set("townCity", "Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("timestamp", Date.now().toString())
     formData.set("turnstileToken", "valid-test-token")
 

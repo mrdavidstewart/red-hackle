@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail } from "lucide-react"
-import { isValidEmail, isValidPhone } from "@/lib/security"
+import { isValidEmail, isValidPhone, isValidPostcode } from "@/lib/security"
 
 interface GtagWindow extends Window {
   gtag?: (event: string, action: string, data: Record<string, string | number>) => void
@@ -35,6 +35,10 @@ const initialForm = {
   email: "",
   phone: "",
   message: "",
+  addressLine1: "",
+  addressLine2: "",
+  townCity: "",
+  postcode: "",
 }
 
 export function ContactForm() {
@@ -98,6 +102,10 @@ export function ContactForm() {
       email: formData.email.trim(),
       phone: formData.phone.trim(),
       message: formData.message.trim(),
+      addressLine1: formData.addressLine1.trim(),
+      addressLine2: formData.addressLine2.trim(),
+      townCity: formData.townCity.trim(),
+      postcode: formData.postcode.trim(),
     }
 
     const errors: Record<string, string> = {}
@@ -114,6 +122,13 @@ export function ContactForm() {
       errors.phone = "Please enter a valid UK phone number."
     }
     if (!trimmedData.message) errors.message = "Please share your cleaning requirements."
+    if (!trimmedData.addressLine1) errors.addressLine1 = "Please enter your address line 1."
+    if (!trimmedData.townCity) errors.townCity = "Please enter your town or city."
+    if (!trimmedData.postcode) {
+      errors.postcode = "Please enter your postcode."
+    } else if (!isValidPostcode(trimmedData.postcode)) {
+      errors.postcode = "Please enter a valid UK postcode."
+    }
 
     if (Object.keys(errors).length > 0) {
       setFieldErrors(errors)
@@ -166,7 +181,7 @@ export function ContactForm() {
       setTurnstileToken("")
       turnstileTokenRef.current = ""
       if ((window as TurnstileWindow).turnstile && turnstileWidgetRef.current) {
-        ;(window as TurnstileWindow).turnstile?.reset(turnstileWidgetRef.current)
+        ; (window as TurnstileWindow).turnstile?.reset(turnstileWidgetRef.current)
       }
     } catch (error) {
       setFormStatus("error")
@@ -174,7 +189,7 @@ export function ContactForm() {
       setTurnstileToken("")
       turnstileTokenRef.current = ""
       if ((window as TurnstileWindow).turnstile && turnstileWidgetRef.current) {
-        ;(window as TurnstileWindow).turnstile?.reset(turnstileWidgetRef.current)
+        ; (window as TurnstileWindow).turnstile?.reset(turnstileWidgetRef.current)
       }
     }
   }
@@ -300,6 +315,91 @@ export function ContactForm() {
             {fieldErrors.message}
           </p>
         ) : null}
+      </div>
+
+      <div className="space-y-4 border-t border-gray-200 pt-6">
+        <h3 className="text-sm font-semibold text-gray-700">Address</h3>
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-gray-700" htmlFor="addressLine1">
+            Address line 1
+          </label>
+          <Input
+            id="addressLine1"
+            name="addressLine1"
+            placeholder="Building number and street"
+            value={formData.addressLine1}
+            onChange={handleInputChange}
+            autoComplete="address-line1"
+            required
+            aria-invalid={Boolean(fieldErrors.addressLine1)}
+            aria-describedby={fieldErrors.addressLine1 ? "addressLine1-error" : undefined}
+          />
+          {fieldErrors.addressLine1 ? (
+            <p id="addressLine1-error" className="text-sm text-destructive" role="alert">
+              {fieldErrors.addressLine1}
+            </p>
+          ) : null}
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-gray-700" htmlFor="addressLine2">
+            Address line 2 <span className="font-normal text-gray-500">(optional)</span>
+          </label>
+          <Input
+            id="addressLine2"
+            name="addressLine2"
+            placeholder="Building name or flat number"
+            value={formData.addressLine2}
+            onChange={handleInputChange}
+            autoComplete="address-line2"
+          />
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-gray-700" htmlFor="townCity">
+              Town or city
+            </label>
+            <Input
+              id="townCity"
+              name="townCity"
+              placeholder="Town or city"
+              value={formData.townCity}
+              onChange={handleInputChange}
+              autoComplete="address-level2"
+              required
+              aria-invalid={Boolean(fieldErrors.townCity)}
+              aria-describedby={fieldErrors.townCity ? "townCity-error" : undefined}
+            />
+            {fieldErrors.townCity ? (
+              <p id="townCity-error" className="text-sm text-destructive" role="alert">
+                {fieldErrors.townCity}
+              </p>
+            ) : null}
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-gray-700" htmlFor="postcode">
+              Postcode
+            </label>
+            <Input
+              id="postcode"
+              name="postcode"
+              placeholder="e.g. SW1A 1AA"
+              value={formData.postcode}
+              onChange={handleInputChange}
+              autoComplete="postal-code"
+              required
+              aria-invalid={Boolean(fieldErrors.postcode)}
+              aria-describedby={fieldErrors.postcode ? "postcode-error" : undefined}
+            />
+            {fieldErrors.postcode ? (
+              <p id="postcode-error" className="text-sm text-destructive" role="alert">
+                {fieldErrors.postcode}
+              </p>
+            ) : null}
+          </div>
+        </div>
       </div>
 
       <input type="text" name="website" tabIndex={-1} aria-hidden="true" className="hidden" />
