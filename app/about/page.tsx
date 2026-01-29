@@ -33,23 +33,61 @@ export default function AboutPage() {
           <Badge className="bg-white/10 text-white">About Us</Badge>
           <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Red Hackle Cleaning Services</h1>
           <p className="mt-4 text-lg text-gray-300">
-            A professional commercial and specialist cleaning provider supporting businesses across the East Coast of Scotland.
-            <br /><br />
-            We work with organisations that value reliability, consistency and clear communication.
+            A professional commercial and specialist cleaning provider supporting businesses across the East Coast of Scotland. We work with organisations that value reliability, consistency and clear communication.
           </p>
         </div>
       </section>
 
       <section className="bg-gray-50">
+        <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.3fr_0.7fr]">
+          <div className="space-y-4">
+            <h2 className="text-3xl font-bold text-gray-900">About our leadership and experience</h2>
+            <p className="text-gray-600">
+              Red Hackle Cleaning Services is led by Arthur Keith, whose background brings a disciplined, structured and accountable approach to how the business operates.
+            </p>
+            <p className="text-gray-600">
+              Arthur&apos;s leadership style is rooted in preparation, clear standards and responsibility. Those principles shape everything we do, from how work is scoped and priced, to how teams are deployed and supported on site.
+            </p>
+            <p className="text-gray-600">
+              That leadership focus ensures consistency across services and provides our clients with confidence that delivery is not dependent on chance, but on process, oversight and accountability.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row pt-4">
+              <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
+                <Link href="/contact">Request a site survey</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <Link href="/services">Explore our services</Link>
+              </Button>
+            </div>
+          </div>
+          <Card className="border border-gray-200">
+            <CardContent className="flex items-center justify-center p-6">
+              <Image
+                src="/images/arthur-cartoon-900.png"
+                alt="Arthur (Managing Director) from Red Hackle Cleaning Services"
+                width={180}
+                height={180}
+                className="rounded-2xl object-cover"
+              />
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
           <Card className="border border-gray-200">
-            <CardContent className="space-y-6 p-6 sm:p-8">
-              <div>
-                <h2 className="text-2xl font-semibold text-gray-900">Our Focus</h2>
-                <p className="mt-3 text-gray-600">
-                  Deliver cleaning services that stand up to scrutiny, pressure and real world operating conditions.
-                </p>
-              </div>
+            <CardContent className="p-6 sm:p-8">
+              <h2 className="text-2xl font-semibold text-gray-900">Why Clients Choose Red Hackle</h2>
+              <ul className="mt-4 space-y-2 text-gray-600">
+                <li>• We operate with commercial realities in mind</li>
+                <li>• We are clear about what we will and will not take on</li>
+                <li>• We prioritise quality, safety and reliability over shortcuts</li>
+                <li>• We communicate like professionals, not salespeople</li>
+              </ul>
+              <p className="mt-6 text-gray-600">
+                If you are looking for a cleaning provider that treats your site, property or operation with the same seriousness that you do, we are likely a good fit.
+              </p>
             </CardContent>
           </Card>
         </div>
@@ -194,61 +232,6 @@ export default function AboutPage() {
               <p className="mt-3 text-gray-600">
                 That mindset shapes how we scope, staff and deliver every job.
               </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section className="bg-gray-50">
-        <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.3fr_0.7fr]">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold text-gray-900">Leadership and Experience</h2>
-            <p className="text-gray-600">
-              Red Hackle Cleaning Services is led by Arthur Keith, whose background brings a disciplined, structured and accountable approach to how the business operates.
-            </p>
-            <p className="text-gray-600">
-              Arthur&apos;s leadership style is rooted in preparation, clear standards and responsibility. Those principles shape everything we do, from how work is scoped and priced, to how teams are deployed and supported on site.
-            </p>
-            <p className="text-gray-600">
-              That leadership focus ensures consistency across services and provides our clients with confidence that delivery is not dependent on chance, but on process, oversight and accountability.
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row pt-4">
-              <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
-                <Link href="/contact">Request a site survey</Link>
-              </Button>
-              <Button asChild variant="outline">
-                <Link href="/services">Explore our services</Link>
-              </Button>
-            </div>
-          </div>
-          <Card className="border border-gray-200">
-            <CardContent className="flex items-center justify-center p-6">
-              <Image
-                src="/images/arthur-cartoon-900.png"
-                alt="Arthur (Managing Director) from Red Hackle Cleaning Services"
-                width={180}
-                height={180}
-                className="rounded-2xl object-cover"
-              />
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section className="bg-white">
-        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-          <Card className="border border-gray-200 bg-gray-50">
-            <CardContent className="p-6 sm:p-8">
-              <h2 className="text-2xl font-semibold text-gray-900">Why Clients Choose Red Hackle</h2>
-              <ul className="mt-4 space-y-2 text-gray-600">
-                <li>• We operate with commercial realities in mind</li>
-                <li>• We are clear about what we will and will not take on</li>
-                <li>• We prioritise quality, safety and reliability over shortcuts</li>
-                <li>• We communicate like professionals, not salespeople</li>
-              </ul>
-              <p className="mt-6 text-gray-600">
-                If you are looking for a cleaning provider that treats your site, property or operation with the same seriousness that you do, we are likely a good fit.
-              </p>
               <div className="mt-6">
                 <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
                   <Link href="/contact">Get in Touch</Link>
@@ -258,6 +241,7 @@ export default function AboutPage() {
           </Card>
         </div>
       </section>
+
     </main>
   )
 }
