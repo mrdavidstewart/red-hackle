@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { Resend } from "resend"
-import { sanitizeInput, isValidEmail, isValidPhone, checkRateLimit, secureHeaders } from "@/lib/security"
+import { sanitizeInput, isValidEmail, isValidPhone, isValidPostcode, checkRateLimit, secureHeaders } from "@/lib/security"
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,6 +26,10 @@ export async function POST(request: NextRequest) {
     const email = sanitizeInput((formData.get("email") as string) || "")
     const phone = sanitizeInput((formData.get("phone") as string) || "")
     const message = sanitizeInput((formData.get("message") as string) || "")
+    const addressLine1 = sanitizeInput((formData.get("addressLine1") as string) || "")
+    const addressLine2 = sanitizeInput((formData.get("addressLine2") as string) || "")
+    const townCity = sanitizeInput((formData.get("townCity") as string) || "")
+    const postcode = sanitizeInput((formData.get("postcode") as string) || "")
     const timestamp = (formData.get("timestamp") as string) || ""
     const honeypot = (formData.get("website") as string) || ""
     const turnstileToken = (formData.get("turnstileToken") as string) || ""
@@ -56,7 +60,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate required fields
-    if (!firstName || !lastName || !email || !phone || !message) {
+    if (!firstName || !lastName || !email || !phone || !message || !addressLine1 || !townCity || !postcode) {
       return NextResponse.json(
         { error: "All fields are required" },
         {
@@ -80,6 +84,16 @@ export async function POST(request: NextRequest) {
     if (!isValidPhone(phone)) {
       return NextResponse.json(
         { error: "Invalid phone format" },
+        {
+          status: 400,
+          headers: secureHeaders,
+        },
+      )
+    }
+
+    if (!isValidPostcode(postcode)) {
+      return NextResponse.json(
+        { error: "Invalid postcode format" },
         {
           status: 400,
           headers: secureHeaders,
@@ -173,6 +187,12 @@ export async function POST(request: NextRequest) {
       `Name: ${firstName} ${lastName}`,
       `Email: ${email}`,
       `Phone: ${phone}`,
+      "",
+      "Address:",
+      addressLine1,
+      ...(addressLine2 ? [addressLine2] : []),
+      townCity,
+      postcode,
       "",
       "Message:",
       message,
