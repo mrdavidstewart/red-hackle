@@ -11,7 +11,7 @@ import { officeAddress } from "@/lib/structured-data"
 describe("static pages", () => {
   it("renders the About page", () => {
     render(<AboutPage />)
-    expect(screen.getByRole("heading", { level: 1, name: /A disciplined, accountable cleaning partner/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { level: 1, name: /Red Hackle Cleaning Services/i })).toBeInTheDocument()
   })
 
   it("renders the Commercial Cleaning page", () => {
