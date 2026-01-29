@@ -326,7 +326,7 @@ export function ContactForm() {
           <Input
             id="addressLine1"
             name="addressLine1"
-            placeholder="House number and street"
+            placeholder="Building number and street"
             value={formData.addressLine1}
             onChange={handleInputChange}
             autoComplete="address-line1"
