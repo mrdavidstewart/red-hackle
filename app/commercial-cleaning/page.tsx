@@ -97,7 +97,7 @@ export default function CommercialCleaningPage() {
             <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
               <a href="tel:+447966881555">📞 Call 07966 881555</a>
             </Button>
-            <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">
+            <Button asChild variant="outlineOnDark">
               <Link href="/contact">Request a Quote – 24 Hour Response</Link>
             </Button>
           </div>
@@ -291,7 +291,7 @@ export default function CommercialCleaningPage() {
                 <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
                   <a href="tel:+447966881555">📞 Call 07966 881555</a>
                 </Button>
-                <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">
+                <Button asChild variant="outline">
                   <Link href="/contact">Request a Quote – 24 Hour Response</Link>
                 </Button>
               </div>
