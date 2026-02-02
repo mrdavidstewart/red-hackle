@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import ServicesPage from "@/app/services/page"
 import BuildersSparklePage from "@/app/services/builders-sparkle/page"
-import CommercialCleaningServicePage from "@/app/services/commercial-cleaning/page"
+import RetailCleaningPage from "@/app/services/retail-cleaning/page"
 import ContractCleaningPage from "@/app/services/contract-cleaning/page"
 import DeepOneOffPage from "@/app/services/deep-one-off/page"
 import EndOfTenancyPage from "@/app/services/end-of-tenancy/page"
@@ -41,7 +41,7 @@ describe("services pages", () => {
   })
 
   it("renders the commercial cleaning service page", () => {
-    render(<CommercialCleaningServicePage />)
+    render(<RetailCleaningPage />)
     expect(screen.getByRole("heading", { name: /retail & public-facing commercial cleaning/i })).toBeInTheDocument()
   })
 

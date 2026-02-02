@@ -16,7 +16,7 @@ export function GET() {
     "/services",
     "/services/accommodation-housekeeping",
     "/services/builders-sparkle",
-    "/services/commercial-cleaning",
+    "/services/retail-cleaning",
     "/services/office-workplace",
     "/services/contract-cleaning",
     "/services/end-of-tenancy",
