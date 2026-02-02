@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { buildMetadata } from "@/lib/seo"
 import { buildBreadcrumbSchema, eastCoastOfScotland, includingAreaStatement } from "@/lib/structured-data"
+import { Button } from "@/components/ui/button"
 
 export const metadata = buildMetadata({
   title: "Commercial Cleaning Directory",
@@ -21,7 +22,7 @@ const serviceCards = [
   {
     title: "Retail & Public-Facing Cleaning",
     description: "Commercial cleaning for shops, showrooms, and customer-facing areas with consistent presentation.",
-    href: "/services/commercial-cleaning",
+    href: "/services/retail-cleaning",
   },
   {
     title: "Managed Contract Cleaning",
@@ -83,6 +84,11 @@ export default function ServicesPage() {
             Flexible cleaning services tailored for offices, hospitality venues, property managers, and construction
             teams {` across ${eastCoastOfScotland}${includingAreaStatement}`}
           </p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
+              <a href="tel:+447966881555">📞 Call 07966 881555</a>
+            </Button>
+          </div>
         </div>
       </section>
 

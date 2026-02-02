@@ -42,7 +42,7 @@ const services = [
   {
     title: "Retail & Public-Facing Cleaning",
     description: "Commercial cleaning for shops, showrooms, and customer-facing areas with consistent presentation.",
-    href: "/services/commercial-cleaning",
+    href: "/services/retail-cleaning",
   },
   {
     title: "Managed Contract Cleaning",
