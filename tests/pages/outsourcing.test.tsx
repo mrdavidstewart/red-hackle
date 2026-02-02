@@ -104,8 +104,7 @@ describe("Outsourcing page", () => {
         expect(
             screen.getByRole("heading", { name: /looking for a reliable regional partner/i }),
         ).toBeInTheDocument()
-        expect(
-            screen.getByRole("link", { name: /discuss outsourcing support/i }),
-        ).toBeInTheDocument()
+        const ctaLinks = screen.getAllByRole("link", { name: /discuss outsourcing support/i })
+        expect(ctaLinks.length).toBeGreaterThan(0)
     })
 })

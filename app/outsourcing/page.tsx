@@ -73,6 +73,14 @@ export default function OutsourcingPage() {
                         <br /><br />
                         Discreet service under your brand, consistent standards, your reputation protected.
                     </p>
+                    <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                        <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
+                            <a href="tel:+447966881555">📞 Call 07966 881555</a>
+                        </Button>
+                        <Button asChild variant="outlineOnDark">
+                            <Link href="/contact">Discuss Outsourcing Support</Link>
+                        </Button>
+                    </div>
                 </div>
             </section>
 
@@ -292,8 +300,11 @@ export default function OutsourcingPage() {
                                 <p className="mt-4 text-gray-600">
                                     We&apos;ll have an open, commercial conversation to see if we&apos;re the right fit.
                                 </p>
-                                <div className="mt-6">
+                                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                                     <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
+                                        <a href="tel:+447966881555">📞 Call 07966 881555</a>
+                                    </Button>
+                                    <Button asChild variant="outline">
                                         <Link href="/contact">Discuss Outsourcing Support</Link>
                                     </Button>
                                 </div>

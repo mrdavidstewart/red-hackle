@@ -99,6 +99,14 @@ export default function ConsumablesPage() {
             <br /><br />
             Standalone or bundled with your cleaning contract.
           </p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
+              <a href="tel:+447966881555">📞 Call 07966 881555</a>
+            </Button>
+            <Button asChild variant="outlineOnDark">
+              <Link href="/contact">Request a Consumables Quote</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -314,8 +322,11 @@ export default function ConsumablesPage() {
                 <p className="mt-4 text-gray-600">
                   We&apos;ll recommend a simple, cost-effective setup tailored to your site.
                 </p>
-                <div className="mt-6">
+                <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                   <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
+                    <a href="tel:+447966881555">📞 Call 07966 881555</a>
+                  </Button>
+                  <Button asChild variant="outline">
                     <Link href="/contact">Request a Consumables Quote</Link>
                   </Button>
                 </div>
