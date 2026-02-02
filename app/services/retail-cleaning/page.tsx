@@ -16,44 +16,24 @@ export const metadata = buildMetadata({
 
 const faqItems = [
   {
-    question: "Do you provide quotes after a site survey?",
+    question: "Can cleaning be carried out outside trading hours?",
     answer:
-      "Yes. We complete a site walk-through to align the scope of works with compliance requirements, operating conditions, and budget expectations before issuing a tailored quote.",
+      "Yes. Most retail cleaning is completed early mornings, evenings, overnight, or during off-peak periods to avoid disruption to customers.",
   },
   {
-    question: "Can retail cleaning be scheduled outside trading hours?",
+    question: "Can cleaning schedules be adjusted during busy periods?",
     answer:
-      "Yes. We offer early-morning, evening, overnight, and off-peak cleaning schedules so public-facing spaces remain clean without disrupting customers.",
-  },
-  {
-    question: "Can cleaning be adjusted around peak trading periods or seasonal demand?",
-    answer:
-      "Yes. Cleaning frequencies and schedules can be reviewed and adjusted to reflect peak trading periods, seasonal footfall, or promotional activity.",
+      "Yes. Cleaning frequency and task focus can be reviewed to support seasonal demand, promotions, or increased footfall.",
   },
   {
     question: "Do you support multi-unit or portfolio retail clients?",
     answer:
-      "Yes. We support both single-unit retailers and multi-site portfolios, delivering consistent standards through agreed specifications and supervised delivery.",
+      "Yes. We support both single-site and multi-site retail operations, delivering consistent standards across locations.",
   },
   {
-    question: "How do you manage cleaning in high-footfall public spaces?",
+    question: "Do you provide consumables?",
     answer:
-      "Cleaning tasks are planned around customer flow, with phased delivery or off-peak scheduling used where required to maintain hygiene and safety without impacting the customer experience.",
-  },
-  {
-    question: "Can you work to site-specific compliance or health and safety requirements?",
-    answer:
-      "Yes. Cleaning delivery can be aligned with site-specific procedures, access protocols, and compliance requirements agreed during onboarding and site surveys.",
-  },
-  {
-    question: "Is floor care included as part of retail cleaning services?",
-    answer:
-      "Floor care requirements are assessed during the site survey. Routine maintenance, deep cleans, or periodic treatments can be included within the agreed scope where required.",
-  },
-  {
-    question: "How do you ensure standards are maintained across customer-facing areas?",
-    answer:
-      "Standards are maintained through documented specifications, supervised teams, and routine quality checks to ensure areas remain clean, safe, and presentable.",
+      "We can either work with client-supplied consumables or manage supply and stock control as part of the service.",
   },
 ]
 
@@ -70,7 +50,7 @@ const relatedServices = [
   },
 ]
 
-export default function CommercialCleaningPage() {
+export default function RetailCleaningPage() {
   const serviceSchema = buildServiceSchema({
     name: "Retail & Public-Facing Commercial Cleaning",
     description:
@@ -104,12 +84,12 @@ export default function CommercialCleaningPage() {
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-white/10 text-white">Retail & Public-Facing</Badge>
-          <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Retail & Public-Facing Commercial Cleaning</h1>
+          <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Retail & Public-Facing Commercial Cleaning Services</h1>
           <p className="mt-4 text-lg text-gray-300">
-            Commercial cleaning for shops, showrooms, and customer-facing environments
+            Red Hackle provides professional retail and public-facing commercial cleaning for shops, showrooms, and customer-facing environments where presentation, hygiene, and safety standards matter.
           </p>
           <p className="mt-3 text-gray-400">
-            Red Hackle provides retail and public-facing commercial cleaning services for businesses that require consistent presentation, safe hygiene standards, and minimal disruption to trading.
+            Discreet, reliable, and professionally managed across the East Coast of Scotland, including Tayside, Angus, Fife, Perth, Aberdeen & Aberdeenshire.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
@@ -122,105 +102,223 @@ export default function CommercialCleaningPage() {
         </div>
       </section>
 
-      {/* Service Areas */}
+      {/* Ideal For / Not Ideal */}
       <section className="bg-gray-50">
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
           <Card className="border border-gray-200">
-            <CardContent className="p-6 sm:p-8">
-              <h2 className="text-2xl font-semibold text-gray-900">Geographic Coverage</h2>
-              <p className="mt-4 text-gray-600">
-                Retail cleaning services are delivered across the East Coast of Scotland, including Tayside, Angus, Fife, Perth, Aberdeen & Aberdeenshire.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Ideal For */}
-      <section className="bg-white">
-        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-          <Card className="border border-gray-200">
-            <CardContent className="p-6 sm:p-8">
-              <h2 className="text-2xl font-semibold text-gray-900">👥 Ideal For</h2>
-              <ul className="mt-4 space-y-2 text-gray-600">
-                <li>• Retail stores and shop units</li>
-                <li>• Showrooms and sales environments</li>
-                <li>• Public-facing commercial premises</li>
-                <li>• Multi-unit retail and managed portfolios</li>
-              </ul>
-              <p className="mt-6 text-gray-600">
-                We support shops, showrooms, and customer-facing commercial spaces where cleaning must work around live environments, footfall, and compliance requirements. Our approach is structured, documented, and supervised to ensure standards are maintained day-in, day-out.
-              </p>
+            <CardContent className="p-6">
+              <div className="grid gap-8 md:grid-cols-2">
+                <div>
+                  <h3 className="font-semibold text-gray-900">This service is ideal for:</h3>
+                  <ul className="mt-4 space-y-2 text-gray-600">
+                    <li>• Retail stores and shop units</li>
+                    <li>• Showrooms and sales environments</li>
+                    <li>• Customer-facing commercial premises</li>
+                    <li>• Multi-unit retail portfolios</li>
+                    <li>• Public-access spaces requiring high presentation standards</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Not the right fit if:</h3>
+                  <ul className="mt-4 space-y-2 text-gray-600">
+                    <li>• You only need a one-off or reactive clean</li>
+                    <li>• You are looking for the cheapest hourly option</li>
+                    <li>• You don&apos;t want defined scopes or structured delivery</li>
+                    <li>• You need cleaning delivered ad-hoc with no consistency</li>
+                  </ul>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
       </section>
 
       {/* What's Included */}
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200">
+            <CardContent className="p-6 sm:p-8">
+              <h2 className="text-2xl font-semibold text-gray-900">What&apos;s Included?</h2>
+              <div className="mt-6 grid gap-6 md:grid-cols-2">
+                <div>
+                  <h3 className="font-semibold text-gray-900">Standard Retail Cleaning</h3>
+                  <ul className="mt-3 space-y-2 text-gray-600">
+                    <li>• Daily, weekly, or scheduled cleaning programmes</li>
+                    <li>• Shop floors, aisles, and customer-facing areas cleaned and maintained</li>
+                    <li>• Reception areas, lobbies, and shared public spaces</li>
+                    <li>• Toilets and washrooms cleaned and replenished*</li>
+                    <li>• Internal glass cleaned to reach</li>
+                    <li>• Floor vacuuming, mopping, and surface maintenance</li>
+                    <li>• Touchpoints sanitised in high-footfall areas</li>
+                    <li>• Waste removal and presentation checks</li>
+                    <li>• Consistent attendance and supervision</li>
+                  </ul>
+                  <p className="mt-3 text-xs text-gray-500">
+                    *Consumables can be supplied or client-provided depending on agreement.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Optional Add-Ons</h3>
+                  <ul className="mt-3 space-y-2 text-gray-600">
+                    <li>• Periodic deep cleans</li>
+                    <li>• Floor machine cleaning and refinishing</li>
+                    <li>• Carpet and upholstery cleaning</li>
+                    <li>• Internal window cleaning</li>
+                    <li>• Consumables supply &amp; stock control</li>
+                    <li>• Early-morning, evening, or overnight cleaning</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Common Scenarios */}
       <section className="bg-gray-50">
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
           <Card className="border border-gray-200">
             <CardContent className="p-6 sm:p-8">
-              <h2 className="text-2xl font-semibold text-gray-900">What&apos;s Included</h2>
-              <ul className="mt-4 space-y-2 text-gray-600">
-                <li>• Daily, weekly, or scheduled retail cleaning programmes</li>
-                <li>• Shop floors, aisles, and customer-facing areas cleaned and maintained</li>
-                <li>• Reception, lobby, and shared public space cleaning</li>
-                <li>• Washroom servicing, deep cleaning, and consumable restocking</li>
-                <li>• Internal window cleaning and floor surface maintenance</li>
-                <li>• Flexible scheduling to suit trading hours and footfall patterns</li>
+              <h2 className="text-2xl font-semibold text-gray-900">Common scenarios we handle</h2>
+              <p className="mt-4 text-gray-600">We regularly support:</p>
+              <ul className="mt-3 space-y-2 text-gray-600">
+                <li>• Retail spaces with high customer footfall</li>
+                <li>• Stores operating extended or variable opening hours</li>
+                <li>• Showrooms requiring consistent presentation</li>
+                <li>• Multi-unit portfolios needing uniform standards</li>
+                <li>• Sites with access controls, alarms, or restricted areas</li>
+                <li>• Businesses where customer experience is critical</li>
               </ul>
-              <p className="mt-6 text-sm text-gray-600">
-                Scopes of works are agreed in advance and tailored to each site.
+              <p className="mt-6 font-semibold text-gray-900">
+                We don&apos;t just clean retail spaces — we manage them properly.
               </p>
             </CardContent>
           </Card>
         </div>
       </section>
 
-      {/* Why It Works */}
+      {/* How We Deliver */}
       <section className="bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
-          <h2 className="text-2xl font-semibold text-gray-900">Why It Works</h2>
+          <h2 className="text-2xl font-semibold text-gray-900">How we deliver</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             <Card className="border border-gray-200">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-gray-900">Structured approach</h3>
-                <p className="mt-3 text-sm text-gray-600">
-                  A structured, operations-led approach ensures consistent presentation and hygiene standards in high-visibility environments where customer experience matters.
-                </p>
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">1</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Site Review &amp; Scope Build</h3>
+                    <p className="mt-2 text-sm text-gray-600">We take time to understand layout, size, customer flow, high-risk and high-visibility areas, trading hours and cleaning windows, plus access, security, and compliance requirements</p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
             <Card className="border border-gray-200">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-gray-900">Operational fit</h3>
-                <p className="mt-3 text-sm text-gray-600">
-                  Cleaning schedules and staffing plans are aligned with opening hours, access protocols, and compliance requirements to protect day-to-day operations.
-                </p>
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">2</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Mobilisation &amp; Onboarding</h3>
+                    <p className="mt-2 text-sm text-gray-600">Uniformed, trained operatives, site-specific inductions, agreed cleaning schedules and task lists, clear start dates and review points</p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
             <Card className="border border-gray-200">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-gray-900">Flexible scheduling</h3>
-                <p className="mt-3 text-sm text-gray-600">
-                  We regularly support early-morning, evening, overnight, and off-peak cleaning, allowing retail spaces to remain clean, safe, and customer-ready without disruption.
-                </p>
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">3</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Ongoing Quality Control</h3>
+                    <p className="mt-2 text-sm text-gray-600">Supervisor oversight, spot checks and quality reviews, clear communication with your point of contact, issues addressed promptly</p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
             <Card className="border border-gray-200">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-gray-900">Adaptive delivery</h3>
-                <p className="mt-3 text-sm text-gray-600">
-                  Cleaning frequency, team allocation, and task lists are adjusted to reflect footfall, trading patterns, and seasonal demand.
-                </p>
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">4</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Continuous Improvement</h3>
+                    <p className="mt-2 text-sm text-gray-600">Scopes adjusted as trading patterns change, seasonal or peak-period support added, regular reviews to maintain standards</p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
+      {/* What Success Looks Like */}
+      <section className="bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200">
+            <CardContent className="p-6 sm:p-8">
+              <h2 className="text-2xl font-semibold text-gray-900">What success looks like</h2>
+              <ul className="mt-4 space-y-2 text-gray-600">
+                <li>✔ A clean, welcoming retail environment</li>
+                <li>✔ Consistent presentation across trading hours</li>
+                <li>✔ Fewer customer complaints or issues</li>
+                <li>✔ Clear accountability and communication</li>
+                <li>✔ Confidence your cleaning is handled properly</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Case Study */}
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200">
+            <CardContent className="p-6 sm:p-8">
+              <Badge className="bg-red-50 text-red-700">Case Study</Badge>
+              <h2 className="mt-4 text-2xl font-semibold text-gray-900">Retail & Public-Facing Premises – East Coast Scotland</h2>
+              <p className="mt-4 text-gray-600">
+                Red Hackle was appointed to provide ongoing cleaning support for a customer-facing retail environment operating extended trading hours.
+              </p>
+              <p className="mt-3 text-gray-600">
+                Following a detailed site review, we implemented a structured scope aligned with footfall patterns and off-peak cleaning windows, supported by supervision and regular quality checks.
+              </p>
+              <p className="mt-3 text-gray-600">
+                <strong>The result:</strong> consistently high presentation standards, minimal disruption to customers, and a reliable service the client does not need to chase.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* FAQ */}
-      <FaqSectionCard items={faqItems} title="Commercial Cleaning FAQs" />
+      <FaqSectionCard items={faqItems} title="Retail cleaning FAQs" />
+
+      {/* Final CTA */}
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200 bg-gray-50">
+            <CardContent className="p-6 sm:p-8">
+              <h2 className="text-2xl font-semibold text-gray-900">Looking for a retail cleaning partner that protects your brand and customer experience?</h2>
+              <p className="mt-4 text-gray-600">
+                Tell us:
+              </p>
+              <ul className="mt-3 space-y-2 text-gray-600">
+                <li>• Type of retail environment</li>
+                <li>• Opening hours and preferred cleaning times</li>
+                <li>• Cleaning frequency required</li>
+                <li>• Any access or compliance considerations</li>
+              </ul>
+              <p className="mt-4 text-gray-600">
+                We&apos;ll provide a clear, structured proposal — not a vague hourly quote.
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
+                  <Link href="/contact">Request a quote</Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
       {/* Related Services */}
       <RelatedServices
