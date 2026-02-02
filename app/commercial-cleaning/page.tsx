@@ -88,17 +88,14 @@ export default function CommercialCleaningPage() {
           <Badge className="bg-white/10 text-white">Commercial Cleaning</Badge>
           <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Commercial Cleaning Services Across the East Coast of Scotland</h1>
           <p className="mt-4 text-lg text-gray-300">
-            Reliable, contract-led cleaning for businesses across Dundee, Angus, Fife, Perthshire and Aberdeenshire — delivered by a hands-on local team.
-          </p>
-          <p className="mt-3 text-sm text-gray-400">
-            Commercial clients only · No domestic cleans · No agency labour
+            Reliable, contract-led cleaning for businesses across Dundee, Angus, Fife, Perthshire and Aberdeenshire. Delivered by a hands-on local team.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
               <a href="tel:+447966881555">📞 Call 07966 881555</a>
             </Button>
             <Button asChild variant="outlineOnDark">
-              <Link href="/contact">Request a Quote – 24 Hour Response</Link>
+              <Link href="/contact">Request a Quote - 24 Hour Response</Link>
             </Button>
           </div>
         </div>
@@ -150,15 +147,6 @@ export default function CommercialCleaningPage() {
                 <li>• Construction &amp; refurbishment projects</li>
                 <li>• Multi-site operators</li>
               </ul>
-              <h3 className="mt-6 font-semibold text-gray-900">If you&apos;re looking for:</h3>
-              <ul className="mt-3 space-y-2 text-gray-600">
-                <li>❌ domestic cleaning</li>
-                <li>❌ casual hourly help</li>
-                <li>❌ the cheapest quote</li>
-              </ul>
-              <p className="mt-4 text-sm text-gray-600">
-                —we&apos;re not the right fit.
-              </p>
             </CardContent>
           </Card>
         </div>
@@ -173,11 +161,11 @@ export default function CommercialCleaningPage() {
               <CardContent className="p-6">
                 <h3 className="font-semibold text-gray-900">What we deliver:</h3>
                 <ul className="mt-4 space-y-2 text-gray-600">
-                  <li>• Commercial-first approach — scoped, priced and managed properly</li>
-                  <li>• Hands-on management — direct communication, no call centres</li>
-                  <li>• Reliable, uniformed teams — fully insured and vetted</li>
-                  <li>• Clear scopes &amp; pricing — no hidden extras or surprises</li>
-                  <li>• Responsive mobilisation — fast site visits and turnaround</li>
+                  <li>• Commercial-first approach, scoped, priced and managed properly</li>
+                  <li>• Hands-on management, direct communication, no call centres</li>
+                  <li>• Reliable, uniformed teams, fully insured and vetted</li>
+                  <li>• Clear scopes &amp; pricing, no hidden extras or surprises</li>
+                  <li>• Responsive mobilisation, fast site visits and turnaround</li>
                 </ul>
               </CardContent>
             </Card>
@@ -292,7 +280,7 @@ export default function CommercialCleaningPage() {
                   <a href="tel:+447966881555">📞 Call 07966 881555</a>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link href="/contact">Request a Quote – 24 Hour Response</Link>
+                  <Link href="/contact">Request a Quote - 24 Hour Response</Link>
                 </Button>
               </div>
             </CardContent>
