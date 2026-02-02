@@ -92,8 +92,6 @@ export default function RetailCleaningPage() {
           <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Retail & Public-Facing Commercial Cleaning Services</h1>
           <p className="mt-4 text-lg text-gray-300">
             Red Hackle provides professional retail and public-facing commercial cleaning for shops, showrooms, and customer-facing environments where presentation, hygiene, and safety standards matter.
-          </p>
-          <p className="mt-3 text-gray-400">
             Discreet, reliable, and professionally managed across the East Coast of Scotland, including Tayside, Angus, Fife, Perth, Aberdeen & Aberdeenshire.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
