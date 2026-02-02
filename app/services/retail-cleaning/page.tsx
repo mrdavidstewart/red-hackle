@@ -48,6 +48,11 @@ const relatedServices = [
     description: "Managed contract cleaning with clear accountability and reporting.",
     href: "/commercial-cleaning",
   },
+  {
+    title: "Deep & One-off Cleaning",
+    description: "Scheduled deep cleans for audits, resets, and events.",
+    href: "/services/deep-one-off",
+  },
 ]
 
 export default function RetailCleaningPage() {
