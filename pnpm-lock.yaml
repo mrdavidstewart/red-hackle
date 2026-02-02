@@ -15,7 +15,7 @@ importers:
         specifier: ^1.2.4
         version: 1.2.4(@types/react@19.2.10)(react@19.2.4)
       '@types/node':
-        specifier: ^25.1.0
+        specifier: ^25.2.0
         version: 25.2.0
       '@types/react':
         specifier: ^19.2.10
