@@ -1,54 +1,18 @@
 import Link from "next/link"
-import { BadgeCheck, ClipboardList, ShieldCheck } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { FaqSection } from "@/components/site/faq-section"
+import { FaqSectionCard } from "@/components/site/faq-section-card"
 import { RelatedServices } from "@/components/site/related-services"
 import { buildMetadata } from "@/lib/seo"
-import {
-  buildBreadcrumbSchema,
-  buildFaqSchema,
-  buildServiceSchema,
-  eastCoastOfScotland,
-  includingAreaStatement,
-} from "@/lib/structured-data"
+import { buildBreadcrumbSchema, buildFaqSchema, buildServiceSchema } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Managed Contract Cleaning with SLAs & QA Reporting | Red Hackle",
+  title: "Commercial Cleaning Services Across the East Coast of Scotland",
   description:
-    `Managed contract cleaning with onboarding, SLAs & quality reporting. Professional teams, supervision & compliance-ready reporting for offices & facilities across Scotland.`,
+    "Reliable, contract-led commercial cleaning for businesses across Dundee, Angus, Fife, Perthshire and Aberdeenshire. Hands-on management, no agency labour.",
   path: "/commercial-cleaning",
 })
-
-const highlights = [
-  {
-    title: "SLA-Led Delivery",
-    description: "Service levels, KPIs, and escalation paths are agreed in advance for every site, providing clarity for facilities teams, site managers, and procurement.",
-  },
-  {
-    title: "Dedicated Supervision",
-    description: "Consistent teams are supported by active supervision, with routine inspections and quality audits to maintain standards across the life of the contract.",
-  },
-  {
-    title: "Compliance-Ready Reporting",
-    description: "Inspection reports, snag lists, and digital checklists are available on request to support audits, compliance reviews, and internal reporting.",
-  },
-]
-
-const onboarding = [
-  "Site survey and risk assessment",
-  "Specification and schedule approval",
-  "Mobilisation plan (access, supplies, notes)",
-  "QA checklist and reporting cadence",
-]
-
-const trustComplianceItems = [
-  "Public Liability (£10m) and Employers Liability (£5m)",
-  "RAMS available (Risk Assessments & Method Statements)",
-  "Uniformed team with supervision & QA programme",
-  "Keyholding & alarm response protocols",
-]
 
 const faqItems = [
   {
@@ -58,8 +22,16 @@ const faqItems = [
   },
   {
     question: "Do you provide reporting for facilities teams?",
+    answer: "Yes. We supply inspection reports, snagging lists, and QA summaries aligned to your requirements and reporting cadence.",
+  },
+  {
+    question: "Do you work across multiple sites?",
+    answer: "Yes. If you operate across multiple locations, we can provide consistent coverage under one agreement with unified reporting.",
+  },
+  {
+    question: "What if we're not in Dundee?",
     answer:
-      "Yes. We supply inspection reports, snagging lists, and QA summaries aligned to your SLAs and reporting cadence.",
+      "We cover the entire East Coast of Scotland corridor including Angus, Fife, Perthshire, and Aberdeenshire. If your sites are within this region, we can support you.",
   },
 ]
 
@@ -83,9 +55,9 @@ const relatedServices = [
 
 export default function CommercialCleaningPage() {
   const serviceSchema = buildServiceSchema({
-    name: "Managed Contract Cleaning",
+    name: "Commercial Cleaning Services",
     description:
-      `Managed contract cleaning with onboarding, SLAs, and quality reporting across ${eastCoastOfScotland}${includingAreaStatement}`,
+      "Reliable, contract-led commercial cleaning for businesses across the East Coast of Scotland including Dundee, Angus, Fife, Perthshire and Aberdeenshire.",
     slug: "/commercial-cleaning",
   })
   const breadcrumbSchema = buildBreadcrumbSchema([
@@ -113,137 +85,220 @@ export default function CommercialCleaningPage() {
           <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(220,38,38,0.35),_transparent_60%)]" />
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
-          <Badge className="bg-white/10 text-white">Commercial &amp; contract cleaning</Badge>
-          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Contract cleaning with clear accountability</h1>
+          <Badge className="bg-white/10 text-white">Commercial Cleaning</Badge>
+          <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Commercial Cleaning Services Across the East Coast of Scotland</h1>
           <p className="mt-4 text-lg text-gray-300">
-            Red Hackle provides commercial and contract cleaning services for organisations that require predictable
-            outcomes, consistent standards, and reliable reporting across {eastCoastOfScotland}{includingAreaStatement}
-            <br />
-            <br />
-            Since 2013, we’ve supported office managers, hospitality groups, and property teams with managed cleaning contracts built around documented specifications, supervised teams, and agreed service levels ensuring performance doesn’t drift over time.</p>
+            Reliable, contract-led cleaning for businesses across Dundee, Angus, Fife, Perthshire and Aberdeenshire — delivered by a hands-on local team.
+          </p>
+          <p className="mt-3 text-sm text-gray-400">
+            Commercial clients only · No domestic cleans · No agency labour
+          </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
-              <Link href="/contact">Request a commercial quote</Link>
+              <a href="tel:+447966881555">📞 Call 07966 881555</a>
             </Button>
-            <Button asChild variant="outlineOnDark">
-              <a href="tel:+447966881555">Call 07966 881 555</a>
+            <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">
+              <Link href="/contact">Request a Quote – 24 Hour Response</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
-          <div className="grid gap-6 md:grid-cols-3">
-            {highlights.map((item) => (
-              <Card key={item.title} className="border border-gray-200">
-                <CardContent className="space-y-3 p-6">
-                  <h2 className="text-xl font-semibold text-gray-900">{item.title}</h2>
-                  <p className="text-gray-600">{item.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      {/* Service Areas */}
       <section className="bg-gray-50">
-        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <Badge className="bg-red-50 text-red-700">Onboarding</Badge>
-              <h2 className="mt-3 text-3xl font-black text-gray-900">Commercial mobilisation in four clear steps</h2>
-              <ul className="mt-6 space-y-3 text-gray-600">
-                {onboarding.map((step) => (
-                  <li key={step} className="flex items-start gap-3">
-                    <ShieldCheck className="mt-1 h-4 w-4 text-destructive" />
-                    <span>{step}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <Card className="border border-gray-200">
-                <CardContent className="space-y-2 p-6">
-                  <div className="flex items-center gap-3">
-                    <ClipboardList className="h-5 w-5 text-destructive" />
-                    <p className="text-sm font-semibold text-gray-900">Reporting &amp; QA</p>
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    Weekly or monthly audit reporting, snagging lists, and performance reviews with site managers.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="border border-gray-200">
-                <CardContent className="space-y-2 p-6">
-                  <div className="flex items-center gap-3">
-                    <BadgeCheck className="h-5 w-5 text-destructive" />
-                    <p className="text-sm font-semibold text-gray-900">Health &amp; safety</p>
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    Risk assessments and method statements available for regulated or high-traffic environments.
-                  </p>
-                </CardContent>
-              </Card>
-              <Card className="border border-gray-200">
-                <CardContent className="space-y-2 p-6">
-                  <div className="flex items-center gap-3">
-                    <ShieldCheck className="h-5 w-5 text-destructive" />
-                    <p className="text-sm font-semibold text-gray-900">Secure access</p>
-                  </div>
-                  <p className="text-sm text-gray-600">
-                    Alarm codes, keyholding, and out-of-hours protocols agreed and recorded per site.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white">
-        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
-          <div className="rounded-3xl border border-gray-200 bg-gray-50 p-8">
-            <h2 className="text-3xl font-black text-gray-900">Trust &amp; Compliance</h2>
-            <p className="mt-3 text-gray-600">
-              Commercial assurance points to support procurement, compliance reviews, and site onboarding.
-            </p>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {trustComplianceItems.map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white p-4">
-                  <ShieldCheck className="mt-0.5 h-5 w-5 text-destructive" />
-                  <span className="text-sm font-semibold text-gray-800">{item}</span>
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200">
+            <CardContent className="p-6 sm:p-8">
+              <h2 className="text-2xl font-semibold text-gray-900">Areas We Cover</h2>
+              <p className="mt-4 text-gray-600">We support businesses across the East Coast of Scotland, including:</p>
+              <div className="mt-6 grid gap-6 md:grid-cols-2">
+                <div>
+                  <h3 className="font-semibold text-gray-900">Primary locations:</h3>
+                  <ul className="mt-3 space-y-2 text-gray-600">
+                    <li>• Dundee &amp; Broughty Ferry</li>
+                    <li>• Angus: Arbroath, Forfar, Montrose, Brechin</li>
+                    <li>• Fife: St Andrews, Cupar, Kirkcaldy, Glenrothes</li>
+                  </ul>
                 </div>
-              ))}
-            </div>
-          </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Extended coverage:</h3>
+                  <ul className="mt-3 space-y-2 text-gray-600">
+                    <li>• Perthshire &amp; surrounding areas</li>
+                    <li>• Aberdeenshire: Stonehaven, Portlethen, Aberdeen</li>
+                  </ul>
+                </div>
+              </div>
+              <p className="mt-6 text-gray-600">
+                If you operate across multiple sites or locations, we can provide consistent coverage under one agreement.
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
+      {/* Who You Work With */}
       <section className="bg-white">
-        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
-          <div className="rounded-3xl border border-gray-200 bg-gray-900 px-6 py-10 text-white sm:px-10">
-            <h2 className="text-3xl font-black">Need a contract cleaning partner?</h2>
-            <p className="mt-3 text-gray-300">
-              We&apos;ll build a compliant cleaning plan with measurable service levels and a reliable team on the ground.
-            </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
-                <Link href="/contact">Book a site survey</Link>
-              </Button>
-              <Button asChild variant="outlineOnDark">
-                <Link href="/services">Explore services</Link>
-              </Button>
-            </div>
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200">
+            <CardContent className="p-6 sm:p-8">
+              <h2 className="text-2xl font-semibold text-gray-900">Who We&apos;re Best Suited For</h2>
+              <p className="mt-4 text-gray-600">We work with organisations that need cleaning delivered professionally, consistently and without drama, including:</p>
+              <ul className="mt-4 space-y-2 text-gray-600">
+                <li>• Offices &amp; commercial premises</li>
+                <li>• Hospitality &amp; leisure venues</li>
+                <li>• Property managers &amp; landlords</li>
+                <li>• Construction &amp; refurbishment projects</li>
+                <li>• Multi-site operators</li>
+              </ul>
+              <h3 className="mt-6 font-semibold text-gray-900">If you&apos;re looking for:</h3>
+              <ul className="mt-3 space-y-2 text-gray-600">
+                <li>❌ domestic cleaning</li>
+                <li>❌ casual hourly help</li>
+                <li>❌ the cheapest quote</li>
+              </ul>
+              <p className="mt-4 text-sm text-gray-600">
+                —we&apos;re not the right fit.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Why Red Hackle */}
+      <section className="bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <h2 className="text-2xl font-semibold text-gray-900">Why Businesses Choose Red Hackle</h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900">What we deliver:</h3>
+                <ul className="mt-4 space-y-2 text-gray-600">
+                  <li>• Commercial-first approach — scoped, priced and managed properly</li>
+                  <li>• Hands-on management — direct communication, no call centres</li>
+                  <li>• Reliable, uniformed teams — fully insured and vetted</li>
+                  <li>• Clear scopes &amp; pricing — no hidden extras or surprises</li>
+                  <li>• Responsive mobilisation — fast site visits and turnaround</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-gray-900">We&apos;re often brought in when:</h3>
+                <ul className="mt-4 space-y-2 text-gray-600">
+                  <li>• Standards have slipped</li>
+                  <li>• Previous contractors have been unreliable</li>
+                  <li>• Accountability is missing</li>
+                </ul>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      <FaqSection
-        title="Contract cleaning FAQs"
-        description={`Practical answers for facilities managers across ${eastCoastOfScotland}${includingAreaStatement}`}
-        items={faqItems}
-      />
+      {/* Services */}
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200">
+            <CardContent className="p-6 sm:p-8">
+              <h2 className="text-2xl font-semibold text-gray-900">Our Commercial Cleaning Services</h2>
+              <ul className="mt-4 space-y-2 text-gray-600">
+                <li>• Contract &amp; office cleaning</li>
+                <li>• Hospitality &amp; leisure cleaning</li>
+                <li>• Property management &amp; end-of-tenancy cleans</li>
+                <li>• Builders &amp; sparkle cleans</li>
+                <li>• Periodic deep cleaning</li>
+              </ul>
+              <h3 className="mt-6 font-semibold text-gray-900">All services are:</h3>
+              <ul className="mt-3 space-y-2 text-gray-600">
+                <li>✔ commercially scoped</li>
+                <li>✔ professionally priced</li>
+                <li>✔ delivered around operational hours</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="bg-gray-50">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <h2 className="text-2xl font-semibold text-gray-900">How It Works</h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">1</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Initial conversation</h3>
+                    <p className="mt-2 text-sm text-gray-600">We understand your site and requirements</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">2</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Site visit (where required)</h3>
+                    <p className="mt-2 text-sm text-gray-600">Assessment and risk identification</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">3</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Clear proposal &amp; scope</h3>
+                    <p className="mt-2 text-sm text-gray-600">Transparent pricing with no surprises</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="border border-gray-200">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-100 text-sm font-semibold text-red-700">4</div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-gray-900">Consistent, managed delivery</h3>
+                    <p className="mt-2 text-sm text-gray-600">Ongoing supervision and quality control</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          <p className="mt-8 text-center text-gray-600 font-semibold">
+            Simple. Transparent. Professional.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <FaqSectionCard items={faqItems} title="Commercial Cleaning FAQs" />
+
+      {/* CTA */}
+      <section className="bg-white">
+        <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
+          <Card className="border border-gray-200 bg-gray-50">
+            <CardContent className="p-6 sm:p-8">
+              <h2 className="text-2xl font-semibold text-gray-900">Let&apos;s Talk</h2>
+              <p className="mt-4 text-gray-600">
+                If you&apos;re looking for a reliable commercial cleaning partner across the East Coast of Scotland, get in touch.
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
+                  <a href="tel:+447966881555">📞 Call 07966 881555</a>
+                </Button>
+                <Button asChild className="bg-blue-600 text-white hover:bg-blue-700">
+                  <Link href="/contact">Request a Quote – 24 Hour Response</Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
       <RelatedServices
         title="Related commercial cleaning services"

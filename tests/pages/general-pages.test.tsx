@@ -17,7 +17,7 @@ describe("static pages", () => {
   it("renders the Commercial Cleaning page", () => {
     render(<CommercialCleaningPage />)
     expect(
-      screen.getByRole("heading", { name: /contract cleaning with clear accountability/i }),
+      screen.getByRole("heading", { name: /commercial cleaning services across the east coast of scotland/i }),
     ).toBeInTheDocument()
   })
 
