@@ -14,9 +14,9 @@ import {
 } from "@/lib/structured-data"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning Services | Dundee, Fife & Tayside | Red Hackle",
+  title: "Professional Cleaning Services for Homes & Businesses | Dundee, Fife & Tayside | Red Hackle",
   description:
-    `Professional commercial cleaning across East Coast Scotland. Offices, retail, construction & property management. Fast quotes, 24/7 availability. Get started with Red Hackle today.`,
+    `Professional cleaning services across East Coast Scotland. Offices, retail, construction & property management. Fast quotes, 24/7 availability. Get started with Red Hackle today.`,
   path: "/",
 })
 
@@ -153,20 +153,19 @@ export default async function HomePage() {
         <div className="relative mx-auto w-full max-w-6xl px-4 py-20 sm:px-6">
           <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="space-y-6">
-              <Badge className="w-fit bg-white/10 text-white">Commercial-first cleaning partner</Badge>
+              <Badge className="w-fit bg-white/10 text-white">Professional cleaning services</Badge>
               <h1 className="text-4xl font-black leading-tight sm:text-5xl">
-                Commercial &amp; Contract Cleaning Services
+                Professional Cleaning Services for Homes &amp; Businesses
               </h1>
               <p className="text-lg text-gray-200">
-                A disciplined cleaning partner for offices, property managers, hospitality venues, and construction
-                handovers across {eastCoastOfScotland}{includingAreaStatement}
+                One-off deep cleans, builders cleans, end-of-tenancy and reliable ongoing commercial cleaning. A disciplined partner for offices, property managers, hospitality venues and construction handovers across {eastCoastOfScotland}{includingAreaStatement}
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
                   <Link href="/contact">Contact Us</Link>
                 </Button>
                 <Button asChild variant="outlineOnDark">
-                  <Link href="/commercial-cleaning">Explore Commercial Cleaning</Link>
+                  <Link href="/services">Explore our services</Link>
                 </Button>
               </div>
               <div className="grid gap-3 text-sm text-gray-200 sm:grid-cols-2">
