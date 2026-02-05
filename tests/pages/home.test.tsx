@@ -23,7 +23,7 @@ describe("HomePage", () => {
     render(page)
 
     expect(
-      screen.getByRole("heading", { name: /commercial & contract cleaning services/i }),
+      screen.getByRole("heading", { name: /professional cleaning services for homes & businesses/i }),
     ).toBeInTheDocument()
     expect(screen.getByText(/trusted by our clients/i)).toBeInTheDocument()
     expect(screen.getByText(/excellent service/i)).toBeInTheDocument()
