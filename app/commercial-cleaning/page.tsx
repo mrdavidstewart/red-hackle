@@ -86,7 +86,8 @@ export default function CommercialCleaningPage() {
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-white/10 text-white">Commercial Cleaning</Badge>
-          <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Commercial Cleaning Services Across the East Coast of Scotland</h1>
+          <h1 className="mt-4 text-4xl font-black text-white sm:text-5xl">Commercial Cleaning Services
+            <br className="hidden sm:block" /> Across the East Coast of Scotland</h1>
           <p className="mt-4 text-lg text-gray-300">
             Reliable, contract-led cleaning for businesses across Dundee, Angus, Fife, Perthshire and Aberdeenshire. Delivered by a hands-on local team.
           </p>

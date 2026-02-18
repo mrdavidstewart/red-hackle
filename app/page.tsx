@@ -224,7 +224,10 @@ export default async function HomePage() {
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
           <div className="flex flex-col gap-3">
             <Badge className="w-fit bg-red-50 text-red-700">Services</Badge>
-            <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Professional cleaning services for commercial and property clients</h2>
+            <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">
+              Professional cleaning services for
+              <br className="hidden sm:block" /> commercial and property clients
+            </h2>
             <p className="text-lg text-gray-600">
               Red Hackle provides structured cleaning solutions for offices, hospitality venues, property portfolios, construction handovers, deep cleans, and end-of-tenancy transitions. Whether supporting a business environment or preparing a property for handover, our disciplined teams and measurable quality controls ensure consistent standards from day one.
               <br />
