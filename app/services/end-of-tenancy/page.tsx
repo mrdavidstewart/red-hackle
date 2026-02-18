@@ -125,7 +125,9 @@ export default function EndOfTenancyPage() {
                     <li>• Private landlords</li>
                     <li>• Build-to-rent operators</li>
                     <li>• Developers preparing rental units</li>
-                    <li>• Property investors managing multiple properties</li>
+                    <li>• Property investors</li>
+                    <li>• Homeowners preparing to sell, let, or hand over a property</li>
+                    <li>• Tenants preparing for end-of-tenancy inspections</li>
                   </ul>
                 </div>
                 <div>
