@@ -7,9 +7,9 @@ import { buildBreadcrumbSchema, eastCoastOfScotland, includingAreaStatement } fr
 import { Button } from "@/components/ui/button"
 
 export const metadata = buildMetadata({
-  title: "Commercial Cleaning Directory",
+  title: "Professional Cleaning Services for Homes & Businesses | Dundee, Fife & Tayside | Red Hackle",
   description:
-    `Explore commercial cleaning services across ${eastCoastOfScotland}${includingAreaStatement} Including managed contracts, office cleaning, and specialist deep cleans.`,
+    `Professional cleaning services across East Coast Scotland. Offices, retail, construction & property management including end of tenancy cleans, one-off deep cleans, serviced accommodation and linen services. Fast quotes, 24/7 availability. Get started with Red Hackle today.`,
   path: "/services",
 })
 
@@ -79,10 +79,11 @@ export default function ServicesPage() {
         </div>
         <div className="relative mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <Badge className="bg-white/10 text-white">Services</Badge>
-          <h1 className="mt-4 text-4xl font-black sm:text-5xl">Commercial cleaning services</h1>
+          <h1 className="mt-4text-4xl font-black sm:text-5xl">
+            Professional Cleaning Services for Homes &amp; Businesses
+          </h1>
           <p className="mt-4 text-lg text-gray-300">
-            Flexible cleaning services tailored for offices, hospitality venues, property managers, and construction
-            teams {` across ${eastCoastOfScotland}${includingAreaStatement}`}
+            One-off deep cleans, builders cleans, end-of-tenancy and reliable ongoing commercial cleaning. A disciplined partner for offices, property managers, hospitality venues and construction handovers across {eastCoastOfScotland}{includingAreaStatement}
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button asChild className="bg-destructive text-white hover:bg-destructive/90">
@@ -94,7 +95,7 @@ export default function ServicesPage() {
 
       <section className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
         <div className="max-w-3xl space-y-4 pb-8 text-gray-600">
-          <h2 className="text-2xl font-semibold text-gray-900">Services built for commercial decision makers</h2>
+          <h2 className="text-2xl font-semibold text-gray-900">Cleaning services for businesses, property managers, and one-off or end-of-tenancy clients</h2>
           <p>
             Each service is delivered through documented scopes of work, supervised teams, and measurable quality
             controls. Use the service links below to explore detailed service coverage and related cleaning options.

@@ -16,7 +16,7 @@ import {
 export const metadata = buildMetadata({
   title: "Professional Cleaning Services for Homes & Businesses | Dundee, Fife & Tayside | Red Hackle",
   description:
-    `Professional cleaning services across East Coast Scotland. Offices, retail, construction & property management. Fast quotes, 24/7 availability. Get started with Red Hackle today.`,
+    `Professional cleaning services across East Coast Scotland. Offices, retail, construction & property management including end of tenancy cleans, one-off deep cleans, serviced accommodation and linen services. Fast quotes, 24/7 availability. Get started with Red Hackle today.`,
   path: "/",
 })
 
@@ -224,11 +224,12 @@ export default async function HomePage() {
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
           <div className="flex flex-col gap-3">
             <Badge className="w-fit bg-red-50 text-red-700">Services</Badge>
-            <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Commercial cleaning services built for business</h2>
+            <h2 className="text-3xl font-black text-gray-900 sm:text-4xl">Professional cleaning services for commercial and property clients</h2>
             <p className="text-lg text-gray-600">
-              Red Hackle delivers structured commercial cleaning services for offices, property managers, hospitality
-              venues, and construction handovers. Our disciplined teams, documented specifications, and measurable quality controls ensure consistent standards from day one. Established in
-              2013, Red Hackle is a commercial-first cleaning partner supporting businesses across {eastCoastOfScotland}{includingAreaStatement}
+              Red Hackle provides structured cleaning solutions for offices, hospitality venues, property portfolios, construction handovers, deep cleans, and end-of-tenancy transitions. Whether supporting a business environment or preparing a property for handover, our disciplined teams and measurable quality controls ensure consistent standards from day one.
+              <br />
+              <br />
+              Established in 2013, we support businesses, landlords, tenants, and property owners across the East Coast of Scotland.
             </p>
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

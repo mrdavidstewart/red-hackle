@@ -121,11 +121,11 @@ export default function DeepOneOffPage() {
                 <div>
                   <h3 className="font-semibold text-gray-900">This service is ideal for:</h3>
                   <ul className="mt-4 space-y-2 text-gray-600">
-                    <li>• Businesses preparing for reopening or inspections</li>
-                    <li>• Property managers and landlords</li>
-                    <li>• Offices needing a periodic reset</li>
-                    <li>• Sites following maintenance or refurbishment</li>
-                    <li>• Clients transitioning into a contract clean</li>
+                    <li>• Tenants preparing to hand back a property</li>
+                    <li>• Offices and workplaces needing a reset</li>
+                    <li>• ⁠Businesses preparing for inspection or reopening</li>
+                    <li>• Landlords and property managers</li>
+                    <li>• Properties following refurbishment works</li>
                   </ul>
                 </div>
                 <div>

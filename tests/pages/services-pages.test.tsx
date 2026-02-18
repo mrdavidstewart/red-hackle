@@ -12,7 +12,7 @@ import LinenServicesPage from "@/app/services/linen-services/page"
 describe("services pages", () => {
   it("renders the services overview", () => {
     render(<ServicesPage />)
-    expect(screen.getByRole("heading", { name: /commercial cleaning services/i })).toBeInTheDocument()
+    expect(screen.getByRole("heading", { name: /Professional Cleaning Services for Homes & Businesses/i })).toBeInTheDocument()
   })
 
   it("renders the office & workplace service page", () => {
