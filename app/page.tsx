@@ -16,7 +16,7 @@ import {
 export const metadata = buildMetadata({
   title: "Professional Cleaning Services for Homes & Businesses | Dundee, Fife & Tayside | Red Hackle",
   description:
-    `Professional cleaning services across East Coast Scotland. Offices, retail, construction & property management. Fast quotes, 24/7 availability. Get started with Red Hackle today.`,
+    `Professional cleaning services across East Coast Scotland. Offices, retail, construction & property management including end of tenancy cleans, one-off deep cleans, serviced accommodation and linen services. Fast quotes, 24/7 availability. Get started with Red Hackle today.`,
   path: "/",
 })
 
