@@ -3187,10 +3187,10 @@ possible-typed-array-names@^1.0.0:
   resolved "https://registry.yarnpkg.com/possible-typed-array-names/-/possible-typed-array-names-1.1.0.tgz#93e3582bc0e5426586d9d07b79ee40fc841de4ae"
   integrity sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==
 
-postal-mime@2.7.3:
-  version "2.7.3"
-  resolved "https://registry.yarnpkg.com/postal-mime/-/postal-mime-2.7.3.tgz#358d92192656a262568ffc7a441a713131aa1272"
-  integrity sha512-MjhXadAJaWgYzevi46+3kLak8y6gbg0ku14O1gO/LNOuay8dO+1PtcSGvAdgDR0DoIsSaiIA8y/Ddw6MnrO0Tw==
+postal-mime@2.7.4:
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/postal-mime/-/postal-mime-2.7.4.tgz#3718d1f188357ed86f906f1db8d4ca455efa4927"
+  integrity sha512-0WdnFQYUrPGGTFu1uOqD2s7omwua8xaeYGdO6rb88oD5yJ/4pPHDA4sdWqfD8wQVfCny563n/HQS7zTFft+f/g==
 
 postcss-value-parser@^4.2.0:
   version "4.2.0"
@@ -3322,13 +3322,13 @@ require-from-string@^2.0.2:
   resolved "https://registry.yarnpkg.com/require-from-string/-/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
   integrity sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==
 
-resend@^6.9.4:
-  version "6.9.4"
-  resolved "https://registry.yarnpkg.com/resend/-/resend-6.9.4.tgz#2d5a08e294b1dd1985531a9c51e7e6a48caf1549"
-  integrity sha512-/M3dsJzu5OgozqVsA4Psd/1L7EdePgOIIxClas453GOQYFG3VHc2ZyCHZFlvqsc9aZCCd2BJRRqZgWC8D9c7/g==
+resend@^6.10.0:
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/resend/-/resend-6.10.0.tgz#fc4e012268a31bb9575d5028c0a8fc0506fed582"
+  integrity sha512-i7CwZpYj4Oho1RxsTpLcCUkO08+HiL4NXrm6jLJ2WzJ89UGI8eROSieLONJA3hnUrf1OYnCyfq5F6POnHUMv1Q==
   dependencies:
-    postal-mime "2.7.3"
-    svix "1.86.0"
+    postal-mime "2.7.4"
+    svix "1.88.0"
 
 resolve-pkg-maps@^1.0.0:
   version "1.0.0"
@@ -3699,10 +3699,10 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-svix@1.86.0:
-  version "1.86.0"
-  resolved "https://registry.yarnpkg.com/svix/-/svix-1.86.0.tgz#f56818d2e45d1ca0d2e7fc50598eda6695a8cb09"
-  integrity sha512-/HTvXwjLJe1l/MsLXAO1ddCYxElJk4eNR4DzOjDOEmGrPN/3BtBE8perGwMAaJ2sT5T172VkBYzmHcjUfM1JRQ==
+svix@1.88.0:
+  version "1.88.0"
+  resolved "https://registry.yarnpkg.com/svix/-/svix-1.88.0.tgz#2d8b952c7c62c84a1b223f5697fd627b8b2784e2"
+  integrity sha512-vm/JrrUd3bVyBE+3L33TIyVSs8gS5fYx7lrISvKlDJXTYX1ACH4REX8P1tHxsSKoZi/rvifM1t0XRc5Vc45THw==
   dependencies:
     standardwebhooks "1.0.0"
     uuid "^10.0.0"
