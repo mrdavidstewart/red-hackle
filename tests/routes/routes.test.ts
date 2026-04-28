@@ -72,15 +72,14 @@ describe("route handlers", () => {
     mockResendSend.mockResolvedValue({ data: { id: "test-id" }, error: null })
 
     const formData = new FormData()
-    formData.set("firstName", "Jamie")
-    formData.set("lastName", "Smith")
+    formData.set("fullName", "Jamie Smith")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
-    formData.set("message", "Office cleaning quote request.")
-    formData.set("addressLine1", "123 Main Street")
-    formData.set("addressLine2", "Suite 100")
-    formData.set("townCity", "Manchester")
-    formData.set("postcode", "M1 1AA")
+    formData.set("serviceRequired", "Commercial / office cleaning")
+    formData.set("serviceTimeline", "As soon as possible")
+    formData.set("briefDetails", "Office cleaning quote request.")
+    
     formData.set("timestamp", Date.now().toString())
     formData.set("turnstileToken", "valid-test-token")
 
@@ -100,15 +99,13 @@ describe("route handlers", () => {
     mockResendSend.mockResolvedValue({ data: { id: "test-id" }, error: null })
 
     const formData = new FormData()
-    formData.set("firstName", "")
-    formData.set("lastName", "")
+    formData.set("fullName", "")
+    formData.set("companyPropertyAddress", "")
     formData.set("email", "invalid-email")
     formData.set("phone", "12345")
-    formData.set("message", "")
-    // include address fields to satisfy new required fields on server validation
-    formData.set("addressLine1", "")
-    formData.set("townCity", "")
-    formData.set("postcode", "")
+    formData.set("serviceRequired", "")
+    formData.set("serviceTimeline", "")
+    formData.set("briefDetails", "")
     formData.set("timestamp", Date.now().toString())
 
     const request = new NextRequest("http://localhost/api/contact", {
@@ -127,11 +124,13 @@ describe("route handlers", () => {
     process.env.RESEND_API_KEY = "test-key"
 
     const formData = new FormData()
-    formData.set("firstName", "Jamie")
-    formData.set("lastName", "Smith")
+    formData.set("fullName", "Jamie Smith")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
-    formData.set("message", "Test message")
+    formData.set("serviceRequired", "Commercial / office cleaning")
+    formData.set("serviceTimeline", "As soon as possible")
+    formData.set("briefDetails", "Test message")
     formData.set("timestamp", Date.now().toString())
     formData.set("website", "https://spam.com")
 
@@ -151,14 +150,14 @@ describe("route handlers", () => {
     process.env.RESEND_API_KEY = "test-key"
 
     const formData = new FormData()
-    formData.set("firstName", "Jamie")
-    formData.set("lastName", "Smith")
+    formData.set("fullName", "Jamie Smith")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
-    formData.set("message", "Test message")
-    formData.set("addressLine1", "123 Main Street")
-    formData.set("townCity", "Manchester")
-    formData.set("postcode", "M1 1AA")
+    formData.set("serviceRequired", "Commercial / office cleaning")
+    formData.set("serviceTimeline", "As soon as possible")
+    formData.set("briefDetails", "Test message")
+    
     formData.set("timestamp", (Date.now() - 400000).toString())
 
     const request = new NextRequest("http://localhost/api/contact", {
@@ -177,14 +176,14 @@ describe("route handlers", () => {
     process.env.RESEND_API_KEY = "test-key"
 
     const formData = new FormData()
-    formData.set("firstName", "Jamie")
-    formData.set("lastName", "Smith")
+    formData.set("fullName", "Jamie Smith")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
     formData.set("email", "notanemail")
     formData.set("phone", "07966881555")
-    formData.set("message", "Test message")
-    formData.set("addressLine1", "123 Main Street")
-    formData.set("townCity", "Manchester")
-    formData.set("postcode", "M1 1AA")
+    formData.set("serviceRequired", "Commercial / office cleaning")
+    formData.set("serviceTimeline", "As soon as possible")
+    formData.set("briefDetails", "Test message")
+    
     formData.set("timestamp", Date.now().toString())
 
     const request = new NextRequest("http://localhost/api/contact", {
@@ -203,14 +202,14 @@ describe("route handlers", () => {
     process.env.RESEND_API_KEY = "test-key"
 
     const formData = new FormData()
-    formData.set("firstName", "Jamie")
-    formData.set("lastName", "Smith")
+    formData.set("fullName", "Jamie Smith")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "12345")
-    formData.set("message", "Test message")
-    formData.set("addressLine1", "123 Main Street")
-    formData.set("townCity", "Manchester")
-    formData.set("postcode", "M1 1AA")
+    formData.set("serviceRequired", "Commercial / office cleaning")
+    formData.set("serviceTimeline", "As soon as possible")
+    formData.set("briefDetails", "Test message")
+    
     formData.set("timestamp", Date.now().toString())
 
     const request = new NextRequest("http://localhost/api/contact", {
@@ -229,15 +228,14 @@ describe("route handlers", () => {
     delete process.env.RESEND_API_KEY
 
     const formData = new FormData()
-    formData.set("firstName", "Jamie")
-    formData.set("lastName", "Smith")
+    formData.set("fullName", "Jamie Smith")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
-    formData.set("message", "Test message")
-    formData.set("addressLine1", "123 Main Street")
-    formData.set("addressLine2", "Suite 100")
-    formData.set("townCity", "Manchester")
-    formData.set("postcode", "M1 1AA")
+    formData.set("serviceRequired", "Commercial / office cleaning")
+    formData.set("serviceTimeline", "As soon as possible")
+    formData.set("briefDetails", "Test message")
+    
     formData.set("timestamp", Date.now().toString())
     formData.set("turnstileToken", "valid-test-token")
 
@@ -257,15 +255,14 @@ describe("route handlers", () => {
     mockResendSend.mockResolvedValue({ data: null, error: { message: "Failed to send" } })
 
     const formData = new FormData()
-    formData.set("firstName", "Jamie")
-    formData.set("lastName", "Smith")
+    formData.set("fullName", "Jamie Smith")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
-    formData.set("message", "Test message")
-    formData.set("addressLine1", "123 Main Street")
-    formData.set("addressLine2", "Suite 100")
-    formData.set("townCity", "Manchester")
-    formData.set("postcode", "M1 1AA")
+    formData.set("serviceRequired", "Commercial / office cleaning")
+    formData.set("serviceTimeline", "As soon as possible")
+    formData.set("briefDetails", "Test message")
+    
     formData.set("timestamp", Date.now().toString())
     formData.set("turnstileToken", "valid-test-token")
 
@@ -303,15 +300,13 @@ describe("route handlers", () => {
     // Make 5 successful requests (the limit)
     for (let i = 0; i < 5; i++) {
       const formData = new FormData()
-      formData.set("firstName", "Jamie")
-      formData.set("lastName", "Smith")
+      formData.set("fullName", "Jamie Smith")
+      formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
       formData.set("email", "jamie@example.com")
       formData.set("phone", "07966881555")
-      formData.set("message", "Test message")
-      formData.set("addressLine1", "123 Main Street")
-      formData.set("addressLine2", "Suite 100")
-      formData.set("townCity", "Manchester")
-      formData.set("postcode", "M1 1AA")
+      formData.set("serviceRequired", "Commercial / office cleaning")
+      formData.set("serviceTimeline", "As soon as possible")
+      formData.set("briefDetails", "Test message")
       formData.set("timestamp", Date.now().toString())
       formData.set("turnstileToken", "valid-test-token")
 
@@ -328,15 +323,14 @@ describe("route handlers", () => {
 
     // 6th request should be rate limited
     const formData = new FormData()
-    formData.set("firstName", "Jamie")
-    formData.set("lastName", "Smith")
+    formData.set("fullName", "Jamie Smith")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
-    formData.set("message", "Test message")
-    formData.set("addressLine1", "123 Main Street")
-    formData.set("addressLine2", "Suite 100")
-    formData.set("townCity", "Manchester")
-    formData.set("postcode", "M1 1AA")
+    formData.set("serviceRequired", "Commercial / office cleaning")
+    formData.set("serviceTimeline", "As soon as possible")
+    formData.set("briefDetails", "Test message")
+    
     formData.set("timestamp", Date.now().toString())
     formData.set("turnstileToken", "valid-test-token")
 
@@ -359,15 +353,14 @@ describe("route handlers", () => {
     mockResendSend.mockResolvedValue({ data: { id: "test-id" }, error: null })
 
     const formData = new FormData()
-    formData.set("firstName", "Jamie")
-    formData.set("lastName", "Smith")
+    formData.set("fullName", "Jamie Smith")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
-    formData.set("message", "Test message")
-    formData.set("addressLine1", "123 Main Street")
-    formData.set("addressLine2", "Suite 100")
-    formData.set("townCity", "Manchester")
-    formData.set("postcode", "M1 1AA")
+    formData.set("serviceRequired", "Commercial / office cleaning")
+    formData.set("serviceTimeline", "As soon as possible")
+    formData.set("briefDetails", "Test message")
+    
     formData.set("timestamp", Date.now().toString())
     formData.set("turnstileToken", "valid-test-token")
 
@@ -388,15 +381,14 @@ describe("route handlers", () => {
     mockResendSend.mockResolvedValue({ data: { id: "test-id" }, error: null })
 
     const formData = new FormData()
-    formData.set("firstName", "Jamie")
-    formData.set("lastName", "Smith")
+    formData.set("fullName", "Jamie Smith")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
-    formData.set("message", "Test message")
-    formData.set("addressLine1", "123 Main Street")
-    formData.set("addressLine2", "Suite 100")
-    formData.set("townCity", "Manchester")
-    formData.set("postcode", "M1 1AA")
+    formData.set("serviceRequired", "Commercial / office cleaning")
+    formData.set("serviceTimeline", "As soon as possible")
+    formData.set("briefDetails", "Test message")
+    
     formData.set("timestamp", Date.now().toString())
     formData.set("turnstileToken", "valid-test-token")
 
