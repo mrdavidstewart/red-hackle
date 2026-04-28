@@ -73,7 +73,8 @@ describe("route handlers", () => {
 
     const formData = new FormData()
     formData.set("fullName", "Jamie Smith")
-    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("serviceRequired", "Commercial / office cleaning")
@@ -101,6 +102,7 @@ describe("route handlers", () => {
     const formData = new FormData()
     formData.set("fullName", "")
     formData.set("companyPropertyAddress", "")
+    formData.set("postcode", "")
     formData.set("email", "invalid-email")
     formData.set("phone", "12345")
     formData.set("serviceRequired", "")
@@ -125,7 +127,8 @@ describe("route handlers", () => {
 
     const formData = new FormData()
     formData.set("fullName", "Jamie Smith")
-    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("serviceRequired", "Commercial / office cleaning")
@@ -151,7 +154,8 @@ describe("route handlers", () => {
 
     const formData = new FormData()
     formData.set("fullName", "Jamie Smith")
-    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("serviceRequired", "Commercial / office cleaning")
@@ -177,7 +181,8 @@ describe("route handlers", () => {
 
     const formData = new FormData()
     formData.set("fullName", "Jamie Smith")
-    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("email", "notanemail")
     formData.set("phone", "07966881555")
     formData.set("serviceRequired", "Commercial / office cleaning")
@@ -203,7 +208,8 @@ describe("route handlers", () => {
 
     const formData = new FormData()
     formData.set("fullName", "Jamie Smith")
-    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "12345")
     formData.set("serviceRequired", "Commercial / office cleaning")
@@ -229,7 +235,8 @@ describe("route handlers", () => {
 
     const formData = new FormData()
     formData.set("fullName", "Jamie Smith")
-    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("serviceRequired", "Commercial / office cleaning")
@@ -256,7 +263,8 @@ describe("route handlers", () => {
 
     const formData = new FormData()
     formData.set("fullName", "Jamie Smith")
-    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("serviceRequired", "Commercial / office cleaning")
@@ -301,7 +309,8 @@ describe("route handlers", () => {
     for (let i = 0; i < 5; i++) {
       const formData = new FormData()
       formData.set("fullName", "Jamie Smith")
-      formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
+      formData.set("companyPropertyAddress", "123 Main Street, Manchester")
+      formData.set("postcode", "M1 1AA")
       formData.set("email", "jamie@example.com")
       formData.set("phone", "07966881555")
       formData.set("serviceRequired", "Commercial / office cleaning")
@@ -324,7 +333,8 @@ describe("route handlers", () => {
     // 6th request should be rate limited
     const formData = new FormData()
     formData.set("fullName", "Jamie Smith")
-    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("serviceRequired", "Commercial / office cleaning")
@@ -354,7 +364,8 @@ describe("route handlers", () => {
 
     const formData = new FormData()
     formData.set("fullName", "Jamie Smith")
-    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("serviceRequired", "Commercial / office cleaning")
@@ -382,7 +393,8 @@ describe("route handlers", () => {
 
     const formData = new FormData()
     formData.set("fullName", "Jamie Smith")
-    formData.set("companyPropertyAddress", "123 Main Street, Manchester, M1 1AA")
+    formData.set("companyPropertyAddress", "123 Main Street, Manchester")
+    formData.set("postcode", "M1 1AA")
     formData.set("email", "jamie@example.com")
     formData.set("phone", "07966881555")
     formData.set("serviceRequired", "Commercial / office cleaning")
