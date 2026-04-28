@@ -23,6 +23,7 @@ export async function POST(request: NextRequest) {
 
     const fullName = sanitizeInput((formData.get("fullName") as string) || "")
     const companyPropertyAddress = sanitizeInput((formData.get("companyPropertyAddress") as string) || "")
+    const postcode = sanitizeInput((formData.get("postcode") as string) || "")
     const email = sanitizeInput((formData.get("email") as string) || "")
     const phone = sanitizeInput((formData.get("phone") as string) || "")
     const serviceRequired = sanitizeInput((formData.get("serviceRequired") as string) || "")
@@ -58,7 +59,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate required fields
-    if (!fullName || !companyPropertyAddress || !email || !phone || !serviceRequired || !serviceTimeline || !briefDetails) {
+    if (!fullName || !companyPropertyAddress || !postcode || !email || !phone || !serviceRequired || !serviceTimeline || !briefDetails) {
       return NextResponse.json(
         { error: "All fields are required" },
         {
@@ -89,7 +90,6 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const postcode = companyPropertyAddress.split(",").pop()?.trim() || ""
     if (!postcode || !isValidPostcode(postcode)) {
       return NextResponse.json(
         { error: "Invalid postcode format" },
@@ -191,6 +191,8 @@ export async function POST(request: NextRequest) {
       "",
       "Company / Property address:",
       companyPropertyAddress,
+      "",
+      `Postcode: ${postcode}`,
       "",
       "Brief details:",
       briefDetails,

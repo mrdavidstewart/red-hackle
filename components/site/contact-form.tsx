@@ -32,6 +32,7 @@ interface TurnstileWindow extends Window {
 const initialForm = {
   fullName: "",
   companyPropertyAddress: "",
+  postcode: "",
   email: "",
   phone: "",
   serviceRequired: "",
@@ -115,6 +116,7 @@ export function ContactForm() {
     const trimmedData = {
       fullName: formData.fullName.trim(),
       companyPropertyAddress: formData.companyPropertyAddress.trim(),
+      postcode: formData.postcode.trim(),
       email: formData.email.trim(),
       phone: formData.phone.trim(),
       serviceRequired: formData.serviceRequired.trim(),
@@ -125,7 +127,12 @@ export function ContactForm() {
     const errors: Record<string, string> = {}
     if (!trimmedData.fullName) errors.fullName = "Please enter your full name."
     if (!trimmedData.companyPropertyAddress) {
-      errors.companyPropertyAddress = "Please enter your company or property address and postcode."
+      errors.companyPropertyAddress = "Please enter your company or property address."
+    }
+    if (!trimmedData.postcode) {
+      errors.postcode = "Please enter your postcode."
+    } else if (!isValidPostcode(trimmedData.postcode)) {
+      errors.postcode = "Please enter a valid UK postcode."
     }
     if (!trimmedData.email) {
       errors.email = "Please enter your email address."
@@ -141,10 +148,6 @@ export function ContactForm() {
     if (!trimmedData.serviceTimeline) errors.serviceTimeline = "Please select when you need the service."
     if (!trimmedData.briefDetails) {
       errors.briefDetails = "Please include brief details of what you need."
-    }
-    const addressPostcode = trimmedData.companyPropertyAddress.split(",").pop()?.trim() || ""
-    if (!addressPostcode || !isValidPostcode(addressPostcode)) {
-      errors.companyPropertyAddress = "Please include a valid UK postcode in the address field."
     }
 
     if (Object.keys(errors).length > 0) {
@@ -244,12 +247,12 @@ export function ContactForm() {
 
       <div className="space-y-2">
         <label className="text-sm font-semibold text-gray-700" htmlFor="companyPropertyAddress">
-          Company or property address and postcode
+          Company or property address
         </label>
         <Input
           id="companyPropertyAddress"
           name="companyPropertyAddress"
-          placeholder="Company name / property address, postcode"
+          placeholder="Company name / property address"
           value={formData.companyPropertyAddress}
           onChange={handleInputChange}
           autoComplete="street-address"
@@ -260,6 +263,28 @@ export function ContactForm() {
         {fieldErrors.companyPropertyAddress ? (
           <p id="companyPropertyAddress-error" className="text-sm text-destructive" role="alert">
             {fieldErrors.companyPropertyAddress}
+          </p>
+        ) : null}
+      </div>
+
+      <div className="space-y-2">
+        <label className="text-sm font-semibold text-gray-700" htmlFor="postcode">
+          Postcode
+        </label>
+        <Input
+          id="postcode"
+          name="postcode"
+          placeholder="SW1A 1AA"
+          value={formData.postcode}
+          onChange={handleInputChange}
+          autoComplete="postal-code"
+          required
+          aria-invalid={Boolean(fieldErrors.postcode)}
+          aria-describedby={fieldErrors.postcode ? "postcode-error" : undefined}
+        />
+        {fieldErrors.postcode ? (
+          <p id="postcode-error" className="text-sm text-destructive" role="alert">
+            {fieldErrors.postcode}
           </p>
         ) : null}
       </div>

@@ -91,7 +91,8 @@ describe("ContactForm", () => {
 
     // Fill with valid data except email and phone (using valid HTML5 email format but invalid custom format)
     await user.type(screen.getByLabelText(/full name/i), "Jamie Smith")
-    await user.type(screen.getByLabelText(/company or property address and postcode/i), "12 Test Street, M1 1AA")
+    await user.type(screen.getByLabelText(/company or property address/i), "12 Test Street")
+    await user.type(screen.getByLabelText(/postcode/i), "M1 1AA")
     await user.type(screen.getByLabelText(/email address/i), "test@test")
     await user.type(screen.getByLabelText(/phone number/i), "12345")
     await user.selectOptions(screen.getByLabelText(/service required/i), "Commercial / office cleaning")
@@ -115,7 +116,8 @@ describe("ContactForm", () => {
     render(<ContactForm />)
 
     await user.type(screen.getByLabelText(/full name/i), "Jamie Smith")
-    await user.type(screen.getByLabelText(/company or property address and postcode/i), "123 Main Street, Manchester, M1 1AA")
+    await user.type(screen.getByLabelText(/company or property address/i), "123 Main Street, Manchester")
+    await user.type(screen.getByLabelText(/postcode/i), "M1 1AA")
     await user.type(screen.getByLabelText(/email address/i), "jamie@example.com")
     await user.type(screen.getByLabelText(/phone number/i), "07966881555")
     await user.selectOptions(screen.getByLabelText(/service required/i), "Commercial / office cleaning")
@@ -128,7 +130,8 @@ describe("ContactForm", () => {
 
     await waitFor(() => {
       expect(screen.getByLabelText(/full name/i)).toHaveValue("")
-      expect(screen.getByLabelText(/company or property address and postcode/i)).toHaveValue("")
+      expect(screen.getByLabelText(/company or property address/i)).toHaveValue("")
+      expect(screen.getByLabelText(/postcode/i)).toHaveValue("")
       expect(screen.getByLabelText(/email address/i)).toHaveValue("")
       expect(screen.getByLabelText(/phone number/i)).toHaveValue("")
       expect(screen.getByLabelText(/brief details/i)).toHaveValue("")
@@ -146,7 +149,8 @@ describe("ContactForm", () => {
     render(<ContactForm />)
 
     await user.type(screen.getByLabelText(/full name/i), "Jamie Smith")
-    await user.type(screen.getByLabelText(/company or property address and postcode/i), "123 Main Street, Manchester, M1 1AA")
+    await user.type(screen.getByLabelText(/company or property address/i), "123 Main Street, Manchester")
+    await user.type(screen.getByLabelText(/postcode/i), "M1 1AA")
     await user.type(screen.getByLabelText(/email address/i), "jamie@example.com")
     await user.type(screen.getByLabelText(/phone number/i), "07966881555")
     await user.selectOptions(screen.getByLabelText(/service required/i), "Commercial / office cleaning")
