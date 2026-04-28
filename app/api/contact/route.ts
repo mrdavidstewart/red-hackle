@@ -21,15 +21,13 @@ export async function POST(request: NextRequest) {
     // Parse and validate request
     const formData = await request.formData()
 
-    const firstName = sanitizeInput((formData.get("firstName") as string) || "")
-    const lastName = sanitizeInput((formData.get("lastName") as string) || "")
+    const fullName = sanitizeInput((formData.get("fullName") as string) || "")
+    const companyPropertyAddress = sanitizeInput((formData.get("companyPropertyAddress") as string) || "")
     const email = sanitizeInput((formData.get("email") as string) || "")
     const phone = sanitizeInput((formData.get("phone") as string) || "")
-    const message = sanitizeInput((formData.get("message") as string) || "")
-    const addressLine1 = sanitizeInput((formData.get("addressLine1") as string) || "")
-    const addressLine2 = sanitizeInput((formData.get("addressLine2") as string) || "")
-    const townCity = sanitizeInput((formData.get("townCity") as string) || "")
-    const postcode = sanitizeInput((formData.get("postcode") as string) || "")
+    const serviceRequired = sanitizeInput((formData.get("serviceRequired") as string) || "")
+    const serviceTimeline = sanitizeInput((formData.get("serviceTimeline") as string) || "")
+    const briefDetails = sanitizeInput((formData.get("briefDetails") as string) || "")
     const timestamp = (formData.get("timestamp") as string) || ""
     const honeypot = (formData.get("website") as string) || ""
     const turnstileToken = (formData.get("turnstileToken") as string) || ""
@@ -60,7 +58,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate required fields
-    if (!firstName || !lastName || !email || !phone || !message || !addressLine1 || !townCity || !postcode) {
+    if (!fullName || !companyPropertyAddress || !email || !phone || !serviceRequired || !serviceTimeline || !briefDetails) {
       return NextResponse.json(
         { error: "All fields are required" },
         {
@@ -91,7 +89,8 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    if (!isValidPostcode(postcode)) {
+    const postcode = companyPropertyAddress.split(",").pop()?.trim() || ""
+    if (!postcode || !isValidPostcode(postcode)) {
       return NextResponse.json(
         { error: "Invalid postcode format" },
         {
@@ -182,20 +181,19 @@ export async function POST(request: NextRequest) {
     }
 
     const fromEmail = process.env.FROM_EMAIL || "Red Hackle <onboarding@resend.dev>"
-    const emailSubject = `New contact form enquiry from ${firstName} ${lastName}`
+    const emailSubject = `New contact form enquiry from ${fullName}`
     const emailText = [
-      `Name: ${firstName} ${lastName}`,
+      `Name: ${fullName}`,
       `Email: ${email}`,
       `Phone: ${phone}`,
+      `Service required: ${serviceRequired}`,
+      `When needed: ${serviceTimeline}`,
       "",
-      "Address:",
-      addressLine1,
-      ...(addressLine2 ? [addressLine2] : []),
-      townCity,
-      postcode,
+      "Company / Property address:",
+      companyPropertyAddress,
       "",
-      "Message:",
-      message,
+      "Brief details:",
+      briefDetails,
     ].join("\n")
 
     const resend = new Resend(resendApiKey)

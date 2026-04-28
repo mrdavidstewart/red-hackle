@@ -30,16 +30,32 @@ interface TurnstileWindow extends Window {
 }
 
 const initialForm = {
-  firstName: "",
-  lastName: "",
+  fullName: "",
+  companyPropertyAddress: "",
   email: "",
   phone: "",
-  message: "",
-  addressLine1: "",
-  addressLine2: "",
-  townCity: "",
-  postcode: "",
+  serviceRequired: "",
+  serviceTimeline: "",
+  briefDetails: "",
 }
+
+const serviceRequiredOptions = [
+  "Commercial / office cleaning",
+  "Hospitality / venue cleaning",
+  "End of tenancy cleaning",
+  "One-off / deep clean",
+  "Builders / sparkle clean",
+  "Holiday let / Airbnb turnover",
+  "Not sure yet",
+]
+
+const serviceTimelineOptions = [
+  "As soon as possible",
+  "Within the next week",
+  "Within the next month",
+  "Ongoing / recurring service",
+  "I’m just getting prices",
+]
 
 export function ContactForm() {
   const [formData, setFormData] = useState(initialForm)
@@ -77,7 +93,7 @@ export function ContactForm() {
     })
   }, [turnstileReady, turnstileSiteKey])
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = event.target
     setFormData((prev) => ({ ...prev, [name]: value }))
     setFieldErrors((prev) => {
@@ -97,22 +113,22 @@ export function ContactForm() {
     setFormError(null)
 
     const trimmedData = {
-      firstName: formData.firstName.trim(),
-      lastName: formData.lastName.trim(),
+      fullName: formData.fullName.trim(),
+      companyPropertyAddress: formData.companyPropertyAddress.trim(),
       email: formData.email.trim(),
       phone: formData.phone.trim(),
-      message: formData.message.trim(),
-      addressLine1: formData.addressLine1.trim(),
-      addressLine2: formData.addressLine2.trim(),
-      townCity: formData.townCity.trim(),
-      postcode: formData.postcode.trim(),
+      serviceRequired: formData.serviceRequired.trim(),
+      serviceTimeline: formData.serviceTimeline.trim(),
+      briefDetails: formData.briefDetails.trim(),
     }
 
     const errors: Record<string, string> = {}
-    if (!trimmedData.firstName) errors.firstName = "Please enter your first name."
-    if (!trimmedData.lastName) errors.lastName = "Please enter your last name."
+    if (!trimmedData.fullName) errors.fullName = "Please enter your full name."
+    if (!trimmedData.companyPropertyAddress) {
+      errors.companyPropertyAddress = "Please enter your company or property address and postcode."
+    }
     if (!trimmedData.email) {
-      errors.email = "Please enter your work email."
+      errors.email = "Please enter your email address."
     } else if (!isValidEmail(trimmedData.email)) {
       errors.email = "Please enter a valid email address."
     }
@@ -121,13 +137,14 @@ export function ContactForm() {
     } else if (!isValidPhone(trimmedData.phone)) {
       errors.phone = "Please enter a valid UK phone number."
     }
-    if (!trimmedData.message) errors.message = "Please share your cleaning requirements."
-    if (!trimmedData.addressLine1) errors.addressLine1 = "Please enter your address line 1."
-    if (!trimmedData.townCity) errors.townCity = "Please enter your town or city."
-    if (!trimmedData.postcode) {
-      errors.postcode = "Please enter your postcode."
-    } else if (!isValidPostcode(trimmedData.postcode)) {
-      errors.postcode = "Please enter a valid UK postcode."
+    if (!trimmedData.serviceRequired) errors.serviceRequired = "Please select the service you need."
+    if (!trimmedData.serviceTimeline) errors.serviceTimeline = "Please select when you need the service."
+    if (!trimmedData.briefDetails) {
+      errors.briefDetails = "Please include brief details of what you need."
+    }
+    const addressPostcode = trimmedData.companyPropertyAddress.split(",").pop()?.trim() || ""
+    if (!addressPostcode || !isValidPostcode(addressPostcode)) {
+      errors.companyPropertyAddress = "Please include a valid UK postcode in the address field."
     }
 
     if (Object.keys(errors).length > 0) {
@@ -203,55 +220,54 @@ export function ContactForm() {
           onLoad={() => setTurnstileReady(true)}
         />
       ) : null}
-      <div className="grid gap-4 md:grid-cols-2">
-        <div className="space-y-2">
-          <label className="text-sm font-semibold text-gray-700" htmlFor="firstName">
-            First name
-          </label>
-          <Input
-            id="firstName"
-            name="firstName"
-            placeholder="First name"
-            value={formData.firstName}
-            onChange={handleInputChange}
-            autoComplete="given-name"
-            required
-            aria-invalid={Boolean(fieldErrors.firstName)}
-            aria-describedby={fieldErrors.firstName ? "firstName-error" : undefined}
-          />
-          {fieldErrors.firstName ? (
-            <p id="firstName-error" className="text-sm text-destructive" role="alert">
-              {fieldErrors.firstName}
-            </p>
-          ) : null}
-        </div>
-        <div className="space-y-2">
-          <label className="text-sm font-semibold text-gray-700" htmlFor="lastName">
-            Last name
-          </label>
-          <Input
-            id="lastName"
-            name="lastName"
-            placeholder="Last name"
-            value={formData.lastName}
-            onChange={handleInputChange}
-            autoComplete="family-name"
-            required
-            aria-invalid={Boolean(fieldErrors.lastName)}
-            aria-describedby={fieldErrors.lastName ? "lastName-error" : undefined}
-          />
-          {fieldErrors.lastName ? (
-            <p id="lastName-error" className="text-sm text-destructive" role="alert">
-              {fieldErrors.lastName}
-            </p>
-          ) : null}
-        </div>
+      <div className="space-y-2">
+        <label className="text-sm font-semibold text-gray-700" htmlFor="fullName">
+          Full name
+        </label>
+        <Input
+          id="fullName"
+          name="fullName"
+          placeholder="Full name"
+          value={formData.fullName}
+          onChange={handleInputChange}
+          autoComplete="name"
+          required
+          aria-invalid={Boolean(fieldErrors.fullName)}
+          aria-describedby={fieldErrors.fullName ? "fullName-error" : undefined}
+        />
+        {fieldErrors.fullName ? (
+          <p id="fullName-error" className="text-sm text-destructive" role="alert">
+            {fieldErrors.fullName}
+          </p>
+        ) : null}
+      </div>
+
+      <div className="space-y-2">
+        <label className="text-sm font-semibold text-gray-700" htmlFor="companyPropertyAddress">
+          Company or property address and postcode
+        </label>
+        <Input
+          id="companyPropertyAddress"
+          name="companyPropertyAddress"
+          placeholder="Company name / property address, postcode"
+          value={formData.companyPropertyAddress}
+          onChange={handleInputChange}
+          autoComplete="street-address"
+          required
+          aria-invalid={Boolean(fieldErrors.companyPropertyAddress)}
+          aria-describedby={fieldErrors.companyPropertyAddress ? "companyPropertyAddress-error" : undefined}
+        />
+        {fieldErrors.companyPropertyAddress ? (
+          <p id="companyPropertyAddress-error" className="text-sm text-destructive" role="alert">
+            {fieldErrors.companyPropertyAddress}
+          </p>
+        ) : null}
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         <div className="space-y-2">
           <label className="text-sm font-semibold text-gray-700" htmlFor="email">
-            Work email
+            Email address
           </label>
           <Input
             id="email"
@@ -296,110 +312,81 @@ export function ContactForm() {
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm font-semibold text-gray-700" htmlFor="message">
-          Cleaning requirements
+        <label className="text-sm font-semibold text-gray-700" htmlFor="serviceRequired">
+          Service required
         </label>
-        <Textarea
-          id="message"
-          name="message"
-          placeholder="Tell us about your site size, schedule, and any compliance requirements."
-          value={formData.message}
+        <select
+          id="serviceRequired"
+          name="serviceRequired"
+          value={formData.serviceRequired}
           onChange={handleInputChange}
           required
-          rows={5}
-          aria-invalid={Boolean(fieldErrors.message)}
-          aria-describedby={fieldErrors.message ? "message-error" : undefined}
-        />
-        {fieldErrors.message ? (
-          <p id="message-error" className="text-sm text-destructive" role="alert">
-            {fieldErrors.message}
+          className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm"
+          aria-invalid={Boolean(fieldErrors.serviceRequired)}
+          aria-describedby={fieldErrors.serviceRequired ? "serviceRequired-error" : undefined}
+        >
+          <option value="">Select a service</option>
+          {serviceRequiredOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+        {fieldErrors.serviceRequired ? (
+          <p id="serviceRequired-error" className="text-sm text-destructive" role="alert">
+            {fieldErrors.serviceRequired}
           </p>
         ) : null}
       </div>
 
-      <div className="space-y-4 border-t border-gray-200 pt-6">
-        <h3 className="text-sm font-semibold text-gray-700">Address</h3>
-        <div className="space-y-2">
-          <label className="text-sm font-semibold text-gray-700" htmlFor="addressLine1">
-            Address line 1
-          </label>
-          <Input
-            id="addressLine1"
-            name="addressLine1"
-            placeholder="Building number and street"
-            value={formData.addressLine1}
-            onChange={handleInputChange}
-            autoComplete="address-line1"
-            required
-            aria-invalid={Boolean(fieldErrors.addressLine1)}
-            aria-describedby={fieldErrors.addressLine1 ? "addressLine1-error" : undefined}
-          />
-          {fieldErrors.addressLine1 ? (
-            <p id="addressLine1-error" className="text-sm text-destructive" role="alert">
-              {fieldErrors.addressLine1}
-            </p>
-          ) : null}
-        </div>
+      <div className="space-y-2">
+        <label className="text-sm font-semibold text-gray-700" htmlFor="serviceTimeline">
+          When do you need this?
+        </label>
+        <select
+          id="serviceTimeline"
+          name="serviceTimeline"
+          value={formData.serviceTimeline}
+          onChange={handleInputChange}
+          required
+          className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm"
+          aria-invalid={Boolean(fieldErrors.serviceTimeline)}
+          aria-describedby={fieldErrors.serviceTimeline ? "serviceTimeline-error" : undefined}
+        >
+          <option value="">Select timing</option>
+          {serviceTimelineOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+        {fieldErrors.serviceTimeline ? (
+          <p id="serviceTimeline-error" className="text-sm text-destructive" role="alert">
+            {fieldErrors.serviceTimeline}
+          </p>
+        ) : null}
+      </div>
 
-        <div className="space-y-2">
-          <label className="text-sm font-semibold text-gray-700" htmlFor="addressLine2">
-            Address line 2 <span className="font-normal text-gray-500">(optional)</span>
-          </label>
-          <Input
-            id="addressLine2"
-            name="addressLine2"
-            placeholder="Building name or flat number"
-            value={formData.addressLine2}
-            onChange={handleInputChange}
-            autoComplete="address-line2"
-          />
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="space-y-2">
-            <label className="text-sm font-semibold text-gray-700" htmlFor="townCity">
-              Town or city
-            </label>
-            <Input
-              id="townCity"
-              name="townCity"
-              placeholder="Town or city"
-              value={formData.townCity}
-              onChange={handleInputChange}
-              autoComplete="address-level2"
-              required
-              aria-invalid={Boolean(fieldErrors.townCity)}
-              aria-describedby={fieldErrors.townCity ? "townCity-error" : undefined}
-            />
-            {fieldErrors.townCity ? (
-              <p id="townCity-error" className="text-sm text-destructive" role="alert">
-                {fieldErrors.townCity}
-              </p>
-            ) : null}
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-sm font-semibold text-gray-700" htmlFor="postcode">
-              Postcode
-            </label>
-            <Input
-              id="postcode"
-              name="postcode"
-              placeholder="e.g. SW1A 1AA"
-              value={formData.postcode}
-              onChange={handleInputChange}
-              autoComplete="postal-code"
-              required
-              aria-invalid={Boolean(fieldErrors.postcode)}
-              aria-describedby={fieldErrors.postcode ? "postcode-error" : undefined}
-            />
-            {fieldErrors.postcode ? (
-              <p id="postcode-error" className="text-sm text-destructive" role="alert">
-                {fieldErrors.postcode}
-              </p>
-            ) : null}
-          </div>
-        </div>
+      <div className="space-y-2">
+        <label className="text-sm font-semibold text-gray-700" htmlFor="briefDetails">
+          Brief details
+        </label>
+        <Textarea
+          id="briefDetails"
+          name="briefDetails"
+          placeholder="Please include property size, number of rooms, frequency required, access details, or anything specific we should know."
+          value={formData.briefDetails}
+          onChange={handleInputChange}
+          required
+          rows={5}
+          aria-invalid={Boolean(fieldErrors.briefDetails)}
+          aria-describedby={fieldErrors.briefDetails ? "briefDetails-error" : undefined}
+        />
+        {fieldErrors.briefDetails ? (
+          <p id="briefDetails-error" className="text-sm text-destructive" role="alert">
+            {fieldErrors.briefDetails}
+          </p>
+        ) : null}
       </div>
 
       <input type="text" name="website" tabIndex={-1} aria-hidden="true" className="hidden" />
