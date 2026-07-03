@@ -1,16 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
-  "lockFileMaintenance": {
-    "enabled": true,
-    "recreateWhen": "always"
-  },
-  "npmrc": "",
-  "rangeStrategy": "bump",
-  "timezone": "Europe/London",
-  "labels": ["dependencies"],
-  "reviewers": [],
-  "assignees": [],
-  "prConcurrentLimit": 5,
-  "prHourlyLimit": 2
+  "packageRules": [
+    {
+      "description": "Automerge non-major updates",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    }
+  ]
 }
